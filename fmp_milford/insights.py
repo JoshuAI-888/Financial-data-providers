@@ -12,6 +12,7 @@ Provenance: every insight carries `source` (which FMP endpoints feed it) and
 from __future__ import annotations
 import statistics as st
 from .config import UNIVERSE, ticker_to_sector, BENCHMARK
+from .glossary import INSIGHT_EXPLAINERS
 
 # Which FMP endpoints feed each analytic domain (for provenance labels)
 SRC = {
@@ -56,7 +57,8 @@ def build_insights(dataset, tr) -> dict:
     def ins(id, title, subtitle, widget, domain, payload, notes):
         return {"id": id, "title": title, "subtitle": subtitle, "widget": widget,
                 "source": _src(mode, domain), "last_updated": ts, "mode": mode,
-                "payload": payload, "notes": notes}
+                "payload": payload, "notes": notes,
+                "explainer": INSIGHT_EXPLAINERS.get(id)}
 
     out = {"Portfolio Manager": [], "Head of Investment": [], "Portfolio Analyst": [],
            "Quantitative Analyst": [], "Performance & Risk Analyst": []}

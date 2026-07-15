@@ -17,6 +17,7 @@ import json
 from datetime import datetime, timezone
 
 from .config import UNIVERSE, SECTOR_COLORS, BENCHMARK
+from .glossary import METRIC_GLOSSARY
 
 
 def _logo_svg(ticker: str, color: str) -> str:
@@ -49,6 +50,7 @@ def _build_blob(dataset, tr, insights, perf):
         "factors": tr["factors"],
         "correlation": tr["correlation"],
         "insights": insights,
+        "glossary": METRIC_GLOSSARY,
         "perf": perf or [],
     }
 
@@ -132,6 +134,18 @@ main{padding:20px;max-width:1400px;margin:0 auto}
   border-top:1px dashed var(--line);margin-top:10px;padding-top:8px}
 .prov b{color:var(--ink);font-weight:600}
 .notes{font-size:12.5px;color:var(--muted);margin-top:8px;background:var(--chip);border-radius:8px;padding:8px 10px}
+details.explain{margin-top:8px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+details.explain>summary{cursor:pointer;padding:8px 10px;font-size:12px;font-weight:700;color:var(--accent);
+  background:var(--chip);list-style:none;user-select:none}
+details.explain>summary::-webkit-details-marker{display:none}
+details.explain>summary::before{content:"▸ ";}
+details.explain[open]>summary::before{content:"▾ ";}
+details.explain .exwrap{padding:10px 12px;font-size:12.5px;display:grid;gap:7px}
+details.explain .exwrap b{color:var(--ink)}
+details.explain .exwrap .lbl{display:inline-block;min-width:150px;color:var(--accent);font-weight:700}
+.gloss{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px;font-size:12.5px;display:grid;gap:6px}
+.gloss .lbl{color:var(--accent);font-weight:700}
+th .qm{color:var(--accent);font-weight:700;cursor:help;margin-left:2px}
 .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 table{border-collapse:collapse;width:100%;font-size:12.5px}
 th,td{padding:6px 8px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
@@ -242,18 +256,26 @@ function shade(p){
   return `rgba(${Math.round(210-150*p)},${Math.round(90+120*p)},110,${(0.12+0.30*Math.abs(p-0.5)*2).toFixed(2)})`;
 }
 function el(tag,cls,html){const e=document.createElement(tag); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e;}
+function escAttr(s){return (s==null?"":String(s)).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");}
 
 // ---------- modal (calculation logic) ----------
-function openCalc(c,label,source){
+function openCalc(c,label,source,metricKey){
   const m=document.getElementById("modal");
   let kv=""; for(const [k,v] of Object.entries(c.inputs||{})) kv+=`<div class="k">${k}</div><div>${typeof v==="number"? v.toLocaleString():v}</div>`;
   let steps=(c.steps||[]).map(s=>`<li>${s}</li>`).join("");
+  const g = metricKey && DATA.glossary ? DATA.glossary[metricKey] : null;
+  const gloss = g ? `<div class="gloss">
+      <div><span class="lbl">What it means.</span> ${g.meaning}</div>
+      <div><span class="lbl">What good looks like.</span> ${g.good}</div>
+      <div><span class="lbl">What we're targeting.</span> ${g.target}</div>
+      <div><span class="lbl">Alpha / what it trades.</span> ${g.alpha}</div></div>` : "";
   m.innerHTML=`<span class="x" onclick="closeModal()">✕</span>
     <h4>${label}</h4>
     <div class="sub">Value: <b>${fmtNum(c.value,c.unit)}</b></div>
     <div class="formula">${c.formula||""}</div>
     ${kv?`<div class="ctl-title">Inputs</div><div class="kv">${kv}</div>`:""}
     ${steps?`<div class="ctl-title" style="margin-top:10px">Calculation steps</div><ol>${steps}</ol>`:""}
+    ${gloss}
     <div class="prov"><span>Source: <b>${source||""}</b></span></div>`;
   document.getElementById("modalBg").classList.add("show");
 }
@@ -272,8 +294,18 @@ function card(ins,bodyNode){
   c.appendChild(el("p","sub",ins.subtitle||""));
   c.appendChild(bodyNode);
   if(ins.notes) c.appendChild(el("div","notes","<b>How to use:</b> "+ins.notes));
+  c.insertAdjacentHTML("beforeend",explainerHtml(ins));
   c.insertAdjacentHTML("beforeend",provLine(ins));
   return c;
+}
+function explainerHtml(ins){
+  const e=ins.explainer; if(!e) return "";
+  return `<details class="explain"><summary>What this means &amp; how it earns alpha</summary><div class="exwrap">
+    <div><span class="lbl">Intent</span> ${e.intent}</div>
+    <div><span class="lbl">What good looks like</span> ${e.good}</div>
+    <div><span class="lbl">What we're targeting</span> ${e.target}</div>
+    <div><span class="lbl">Alpha / what it trades</span> ${e.alpha}</div>
+  </div></details>`;
 }
 function coCell(t){
   const p=DATA.profiles[t];
@@ -291,7 +323,12 @@ function metricTable(ins){
   function draw(){
     rows.sort((a,b)=>{const va=look(dom,a,sortKey).value, vb=look(dom,b,sortKey).value;
       if(va==null)return 1; if(vb==null)return -1; return sortDir==="asc"? va-vb: vb-va;});
-    let h="<thead><tr><th>Company</th>"+cols.map(c=>`<th data-k="${c.key}">${c.label}${sortKey===c.key?(sortDir==="asc"?" ▲":" ▼"):""}</th>`).join("")+"</tr></thead>";
+    let h="<thead><tr><th>Company</th>"+cols.map(c=>{
+      const g=(DATA.glossary&&DATA.glossary[c.key])||null;
+      const tip=g?`${g.label}: ${g.meaning}  ·  Good: ${g.good}`:c.label;
+      const qm=g?`<span class="qm" title="${escAttr(tip)}">?</span>`:"";
+      return `<th data-k="${c.key}" title="${escAttr(tip)}">${c.label}${sortKey===c.key?(sortDir==="asc"?" ▲":" ▼"):""}${qm}</th>`;
+    }).join("")+"</tr></thead>";
     let body="";
     rows.forEach(t=>{
       body+="<tr><td>"+coCell(t)+"</td>";
@@ -312,7 +349,7 @@ function metricTable(ins){
     tbl.querySelectorAll("th[data-k]").forEach(th=>th.onclick=()=>{const k=th.dataset.k;
       if(sortKey===k)sortDir=sortDir==="asc"?"desc":"asc"; else{sortKey=k;sortDir="desc";} draw();});
     tbl.querySelectorAll("td.num").forEach(td=>td.onclick=()=>{const o=look(dom,td.dataset.t,td.dataset.k);
-      const col=cols.find(c=>c.key===td.dataset.k); openCalc(o,`${td.dataset.t} · ${col.label}`,ins.source);});
+      const col=cols.find(c=>c.key===td.dataset.k); openCalc(o,`${td.dataset.t} · ${col.label}`,ins.source,td.dataset.k);});
   }
   draw(); wrap.appendChild(tbl); return wrap;
 }

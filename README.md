@@ -93,6 +93,23 @@ transparent and identical across names. Families: profitability (ROIC/ROE/margin
 per-share, DuPont, quality scores (Altman Z, Piotroski F), and price-based risk (vol, beta, drawdown,
 Sharpe, correlations). See the in-app **Methodology** tab and click any figure for its derivation.
 
+## Documentation
+
+| Doc | What's in it |
+|---|---|
+| [docs/PROBLEM_STATEMENT.md](docs/PROBLEM_STATEMENT.md) | Background, the problem, scope, what "done" means |
+| [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md) | Functional + non-functional requirements, acceptance criteria |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Pipeline, modules, data model, presentation, design rationale |
+| [docs/ASSUMPTIONS.md](docs/ASSUMPTIONS.md) | Every assumption (data, demo, methodology, scope) |
+| [docs/GLOSSARY.md](docs/GLOSSARY.md) | Every metric: meaning / what good looks like / target / alpha *(generated)* |
+| [docs/DATA_DICTIONARY.md](docs/DATA_DICTIONARY.md) | FMP endpoints, canonical record, metric outputs *(generated)* |
+| [docs/FAQ.md](docs/FAQ.md) | Common questions answered |
+| [docs/SUPPORT.md](docs/SUPPORT.md) | Run/test/extend, troubleshooting, operations |
+| [docs/SYSTEM_PROMPT.md](docs/SYSTEM_PROMPT.md) | Comprehensive system prompt for an AskMilford-style analyst copilot |
+| [CLAUDE.md](CLAUDE.md) | Repo guidance & invariants for Claude Code / contributors |
+
+Regenerate the generated docs after changing metrics/universe: `python docs/gen_reference.py`.
+
 ## Security
 
 The API key is read from `FMP_API_KEY` (env or `.env`) and is **never** written into the HTML, logs,
