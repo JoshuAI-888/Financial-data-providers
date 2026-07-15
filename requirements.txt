@@ -1,0 +1,7 @@
+# Core pipeline (client, extract, transform, insights, report, run) uses ONLY the
+# Python standard library — no install needed to run `python run.py`.
+#
+# Optional, only for the headless-browser verification script (tests/verify_report.py):
+#   playwright>=1.40
+#
+# Install optional extras with:  pip install playwright
