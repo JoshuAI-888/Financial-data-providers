@@ -97,6 +97,7 @@ Sharpe, correlations). See the in-app **Methodology** tab and click any figure f
 
 | Doc | What's in it |
 |---|---|
+| [docs/RUNNING_ON_MAC.md](docs/RUNNING_ON_MAC.md) | **Start here on a Mac** — step-by-step install & run in VS Code (no prior knowledge) |
 | [docs/PROBLEM_STATEMENT.md](docs/PROBLEM_STATEMENT.md) | Background, the problem, scope, what "done" means |
 | [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md) | Functional + non-functional requirements, acceptance criteria |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Pipeline, modules, data model, presentation, design rationale |
