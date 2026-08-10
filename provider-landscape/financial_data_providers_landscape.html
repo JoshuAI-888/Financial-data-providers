@@ -1,0 +1,1021 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Financial Data &amp; Intelligence Provider Landscape</title>
+<style>
+/* ============================ Theme tokens ============================ */
+:root{
+  --bg:#f6f7f9; --panel:#ffffff; --panel-2:#fbfcfd; --ink:#1a2027; --ink-soft:#48525d;
+  --muted:#6b7681; --line:#e2e7ec; --line-strong:#cdd5dd; --accent:#0f6b5f; --accent-ink:#0b4d44;
+  --chip:#eef2f5; --chip-ink:#3a4650; --link:#0b6b5f; --shadow:0 1px 2px rgba(16,24,32,.06),0 4px 16px rgba(16,24,32,.06);
+  /* rating ramp (light) */
+  --r5-bg:#0f5f54; --r5-ink:#ffffff;
+  --r4-bg:#3f957f; --r4-ink:#ffffff;
+  --r3-bg:#93c1b1; --r3-ink:#12332c;
+  --r2-bg:#d6e6df; --r2-ink:#1d3a33;
+  --r1-bg:#eceff1; --r1-ink:#6b7681;
+}
+:root[data-theme="dark"], :root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1216; --panel:#161b21; --panel-2:#12171c; --ink:#e8edf2; --ink-soft:#b6c0ca;
+    --muted:#8b96a1; --line:#242c34; --line-strong:#333d47; --accent:#4fd1be; --accent-ink:#7fe0d1;
+    --chip:#1d242b; --chip-ink:#c3ccd4; --link:#5fd6c4; --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.35);
+    --r5-bg:#12796b; --r5-ink:#eafffb;
+    --r4-bg:#2f8f7d; --r4-ink:#eafffb;
+    --r3-bg:#3c6a60; --r3-ink:#dff3ee;
+    --r2-bg:#293a38; --r2-ink:#cfe6df;
+    --r1-bg:#1b2228; --r1-ink:#7d8892;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1216; --panel:#161b21; --panel-2:#12171c; --ink:#e8edf2; --ink-soft:#b6c0ca;
+  --muted:#8b96a1; --line:#242c34; --line-strong:#333d47; --accent:#4fd1be; --accent-ink:#7fe0d1;
+  --chip:#1d242b; --chip-ink:#c3ccd4; --link:#5fd6c4; --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.35);
+  --r5-bg:#12796b; --r5-ink:#eafffb; --r4-bg:#2f8f7d; --r4-ink:#eafffb;
+  --r3-bg:#3c6a60; --r3-ink:#dff3ee; --r2-bg:#293a38; --r2-ink:#cfe6df;
+  --r1-bg:#1b2228; --r1-ink:#7d8892;
+}
+/* ============================ Base ============================ */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{line-height:1.25;color:var(--ink);margin:0 0 .5em}
+h2{font-size:1.5rem;letter-spacing:-.01em;margin-top:0}
+h3{font-size:1.15rem;margin-top:1.6em}
+h4{font-size:1rem;margin:1.2em 0 .4em}
+p{margin:.5em 0}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+small{color:var(--muted)}
+code{background:var(--chip);padding:.05em .4em;border-radius:5px;font-size:.86em;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+/* ============================ Header ============================ */
+header.site{background:linear-gradient(180deg,var(--panel),var(--panel-2));border-bottom:1px solid var(--line)}
+.hero{padding:34px 0 26px}
+.eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.hero h1{font-size:2.1rem;letter-spacing:-.02em;margin:.35em 0 .3em}
+.hero p.lede{font-size:1.06rem;color:var(--ink-soft);max-width:760px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--chip);color:var(--chip-ink);
+  border:1px solid var(--line);border-radius:999px;padding:5px 11px;font-size:.78rem;font-weight:600}
+.badge b{color:var(--ink)}
+/* ============================ Nav ============================ */
+nav.tabs{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--panel) 88%,transparent);
+  backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+.tabs-inner{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:thin}
+.tabbtn{appearance:none;background:none;border:0;border-bottom:2px solid transparent;color:var(--ink-soft);
+  font:600 .9rem/1 inherit;padding:14px 13px;white-space:nowrap;cursor:pointer;letter-spacing:.01em}
+.tabbtn:hover{color:var(--ink)}
+.tabbtn[aria-selected="true"]{color:var(--accent-ink);border-bottom-color:var(--accent)}
+.theme-toggle{margin-left:auto;flex:0 0 auto}
+.theme-toggle button{appearance:none;background:var(--chip);border:1px solid var(--line);color:var(--chip-ink);
+  border-radius:8px;padding:7px 11px;font:600 .8rem inherit;cursor:pointer;display:flex;gap:6px;align-items:center}
+.theme-toggle button:hover{border-color:var(--line-strong)}
+/* ============================ Panels ============================ */
+main{padding:30px 0 70px}
+.tabpane{display:none;animation:fade .25s ease}
+.tabpane.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px;
+  box-shadow:var(--shadow);margin:18px 0}
+.card.tight{padding:16px 18px}
+.grid{display:grid;gap:16px}
+.grid.two{grid-template-columns:repeat(2,1fr)}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+@media(max-width:820px){.grid.two,.grid.three{grid-template-columns:1fr}}
+.kicker{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
+ul.clean{margin:.3em 0;padding-left:1.15em}
+ul.clean li{margin:.28em 0}
+.callout{border-left:3px solid var(--accent);background:var(--panel-2);border-radius:0 10px 10px 0;
+  padding:12px 16px;margin:14px 0;color:var(--ink-soft)}
+.two-col-list{columns:2;column-gap:34px}
+@media(max-width:720px){.two-col-list{columns:1}}
+/* ============================ Tables ============================ */
+.tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{position:sticky;top:0;background:var(--panel-2);color:var(--ink);font-weight:700;font-size:.78rem;
+  letter-spacing:.02em;text-transform:uppercase;z-index:2;border-bottom:1px solid var(--line-strong)}
+tbody tr:hover{background:color-mix(in srgb,var(--accent) 6%,transparent)}
+td.name,th.name{font-weight:700;color:var(--ink);white-space:nowrap;position:sticky;left:0;background:var(--panel);z-index:1}
+tbody tr:hover td.name{background:color-mix(in srgb,var(--accent) 8%,var(--panel))}
+/* ============================ Matrix ============================ */
+.matrix th.sortable{cursor:pointer;user-select:none}
+.matrix th.sortable:hover{color:var(--accent-ink)}
+.matrix th.sortable .arw{opacity:.4;font-size:.8em}
+.matrix th.sortable[data-dir] .arw{opacity:1;color:var(--accent)}
+.cell{display:block;border-radius:7px;padding:6px 8px;font-weight:700;font-size:.74rem;text-align:center;
+  letter-spacing:.01em;min-width:74px}
+.r5{background:var(--r5-bg);color:var(--r5-ink)}
+.r4{background:var(--r4-bg);color:var(--r4-ink)}
+.r3{background:var(--r3-bg);color:var(--r3-ink)}
+.r2{background:var(--r2-bg);color:var(--r2-ink)}
+.r1{background:var(--r1-bg);color:var(--r1-ink)}
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 2px;align-items:center}
+.legend .cell{cursor:default;min-width:0;padding:5px 12px}
+.legend .lg-note{color:var(--muted);font-size:.82rem}
+/* ============================ Provider pills + deep dives ============================ */
+.pillbar{display:flex;flex-wrap:wrap;gap:7px;margin:6px 0 6px}
+.pill{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--ink-soft);border-radius:999px;
+  padding:6px 12px;font:600 .8rem inherit;cursor:pointer}
+.pill:hover{border-color:var(--accent);color:var(--accent-ink)}
+.prov{scroll-margin-top:70px}
+.prov h3{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px}
+.prov h3 .tag{font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);
+  background:color-mix(in srgb,var(--accent) 14%,transparent);padding:3px 8px;border-radius:6px}
+.prov h3 .owner{font-size:.82rem;font-weight:500;color:var(--muted);letter-spacing:0;text-transform:none}
+.sec-label{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:14px 0 3px}
+.edge{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+@media(max-width:720px){.edge{grid-template-columns:1fr}}
+.edge .leads{border-left:3px solid var(--r4-bg)}
+.edge .lags{border-left:3px solid #c98a4b}
+.edge>div{background:var(--panel-2);border-radius:0 10px 10px 0;padding:10px 14px}
+.edge h5{margin:0 0 4px;font-size:.9rem}
+.fs-line{color:var(--ink-soft);font-size:.9rem;margin:.2em 0}
+.fs-line b{color:var(--ink)}
+.anchor-top{font-size:.78rem;color:var(--muted);float:right;margin-top:6px}
+/* ============================ Misc ============================ */
+.toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:8px}
+.toc a{display:block;background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--ink)}
+.toc a:hover{border-color:var(--accent);text-decoration:none}
+.toc a b{display:block;color:var(--accent-ink)}
+.toc a span{font-size:.82rem;color:var(--muted)}
+.footer{border-top:1px solid var(--line);margin-top:30px;padding:22px 0 40px;color:var(--muted);font-size:.85rem}
+.src{font-size:.82rem;color:var(--ink-soft)}
+.src a{word-break:break-all}
+details.srcs{margin-top:10px;border:1px solid var(--line);border-radius:10px;background:var(--panel-2);padding:4px 14px}
+details.srcs summary{cursor:pointer;font-weight:600;padding:8px 0;color:var(--ink)}
+.tiernote{font-size:.82rem;color:var(--muted);margin-top:4px}
+.win{font-weight:700;color:var(--accent-ink)}
+hr.soft{border:0;border-top:1px solid var(--line);margin:22px 0}
+.disclaim{font-size:.82rem;color:var(--muted);background:var(--panel-2);border:1px dashed var(--line-strong);
+  border-radius:10px;padding:12px 15px;margin:16px 0}
+</style>
+
+<header class="site">
+  <div class="wrap hero">
+    <div class="eyebrow">Independent Institutional Research · Vendor-neutral</div>
+    <h1>Financial Data &amp; Intelligence Provider Landscape</h1>
+    <p class="lede">A comparative deep-dive across the major market-data and intelligence providers — spanning
+      public equity, private equity &amp; venture, fixed income &amp; credit, and adjacent products (indexes, ratings,
+      ESG, risk analytics, alternative data). For each: datasets, APIs &amp; technical integration, enabling
+      technology, customer feedback, and where it leads vs. where it lags.</p>
+    <div class="meta-row">
+      <span class="badge">📅 As of <b>10 Aug 2026</b></span>
+      <span class="badge">🏢 <b>13</b> core providers + <b>5</b> API-native challengers</span>
+      <span class="badge">🧭 <b>4</b> asset-class lenses</span>
+      <span class="badge">🔌 Self-contained · no external requests</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="wrap tabs-inner" role="tablist" aria-label="Report sections">
+    <button class="tabbtn" role="tab" aria-selected="true" data-tab="overview">Overview</button>
+    <button class="tabbtn" role="tab" aria-selected="false" data-tab="matrix">Capability Map</button>
+    <button class="tabbtn" role="tab" aria-selected="false" data-tab="providers">Provider Deep-Dives</button>
+    <button class="tabbtn" role="tab" aria-selected="false" data-tab="assetclass">Asset-Class Views</button>
+    <button class="tabbtn" role="tab" aria-selected="false" data-tab="tech">Technical Integration</button>
+    <button class="tabbtn" role="tab" aria-selected="false" data-tab="feedback">Customer Feedback</button>
+    <button class="tabbtn" role="tab" aria-selected="false" data-tab="challengers">API-Native Tier</button>
+    <button class="tabbtn" role="tab" aria-selected="false" data-tab="method">Methodology</button>
+    <div class="theme-toggle"><button id="themeBtn" title="Toggle light/dark"><span id="themeIcon">🌙</span><span id="themeLbl">Dark</span></button></div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ============================ OVERVIEW ============================ -->
+<section id="overview" class="tabpane active" role="tabpanel">
+  <div class="card">
+    <h2>Executive summary</h2>
+    <p>The institutional data market is not one contest but several, each with its own incumbent and its own moat.
+      No single vendor leads every asset class; the "winners" won by owning a <b>specific proprietary asset</b> —
+      an evaluated-pricing book, an index franchise, a ratings history, a private-capital research operation, or a
+      two-sided network — that competitors cannot cheaply replicate. The most durable moats are <b>network effects</b>
+      (Bloomberg messaging, eVestment's manager-allocator network, MSCI benchmarks) and <b>regulatory/embedded
+      workflows</b> (ratings, evaluated prices used for fund NAV).</p>
+
+    <div class="grid three">
+      <div class="card tight">
+        <div class="kicker">Cross-asset terminals</div>
+        <p class="fs-line"><b>Bloomberg</b> leads on fixed income, news and its messaging network; <b>LSEG</b> is the
+          credible #2 (FTSE Russell, WM/R FX, World-Check, open delivery); <b>FactSet</b> wins buy-side analytics,
+          support and open APIs at ~half Bloomberg's cost.</p>
+      </div>
+      <div class="card tight">
+        <div class="kicker">Fundamentals, ratings &amp; credit</div>
+        <p class="fs-line"><b>S&amp;P</b> owns fundamentals breadth (Compustat) + ratings; <b>Moody's</b> owns credit
+          risk (ratings + Orbis + EDF/RiskCalc); <b>Morningstar</b> owns managed-investments, ESG (Sustainalytics)
+          and DBRS credit.</p>
+      </div>
+      <div class="card tight">
+        <div class="kicker">Private markets</div>
+        <p class="fs-line"><b>PitchBook</b> leads private deal breadth; <b>Preqin</b> owns LP–GP &amp; fund
+          performance; <b>CB Insights</b> owns predictive venture signals; <b>With Intelligence</b> owns
+          allocator + hedge-fund data.</p>
+      </div>
+      <div class="card tight">
+        <div class="kicker">Indexes, risk &amp; FI infrastructure</div>
+        <p class="fs-line"><b>MSCI</b> owns global/EM equity indexes + factor risk (Barra) + ESG; <b>ICE</b> owns
+          fixed-income evaluated pricing + credit indices; <b>Nasdaq/eVestment</b> owns the institutional
+          manager-selection network.</p>
+      </div>
+      <div class="card tight">
+        <div class="kicker">API-native challengers</div>
+        <p class="fs-line"><b>FMP, Polygon, Intrinio, Finnhub, Xignite</b> invert the model: self-serve, public
+          pricing, clean REST/WebSocket. They win on cost, speed and developer experience — not breadth, private
+          markets, or evaluated FI pricing.</p>
+      </div>
+      <div class="card tight">
+        <div class="kicker">The structural takeaway</div>
+        <p class="fs-line">Consolidation is intensifying: <b>BlackRock→Preqin</b>, <b>S&amp;P→With Intelligence</b>,
+          <b>MSCI→Burgiss</b>, <b>Morningstar→PitchBook</b>. Buyers increasingly assemble a <b>portfolio</b> of
+          specialists rather than a single terminal.</p>
+      </div>
+    </div>
+
+    <h3>Why the winners won — five recurring edge patterns</h3>
+    <ul class="clean">
+      <li><b>Proprietary evaluated / computed data.</b> Bloomberg BVAL and ICE evaluated pricing price millions of
+        illiquid bonds daily — audit-defensible numbers embedded in fund NAV and back-office workflow, so switching
+        cost is systemic.</li>
+      <li><b>Network effects.</b> Bloomberg's messaging network, eVestment's two-sided manager↔allocator database,
+        and MSCI's benchmark gravity (~US$18.3T benchmarked) each get more valuable as more participants join —
+        the hardest moat to attack on price alone.</li>
+      <li><b>A research operation at scale.</b> PitchBook's large human-research team and Preqin's 20+ years of
+        FOIA/self-reported fund performance are expensive, slow-to-build assets that pure-tech entrants cannot
+        shortcut.</li>
+      <li><b>Franchise histories.</b> Compustat point-in-time fundamentals (since 1987), Moody's/S&amp;P ratings
+        histories, and ICE BofA index history are decades deep — the quant and credit "gold standards."</li>
+      <li><b>Regulatory embedding.</b> Ratings and evaluated prices are woven into regulation, mandates and NAV
+        processes; demand is structurally sticky regardless of UX.</li>
+    </ul>
+
+    <h3>Where the runners-up fall short</h3>
+    <p>The second- and third-place providers in each arena are rarely "worse" — they lose a specific dimension.
+      LSEG and FactSet trail Bloomberg on <b>fixed-income depth and the messaging network</b>, not on data quality.
+      Preqin trails PitchBook on <b>deal/company granularity</b> but leads it on <b>LP-side fund performance</b>.
+      CB Insights trails both on <b>transactional depth</b> but leads on <b>predictive signals</b>. The lesson: rank
+      is asset-class- and use-case-specific, which is exactly why this report uses a capability map rather than a
+      single league table.</p>
+
+    <div class="disclaim">This is independent, vendor-neutral research for analytical and educational use — not
+      investment advice, not a procurement recommendation, and not an endorsement of any provider. Pricing, coverage
+      counts and review scores are approximate, drawn from public sources and vendor disclosures as of 10 Aug 2026;
+      several were triangulated across secondary sources (see <a href="#" data-goto="method">Methodology</a>).</div>
+
+    <h3>Jump to a section</h3>
+    <div class="toc">
+      <a href="#" data-goto="matrix"><b>Capability Map →</b><span>Providers × asset classes, sortable</span></a>
+      <a href="#" data-goto="providers"><b>Provider Deep-Dives →</b><span>13 full 8-section profiles</span></a>
+      <a href="#" data-goto="assetclass"><b>Asset-Class Views →</b><span>Who leads &amp; why, per class</span></a>
+      <a href="#" data-goto="tech"><b>Technical Integration →</b><span>APIs, delivery, cloud, AI</span></a>
+      <a href="#" data-goto="feedback"><b>Customer Feedback →</b><span>Cross-provider sentiment</span></a>
+      <a href="#" data-goto="challengers"><b>API-Native Tier →</b><span>FMP, Polygon, Intrinio, Finnhub, Xignite</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CAPABILITY MAP ============================ -->
+<section id="matrix" class="tabpane" role="tabpanel">
+  <div class="card">
+    <h2>Cross-asset capability map</h2>
+    <p>A <b>qualitative, directional</b> read of each provider's relative strength by dimension — not a numeric
+      score or ranking. Click any column header to sort. Every cell carries a text label, so the map is legible
+      without relying on colour.</p>
+    <div class="legend">
+      <span class="cell r5">Leader</span><span class="cell r4">Strong</span><span class="cell r3">Moderate</span>
+      <span class="cell r2">Limited</span><span class="cell r1">Minimal</span>
+      <span class="lg-note">Relative within the institutional landscape · hover a row name for its single biggest edge</span>
+    </div>
+    <div class="tbl-scroll" style="margin-top:12px">
+      <table class="matrix" id="matrixTbl">
+        <thead>
+          <tr>
+            <th class="name sortable" data-key="name">Provider <span class="arw">↕</span></th>
+            <th class="sortable" data-key="pubeq">Public Equity <span class="arw">↕</span></th>
+            <th class="sortable" data-key="pevc">Private Equity / VC <span class="arw">↕</span></th>
+            <th class="sortable" data-key="fi">Fixed Income &amp; Credit <span class="arw">↕</span></th>
+            <th class="sortable" data-key="idx">Indexes / Ratings / ESG <span class="arw">↕</span></th>
+            <th class="sortable" data-key="alt">Alternative Data <span class="arw">↕</span></th>
+            <th class="sortable" data-key="api">APIs &amp; Integration <span class="arw">↕</span></th>
+          </tr>
+        </thead>
+        <tbody><!-- rows injected by JS --></tbody>
+      </table>
+    </div>
+    <p class="tiernote">The five API-native challengers (FMP, Polygon.io, Intrinio, Finnhub, Xignite) are compared
+      separately in the <a href="#" data-goto="challengers">API-Native Tier</a> tab — their coverage shape differs
+      too much to score on the same axes.</p>
+  </div>
+</section>
+
+<!-- ============================ PROVIDER DEEP-DIVES ============================ -->
+<section id="providers" class="tabpane" role="tabpanel">
+  <div class="card">
+    <h2>Provider deep-dives</h2>
+    <p>Each profile follows the same eight-section structure: snapshot, asset-class coverage, datasets, APIs &amp;
+      technical integration, enabling technology, customer feedback, edge &amp; positioning, and sources.</p>
+    <div class="pillbar" id="provPills"><!-- pills injected by JS --></div>
+  </div>
+  <div class="card" id="provContainer"><!-- provider profiles injected by JS --></div>
+</section>
+
+<!-- ============================ ASSET-CLASS VIEWS ============================ -->
+<section id="assetclass" class="tabpane" role="tabpanel">
+  <div class="card">
+    <h2>Asset-class views — who leads and why</h2>
+    <p>The same providers rank differently depending on the asset class. Below, for each class: the leader and its
+      edge, then the notable runners-up and what keeps them off top.</p>
+  </div>
+
+  <div class="card">
+    <h3>① Public equity</h3>
+    <p><span class="win">Leader — Bloomberg</span>, on real-time cross-asset breadth, news and the integrated
+      trading/messaging stack; <b>S&amp;P (Capital IQ / Compustat)</b> and <b>FactSet</b> are effectively co-leaders
+      on the <i>data</i> itself.</p>
+    <div class="edge">
+      <div class="leads"><h5>Why they lead</h5>
+        <ul class="clean">
+          <li><b>Bloomberg</b> — decades of proprietary pricing, the on-terminal counterparty network, and depth no
+            one matches on live markets + news.</li>
+          <li><b>S&amp;P</b> — Compustat point-in-time fundamentals (since 1987) are the quant gold standard; +150k
+            public companies, estimates, filings, transcripts.</li>
+          <li><b>FactSet</b> — best-in-class buy-side portfolio analytics, symbology concordance and support, at
+            materially lower cost.</li>
+        </ul>
+      </div>
+      <div class="lags"><h5>Runners-up &amp; what holds them back</h5>
+        <ul class="clean">
+          <li><b>LSEG</b> — deep global equities + I/B/E/S + StarMine, but workflow depth and the missing messaging
+            network keep it #2 to Bloomberg.</li>
+          <li><b>Morningstar</b> — strong through a funds/independent-research lens, weaker on deep as-reported
+            fundamentals and real-time.</li>
+          <li><b>MSCI</b> — leads equity <i>indexes/factor risk</i>, not single-name fundamentals or a terminal.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>② Private equity &amp; venture</h3>
+    <p><span class="win">Leader — PitchBook</span> for private deal/company/investor breadth; <b>Preqin</b> leads the
+      distinct LP–GP &amp; fund-performance sub-domain.</p>
+    <div class="edge">
+      <div class="leads"><h5>Why they lead</h5>
+        <ul class="clean">
+          <li><b>PitchBook</b> — ~4.5m companies, 525k+ investors, 125k+ funds; a large human-research operation +
+            relationship graph, plus LCD leveraged-loan/credit via Morningstar.</li>
+          <li><b>Preqin</b> — 20+ years of FOIA/self-reported <b>fund performance</b> (IRR/TVPI/DPI) and LP
+            coverage — the LP-side default, now backed by BlackRock/Aladdin.</li>
+        </ul>
+      </div>
+      <div class="lags"><h5>Runners-up &amp; what holds them back</h5>
+        <ul class="clean">
+          <li><b>CB Insights</b> — best on <i>predictive</i> venture/emerging-tech signals (Mosaic), but thinner
+            transactional deal/fund depth; no LP-GP or credit.</li>
+          <li><b>With Intelligence</b> — owns allocator + hedge-fund data (Eurekahedge/HFM); less deal/LP-performance
+            depth.</li>
+          <li><b>S&amp;P / MSCI-Burgiss</b> — strong private-company reference and benchmarking respectively, but
+            not deal-sourcing leaders.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>③ Fixed income &amp; credit</h3>
+    <p><span class="win">Leaders — Bloomberg &amp; ICE</span> (evaluated pricing / indices); <b>Moody's</b> and
+      <b>S&amp;P</b> lead <i>credit ratings &amp; risk</i>.</p>
+    <div class="edge">
+      <div class="leads"><h5>Why they lead</h5>
+        <ul class="clean">
+          <li><b>Bloomberg</b> — BVAL evaluated pricing + Bloomberg fixed-income indices; the practitioner default
+            for live FI and reference.</li>
+          <li><b>ICE</b> — ~2.7m securities priced daily (munis/structured/loans depth), ICE BofA credit indices,
+            SFTI/Consolidated Feed — embedded in fund-admin/NAV.</li>
+          <li><b>Moody's / S&amp;P</b> — the ratings duopoly plus quantitative credit (EDF/RiskCalc) and issuer/issue
+            histories.</li>
+        </ul>
+      </div>
+      <div class="lags"><h5>Runners-up &amp; what holds them back</h5>
+        <ul class="clean">
+          <li><b>LSEG</b> — broad FI reference/pricing, but evaluated-pricing depth trails Bloomberg/ICE.</li>
+          <li><b>FactSet</b> — solid FI analytics; often relies on partners for evaluated pricing.</li>
+          <li><b>PitchBook (LCD)</b> — leads <i>leveraged-loan / private credit</i> news+data specifically, not
+            broad public FI.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>④ Other / cross-asset (indexes · ratings · ESG · risk · allocator &amp; alt-data)</h3>
+    <p>Here leadership fragments by sub-domain — each winner owns a franchise asset.</p>
+    <div class="edge">
+      <div class="leads"><h5>Sub-domain leaders &amp; why</h5>
+        <ul class="clean">
+          <li><b>Equity indexes &amp; factor risk — MSCI</b> (benchmark network effect + Barra incumbency); FTSE
+            Russell (LSEG) and S&amp;P DJI are the main rivals.</li>
+          <li><b>ESG data — MSCI &amp; Sustainalytics (Morningstar)</b> lead on coverage, though ESG-ratings
+            methodology credibility is contested.</li>
+          <li><b>Credit ratings — Moody's &amp; S&amp;P</b> (regulatory-embedded duopoly); <b>DBRS (Morningstar)</b>
+            is the strong #4, leading in Canada.</li>
+          <li><b>Manager / allocator intelligence — Nasdaq eVestment</b> (two-sided network); <b>With
+            Intelligence</b> owns direct-from-allocator + hedge-fund data.</li>
+          <li><b>Predictive alt-data signals — CB Insights</b> (Mosaic, patents/hiring/web signals).</li>
+          <li><b>Macro / academic time-series — LSEG Datastream</b> (~120 years of history).</li>
+        </ul>
+      </div>
+      <div class="lags"><h5>Structural notes</h5>
+        <ul class="clean">
+          <li>Franchise assets (FTSE Russell, WM/R FX fixing, World-Check, ICE BofA, Compustat) are hard to
+            dislodge because they are embedded in benchmarks, regulation or workflow.</li>
+          <li>ESG is the most contested arena — low cross-vendor rating correlation and regulatory scrutiny mean
+            "leadership" here is about coverage, not consensus quality.</li>
+          <li>Cost/lock-in backlash is the recurring opening for challengers (Solactive vs. index majors; API-native
+            vendors vs. terminals).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TECHNICAL INTEGRATION ============================ -->
+<section id="tech" class="tabpane" role="tabpanel">
+  <div class="card">
+    <h2>Technical integration &amp; enabling technology</h2>
+    <p>How each provider actually delivers data — programmatic access, bulk/feed and cloud-marketplace delivery,
+      entity/symbology backbone, and AI/LLM features. A clear industry shift is visible: <b>warehouse-native
+      delivery (Snowflake / Databricks / AWS)</b> and <b>LLM copilots</b> are now table stakes.</p>
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th class="name">Provider</th><th>Programmatic access</th><th>Bulk / feed &amp; cloud delivery</th>
+            <th>Entity / symbology</th><th>AI &amp; LLM features</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="name">Bloomberg</td>
+            <td>BLPAPI, Excel add-in, BQL, BQNT (Python/Jupyter), EMSX, PORT</td>
+            <td>Data License / EAP, B-PIPE streaming, DL+; AWS &amp; Snowflake (DL, PORT-to-Snowflake)</td>
+            <td>FIGI (open) + BBGID security master</td>
+            <td>BloombergGPT; earnings/doc summarisation in Terminal</td></tr>
+          <tr><td class="name">LSEG / Refinitiv</td>
+            <td>LSEG Data Library (Python), Data Platform REST + streaming, CodeBook, Excel, Datastream Web Service</td>
+            <td>Tick History REST, DataScope (DSS), Real-Time (Elektron); Azure-native, cloud marketplaces</td>
+            <td>PermID (open entity system)</td>
+            <td>LSEG Digest / GenAI summaries; Microsoft-co-built tools</td></tr>
+          <tr><td class="name">FactSet</td>
+            <td>Broad REST API catalog, Programmatic Environment API, OnDemand, Python SDKs (<code>fds.sdk</code>), Excel</td>
+            <td>Standard DataFeeds; <b>Snowflake + Databricks marketplaces</b></td>
+            <td>Concordance Service (CUSIP/SEDOL/ISIN/FIGI mapping) + RBICS</td>
+            <td>FactSet Mercury copilot; Cobalt AI Doc Ingest</td></tr>
+          <tr><td class="name">S&amp;P Global MI</td>
+            <td>Capital IQ Pro + Office plug-in, ClariFI REST API, Xpressfeed (200+ datasets)</td>
+            <td>Xpressfeed SFTP/web service; Snowflake &amp; cloud-to-cloud; Marketplace</td>
+            <td>S&amp;P CIQ IDs + Kensho Link entity resolution</td>
+            <td>Kensho (Scribe/Link/Extract/NERD) + ChatIQ GenAI</td></tr>
+          <tr><td class="name">Moody's</td>
+            <td>Moody's DataHub, Structured Finance REST API, EDF-X API, CreditView/RatingsDelivery</td>
+            <td>DataHub cloud-to-cloud; direct import to customer Snowflake; SFTP</td>
+            <td>Orbis / BvD ID + ownership graph</td>
+            <td>Research Assistant / CoPilot (Azure OpenAI); AI early-warning</td></tr>
+          <tr><td class="name">Morningstar</td>
+            <td>Morningstar Direct; Direct Web Services / Data APIs (REST); Sustainalytics &amp; DBRS APIs</td>
+            <td>Snowflake AI Data Cloud (Indexes, Sustainalytics, DBRS, Credit Analytics)</td>
+            <td>Morningstar SecId + Category / Style Box taxonomy</td>
+            <td>"Mo" GenAI research assistant (Intelligence Engine)</td></tr>
+          <tr><td class="name">PitchBook</td>
+            <td>REST API, PitchBook Data Feed (bulk), Excel Plugin</td>
+            <td>Data Feed flat-file into warehouses; Premium Connectors → Claude / ChatGPT / M365 Copilot</td>
+            <td>Private-company relationship graph (co↔investor↔fund↔people↔deal)</td>
+            <td>Navigator (in-platform AI); VC Exit Predictor; Copilot agents</td></tr>
+          <tr><td class="name">Preqin</td>
+            <td>Preqin Pro; Operational API; Feeds API (CSV, 100+ feeds)</td>
+            <td>Bulk CSV feeds; <b>Snowflake &amp; AWS marketplaces</b>; Aladdin integration path</td>
+            <td>GP↔LP↔fund↔deal relationship resolution</td>
+            <td>Emerging (research-and-data heritage; AI roadmap post-BlackRock)</td></tr>
+          <tr><td class="name">CB Insights</td>
+            <td>API / data feeds (enterprise tiers)</td>
+            <td>Snowflake, Salesforce, Excel, Zapier, Microsoft Copilot integrations</td>
+            <td>ML entity resolution across 10m+ co. Business Graph</td>
+            <td>Mosaic predictive scores; ChatCBI-style assistant; AI insights</td></tr>
+          <tr><td class="name">With Intelligence</td>
+            <td>With HFM data service + dataset feeds; surfaced via S&amp;P Capital IQ Pro</td>
+            <td>Feeds/files; distribution expanding through S&amp;P</td>
+            <td>Manager↔fund↔allocator resolution; Eurekahedge/HFM index engines</td>
+            <td>Research/editorial-led (not AI-first)</td></tr>
+          <tr><td class="name">MSCI</td>
+            <td>Developer portal REST APIs (Index, ESG, Climate), Barra model files, Excel, Python</td>
+            <td>Crux Deliver (REST/Python/SFTP → S3/GCP/Azure/<b>Snowflake</b>; Avro/CSV/Parquet); BarraOne+Snowflake</td>
+            <td>GICS classification (co-owned w/ S&amp;P)</td>
+            <td>ML factors; NLP ESG controversies; GenAI research assistants</td></tr>
+          <tr><td class="name">ICE Data Services</td>
+            <td>Developer portal REST/Data API, Analytics API, CEP feed</td>
+            <td>Consolidated Feed, Global Index Feed, SFTI low-latency network; SFTP bulk; cloud</td>
+            <td>Instrument reference master (~13m instruments, 210+ markets)</td>
+            <td>ML in pricing inputs, anomaly detection, liquidity/climate analytics</td></tr>
+          <tr><td class="name">Nasdaq / eVestment</td>
+            <td>eVestment Analytics + APIs (incl. Next Best Action); Nasdaq Data Link REST (Python/R/Excel)</td>
+            <td>Data Link daily bulk (~8am ET); SaaS dashboards; Omni DDQ/RFP exchange</td>
+            <td>Manager self-reporting spine + validation pipeline</td>
+            <td>"AI-ready insights"; Next Best Action factor model; Data Link alt-data</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout"><b>Integration themes.</b> (1) The terminal incumbents are re-platforming for
+      <b>cloud-warehouse delivery</b> to stay in modern data stacks. (2) <b>Symbology / entity resolution</b>
+      (FIGI, PermID, FactSet Concordance, Kensho Link, Orbis ID) is a quiet but decisive differentiator for anyone
+      blending multiple vendors. (3) <b>Redistribution &amp; entitlement licensing</b> is the universal constraint —
+      the commercial control point, especially for Bloomberg (data leaving the Terminal) and all index licensors.
+      (4) Every major vendor now ships an <b>LLM copilot</b>; the defensible versions ground output in
+      proprietary, human-verified data.</div>
+  </div>
+</section>
+
+<!-- ============================ CUSTOMER FEEDBACK ============================ -->
+<section id="feedback" class="tabpane" role="tabpanel">
+  <div class="card">
+    <h2>Customer &amp; user feedback synthesis</h2>
+    <p>Sentiment triangulated across G2, TrustRadius, Gartner Peer Insights, Capterra and analyst/practitioner
+      commentary. Enterprise, contract-sold vendors (ICE, MSCI, With Intelligence) have <b>thin public review
+      footprints</b>, so their scores are indicative and lean on industry recognition and brand proxies.</p>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th class="name">Provider</th><th>Indicative rating</th><th>Most-praised</th>
+          <th>Most-criticised</th><th>Primary user segments</th></tr></thead>
+        <tbody>
+          <tr><td class="name">Bloomberg</td><td>~4.4/5 (G2)</td>
+            <td>FI depth; news; messaging network; reliability</td>
+            <td>Very expensive; dated command-line UX; rigid contracts</td>
+            <td>Sell-side, buy-side, treasury, gov, academia</td></tr>
+          <tr><td class="name">LSEG / Refinitiv</td><td>~3.3/5 (aggregate)</td>
+            <td>Breadth; Reuters news; FX &amp; Datastream; cheaper than Bloomberg</td>
+            <td>Customer-service complaints; Eikon→Workspace churn</td>
+            <td>Buy/sell-side research, risk &amp; compliance, academia</td></tr>
+          <tr><td class="name">FactSet</td><td>~4.3/5 (G2)</td>
+            <td><b>Support (rated above Bloomberg)</b>; UI; portfolio analytics; APIs</td>
+            <td>Still expensive; hard to pull external data into jobs</td>
+            <td>Buy-side, sell-side research/IB, private-capital GPs</td></tr>
+          <tr><td class="name">S&amp;P Global MI</td><td>~4.3/5 (G2)</td>
+            <td>Fundamentals + private-company depth; Excel plug-in</td>
+            <td>Cluttered UI; premium/opaque pricing; module licensing</td>
+            <td>IB, PE/VC, corp dev, asset managers, quant/academia</td></tr>
+          <tr><td class="name">Moody's</td><td>Positive (low volume)</td>
+            <td>Authoritative ratings; Orbis coverage; rigorous models</td>
+            <td>Expensive; fragmented multi-brand portfolio; Orbis freshness varies</td>
+            <td>Banks, insurers, asset managers, corporates, regulators</td></tr>
+          <tr><td class="name">Morningstar</td><td>~4.2–4.4/5 (G2)</td>
+            <td>Best-in-class fund/ETF analytics; independent research brand</td>
+            <td>Clunky/slow UI; data lag; redistribution fees</td>
+            <td>Asset/wealth managers, advisors, ESG/credit teams</td></tr>
+          <tr><td class="name">PitchBook</td><td>~4.3/5 (G2); 517+ TrustRadius</td>
+            <td>Private-market breadth; sourcing/BD; research time-savings</td>
+            <td>Stale/incomplete long-tail data; expensive; add-on modules</td>
+            <td>PE/VC, IB, corp dev, consultants, private credit</td></tr>
+          <tr><td class="name">Preqin</td><td>Positive (triangulated)</td>
+            <td>LP–GP &amp; fund-performance depth; benchmarks; the LP default</td>
+            <td>Deal-level depth &lt; PitchBook; dated UI; non-NA gaps</td>
+            <td>LPs (pensions/endowments), GPs/IR, funds-of-funds</td></tr>
+          <tr><td class="name">CB Insights</td><td>Solid (triangulated)</td>
+            <td>Visual analytics; emerging-tech trend spotting; Mosaic</td>
+            <td>Opaque high pricing; freshness gaps; less deal depth</td>
+            <td>Corporate strategy/innovation, corp dev, VCs, consultants</td></tr>
+          <tr><td class="name">With Intelligence</td><td>Thin public footprint</td>
+            <td>Direct-from-allocator data; Asia/EM hedge funds; events</td>
+            <td>Less deal/LP-performance depth; opaque pricing; brand fragmentation</td>
+            <td>Allocators, cap-intro/IR, fund marketers, consultants</td></tr>
+          <tr><td class="name">MSCI</td><td>Enterprise (Glassdoor ~4.0 brand proxy)</td>
+            <td>Benchmark standard; Barra incumbency; breadth</td>
+            <td>Expensive/lock-in; <b>ESG-ratings credibility debate</b></td>
+            <td>Asset managers, ETF issuers, asset owners, hedge funds</td></tr>
+          <tr><td class="name">ICE Data Services</td><td>Sparse public reviews</td>
+            <td>Audit-defensible evaluated prices for NAV; muni/structured depth</td>
+            <td>Cost/complexity; 2020 SEC $8m settlement (single-broker quotes)</td>
+            <td>Asset managers, fund admins, banks, insurers, ETF issuers</td></tr>
+          <tr><td class="name">Nasdaq / eVestment</td><td>~4.3/5 (G2)</td>
+            <td>Most comprehensive manager database; Omni DDQ/RFP workflow</td>
+            <td>Self-reporting latency; weak Asia coverage; module cost</td>
+            <td>Managers (sales/CI), consultants, asset owners/OCIOs</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid two">
+      <div class="card tight"><div class="kicker">Cross-provider praise themes</div>
+        <ul class="clean">
+          <li><b>Proprietary depth</b> in the vendor's home turf (FI, private markets, fundamentals, evaluated pricing).</li>
+          <li><b>Time-savings</b> from having verified data + research in one place.</li>
+          <li><b>Support &amp; onboarding</b> — a genuine differentiator (FactSet cited repeatedly).</li>
+        </ul>
+      </div>
+      <div class="card tight"><div class="kicker">Cross-provider complaint themes</div>
+        <ul class="clean">
+          <li><b>Cost &amp; opaque negotiated pricing</b> — near-universal.</li>
+          <li><b>UI/UX &amp; data-freshness</b> — recurring (Bloomberg UX, Morningstar/eVestment lag, long-tail private data).</li>
+          <li><b>Licensing friction</b> — redistribution/entitlement fees and lock-in.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="tiernote">Review scores were partly triangulated because several review pages were inaccessible from
+      the research environment — treat numeric scores as indicative, not precise.</p>
+  </div>
+</section>
+
+<!-- ============================ API-NATIVE TIER ============================ -->
+<section id="challengers" class="tabpane" role="tabpanel">
+  <div class="card">
+    <h2>API-native fintech challengers</h2>
+    <p>This tier — <b>FMP, Polygon.io, Intrinio, Finnhub, Xignite</b> — inverts the incumbent playbook: public
+      pricing, self-serve sign-up, a working API key in minutes, and clean JSON/CSV over REST/WebSocket aimed at
+      engineers rather than analysts. The trade-off is deliberate — coverage is US-centric and thinner, fundamentals
+      history shallower, support is community/ticket-based, and private markets + evaluated FI pricing are absent.
+      They win on <b>cost, developer experience and speed-to-integration</b>. Consolidation is arriving here too:
+      Polygon now bills under <b>Massive.com</b>, and Xignite was acquired by <b>QUODD</b> (2023).</p>
+    <div class="tbl-scroll">
+      <table>
+        <thead><tr><th class="name">Provider</th><th>Best for</th><th>Real-time?</th><th>Fundamentals</th>
+          <th>Global equity</th><th>Options / FX / Crypto</th><th>Free tier</th><th>Entry paid</th>
+          <th>Biggest limitation</th></tr></thead>
+        <tbody>
+          <tr><td class="name">FMP</td><td>Cheap US fundamentals + modeling</td><td>Yes (paid)</td>
+            <td>Deep US (5y→30y+ by tier)</td><td>Limited (higher tiers)</td><td>Opt weak / FX ✓ / Crypto ✓</td>
+            <td>250 calls/day, US EOD</td><td>~$15/mo</td><td>Global depth &amp; data-quality guarantees</td></tr>
+          <tr><td class="name">Polygon.io</td><td>Quant market-data &amp; tick history</td><td>Yes (SIP on Advanced)</td>
+            <td>Secondary</td><td>Limited</td><td>Separate subs each</td><td>5 calls/min, 15-min delayed</td>
+            <td>~$29/mo (Stocks)</td><td>Per-asset-class billing; thin fundamentals</td></tr>
+          <tr><td class="name">Intrinio</td><td>Standardized fundamentals + options; enterprise delivery</td>
+            <td>Yes (IEX/multi-exch)</td><td>Deep US (standardized 15y+)</td><td>ETFs global; single-names limited</td>
+            <td>Opt ✓ / FX partial / Crypto partial</td><td>None</td><td>~$150/mo</td>
+            <td>No free tier; higher entry cost</td></tr>
+          <tr><td class="name">Finnhub</td><td>Best free tier + cheap alt-data</td><td>Yes (US free)</td>
+            <td>Moderate (deeper paid)</td><td>Yes (paid, 60+ exch)</td><td>Opt limited / FX ✓ / Crypto ✓</td>
+            <td>~60 calls/min, real-time US</td><td>~$12–100/mo</td><td>Data-quality / support inconsistency</td></tr>
+          <tr><td class="name">Xignite</td><td>Enterprise cloud market-data aggregation</td><td>Yes</td>
+            <td>Via FactSet/Morningstar</td><td>Yes (broad)</td><td>All (aggregated)</td><td>Trial only</td>
+            <td>Quote-based</td><td>Opaque pricing; not self-serve</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid two">
+      <div class="card tight"><div class="kicker">Better than incumbents</div>
+        <ul class="clean">
+          <li><b>Cost</b> — $0–$200/mo self-serve vs. ~$24–32k/yr terminals or six-/seven-figure enterprise feeds.</li>
+          <li><b>Speed &amp; self-serve</b> — key in minutes, no sales cycle or minimum commitment.</li>
+          <li><b>Developer experience</b> — REST/WebSocket, SDKs, transparent docs and public pricing.</li>
+          <li><b>Modern delivery</b> — flat-file/S3 (Polygon), Snowflake/AWS (Intrinio), cloud microservices (Xignite).</li>
+          <li><b>Cheap alt-data</b> — insider/congressional trades, transcripts, FDA/lobbying at retail prices.</li>
+        </ul>
+      </div>
+      <div class="card tight"><div class="kicker">Cannot match incumbents</div>
+        <ul class="clean">
+          <li><b>Breadth &amp; global depth</b> — non-US equities, deep FI, evaluated/muni pricing, full corp actions.</li>
+          <li><b>Private markets</b> — no PitchBook/Preqin-style PE/VC or deep credit/ratings.</li>
+          <li><b>Evaluated FI pricing</b> — no ICE/Bloomberg-grade bond valuation.</li>
+          <li><b>Enterprise entitlements &amp; support</b> — no white-glove SLAs / compliance tooling at scale (Xignite partial).</li>
+          <li><b>Data-quality guarantees</b> — documented accuracy/staleness complaints (Finnhub, FMP).</li>
+        </ul>
+      </div>
+    </div>
+    <p class="tiernote">Pricing pages for several of these vendors were blocked from the research environment;
+      dollar tiers are representative and should be spot-checked against live pricing pages before any decision.</p>
+  </div>
+</section>
+
+<!-- ============================ METHODOLOGY ============================ -->
+<section id="method" class="tabpane" role="tabpanel">
+  <div class="card">
+    <h2>Methodology, scope &amp; limitations</h2>
+    <h3>Scope</h3>
+    <ul class="clean">
+      <li><b>Independent, vendor-neutral research.</b> Providers are grouped into five clusters: cross-asset
+        terminals; fundamentals &amp; ratings; private markets; indexes/risk/FI infrastructure; and API-native
+        challengers.</li>
+      <li><b>Generic framing</b> across the asset classes an institutional multi-asset manager engages in and
+        expands toward — public equity, private markets, fixed income and cross-asset — with no
+        organisation-specific application.</li>
+      <li><b>13 core providers</b> profiled in full; <b>5 API-native vendors</b> covered as a comparative tier.</li>
+    </ul>
+    <h3>How the research was done</h3>
+    <ul class="clean">
+      <li>Each provider was researched from public sources: vendor product/API/developer documentation and press
+        for technical facts; independent review platforms (G2, TrustRadius, Gartner Peer Insights, Capterra) and
+        analyst/practitioner commentary for sentiment.</li>
+      <li><b>Triangulation:</b> customer feedback was corroborated across ≥2 sources because single review pages
+        (notably G2) were frequently blocked or gated from the research environment.</li>
+      <li>Every provider fact-sheet carries its own dated source list (see the accompanying
+        <code>provider-landscape/research/*.md</code> files, which are the full audit trail behind this report).</li>
+    </ul>
+    <h3>The capability map is qualitative</h3>
+    <p>The five-level scale (Leader → Minimal) is a <b>directional, relative</b> assessment within the institutional
+      landscape — not a numeric score, weighted model, or ranking. It reflects the analyst reading of each fact-sheet
+      and is intended to orient, not to adjudicate a purchase.</p>
+    <h3>Limitations</h3>
+    <ul class="clean">
+      <li><b>Pricing is approximate.</b> None of the enterprise vendors publish list prices; figures are third-party
+        estimates flagged "approx." and can vary widely by seats, modules, datasets and delivery.</li>
+      <li><b>Review scores are indicative.</b> Several review pages were inaccessible; scores were triangulated from
+        secondary summaries.</li>
+      <li><b>Point-in-time.</b> Ownership, products and figures are as of <b>10 Aug 2026</b> and this is a fast-moving,
+        consolidating market (e.g. BlackRock–Preqin, S&amp;P–With Intelligence, MSCI–Burgiss).</li>
+      <li><b>Not advice.</b> Analytical/educational use only; verify any figure against primary sources before relying
+        on it.</li>
+    </ul>
+    <h3>Glossary of key terms</h3>
+    <div class="two-col-list src">
+      <p><b>Evaluated pricing</b> — model-plus-analyst valuations for securities that don't trade continuously
+        (esp. bonds); used for fund NAV.</p>
+      <p><b>BVAL / CEP</b> — Bloomberg's and ICE's evaluated-pricing services.</p>
+      <p><b>Point-in-time (PIT)</b> — data as it was known on a past date (no restatement/survivorship bias); the
+        quant-research standard (e.g. Compustat PIT since 1987).</p>
+      <p><b>Factor / risk model (Barra)</b> — decomposes portfolio risk/return into common factors (value, size,
+        momentum, etc.).</p>
+      <p><b>LP / GP</b> — Limited Partners (investors, e.g. pensions) and General Partners (fund managers) in private
+        funds.</p>
+      <p><b>IRR / TVPI / DPI / PME</b> — private-fund performance metrics (return rate; total value; distributions;
+        public-market equivalent).</p>
+      <p><b>Symbology / concordance</b> — mapping the same security/entity across identifier systems (CUSIP, SEDOL,
+        ISIN, FIGI, PermID).</p>
+      <p><b>Redistribution / entitlement</b> — licensing controls on who may access or re-share data; the core
+        commercial constraint.</p>
+      <p><b>Consolidated / B-PIPE feed</b> — managed real-time market-data streams delivered to enterprise systems.</p>
+      <p><b>Warehouse-native delivery</b> — data shared directly into a client's cloud data warehouse
+        (Snowflake / Databricks / AWS) rather than a terminal.</p>
+    </div>
+
+    <details class="srcs">
+      <summary>Primary &amp; secondary sources (selected, by provider)</summary>
+      <div class="src" id="allSources"><!-- injected --></div>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p><b>Financial Data &amp; Intelligence Provider Landscape</b> — independent research compiled 10 Aug 2026.
+      Self-contained HTML (no external requests). Full per-provider fact-sheets and source lists are in
+      <code>provider-landscape/research/</code>.</p>
+    <p>Vendor-neutral analytical/educational material. Not investment advice, not a procurement recommendation, and
+      not affiliated with or endorsed by any provider named. All trademarks belong to their respective owners.</p>
+  </div>
+</footer>
+
+<script>
+/* ============================ Data model ============================ */
+// Ratings 5=Leader 4=Strong 3=Moderate 2=Limited 1=Minimal. Directional, qualitative.
+const LABELS={5:"Leader",4:"Strong",3:"Moderate",2:"Limited",1:"Minimal"};
+const PROV=[
+ {id:"bloomberg",name:"Bloomberg",tag:"Cross-asset terminal",owner:"Bloomberg L.P. · private",
+  edge:"Fixed income (BVAL/indices) + the on-terminal messaging network",
+  r:{pubeq:5,pevc:2,fi:5,idx:4,alt:4,api:3}},
+ {id:"lseg",name:"LSEG / Refinitiv",tag:"Cross-asset terminal",owner:"London Stock Exchange Group",
+  edge:"FTSE Russell + WM/R FX fixing + World-Check + Datastream, open delivery",
+  r:{pubeq:4,pevc:3,fi:4,idx:5,alt:4,api:4}},
+ {id:"factset",name:"FactSet",tag:"Cross-asset terminal",owner:"FactSet Research Systems (NYSE:FDS)",
+  edge:"Buy-side portfolio analytics + support + open APIs/concordance at ~½ Bloomberg cost",
+  r:{pubeq:5,pevc:3,fi:3,idx:3,alt:4,api:5}},
+ {id:"sp",name:"S&P Global Market Intelligence",tag:"Fundamentals & ratings",owner:"S&P Global (NYSE:SPGI)",
+  edge:"Compustat PIT fundamentals + 10M+ private companies + ratings, one roof",
+  r:{pubeq:5,pevc:4,fi:4,idx:4,alt:4,api:4}},
+ {id:"moodys",name:"Moody's",tag:"Fundamentals & ratings",owner:"Moody's Corporation (NYSE:MCO)",
+  edge:"Credit-risk franchise: ratings + Orbis (630M+ entities) + EDF/RiskCalc",
+  r:{pubeq:2,pevc:4,fi:5,idx:4,alt:3,api:4}},
+ {id:"morningstar",name:"Morningstar",tag:"Fundamentals & ratings",owner:"Morningstar, Inc. (NASDAQ:MORN)",
+  edge:"Managed-investments standard + Sustainalytics ESG + DBRS credit",
+  r:{pubeq:3,pevc:2,fi:4,idx:5,alt:3,api:3}},
+ {id:"pitchbook",name:"PitchBook",tag:"Private markets",owner:"Morningstar subsidiary",
+  edge:"Private-capital deal/company/investor breadth + LCD leveraged-loan credit",
+  r:{pubeq:2,pevc:5,fi:4,idx:2,alt:3,api:4}},
+ {id:"preqin",name:"Preqin",tag:"Private markets",owner:"BlackRock (acq. 2024/25)",
+  edge:"LP–GP intelligence + 20yr fund-performance/benchmarks — the LP default",
+  r:{pubeq:1,pevc:5,fi:3,idx:2,alt:3,api:4}},
+ {id:"cbinsights",name:"CB Insights",tag:"Private markets",owner:"Independent (private)",
+  edge:"Predictive venture/emerging-tech signals (Mosaic) on 10M+ Business Graph",
+  r:{pubeq:2,pevc:4,fi:1,idx:2,alt:5,api:3}},
+ {id:"withintelligence",name:"With Intelligence",tag:"Private markets",owner:"S&P Global (acq. ~2025)",
+  edge:"Direct-from-allocator commitment data + Eurekahedge/HFM hedge funds",
+  r:{pubeq:1,pevc:3,fi:3,idx:3,alt:4,api:2}},
+ {id:"msci",name:"MSCI",tag:"Indexes / risk / FI",owner:"MSCI Inc. (NYSE:MSCI)",
+  edge:"Global/EM equity indexes + Barra factor risk + ESG; Burgiss private capital",
+  r:{pubeq:4,pevc:4,fi:3,idx:5,alt:3,api:4}},
+ {id:"ice",name:"ICE Data Services",tag:"Indexes / risk / FI",owner:"Intercontinental Exchange (NYSE:ICE)",
+  edge:"FI evaluated pricing (~2.7M/day) + ICE BofA indices + SFTI feeds",
+  r:{pubeq:3,pevc:1,fi:5,idx:4,alt:3,api:4}},
+ {id:"nasdaq",name:"Nasdaq / eVestment",tag:"Indexes / risk / FI",owner:"Nasdaq, Inc. (NASDAQ:NDAQ)",
+  edge:"Two-sided institutional manager↔allocator network + Omni DDQ/RFP",
+  r:{pubeq:3,pevc:3,fi:3,idx:3,alt:4,api:4}}
+];
+const DIMS=[["pubeq","Public Equity"],["pevc","Private Equity / VC"],["fi","Fixed Income & Credit"],
+  ["idx","Indexes / Ratings / ESG"],["alt","Alternative Data"],["api","APIs & Integration"]];
+
+/* Deep-dive content (condensed from the 8-section fact-sheets) */
+const DETAIL={
+ bloomberg:{snap:"Private (Michael Bloomberg ~88%); NYC; founded 1981; ~26k staff, ~$15B rev (2024), ~325k+ Terminal subscribers. The category-defining terminal. Pricing ~$32k/seat/yr (volume tiers to ~$23k); enterprise (B-PIPE/Data License) negotiated, ~$50k–$200k+/yr cited.",
+  cov:"<b>Public equity:</b> deep global, fundamentals + BEST estimates. <b>PE/VC:</b> present but thin vs specialists. <b>Fixed income:</b> category leader — BVAL evaluated pricing (~2.5–3M+ securities), Bloomberg FI indices. <b>Other:</b> Bloomberg indices, ESG, FX (FXGO), commodities/BNEF, macro.",
+  data:"FIGI open symbology + security master; BVAL (100M+ points/day); Bloomberg FI & equity indices; Bloomberg News/Intelligence/BNEF; deep intraday tick + historical archives; alt-data marketplace (EAP).",
+  tech:"Closed vertically-integrated stack maturing to cloud (Data License on AWS, Snowflake Native App, PORT→Snowflake). FIGI cross-industry standard. BloombergGPT + AI summarisation; BQuant for quant workflows.",
+  fb:"~4.4/5 (G2). Pros: breadth, FI, messaging network, reliability, support. Cons: very expensive, dated command-line UX, rigid non-cancelable contracts, costly enterprise data extraction, thin private markets.",
+  edge_l:"Fixed income &amp; credit; real-time cross-asset breadth; Bloomberg News + the messaging/IB network (a genuine social moat); integrated trading (EMSX).",
+  edge_g:"Price opens the door to LSEG/FactSet/Capital IQ and low-cost challengers; private markets trail PitchBook/Preqin; open/programmatic + cloud-native access historically less flexible; expensive data extraction."},
+ lseg:{snap:"London Stock Exchange Group; acquired Refinitiv (~$27B, 2021). London; ~27.7k staff, ~$12–13B group rev; Data & Analytics ~⅔ of revenue. Microsoft strategic partner (~4% stake). The credible #2 to Bloomberg (~20% market share). Workspace ~10% below comparable Bloomberg seats; enterprise feeds negotiated.",
+  cov:"<b>Public equity:</b> deep global + I/B/E/S + StarMine. <b>PE/VC:</b> moderate (legacy Thomson deal data). <b>Fixed income:</b> broad reference/pricing; depth trails Bloomberg. <b>Other:</b> FTSE Russell indices, WM/R FX fixing standard, World-Check screening, ESG, Datastream macro, Reuters News.",
+  data:"Datastream (~120yr history, 35M+ series); I/B/E/S + StarMine; Tick History (to 1996); World-Check (20+yr); FTSE Russell constituents; WM/R FX; Reuters archive; ESG.",
+  tech:"Microsoft/Azure re-platform; PermID open entity system; LSEG Digest / GenAI in Workspace; CodeBook (hosted Python); desktop→deployed→cloud continuity via unified Data Library.",
+  fb:"~3.3/5 aggregate. Pros: breadth, Reuters news, FX/macro/Datastream, modern Workspace, ~10% cheaper, great for academia. Cons: customer-service complaints, some workflow depth lags Bloomberg, no messaging network, Eikon→Workspace churn.",
+  edge_l:"FX (WM/R fixing) + Reuters news; FTSE Russell index franchise; World-Check compliance; Datastream macro/academic series; I/B/E/S + StarMine; open symbology (PermID) + Azure delivery.",
+  edge_g:"FI depth/evaluated pricing behind Bloomberg; no messaging network; brand/UX churn from migration; private markets behind specialists; support perception weaker than FactSet."},
+ factset:{snap:"FactSet Research Systems (NYSE:FDS); Norwalk CT; founded 1978; ~12.7k staff, ~$2.3B rev (FY25). Analyst-and-workflow-centric #3. Workstation ~$12–15k+/seat vs Bloomberg ~$28–32k; enterprise negotiated.",
+  cov:"<b>Public equity:</b> core strength — fundamentals, estimates, ownership, filings, screening. <b>PE/VC:</b> growing — Cobalt portfolio monitoring + AI Doc Ingest. <b>Fixed income:</b> solid analytics; evaluated pricing via partners. <b>Other:</b> Truvalue ESG, benchmark feeds, Open:FactSet alt-data marketplace.",
+  data:"Proprietary fundamentals/estimates/ownership + <b>Concordance Service</b> (CUSIP/SEDOL/ISIN/FIGI mapping); Truvalue ESG signals; Cobalt private-capital; Open:FactSet Marketplace; RBICS revenue-based industry taxonomy.",
+  tech:"API-first open architecture; Snowflake + Databricks marketplaces; FactSet Mercury GenAI copilot; Cobalt AI Doc Ingest; RBICS classification.",
+  fb:"~4.3/5 (G2); rated <b>above Bloomberg on support</b>. Pros: support, clean UI, portfolio analytics, flexible APIs+Excel, lower cost. Cons: still expensive for small managers, hard to pull external data into jobs, FI/real-time trail Bloomberg.",
+  edge_l:"Buy-side portfolio analytics; client support (its standout moat); open/flexible APIs + symbology concordance (easiest to embed); Cobalt + Truvalue as growth differentiators; cost advantage vs Bloomberg.",
+  edge_g:"FI depth + real-time/trading behind Bloomberg; no messaging network; smaller brand gravity; some datasets rely on partners; priced out of small managers."},
+ sp:{snap:"Division of S&P Global (NYSE:SPGI); NYC; Compustat since 1962, IHS Markit merged 2022; Kensho acq. 2018. MI segment >$4.5B rev (2024). Per-seat Capital IQ Pro ~$13k–$40k+ (est.); feeds far higher; module-based.",
+  cov:"<b>Public equity:</b> best-in-class — Compustat + Capital IQ (150k+ public), estimates, transcripts, filings. <b>PE/VC:</b> strong — 10M+ private companies, M&A. <b>Fixed income:</b> RatingsDirect (S&P ratings), credit risk, LCD heritage. <b>Other:</b> Sustainable1 ESG, Panjiva supply-chain, Kensho, Marketplace.",
+  data:"Compustat (80k+ cos, PIT since 1987) — quant standard; Capital IQ financials (150k+ public, 10M+ private); estimates (PIT since 2016); RatingsDirect histories; transcripts, filings, key developments, LCD.",
+  tech:"Kensho FinAI (Scribe/Link/Extract/NERD + ChatIQ GenAI); Kensho Link entity resolution (differentiator); Xpressfeed (200+ datasets); ClariFI REST API; Snowflake + Marketplace GenAI search.",
+  fb:"~4.3/5 (G2). Pros: unrivaled fundamentals + private-company depth, Excel plug-in, screening, transcripts. Cons: cluttered/steep UI, premium/opaque pricing, some real-time gaps vs Bloomberg, module licensing frustration.",
+  edge_l:"Fundamentals + estimates (Compustat PIT = quant gold standard); private-company breadth (10M+); ratings + fundamentals + private under one roof; Kensho Link entity resolution.",
+  edge_g:"Real-time/markets terminal trails Bloomberg; charting/news immediacy weaker; UI modernization ongoing; ESG ratings less dominant than MSCI/Sustainalytics."},
+ moodys:{snap:"Moody's Corporation (NYSE:MCO); NYC; founded 1909; BvD acq. 2017, RMS 2021. ~$7B corp rev; Moody's Analytics ~$3.6B. The credit-risk powerhouse. Enterprise negotiated pricing.",
+  cov:"<b>Public equity:</b> indirect (equity inputs feed CreditEdge/EDF). <b>PE/VC:</b> strong private-company reference via Orbis; RiskCalc private-firm PD. <b>Fixed income:</b> core — ratings across corporates/financials/sovereigns/structured/muni; CreditView; EDF/RiskCalc; structured-finance analytics. <b>Other:</b> Moody's Economics, ESG via Orbis, KYC, RMS cat risk, CRE.",
+  data:"Orbis/BvD (630M+ entities, ownership graph, ESG on 300M+) — widest private-company graph; ratings histories + default/recovery data; CreditEdge/EDF (daily PD on ~40k public firms); RiskCalc private-firm models; structured-finance deal models + Data Alliance consortia.",
+  tech:"Moody's DataHub (cloud-to-cloud, direct-to-Snowflake, SFTP); Structured Finance REST API; EDF-X API; Orbis BvD ID entity spine; Research Assistant/CoPilot (Azure OpenAI); NLP statement spreading.",
+  fb:"Positive but low volume; repeatedly Risk.net awarded. Pros: authoritative ratings + research, unmatched Orbis coverage, rigorous EDF/RiskCalc models. Cons: expensive, fragmented multi-brand portfolio, Orbis freshness varies by country, models can be black-box.",
+  edge_l:"Credit risk &amp; ratings — the franchise; private-company + ownership breadth (Orbis); benchmark PD models (EDF/RiskCalc); structured-finance analytics.",
+  edge_g:"Not an equity/markets/trading terminal; weaker real-time, equity research and buy-side workflow; ESG ratings trail MSCI/Sustainalytics; portfolio fragmentation from acquisitions."},
+ morningstar:{snap:"Morningstar, Inc. (NASDAQ:MORN); Chicago; founded 1984; DBRS acq. 2019, Sustainalytics 2020, PitchBook 2016. ~$2.3B rev. Managed-investments + independent-research standard. Direct historically ~$17.5k first user (2016 baseline); redistribution fees extra.",
+  cov:"<b>Public equity:</b> solid via funds/independent-research lens (fair value, moat ratings). <b>PE/VC:</b> via PitchBook subsidiary (separate product). <b>Fixed income:</b> DBRS Morningstar (4th-largest CRA; leads Canada + structured finance). <b>Other:</b> funds/ETFs/SMAs — the crown jewel; Sustainalytics ESG; Morningstar Indexes.",
+  data:"Managed-investments database (funds/ETFs/SMAs, Style Box, Star & Medalist ratings) — industry reference; Sustainalytics ESG Risk Ratings; DBRS ratings histories; equity research + fundamentals; Morningstar Indexes.",
+  tech:"Snowflake AI Data Cloud distribution across brands; Direct Web Services REST APIs; Sustainalytics OpenAPI + datafeeds; DBRS API; SecId + Category/Style Box taxonomy; \"Mo\" GenAI assistant.",
+  fb:"~4.2–4.4/5 (G2); TrustRadius ~9/10 (small set). Pros: best-in-class fund/ETF analytics, peer benchmarking, trusted independent research/ratings. Cons: clunky/slow UI, occasional data gaps/lag, high cost at low utilization, redistribution fees.",
+  edge_l:"Managed-investments (funds/ETFs/SMAs) data &amp; research — the category standard; independent ratings brand; ESG (Sustainalytics); credit (DBRS, esp. Canada + structured finance).",
+  edge_g:"Not a real-time terminal or deep as-reported fundamentals house; private markets sit in a separate product (PitchBook); UI/latency + redistribution-cost friction; smaller scale than S&P/Moody's."},
+ pitchbook:{snap:"Morningstar subsidiary (full acq. 2016); Seattle; founded 2007; 100k+ users, ~3k staff incl. large research team. The leading private + public capital-markets database. No list price; solo ~$15–20k, enterprise ~$70–124k+; median ACV ~$30k; LCD/API/Data Feed are paid add-ons.",
+  cov:"<b>Public equity:</b> present but not the draw. <b>PE/VC:</b> core leader — deals, valuations, cap tables, multiples, exits, fund returns, LP commitments. <b>Fixed income:</b> LCD leveraged-loan/high-yield + BDC/CLO + private credit. <b>Other:</b> secondaries, co-investment, real assets, LP/GP data, research; lighter ESG.",
+  data:"~4.5M companies, ~2.5M deals, 525k+ investors, ~45k LPs, 125k+ funds, ~4M people; LCD real-time leveraged-loan/HY + indices; multi-decade histories. Sourcing = large human research team + machine ingestion (filings/FOIA/news/crawling), analyst-verified; proprietary research reports.",
+  tech:"Platform + Excel Plugin + Data Feed (bulk) + REST API; <b>Premium Connectors</b> into Claude/ChatGPT + M365 Copilot & Copilot in Excel; private-company relationship graph; Navigator AI + VC Exit Predictor.",
+  fb:"~4.3/5 (G2); 517+ TrustRadius, favorable. Pros: best-in-class private-market data, sourcing/BD, fundraising tracking, research time-savings, good Excel plugin. Cons: stale/incomplete long-tail data, search not always intuitive, expensive, add-on modules inflate cost.",
+  edge_l:"Private-capital breadth + depth (VC/PE/M&A deals, valuations, cap tables, fund returns, LP/GP) — category leader; reinforced by Morningstar distribution + LCD credit franchise. Moat = human-research scale + relationship graph + proprietary research/indices.",
+  edge_g:"Public-equity/real-time (Bloomberg/S&P/FactSet); LP-side fund-performance depth where Preqin is preferred; niche venture signals where CB Insights competes; long-tail data-freshness gaps."},
+ preqin:{snap:"BlackRock-owned (£2.55bn/~$3.2bn, closed 2025); alongside Aladdin but sold standalone. London; founded 2003; 200k+ users. \"The home of alternatives.\" No list price; Preqin Pro ~$2k (single asset class) to ~$4k+ multi-asset per user; org ~$25–80k; Data Feeds/API from ~$50k, enterprise >$150k.",
+  cov:"<b>Public equity:</b> out of scope. <b>PE/VC:</b> core — funds, GPs, LPs, fundraising, deals, dry powder, performance. <b>Fixed income:</b> strong private debt/credit. <b>Other:</b> real estate, infra, natural resources, hedge funds, secondaries; signature LP–GP relationships + fund performance + benchmarks + ESG.",
+  data:"~190k+ funds (235k+ all classes), ~60k managers, 30k+ LPs; 20+yr net IRR/TVPI/DPI/cash-flow on 15k+ private-capital + 30k+ hedge funds — deepest LP-reported performance set; Preqin Benchmarks (PME/quartile). Sourcing = FOIA to public pensions + voluntary GP/LP submissions + filings + analyst research.",
+  tech:"Preqin Pro; Operational API; Feeds API (CSV bulk, 100+ feeds); Snowflake + AWS marketplaces; post-BlackRock Aladdin integration path; historically research-and-data house (AI roadmap emerging).",
+  fb:"Positive (triangulated). Pros: unmatched LP/GP + fund-performance, the LP-side default, strong benchmarks, multi-source methodology, broad alternatives in one place. Cons: deal-level depth < PitchBook, non-NA gaps, dated UI/search, expensive, selective completeness from self-reporting.",
+  edge_l:"LP–GP intelligence + fund performance/benchmarks across all private-alternatives classes. Moat = 20+yr FOIA/self-reported performance + LP relationship coverage deal-centric rivals lack; now backed by BlackRock/Aladdin.",
+  edge_g:"Deal/company-transaction granularity vs PitchBook; venture/emerging-tech signal vs CB Insights; no public-markets story; UI/AI modernization behind newer entrants."},
+ cbinsights:{snap:"Independent (venture-backed, NSF origins); NYC; founded 2008. \"Business Graph\" of 10M+ companies; famous research (State of Venture/AI, unicorn lists). Quote-only: Essential ~$29.8k, Enterprise $100k+, floor ~$50k.",
+  cov:"<b>Public equity:</b> minimal. <b>PE/VC:</b> core — venture/tech funding rounds, investors, valuations, deal activity, emerging-tech taxonomy; skews earlier-stage/tech. <b>Fixed income:</b> none. <b>Other:</b> heavy alternative signals — patents, news, hiring, web traffic, partnerships.",
+  data:"10M+ companies — firmographics, funding history, business relationships; <b>Mosaic Score</b> (0–1,000 private-company health across Momentum/Market/Money/Management; NSF-developed; marketed 4.7× more predictive than top VCs). Sourcing = ML/NLP over patents, news, sites, hiring, financings, filings.",
+  tech:"Algorithm-/ML-first engine; NLP entity extraction + classification; auto-updating firmographics + relationship graph; Snowflake/Salesforce/Copilot/Excel/Zapier integrations; generative assistant + AI insight summaries.",
+  fb:"Solid (triangulated). Pros: strong visual analytics + research reports, trend/emerging-tech spotting, competitive intelligence, Mosaic scores. Cons: opaque high pricing, steep learning curve, freshness gaps in niche verticals, less deal/valuation granularity than PitchBook.",
+  edge_l:"Emerging-tech + predictive signal intelligence on private tech companies — Mosaic scores, alt-data signals, high-visibility research. Moat = ML/NLP signal engine + brand research + relationship graph tuned for early-stage tech.",
+  edge_g:"Transactional deal/fund/LP depth vs PitchBook/Preqin; no credit/FI or LP-GP data; not a comprehensive PE/buyout or fund-performance source; cost hard to justify for pure deal-database needs."},
+ withintelligence:{snap:"Being acquired by S&P Global (~$1.8bn, announced 2025; integrating into Capital IQ Pro through 2026); ex-Motive Partners. London; roots to 1998 (HFM). One of the largest alt-manager + allocator databases + events/editorial. Pricing not disclosed.",
+  cov:"<b>Public equity:</b> not a focus. <b>PE/VC:</b> PE, private credit, real assets fund/manager/investor data (partner datasets: Cambridge, Mercer, S&P). <b>Fixed income:</b> private credit. <b>Other:</b> core — hedge funds (Eurekahedge/HFM), real assets, wealth/allocator; signature direct-from-allocator commitment data.",
+  data:"Eurekahedge (hedge-fund data, strong Asia/EM + indices), HFM, SPS (private markets), Highworth (family offices), The Deal (editorial); one of the largest alt-manager databases + allocator coverage; direct-from-investor allocation records. Sourcing = research/editorial + direct allocator surveying + index construction + events.",
+  tech:"With HFM data service + feeds; now surfaced via S&P Capital IQ Pro; research/editorial-led (not AI-first); Eurekahedge/HFM index engines; manager↔fund↔allocator resolution; S&P distribution leverage post-acquisition.",
+  fb:"Thin public footprint. Pros: unique direct-from-allocator data, deep hedge-fund + allocator coverage, strong Asia/EM (Eurekahedge), respected indices, events/awards + editorial. Cons: less deal-level depth than PitchBook, thin review presence, brand fragmentation (integrating), opaque pricing.",
+  edge_l:"Allocator intelligence + hedge-fund data — \"who is allocating and to whom\" via direct-from-allocator commitments, plus Eurekahedge/HFM + events/editorial reach; now amplified by S&P distribution.",
+  edge_g:"Private-company/deal granularity vs PitchBook; fund-performance/LP-GP breadth vs Preqin; venture signals vs CB Insights; weaker standalone API/tech story + lighter review footprint."},
+ msci:{snap:"MSCI Inc. (NYSE:MSCI); NYC; index lineage 1969, spun from Morgan Stanley 2007–09; ~6,100 staff, ~$2.86B rev (FY24), Index ~56%. ~$18.3T benchmarked, ~290k+ indexes daily. Index licensing ~1–3.5 bps AUM; Barra/ESG enterprise subscriptions (not disclosed).",
+  cov:"<b>Public equity:</b> deepest indexes (ACWI/World/EM/EAFE + factor/thematic) + Barra (70+ factor models, ~90k securities). <b>PE/VC:</b> MSCI Private Capital via Burgiss (closed Oct 2023). <b>Fixed income:</b> multi-asset risk via BarraOne; FI indexes a relative gap. <b>Other:</b> ESG Ratings + Climate (250k+ companies), RiskMetrics, RCA real estate.",
+  data:"~290k+ live indexes (GICS); Barra factor-return/exposure history; ESG (4,000+ points/issuer, ratings on ~8,500 companies) + climate scenario data; Burgiss private-fund universe (tens of thousands of funds); RCA CRE transactions.",
+  tech:"Barra multi-factor engines + RiskMetrics (VaR/stress); transparent published methodologies; GICS backbone; Crux Deliver cloud-warehouse delivery (Snowflake/AWS/GCP/Azure); ML factors + NLP ESG + GenAI assistants; NGFS climate modeling.",
+  fb:"Enterprise (thin product reviews; Glassdoor ~4.0 brand proxy). Pros: industry-standard benchmarks (table stakes for global/EM mandates), Barra incumbency, breadth (index+factor+ESG+private+real assets). Cons: expensive/lock-in, <b>ESG-ratings credibility criticism</b> (materiality-to-company not impact), some dated products.",
+  edge_l:"Global/EM equity indexes (network-effect moat, ~$18.3T benchmarked); factor/equity risk (Barra standard); ESG/climate breadth (regulatory tailwind); private capital (Burgiss).",
+  edge_g:"FI indexes &amp; evaluated pricing (ICE/Bloomberg own that); ESG methodology trust/regulatory scrutiny; price/lock-in backlash opens door to FTSE Russell/Solactive/S&P on cost-sensitive passive."},
+ ice:{snap:"Intercontinental Exchange (NYSE:ICE); pricing entity SEC-registered; built via IDC (2015), NYSE (2013), ICE BofA indices (2017). Atlanta HQ. Daily evaluations on ~2.7M securities; reference data ~13M instruments/210+ markets; 6,000+ FI indices tracking ~$100T+ debt. Enterprise negotiated pricing.",
+  cov:"<b>Public equity:</b> intl-equity evaluated + Consolidated Feed (NYSE roots); secondary. <b>PE/VC:</b> minimal. <b>Fixed income:</b> core — CEP + EOD evaluated pricing across corporates/sovereigns/EM/munis/MBS/ABS/loans; ICE Liquidity Indicators; ICE BofA indices. <b>Other:</b> climate risk, ESG reference, MOVE index, mortgage/loan-level (ICE Mortgage Technology).",
+  data:"~2.7M securities priced daily (CEP intraday); ~13M-instrument reference master; 6,000+ FI indices (ICE BofA family, multi-decade history to 1970s–80s); deep muni + structured evaluations; loan/mortgage-level data.",
+  tech:"Hybrid <b>system + human-analyst</b> evaluated-pricing methodology (audit-defensible, not black-box); CEP intraday valuations enabling ETF iNAV; cash-flow/best-execution/liquidity analytics; SFTI low-latency backbone + Consolidated/Global Index feeds; developer portal APIs; ML in pricing inputs.",
+  fb:"Sparse public reviews (enterprise). Pros: audit-defensible evaluated prices for NAV/regulatory, unmatched muni + structured + illiquid pricing, ICE BofA benchmark franchise, robust low-latency feeds. Cons: cost/complexity, opaque pricing, <b>2020 SEC $8m settlement</b> (single-broker-quote pricing) casts transparency shadow.",
+  edge_l:"Fixed-income evaluated pricing (deepest breadth + hybrid methodology trusted for NAV; high switching cost); credit indices (ICE BofA); feeds/connectivity (SFTI + Consolidated Feed infrastructure moat).",
+  edge_g:"Equity indexes/factor/ESG far behind MSCI/S&P/FTSE; private markets essentially absent; post-SEC-settlement transparency perception on illiquid evaluations."},
+ nasdaq:{snap:"Nasdaq, Inc. (NASDAQ:NDAQ); eVestment acq. $705M (2017), now Nasdaq eVestment; Nasdaq Data Link = ex-Quandl (2018). eVestment Atlanta, founded 2000. 30k+ strategies, 28k+ asset owners, 700+ peer universes, OCIO indices; ~6k firms. Enterprise SaaS by module/seat (not disclosed).",
+  cov:"<b>Public equity:</b> deep long-only strategy/composite performance, holdings, attribution. <b>PE/VC:</b> alternatives via TopQ (fund performance, PME); narrower than dedicated vendors. <b>Fixed income:</b> manager-reported product data (not security-level). <b>Other:</b> asset-owner/allocator intelligence (flows, searches, hiring/firing), Omni DDQ/RFP, ESG attributes; Nasdaq Data Link alt-data marketplace.",
+  data:"30k+ institutional strategies (manager-reported performance/holdings/fees/AUM/flows); 700+ peer universes; 28k+ asset owners + search/mandate activity + OCIO indices; TopQ private-markets performance; Nasdaq Data Link (equity fundamentals, alt-data, econ series, daily refresh). The self-reported composite dataset is the network-effect asset.",
+  tech:"Peer-universe/screening/attribution analytics engine; Omni digitizes DDQ/RFP between managers & allocators; cloud SaaS; Nasdaq Data Link marketplace (REST, Python/R/Excel); \"Next Best Action\" factor model; self-reporting pipeline with validation.",
+  fb:"~4.3/5 (G2, ~20+ reviews). Pros: most comprehensive manager database (\"can't be found elsewhere\"), market-sizing/flows/positioning intel, Omni reduces RFP friction, user-friendly. Cons: self-reporting latency (stale flows cited), weak Asia coverage, expensive module pricing, alternatives narrower than specialists.",
+  edge_l:"Institutional manager/allocator intelligence — two-sided network moat (managers self-report to be seen by consultants/asset owners); manager sales &amp; marketing intelligence; Omni DDQ/RFP entrenchment.",
+  edge_g:"Not a market-data/pricing/index provider (no security-level or evaluated pricing, no benchmark franchise); private markets trail Preqin/PitchBook/Burgiss; Asia gaps + self-reporting latency; Data Link is a secondary marketplace asset."}
+};
+
+/* Full source lists per provider (for Methodology appendix) */
+const SOURCES={
+ "Bloomberg":["en.wikipedia.org/wiki/Bloomberg_L.P.","costbench.com — Terminal seat pricing","neugroup.com — 2025 price increase/tiers","prnewswire.com — DL+/PORT/Snowflake","bloomberg.com — Data License on AWS/EAP","bloomberg.com — BVAL evaluated pricing","g2.com/products/bloomberg-terminal","trustradius.com — Bloomberg Terminal","wallstreetprep.com — competitive positioning"],
+ "LSEG / Refinitiv":["en.wikipedia.org/wiki/London_Stock_Exchange_Group","en.wikipedia.org/wiki/Refinitiv","developers.lseg.com — Data Libraries guide","developers.lseg.com — Tick History REST","lseg.com — World-Check","lseg.com — Datastream","fidelity.com — StarMine","ctacquisitions.com — positioning/market share","globaldatabase.com — ratings triangulation"],
+ "FactSet":["en.wikipedia.org/wiki/FactSet","developer.factset.com — Programmatic Environment API","go.factset.com — REST API brochure","app.snowflake.com/marketplace — FactSet","marketplace.databricks.com — FactSet","factset.com — Cobalt monitoring","finance.yahoo.com — Cobalt AI Doc Ingest","financefeeds.com — Cobalt acquisition","trustradius.com — Bloomberg vs FactSet","g2.com — Bloomberg vs FactSet"],
+ "S&P Global Market Intelligence":["spglobal.com — Estimates","spglobal.com — Capital IQ Pro / Xpressfeed coverage","en.wikipedia.org/wiki/Compustat","marketplace.spglobal.com — Compustat","spglobal.com — ClariFI + REST API","press.spglobal.com — RatingsDirect on CIQ Pro","kensho.com — FinAI stack","press.spglobal.com — Marketplace GenAI search","geminiq.com — pricing estimates","spglobal.com — Investor Fact Book (segment rev)"],
+ "Moody's":["moodys.com — Orbis 630M+ entities","en.wikipedia.org/wiki/Moody's_Analytics","businesswire.com — CreditEdge/RiskCalc AI + EDF","moodys.com — DataHub/Snowflake","moodys.com — Structured Finance REST API","moodys.com — RiskCalc private-firm model","edfx-early-warning-system.pdf — EDF-X methodology","risk.net — Credit Data Provider award","g2.com/products/moody-s-creditview"],
+ "Morningstar":["morningstar.com — Direct Web Services APIs","morningstar.com — data & analytics brands","sustainalytics.com — ESG Risk Ratings","sustainalytics.com — API/datafeeds/OpenAPI","dbrs.morningstar.com — ratings API","stocktitan.net — Snowflake Marketplace expansion","checkthat.ai — pricing/plans","techimply.com — Direct pricing","trustradius.com — Morningstar Direct","g2.com — Morningstar Direct"],
+ "PitchBook":["pitchbook.com — platform overview","pitchbook.com — coverage counts press","pitchbook.com — LCD acquisition","pitchbook.com — BDC/CLO datasets","pitchbook.com — Premium Connectors","pitchbook.com — M365 Copilot/Navigator/VC Exit Predictor","trustradius.com/products/pitchbook","easyvc.ai — pricing $12k–$70k","startupyeti.com — buyer pricing","costbench.com — buyer benchmarks"],
+ "Preqin":["preqin.com — overview/coverage","preqin.com — Preqin Pro","blackrock.com/aladdin — acquisition","businesswire.com — acquisition terms","preqin.com — Feeds API (CSV)","preqin.com — Operational API","preqin.com — Benchmarks","costbench.com — pricing benchmarks","adamfayed.com — methodology/pros-cons"],
+ "CB Insights":["cbinsights.com — overview/Business Graph","cbinsights.com — Mosaic score","cbinsights.com — API/data feeds","libguides.stanford.edu — coverage","costbench.com — pricing tiers","comparecamp.com — pros/cons","tomba.io — pricing/reviews","trustradius.com/products/cb-insights"],
+ "With Intelligence":["withintelligence.com — overview","investor.spglobal.com — S&P acquisition ($1.8bn)","press.spglobal.com — Capital IQ Pro integration","withintelligence.com — Eurekahedge","withintelligence.com — hedge-fund data","withintelligence.com — With HFM data service","bestfinancesites.com — comparison/sentiment"],
+ "MSCI":["msci.com — factor models","msci.com — BarraOne Snowflake","quartr.com — scale/AUM/positioning","en.wikipedia.org/wiki/MSCI","ir.msci.com — FY2024 results","institutionalassetmanager.co.uk — Crux cloud","developer.msci.com — ESG/index REST APIs","ieefa.org — ESG ratings criticism","pomegra.io — index licensing bps","glassdoor.com — MSCI brand proxy","MSCI blog/annual report — Burgiss (Oct 2023)"],
+ "ICE Data Services":["ice.com — CEP coverage/methodology","ice.com — ~2.7M securities/day","ice.com — 6,000+ indices / ~$100T","developer.ice.com — index/API catalog","sec.gov — $8M settlement (2020)","developer.ice.com — reference data (~13M)","ice.com — SFTI/Consolidated Feed","ir.theice.com — ICE Data Services launch","cmegroup.com — distribution/partners"],
+ "Nasdaq / eVestment":["nasdaq.com — eVestment positioning","nasdaq.com — datasets (30k+/28k+/700+)","g2.com/products/nasdaq-evestment","venturebeat.com — $705M acquisition","nasdaq.com — 25 years","data.nasdaq.com — Data Link/Quandl","data.nasdaq.com — daily refresh","nasdaq.com — data coverage (Asia gap)","ir.nasdaq.com — acquisition close (2017)"],
+ "API-Native Challengers (FMP, Polygon, Intrinio, Finnhub, Xignite)":["site.financialmodelingprep.com — FMP pricing","datarade.ai — FMP profile","g2.com — FMP reviews","apicostcalc.com — Polygon pricing","polygon.io/flat-files — bulk delivery","intrinio.com/pricing","intrinio.com — real-time multi-exchange","finnhub.io — pricing/tiers","apicostcalc.com — Finnhub free tier","businesswire.com — QUODD acquires Xignite","a-teaminsight.com — Xignite endpoints/scope"]
+};
+
+/* ============================ Render ============================ */
+function cell(v){return '<span class="cell r'+v+'">'+LABELS[v]+'</span>';}
+
+function renderMatrix(rows){
+  const tb=document.querySelector('#matrixTbl tbody');
+  tb.innerHTML=rows.map(p=>{
+    return '<tr>'+
+      '<td class="name" title="Biggest edge: '+p.edge.replace(/"/g,'&quot;')+'">'+p.name+
+        '<div style="font-weight:500;color:var(--muted);font-size:.76rem;white-space:normal;max-width:230px">'+p.tag+'</div></td>'+
+      DIMS.map(d=>'<td>'+cell(p.r[d[0]])+'</td>').join('')+
+    '</tr>';
+  }).join('');
+}
+let sortState={key:null,dir:1};
+function sortRows(key){
+  if(sortState.key===key){sortState.dir*=-1;}else{sortState.key=key;sortState.dir=-1;}
+  const rows=[...PROV].sort((a,b)=>{
+    let av=key==='name'?a.name:a.r[key], bv=key==='name'?b.name:b.r[key];
+    if(key==='name')return sortState.dir*av.localeCompare(bv);
+    return sortState.dir*(av-bv) || a.name.localeCompare(b.name);
+  });
+  document.querySelectorAll('#matrixTbl th.sortable').forEach(th=>{
+    th.removeAttribute('data-dir');
+    if(th.dataset.key===key)th.setAttribute('data-dir',sortState.dir>0?'asc':'desc');
+  });
+  renderMatrix(rows);
+}
+
+function renderProviders(){
+  const pills=document.getElementById('provPills');
+  pills.innerHTML=PROV.map(p=>'<button class="pill" data-jump="p-'+p.id+'">'+p.name+'</button>').join('');
+  const c=document.getElementById('provContainer');
+  c.innerHTML=PROV.map(p=>{
+    const d=DETAIL[p.id];
+    const s=(SOURCES[p.name]||[]);
+    return '<article class="prov" id="p-'+p.id+'">'+
+      '<h3>'+p.name+' <span class="tag">'+p.tag+'</span> <span class="owner">'+p.owner+'</span>'+
+        '<a class="anchor-top" href="#" data-goto="providers">↑ top</a></h3>'+
+      '<div class="sec-label">Snapshot</div><p class="fs-line">'+d.snap+'</p>'+
+      '<div class="sec-label">Asset-class coverage</div><p class="fs-line">'+d.cov+'</p>'+
+      '<div class="grid two">'+
+        '<div><div class="sec-label">Datasets</div><p class="fs-line">'+d.data+'</p></div>'+
+        '<div><div class="sec-label">APIs, integration &amp; enabling tech</div><p class="fs-line">'+d.tech+'</p></div>'+
+      '</div>'+
+      '<div class="sec-label">Customer &amp; user feedback</div><p class="fs-line">'+d.fb+'</p>'+
+      '<div class="edge">'+
+        '<div class="leads"><h5>Where it leads</h5><p class="fs-line">'+d.edge_l+'</p></div>'+
+        '<div class="lags"><h5>Where it lags</h5><p class="fs-line">'+d.edge_g+'</p></div>'+
+      '</div>'+
+      '<div class="sec-label" style="margin-top:12px">Selected sources</div>'+
+      '<p class="src">'+s.join(' · ')+'</p>'+
+    '</article>';
+  }).join('');
+}
+
+function renderSources(){
+  const el=document.getElementById('allSources');
+  el.innerHTML=Object.entries(SOURCES).map(([k,v])=>
+    '<p><b>'+k+':</b> '+v.join(' · ')+'</p>').join('');
+}
+
+/* ============================ Tabs / nav ============================ */
+function showTab(id){
+  document.querySelectorAll('.tabpane').forEach(s=>s.classList.toggle('active',s.id===id));
+  document.querySelectorAll('.tabbtn').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===id));
+  window.scrollTo({top:0,behavior:'instant' in window?'instant':'auto'});
+}
+document.querySelectorAll('.tabbtn').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+document.addEventListener('click',e=>{
+  const g=e.target.closest('[data-goto]'); if(g){e.preventDefault();showTab(g.dataset.goto);return;}
+  const j=e.target.closest('[data-jump]');
+  if(j){e.preventDefault();const t=document.getElementById(j.dataset.jump);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}
+});
+document.querySelectorAll('#matrixTbl th.sortable').forEach(th=>th.addEventListener('click',()=>sortRows(th.dataset.key)));
+
+/* ============================ Theme ============================ */
+const root=document.documentElement, tIcon=document.getElementById('themeIcon'), tLbl=document.getElementById('themeLbl');
+function applyTheme(t){
+  if(t==='light'||t==='dark'){root.setAttribute('data-theme',t);}
+  const dark = t==='dark' || (t!=='light' && matchMedia('(prefers-color-scheme: dark)').matches);
+  tIcon.textContent=dark?'☀️':'🌙'; tLbl.textContent=dark?'Light':'Dark';
+}
+let stored=null; try{stored=localStorage.getItem('fdp-theme');}catch(e){}
+applyTheme(stored||'system');
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  const cur=root.getAttribute('data-theme');
+  const next = cur==='dark' ? 'light' : 'dark';
+  applyTheme(next); try{localStorage.setItem('fdp-theme',next);}catch(e){}
+});
+
+/* init */
+renderProviders(); renderSources(); sortRows('pevc'); /* default sort highlights private-markets spread */
+</script>
