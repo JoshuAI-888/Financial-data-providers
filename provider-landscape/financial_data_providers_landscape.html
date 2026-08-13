@@ -65,7 +65,8 @@ header.site{background:linear-gradient(180deg,var(--panel),var(--panel-2));borde
 /* ============================ Nav ============================ */
 nav.tabs{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--panel) 88%,transparent);
   backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
-.tabs-inner{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:thin}
+.tabs-inner{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.tabs-inner::-webkit-scrollbar{display:none;height:0;width:0}
 .tabbtn{appearance:none;background:none;border:0;border-bottom:2px solid transparent;color:var(--ink-soft);
   font:600 .9rem/1 inherit;padding:14px 13px;white-space:nowrap;cursor:pointer;letter-spacing:.01em}
 .tabbtn:hover{color:var(--ink)}
