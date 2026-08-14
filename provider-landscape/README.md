@@ -17,11 +17,15 @@ recommendation, or affiliated with any provider named.
   interactive report. Self-contained (inlined CSS/JS, **no external requests**), theme-aware
   (light/dark), with a sortable cross-asset capability map, per-provider deep-dives, asset-class
   "who-leads-and-why" views, a technical-integration comparison, a customer-feedback synthesis, an
-  API-native challenger tier, and an **Extended Universe** of 67 further sources (modern market-data
-  & news APIs, social/sentiment, AI-fundamentals & expert networks, due-diligence/KYC, regional &
-  foreign-market data, macro/economic, crypto, ESG/climate, plus Databricks-Marketplace and MCP-server
-  delivery channels) — each with a full eight-section deep-dive, filterable comparison tables, and
-  working source links throughout. Open it in any modern browser.
+  API-native challenger tier, and an **Extended Universe** of 76 further sources (modern market-data
+  & news APIs, social/sentiment, AI-fundamentals & expert networks, alternative data, due-diligence/KYC,
+  regional & foreign-market data, macro/economic, crypto, ESG/climate, plus Databricks-Marketplace and
+  MCP-server delivery channels) — each with a full eight-section deep-dive, filterable comparison tables,
+  and working source links throughout. It also carries an **Earnings Calls & Transcripts** lens: a
+  focused comparison of ~15 providers across speed-to-data, value, value-add synthesis, completeness,
+  customer feedback, product quality and unique proposition, with full deep-dives on seven specialists
+  (Aiera, Motley Fool, Seeking Alpha, Finchat/Fiscal.ai, LSEG StreetEvents, FactSet CallStreet, API
+  Ninjas). Open it in any modern browser.
 
 ## Providers covered
 
