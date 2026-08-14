@@ -9,10 +9,10 @@
   --chip:#eef2f5; --chip-ink:#3a4650; --link:#0b6b5f; --shadow:0 1px 2px rgba(16,24,32,.06),0 4px 16px rgba(16,24,32,.06);
   /* rating ramp (light) */
   --r5-bg:#0f5f54; --r5-ink:#ffffff;
-  --r4-bg:#3f957f; --r4-ink:#ffffff;
+  --r4-bg:#2a7965; --r4-ink:#ffffff;
   --r3-bg:#93c1b1; --r3-ink:#12332c;
   --r2-bg:#d6e6df; --r2-ink:#1d3a33;
-  --r1-bg:#eceff1; --r1-ink:#6b7681;
+  --r1-bg:#eceff1; --r1-ink:#565f69;
 }
 :root[data-theme="dark"], :root:not([data-theme="light"]){}
 @media (prefers-color-scheme: dark){
@@ -21,19 +21,19 @@
     --muted:#8b96a1; --line:#242c34; --line-strong:#333d47; --accent:#4fd1be; --accent-ink:#7fe0d1;
     --chip:#1d242b; --chip-ink:#c3ccd4; --link:#5fd6c4; --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.35);
     --r5-bg:#12796b; --r5-ink:#eafffb;
-    --r4-bg:#2f8f7d; --r4-ink:#eafffb;
+    --r4-bg:#1f7a66; --r4-ink:#eafffb;
     --r3-bg:#3c6a60; --r3-ink:#dff3ee;
     --r2-bg:#293a38; --r2-ink:#cfe6df;
-    --r1-bg:#1b2228; --r1-ink:#7d8892;
+    --r1-bg:#1b2228; --r1-ink:#929ca6;
   }
 }
 :root[data-theme="dark"]{
   --bg:#0e1216; --panel:#161b21; --panel-2:#12171c; --ink:#e8edf2; --ink-soft:#b6c0ca;
   --muted:#8b96a1; --line:#242c34; --line-strong:#333d47; --accent:#4fd1be; --accent-ink:#7fe0d1;
   --chip:#1d242b; --chip-ink:#c3ccd4; --link:#5fd6c4; --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.35);
-  --r5-bg:#12796b; --r5-ink:#eafffb; --r4-bg:#2f8f7d; --r4-ink:#eafffb;
+  --r5-bg:#12796b; --r5-ink:#eafffb; --r4-bg:#1f7a66; --r4-ink:#eafffb;
   --r3-bg:#3c6a60; --r3-ink:#dff3ee; --r2-bg:#293a38; --r2-ink:#cfe6df;
-  --r1-bg:#1b2228; --r1-ink:#7d8892;
+  --r1-bg:#1b2228; --r1-ink:#929ca6;
 }
 /* ============================ Base ============================ */
 *{box-sizing:border-box}
@@ -169,6 +169,9 @@ hr.soft{border:0;border-top:1px solid var(--line);margin:22px 0}
   border-radius:10px;padding:12px 15px;margin:16px 0}
 img,svg,video{max-width:100%;height:auto}
 .wrap :where(pre,code){overflow-wrap:anywhere;word-break:break-word}
+/* long slash/underscore-delimited runs (e.g. "corporates/sovereigns/EM/munis/MBS") must wrap on narrow screens */
+.fs-line,.src,.tiernote,.fs-line b{overflow-wrap:anywhere}
+@media(prefers-reduced-motion:reduce){.tabpane{animation:none}}
 /* ============================ Mobile ============================ */
 @media(max-width:640px){
   .wrap{padding:0 14px}
@@ -180,13 +183,14 @@ img,svg,video{max-width:100%;height:auto}
   /* compact, still-scrollable nav; keep the theme toggle inline (scroll to reach it) */
   .tabbtn{padding:12px 10px;font-size:.85rem}
   .theme-toggle{margin-left:8px}
-  .theme-toggle button{padding:9px 12px}
+  .theme-toggle button{padding:12px 13px}
   /* right-edge cue that the tab row scrolls horizontally */
   nav.tabs{position:sticky}
   nav.tabs::after{content:"";position:absolute;top:0;right:0;bottom:0;width:26px;pointer-events:none;
     background:linear-gradient(to right,rgba(0,0,0,0),color-mix(in srgb,var(--panel) 80%,transparent))}
-  /* bigger touch targets */
-  .pill{padding:9px 14px}
+  /* bigger touch targets + comfortable spacing between wrapped pill rows */
+  .pill{padding:12px 14px}
+  .pillbar{gap:10px}
   .toc a{padding:14px}
   .toc{grid-template-columns:1fr}
   details.srcs summary{padding:11px 0}
