@@ -25,8 +25,8 @@ recommendation, or affiliated with any provider named.
 
 ## Providers covered
 
-**Core 13** (hand-authored deep-dives) + **5 API-native challengers** + **67 Extended-Universe sources**
-= **85 providers** in total.
+**Core 13** (hand-authored deep-dives) + **5 API-native challengers** + **76 Extended-Universe sources**
+= **94 providers** in total.
 
 | Cluster | Providers |
 |---|---|
@@ -36,15 +36,16 @@ recommendation, or affiliated with any provider named.
 | Indexes / risk / FI infrastructure | MSCI · ICE Data Services · Nasdaq/eVestment |
 | API-native challengers (comparative tier) | FMP · Polygon.io · Intrinio · Finnhub · Xignite |
 
-### Extended Universe (67 sources, 10 categories)
+### Extended Universe (76 sources, 11 categories)
 
 | Category | Sources |
 |---|---|
 | Market-data & fundamentals APIs | EODHD · Twelve Data · Alpha Vantage · Tiingo · Marketstack · Databento · Alpaca |
 | News APIs & feeds | NewsAPI.org · GDELT · Marketaux · Benzinga · NewsData.io · Mediastack · Dow Jones Factiva · RavenPack |
-| Social & sentiment | Truth Social · X/Twitter API · Reddit/ApeWisdom · StockTwits · Quiver Quantitative · Unusual Whales · Social Market Analytics · LunarCrush |
+| Social & sentiment | Truth Social · X/Twitter API · Reddit/ApeWisdom · StockTwits · Quiver Quantitative · Unusual Whales · Social Market Analytics · LunarCrush · Xpoz.ai · Dataminr · Meltwater · TipRanks · Ortex |
 | AI fundamentals & expert networks | Daloopa · AlphaSense · Tegus · Third Bridge · Quartr · Sentieo · BamSEC · Diffbot |
-| Due diligence / KYC / entity | Dun & Bradstreet · Sayari · Trulioo · LexisNexis · DueDil/Artesian · Sourcescrub · Grata |
+| Alternative data | Nasdaq Data Link (Quandl) · Similarweb · YipitData |
+| Due diligence / KYC / entity | Dun & Bradstreet · Sayari · Trulioo · LexisNexis · DueDil/Artesian · Sourcescrub · Grata · Crunchbase |
 | Regional & foreign-market data | ASX · NZX · IRESS · SIX · Euronext · Deutsche Börse/STOXX · Wind (China) · TEJ (Taiwan) · QUICK/Nikkei (Japan) |
 | Macro & economic data | Trading Economics · CEIC · Haver Analytics · Macrobond · FRED · OECD/IMF/World Bank · DBnomics |
 | Digital assets / crypto | Kaiko · Amberdata · CoinGecko · CoinMarketCap · Glassnode · Messari · CryptoCompare |
