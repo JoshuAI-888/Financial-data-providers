@@ -15,3 +15,6 @@ data/raw/**/*.json
 
 # Keep the generated report and demo cache out unless explicitly added
 # (outputs/*.html is committed intentionally as the deliverable demo)
+
+# Local build scratch (generators, extracted intermediates, screenshots) — not part of the deliverable
+scratchpad/
