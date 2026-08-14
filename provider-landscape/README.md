@@ -1,6 +1,6 @@
 # Financial Data & Intelligence Provider Landscape
 
-**Independent, vendor-neutral research · compiled 10 Aug 2026**
+**Independent, vendor-neutral research · compiled 10 Aug 2026 · Extended Universe added 14 Aug 2026**
 
 A comparative deep-dive on the major financial market-data and intelligence providers, spanning
 **public equity, private equity & venture, fixed income & credit, and adjacent products** (indexes,
@@ -16,10 +16,17 @@ recommendation, or affiliated with any provider named.
 - **[`financial_data_providers_landscape.html`](financial_data_providers_landscape.html)** — the
   interactive report. Self-contained (inlined CSS/JS, **no external requests**), theme-aware
   (light/dark), with a sortable cross-asset capability map, per-provider deep-dives, asset-class
-  "who-leads-and-why" views, a technical-integration comparison, a customer-feedback synthesis, and
-  an API-native challenger tier. Open it in any modern browser.
+  "who-leads-and-why" views, a technical-integration comparison, a customer-feedback synthesis, an
+  API-native challenger tier, and an **Extended Universe** of 67 further sources (modern market-data
+  & news APIs, social/sentiment, AI-fundamentals & expert networks, due-diligence/KYC, regional &
+  foreign-market data, macro/economic, crypto, ESG/climate, plus Databricks-Marketplace and MCP-server
+  delivery channels) — each with a full eight-section deep-dive, filterable comparison tables, and
+  working source links throughout. Open it in any modern browser.
 
 ## Providers covered
+
+**Core 13** (hand-authored deep-dives) + **5 API-native challengers** + **67 Extended-Universe sources**
+= **85 providers** in total.
 
 | Cluster | Providers |
 |---|---|
@@ -28,6 +35,21 @@ recommendation, or affiliated with any provider named.
 | Private markets | PitchBook · Preqin · CB Insights · With Intelligence |
 | Indexes / risk / FI infrastructure | MSCI · ICE Data Services · Nasdaq/eVestment |
 | API-native challengers (comparative tier) | FMP · Polygon.io · Intrinio · Finnhub · Xignite |
+
+### Extended Universe (67 sources, 10 categories)
+
+| Category | Sources |
+|---|---|
+| Market-data & fundamentals APIs | EODHD · Twelve Data · Alpha Vantage · Tiingo · Marketstack · Databento · Alpaca |
+| News APIs & feeds | NewsAPI.org · GDELT · Marketaux · Benzinga · NewsData.io · Mediastack · Dow Jones Factiva · RavenPack |
+| Social & sentiment | Truth Social · X/Twitter API · Reddit/ApeWisdom · StockTwits · Quiver Quantitative · Unusual Whales · Social Market Analytics · LunarCrush |
+| AI fundamentals & expert networks | Daloopa · AlphaSense · Tegus · Third Bridge · Quartr · Sentieo · BamSEC · Diffbot |
+| Due diligence / KYC / entity | Dun & Bradstreet · Sayari · Trulioo · LexisNexis · DueDil/Artesian · Sourcescrub · Grata |
+| Regional & foreign-market data | ASX · NZX · IRESS · SIX · Euronext · Deutsche Börse/STOXX · Wind (China) · TEJ (Taiwan) · QUICK/Nikkei (Japan) |
+| Macro & economic data | Trading Economics · CEIC · Haver Analytics · Macrobond · FRED · OECD/IMF/World Bank · DBnomics |
+| Digital assets / crypto | Kaiko · Amberdata · CoinGecko · CoinMarketCap · Glassnode · Messari · CryptoCompare |
+| ESG / climate specialists | ISS ESG · Clarity AI · RepRisk · Trucost |
+| Delivery channels | Databricks Marketplace · Financial-data MCP servers |
 
 ## Headline findings
 
