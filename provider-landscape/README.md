@@ -27,6 +27,18 @@ recommendation, or affiliated with any provider named.
   (Aiera, Motley Fool, Seeking Alpha, Finchat/Fiscal.ai, LSEG StreetEvents, FactSet CallStreet, API
   Ninjas). Open it in any modern browser.
 
+- **[`idp_evaluation.html`](idp_evaluation.html)** — a companion **Investment Data Platform (IDP)
+  Evaluation** page: an RFI/RFP framework for selecting an investment data platform for a
+  Databricks-strategic institutional multi-asset manager. Self-contained and theme-aware, it renders the
+  framework as interactive tools — a **capability map** (10 vendors × 12 weighted domains), an interactive
+  **hard-gate checklist** (G01–G22), a **weighted-score calculator** (adjust domain weights and per-vendor
+  0–5 scores with evidence caps and a strategic-risk penalty for a live, evidence-adjusted ranking), full
+  **vendor deep-dives**, and a **PoV & templates** toolkit (10 proof-of-value tests, an AI-rights matrix,
+  and copy-ready RFI/commercial/summary templates). The 10-vendor content — Rimes, FINBOURNE, Arcesium,
+  NeoXam, Gresham Opus EDM, GoldenSource, FactSet, MSCI, SimCorp One and BlackRock Aladdin — is a
+  **Stage-1 paper screen** from public sources, evidence-capped and clearly flagged as provisional (not a
+  recommendation or a substitute for a proof-of-value). Fact-sheets are in [`idp-research/`](idp-research/).
+
 ## Providers covered
 
 **Core 13** (hand-authored deep-dives) + **5 API-native challengers** + **76 Extended-Universe sources**
