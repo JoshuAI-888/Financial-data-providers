@@ -42,8 +42,8 @@ body{margin:0;background:var(--bg);color:var(--ink);
   font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   -webkit-font-smoothing:antialiased;}
 h1,h2,h3,h4{line-height:1.25;color:var(--ink);margin:0 0 .5em}
-h2{font-size:1.5rem;letter-spacing:-.01em;margin-top:0}
-h3{font-size:1.15rem;margin-top:1.6em}
+h2{font-size:clamp(1.25rem,4.5vw,1.5rem);letter-spacing:-.01em;margin-top:0}
+h3{font-size:clamp(1.05rem,3.5vw,1.15rem);margin-top:1.6em}
 h4{font-size:1rem;margin:1.2em 0 .4em}
 p{margin:.5em 0}
 a{color:var(--link);text-decoration:none}
@@ -56,8 +56,8 @@ code{background:var(--chip);padding:.05em .4em;border-radius:5px;font-size:.86em
 header.site{background:linear-gradient(180deg,var(--panel),var(--panel-2));border-bottom:1px solid var(--line)}
 .hero{padding:34px 0 26px}
 .eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
-.hero h1{font-size:2.1rem;letter-spacing:-.02em;margin:.35em 0 .3em}
-.hero p.lede{font-size:1.06rem;color:var(--ink-soft);max-width:760px}
+.hero h1{font-size:clamp(1.5rem,6.5vw,2.1rem);letter-spacing:-.02em;margin:.35em 0 .3em}
+.hero p.lede{font-size:clamp(.98rem,2.8vw,1.06rem);color:var(--ink-soft);max-width:760px}
 .meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
 .badge{display:inline-flex;align-items:center;gap:6px;background:var(--chip);color:var(--chip-ink);
   border:1px solid var(--line);border-radius:999px;padding:5px 11px;font-size:.78rem;font-weight:600}
@@ -95,7 +95,20 @@ ul.clean li{margin:.28em 0}
 .two-col-list{columns:2;column-gap:34px}
 @media(max-width:720px){.two-col-list{columns:1}}
 /* ============================ Tables ============================ */
-.tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:12px;
+  background-color:var(--panel);
+  /* pure-CSS scroll shadows (Lea Verou technique): the two 'cover' gradients are attachment:local so they
+     ride with content and hide the shadow at each end; the radial shadows are attachment:scroll so a soft
+     right-edge cue stays visible while more table is off-screen and fades once fully scrolled. */
+  background-image:
+    linear-gradient(to right, var(--panel) 30%, rgba(0,0,0,0)),
+    linear-gradient(to left, var(--panel) 30%, rgba(0,0,0,0)),
+    radial-gradient(farthest-side at 0 50%, color-mix(in srgb,var(--ink) 16%,transparent), rgba(0,0,0,0)),
+    radial-gradient(farthest-side at 100% 50%, color-mix(in srgb,var(--ink) 16%,transparent), rgba(0,0,0,0));
+  background-position:0 0, 100% 0, 0 0, 100% 0;
+  background-repeat:no-repeat;
+  background-size:36px 100%,36px 100%,14px 100%,14px 100%;
+  background-attachment:local,local,scroll,scroll}
 table{border-collapse:collapse;width:100%;font-size:.88rem}
 th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 thead th{position:sticky;top:0;background:var(--panel-2);color:var(--ink);font-weight:700;font-size:.78rem;
@@ -154,6 +167,39 @@ details.srcs summary{cursor:pointer;font-weight:600;padding:8px 0;color:var(--in
 hr.soft{border:0;border-top:1px solid var(--line);margin:22px 0}
 .disclaim{font-size:.82rem;color:var(--muted);background:var(--panel-2);border:1px dashed var(--line-strong);
   border-radius:10px;padding:12px 15px;margin:16px 0}
+img,svg,video{max-width:100%;height:auto}
+.wrap :where(pre,code){overflow-wrap:anywhere;word-break:break-word}
+/* ============================ Mobile ============================ */
+@media(max-width:640px){
+  .wrap{padding:0 14px}
+  main{padding:20px 0 50px}
+  .hero{padding:22px 0 18px}
+  .card{padding:16px 15px;border-radius:12px}
+  .card.tight{padding:12px 13px}
+  h3{margin-top:1.3em}
+  /* compact, still-scrollable nav; keep the theme toggle inline (scroll to reach it) */
+  .tabbtn{padding:12px 10px;font-size:.85rem}
+  .theme-toggle{margin-left:8px}
+  .theme-toggle button{padding:9px 12px}
+  /* right-edge cue that the tab row scrolls horizontally */
+  nav.tabs{position:sticky}
+  nav.tabs::after{content:"";position:absolute;top:0;right:0;bottom:0;width:26px;pointer-events:none;
+    background:linear-gradient(to right,rgba(0,0,0,0),color-mix(in srgb,var(--panel) 80%,transparent))}
+  /* bigger touch targets */
+  .pill{padding:9px 14px}
+  .toc a{padding:14px}
+  .toc{grid-template-columns:1fr}
+  details.srcs summary{padding:11px 0}
+  .prov h3{padding-top:16px}
+  table{font-size:.85rem}
+  th,td{padding:9px 10px}
+}
+@media(max-width:400px){
+  .wrap{padding:0 11px}
+  .card{padding:14px 12px}
+  .meta-row{gap:6px}
+  .badge{font-size:.74rem;padding:5px 9px}
+}
 </style>
 
 <header class="site">
