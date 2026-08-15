@@ -976,7 +976,7 @@ document.getElementById('themeBtn').addEventListener('click',()=>{
   var manualW=null;            // null => use recommended
   var activePreset=null;
   var GATE_POLICY_STORAGE_KEY='idp-hard-gate-policy:v1';
-  var excludeFailedGates=true;
+  var excludeFailedGates=false;
   try{var savedGatePolicy=JSON.parse(localStorage.getItem(GATE_POLICY_STORAGE_KEY)||'null');if(savedGatePolicy&&typeof savedGatePolicy.excludeFailedGates==='boolean')excludeFailedGates=savedGatePolicy.excludeFailedGates;}catch(e){}
   function persistGatePolicy(){try{localStorage.setItem(GATE_POLICY_STORAGE_KEY,JSON.stringify({version:1,excludeFailedGates:excludeFailedGates,savedAt:new Date().toISOString()}));}catch(e){}}
 
