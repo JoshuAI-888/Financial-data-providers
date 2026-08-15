@@ -77,8 +77,20 @@ header.site{background:linear-gradient(180deg,var(--panel),var(--panel-2));borde
 /* ============================ Nav ============================ */
 nav.tabs{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--panel) 88%,transparent);
   backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
-.tabs-inner{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
-.tabs-inner::-webkit-scrollbar{display:none;height:0;width:0}
+.tabs-inner{display:flex;align-items:center;gap:10px;min-height:58px;overflow:visible;padding-top:8px;padding-bottom:8px}
+.nav-options[hidden]{display:none!important}
+.section-switcher{display:flex;align-items:center;gap:8px;flex:1;min-width:0}
+.nav-context{flex:0 0 auto;color:var(--muted);font-size:.69rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.section-picker{display:block;flex:1;min-width:190px;max-width:500px}
+.section-select{appearance:auto;width:100%;min-height:40px;background:var(--panel);border:1px solid var(--line-strong);
+  border-radius:10px;color:var(--ink);font:650 .88rem/1.2 inherit;padding:8px 34px 8px 12px;cursor:pointer}
+.section-select:hover{border-color:var(--accent)}
+.section-select:focus-visible,.nav-step:focus-visible,.theme-toggle button:focus-visible{outline:3px solid color-mix(in srgb,var(--accent) 32%,transparent);outline-offset:2px}
+.nav-step{appearance:none;min-height:40px;background:var(--panel);border:1px solid var(--line);border-radius:10px;
+  color:var(--ink-soft);font:650 .82rem/1 inherit;padding:8px 12px;cursor:pointer;white-space:nowrap}
+.nav-step:hover:not(:disabled){border-color:var(--accent);color:var(--accent-ink)}
+.nav-step:disabled{opacity:.38;cursor:not-allowed}
+.nav-progress{color:var(--muted);font-size:.72rem;white-space:nowrap}
 .tabbtn{appearance:none;background:none;border:0;border-bottom:2px solid transparent;color:var(--ink-soft);
   font:600 .9rem/1 inherit;padding:14px 13px;white-space:nowrap;cursor:pointer;letter-spacing:.01em}
 .tabbtn:hover{color:var(--ink)}
@@ -195,6 +207,36 @@ details.srcs summary{cursor:pointer;font-weight:600;padding:8px 0;color:var(--in
 .g-unknown{background:var(--unk-bg);color:var(--unk-ink)}
 .gate-tally{font-weight:700}
 .gate-tally b{color:var(--accent-ink)}
+.gate-state-note{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:10px 0 0;
+  padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:var(--panel-2);color:var(--ink-soft);font-size:.82rem}
+.gate-override-banner{margin:0 0 12px;padding:12px 14px;border:1px solid var(--warn-bg);border-radius:10px;
+  background:color-mix(in srgb,var(--warn-bg) 13%,var(--panel));color:var(--ink-soft);font-size:.86rem}
+.gate-override-banner b,.gate-commentary b{color:var(--ink)}
+.gate-commentary{margin:12px 0;padding:12px 14px;border-left:3px solid var(--warn-bg);border-radius:0 9px 9px 0;
+  background:color-mix(in srgb,var(--warn-bg) 10%,var(--panel-2));color:var(--ink-soft);font-size:.84rem}
+.gate-commentary ul{margin:.45em 0 .2em;padding-left:1.2em}.gate-commentary li{margin:.45em 0}
+.gate-manual{display:inline-block;border-radius:999px;background:var(--warn-bg);color:var(--warn-ink);padding:2px 8px;font-size:.7rem;font-weight:700}
+.gate-policy-control{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:0 0 12px;
+  padding:12px 14px;border:1px solid var(--line-strong);border-radius:10px;background:var(--panel-2)}
+.gate-policy-copy{flex:1 1 360px;font-size:.88rem;color:var(--ink-soft)}
+.gate-policy-copy b{display:block;color:var(--ink);margin-bottom:2px}.gate-policy-copy small{display:block;color:var(--muted)}
+.gate-switch{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;font-weight:700;color:var(--ink);cursor:pointer}
+.gate-switch input{position:absolute;opacity:0;pointer-events:none}
+.gate-switch-track{position:relative;width:46px;height:26px;border-radius:999px;background:var(--unk-bg);border:1px solid var(--line-strong);transition:.2s}
+.gate-switch-track::after{content:"";position:absolute;width:20px;height:20px;left:2px;top:2px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.25);transition:.2s}
+.gate-switch input:checked+.gate-switch-track{background:var(--accent);border-color:var(--accent)}
+.gate-switch input:checked+.gate-switch-track::after{transform:translateX(20px)}
+.gate-switch input:focus-visible+.gate-switch-track{outline:3px solid color-mix(in srgb,var(--accent) 32%,transparent);outline-offset:2px}
+.gate-fail-warning{display:inline-block;border-radius:999px;background:var(--bad-bg);color:var(--bad-ink);padding:2px 8px;font-size:.7rem;font-weight:700}
+.deep-gate-overrides{margin:8px 0 14px;padding:12px 14px;border:1px solid var(--warn-bg);border-left:4px solid var(--warn-bg);border-radius:9px;background:color-mix(in srgb,var(--warn-bg) 10%,var(--panel-2))}
+.deep-gate-overrides p{margin:.25em 0 .6em;font-size:.84rem;color:var(--ink-soft)}
+.deep-override-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 0;border-top:1px solid color-mix(in srgb,var(--warn-bg) 30%,var(--line));font-size:.82rem}
+.deep-override-row:first-of-type{border-top:0}.deep-override-row .gate-desc{flex:1 1 300px}
+.gate-value-chip{display:inline-block;border-radius:999px;padding:2px 8px;font-size:.7rem;font-weight:800;background:var(--chip);color:var(--chip-ink)}
+.gate-value-chip.manual{background:var(--warn-bg);color:var(--warn-ink)}
+.gate-deep-override{margin-left:-8px;padding:8px!important;border-left:4px solid var(--warn-bg);border-radius:6px;background:color-mix(in srgb,var(--warn-bg) 10%,transparent)}
+.deep-override-note{display:block;margin-top:5px;color:var(--warn-ink);font-size:.78rem;font-weight:700}
+.rc-ineligible{color:var(--bad-bg);font-size:1rem!important;text-transform:uppercase;letter-spacing:.04em}
 /* ============================ Calculator ============================ */
 .calc-controls{display:grid;grid-template-columns:1fr 1fr;gap:8px 22px}
 @media(max-width:720px){.calc-controls{grid-template-columns:1fr}}
@@ -255,12 +297,13 @@ img,svg,video{max-width:100%;height:auto}
   .card{padding:16px 15px;border-radius:12px}
   .card.tight{padding:12px 13px}
   h3{margin-top:1.3em}
-  .tabbtn{padding:12px 10px;font-size:.85rem}
-  .theme-toggle{margin-left:8px}
-  .theme-toggle button{padding:12px 13px}
-  nav.tabs{position:sticky}
-  nav.tabs::after{content:"";position:absolute;top:0;right:0;bottom:0;width:26px;pointer-events:none;
-    background:linear-gradient(to right,rgba(0,0,0,0),color-mix(in srgb,var(--panel) 80%,transparent))}
+  .tabs-inner{gap:8px;min-height:58px;padding-top:8px;padding-bottom:8px}
+  .nav-context,.nav-progress,.nav-step{display:none}
+  .section-picker{min-width:0;max-width:none}
+  .section-select{min-height:42px;font-size:.86rem}
+  .theme-toggle{margin-left:0}
+  .theme-toggle button{min-width:42px;min-height:42px;justify-content:center;padding:8px}
+  .theme-toggle #themeLbl{display:none}
   .pill{padding:12px 14px}
   .pillbar{gap:10px}
   .toc a{padding:14px}
@@ -436,7 +479,7 @@ input[type=range].g{accent-color:var(--accent);height:26px;width:150px;max-width
   .rankcard{transition:none}
 }
 </style>
-<header class="site"><div class="wrap hero"><div class="eyebrow">Investment Data Platform Evaluation · v2 Guided Decision System</div><h1>Investment Data Platform (IDP) Evaluation</h1><p class="lede">A <b>guided, evidence-based decision system</b> for selecting an Investment Data Platform for an institutional multi-asset manager — public equity, fixed income, credit, ETFs, FX and private equity across the US, UK, Australia, New Zealand and Asia — where <b>Databricks is the strategic enterprise data &amp; AI platform</b>. It works forward from strategy to a live, explainable vendor ranking: guided controls derive the weights, evidence caps bound the scores, and every result carries a plain-language <b>"Why this score?"</b>.</p><div class="meta-row"><span class="badge">🧭 <b>Guided</b> weight derivation</span><span class="badge">🔎 <b>Why-this-score</b> with cited evidence</span><span class="badge">📅 Market screen <b>Aug 2026</b></span><span class="badge">🧱 <b>Databricks</b>-strategic</span><span class="badge">🏢 <b>10</b> candidate vendors</span><span class="badge">🔌 Self-contained · no external requests</span></div><p class="xlink">↳ Companion research: <a href="financial_data_providers_landscape.html">Financial Data &amp; Intelligence Provider Landscape →</a></p></div></header><nav class="tabs"><div class="wrap tabs-inner" role="tablist" aria-label="IDP evaluation sections"><span class="navgrp"><span class="grplbl">Define</span><button class="tabbtn" role="tab" aria-selected="true" data-tab="overview">Overview</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="strategy">Strategy</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="maturity">Maturity</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="tom">Operating model</button></span><span class="navgrp"><span class="grplbl">Evaluate</span><button class="tabbtn" role="tab" aria-selected="false" data-tab="matrix">Capability map</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="reqs">Requirements</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="vendors">Vendor deep-dives</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="gates">Hard gates</button></span><span class="navgrp"><span class="grplbl">Decide</span><button class="tabbtn" role="tab" aria-selected="false" data-tab="score">Score &amp; evidence</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="sensitivity">Sensitivity</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="pov">PoV &amp; templates</button></span><span class="navgrp"><span class="grplbl">Method</span><button class="tabbtn" role="tab" aria-selected="false" data-tab="method">Methodology</button></span><div class="theme-toggle"><button id="themeBtn" title="Toggle light/dark"><span id="themeIcon">🌙</span><span id="themeLbl">Dark</span></button></div></div></nav>
+<header class="site"><div class="wrap hero"><div class="eyebrow">Investment Data Platform Evaluation · v2 Guided Decision System</div><h1>Investment Data Platform (IDP) Evaluation</h1><p class="lede">A <b>guided, evidence-based decision system</b> for selecting an Investment Data Platform for an institutional multi-asset manager — public equity, fixed income, credit, ETFs, FX and private equity across the US, UK, Australia, New Zealand and Asia — where <b>Databricks is the strategic enterprise data &amp; AI platform</b>. It works forward from strategy to a live, explainable vendor ranking: guided controls derive the weights, evidence caps bound the scores, and every result carries a plain-language <b>"Why this score?"</b>.</p><div class="meta-row"><span class="badge">🧭 <b>Guided</b> weight derivation</span><span class="badge">🔎 <b>Why-this-score</b> with cited evidence</span><span class="badge">📅 Market screen <b>Aug 2026</b></span><span class="badge">🧱 <b>Databricks</b>-strategic</span><span class="badge">🏢 <b>10</b> candidate vendors</span><span class="badge">🔌 Self-contained · no external requests</span></div><p class="xlink">↳ Companion research: <a href="financial_data_providers_landscape.html">Financial Data &amp; Intelligence Provider Landscape →</a></p></div></header><nav class="tabs" aria-label="Evaluation navigation"><div class="wrap tabs-inner"><div class="nav-options" role="tablist" aria-label="IDP evaluation sections" hidden><span class="navgrp"><span class="grplbl">Define</span><button class="tabbtn" role="tab" aria-selected="true" data-tab="overview">Overview</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="strategy">Strategy</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="maturity">Maturity</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="tom">Operating model</button></span><span class="navgrp"><span class="grplbl">Evaluate</span><button class="tabbtn" role="tab" aria-selected="false" data-tab="matrix">Capability map</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="reqs">Requirements</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="vendors">Vendor deep-dives</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="gates">Hard gates</button></span><span class="navgrp"><span class="grplbl">Decide</span><button class="tabbtn" role="tab" aria-selected="false" data-tab="score">Score &amp; evidence</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="sensitivity">Sensitivity</button><button class="tabbtn" role="tab" aria-selected="false" data-tab="pov">PoV &amp; templates</button></span><span class="navgrp"><span class="grplbl">Method</span><button class="tabbtn" role="tab" aria-selected="false" data-tab="method">Methodology</button></span></div><div class="section-switcher"><span class="nav-context">Evaluation step</span><button class="nav-step" id="navPrev" type="button">Previous</button><label class="section-picker"><span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Evaluation section</span><select class="section-select" id="sectionSelect" aria-label="Evaluation section"></select></label><button class="nav-step" id="navNext" type="button">Next</button><span class="nav-progress" id="navProgress" aria-live="polite"></span></div><div class="theme-toggle"><button id="themeBtn" title="Toggle light/dark"><span id="themeIcon">🌙</span><span id="themeLbl">Dark</span></button></div></div></nav>
 <main class="wrap">
 <section id="overview" class="tabpane active" role="tabpanel"><div class="card"><div class="kicker">The decision, in one screen</div><h2 style="margin-top:4px">From vendor scorecard to guided decision system</h2><p>This tool selects an <b>Investment Data Platform (IDP)</b> for an institutional multi-asset manager whose strategic estate is <b>Databricks</b>. Its governing principle is <b>buy investment-domain complexity; build differentiated investment intelligence</b>. Rather than ask "which vendor scores best?", it works forward from strategy: <b>what needs to change, how mature it must become, who should own it, and what to build or buy</b> — then <i>derives</i> the vendor weighting from those answers and explains every score.</p><div class="grid two" style="margin-top:12px"><div><h3>The four questions</h3><ol class="clean"><li><b>What needs to change?</b> Strategically important, weak or painful capabilities.</li><li><b>How good must it get?</b> Target maturity and SLA — best-in-class is not automatically required.</li><li><b>Who should own it?</b> Internal · IDP · Databricks · specialist · managed · hybrid.</li><li><b>Who can prove it?</b> Evidence-capped vendor fit, hard gates, PoV, references, risk.</li></ol></div><div><h3>How to use it</h3><p class="tiernote">Start in <a href="#" data-goto="strategy">Strategy &amp; Outcomes</a> or pick a <a href="#" data-goto="score">preset</a>. Set current/target maturity and ownership; the <a href="#" data-goto="score">Score &amp; Evidence</a> tab derives the weights and ranks the ten vendors live, each with a plain-language <b>"Why this score?"</b>. <a href="#" data-goto="sensitivity">Sensitivity</a> shows whether the result is robust.</p><p class="tiernote">This is a <b>Stage-1 paper screen</b> — provisional, evidence-capped, not a selection of record. Confirm through RFI, references and PoV.</p></div></div></div><div class="card"><div class="kicker">Six-stage decision framework</div><p class="tiernote">The full method — the front third (define &amp; design) is what this v2 adds to the original evaluation.</p><div class="stages" aria-label="Six-stage decision framework"><div class="stage"><div class="snum">STAGE 0 · DEFINE</div><h5>Strategic intent</h5><ul><li>Business outcomes</li><li>Current state</li><li>Capability maturity</li><li>Pain / urgency</li><li>Target maturity</li></ul></div><div class="stage"><div class="snum">STAGE 1 · DESIGN</div><h5>Target model</h5><ul><li>Target capability model</li><li>Target operating model</li><li>Ownership & sourcing</li><li>Solution patterns</li><li>Target architecture · SLA</li></ul></div><div class="stage"><div class="snum">STAGE 2 · SCREEN</div><h5>Requirements</h5><ul><li>Hard gates</li><li>Vendor paper evidence</li><li>Evidence caps</li><li>Initial fit</li><li>Initial risk</li></ul></div><div class="stage"><div class="snum">STAGE 3 · VALIDATE</div><h5>Deep dive</h5><ul><li>Architecture</li><li>Security</li><li>Licensing</li><li>Customer references</li><li>Roadmap execution</li></ul></div><div class="stage"><div class="snum">STAGE 4 · PROVE</div><h5>Proof of value</h5><ul><li>Common PoV</li><li>Measured outcomes</li><li>Databricks integration</li><li>Point-in-time · AI</li><li>Exit</li></ul></div><div class="stage"><div class="snum">STAGE 5 · DECIDE</div><h5>Decision</h5><ul><li>Five-year TCO</li><li>Risk · sensitivity</li><li>Rank stability</li><li>Decision confidence</li><li>Contract conditions</li></ul></div></div></div><div class="card"><div class="kicker">How a score is calculated</div><p class="tiernote">Every number on this site traces back through this pipeline; nothing is a black box.</p><div class="flowdiag" aria-label="Calculation pipeline"><div class="flow-col"><div class="fnode st0">Guided inputs<small>Outcomes · maturity · ownership · sourcing · architecture · risk tolerance</small></div><div class="farrow st1"></div><div class="fnode st2">Calculated requirement priorities<small>priority = 0.30·importance + 0.20·urgency + 0.20·outcome-dependency + 0.15·pain + 0.15·target</small></div><div class="farrow st3"></div><div class="fnode st4">Calculated domain weights<small>× ownership-relevance factor, normalised to 100%</small></div><div class="farrow st5"></div><div class="fnode st6">Evidence-adjusted vendor fit<small>fit = Σ weight × min(capability, target)/target · capped by evidence class</small></div><div class="farrow st7"></div><div class="fnode st8">− strategic-risk penalty<small>lock-in · duplication · implementation · exit (≤ 20)</small></div><div class="farrow st9"></div><div class="fnode accent st10">Live ranking + confidence<small>adjusted = fit × (0.75 + 0.25·confidence) − risk · then Why-this-score & sensitivity</small></div></div></div></div><div class="card"><div class="kicker">Target architecture</div><p class="tiernote">The IDP masters investment data and exposes it through open interfaces; Databricks stays the strategic analytical and AI estate — avoiding a second competing data platform.</p><div class="flowdiag" aria-label="Target architecture"><div class="flow-col"><div class="fnode accent st0">Investment Data Platform — the master<small>Security / entity / price master · IBOR · point-in-time history</small></div><div class="farrow st1"></div><div class="fnode st2">Open interfaces<small>Delta / Open Sharing · Unity Catalog · APIs · MCP — no proprietary re-platforming</small></div><div class="farrow st3"></div><div class="fnode accent st4">Databricks — strategic analytical & AI estate<small>Notebooks · BI · governed AI/agents on the org's own models</small></div></div></div><p class="xlink" style="margin-top:10px">↳ Companion research: <a href="financial_data_providers_landscape.html">Financial Data &amp; Intelligence Provider Landscape →</a></p></div></section><section id="strategy" class="tabpane" role="tabpanel"><div class="card"><h2 style="margin-top:0">Strategy &amp; outcomes</h2><p>Enable the business outcomes that matter and rate their importance. These flow into the <a href="#" data-goto="score">derived domain weights</a> — you never hand-enter a percentage. <button class="btn" id="resetGuided">Reset all guided inputs</button></p><div class="presets" id="presetRow"></div><p class="tiernote">Presets visibly populate the controls below — they do not hide configuration.</p><div class="gcard" id="g-outcomes"></div></div></section><section id="maturity" class="tabpane" role="tabpanel"><div class="card"><h2 style="margin-top:0">Current state &amp; target maturity</h2><p>Rate each capability on the 1–5 maturity scale — <b>current</b> (left) and <b>target</b> (right). The gap drives transformation urgency; the target caps how much vendor capability actually counts (capability above your target is optional future value, not current fit).</p><p class="tiernote">1 Fragmented · 2 Repeatable · 3 Defined · 4 Managed · 5 Optimised.</p><div id="g-maturity"></div></div></section><section id="tom" class="tabpane" role="tabpanel"><div class="card"><h2 style="margin-top:0">Target operating model — ownership &amp; sourcing</h2><p>Decide <b>who owns</b> each capability. Ownership sets an IDP-relevance factor: a capability you keep internal or run on Databricks should not let an IDP vendor win on breadth you will not use.</p><div class="tom" id="tomGrid" aria-label="Target operating model"></div><div id="g-ownership"></div></div><div class="card"><h3 style="margin-top:0">Architecture principles</h3><p class="tiernote">These tilt the derived weights and risk treatment — e.g. a fixed Databricks constraint raises open-architecture weight and duplication risk.</p><div class="gcard" id="g-arch"></div></div><div class="card"><h3 style="margin-top:0">Solution patterns</h3><p class="tiernote">Deselect a pattern to apply a visible suitability modifier — vendors are never silently removed.</p><div class="gcard" id="g-patterns"></div></div><div class="card"><h3 style="margin-top:0">Risk tolerance</h3><p class="tiernote">Lower tolerance amplifies that strategic-risk penalty in the ranking.</p><div class="gcard" id="g-risk"></div></div></section><section id="matrix" class="tabpane" role="tabpanel">
   <div class="card">
@@ -446,7 +489,7 @@ input[type=range].g{accent-color:var(--accent);height:26px;width:150px;max-width
       and not a substitute for the proof-of-value. Sort by any domain; filter by vendor segment.</p>
     <div class="banner"><b>Provisional &amp; evidence-capped.</b> Documented-only capability is capped at Moderate/Strong;
       Leader requires a named production reference or the organisation's own PoV. Use the
-      <a href="#" data-goto="calc">Score Calculator</a> to weight these to your own priorities.</div>
+      <a href="#" data-goto="score">Score Calculator</a> to weight these to your own priorities.</div>
     <div class="legend">
       <span class="cell r5">Leader</span><span class="cell r4">Strong</span><span class="cell r3">Moderate</span>
       <span class="cell r2">Limited</span><span class="cell r1">Minimal</span>
@@ -509,7 +552,7 @@ input[type=range].g{accent-color:var(--accent);height:26px;width:150px;max-width
       </tbody></table></div>
   </div>
   <div id="idpGateWrap"></div>
-</section><section id="score" class="tabpane" role="tabpanel"><div class="card"><h2 style="margin-top:0">Score &amp; evidence — live ranking</h2><p>The ranking below is derived from your guided inputs. <b>Fit</b> and <b>confidence</b> are kept separate — a high score with thin evidence is a shortlist signal, not a decision. Open <b>"Why this score?"</b> on any vendor for the plain-language, cited breakdown.</p><div class="presets" id="presetRow2" style="display:none"></div><h3>Derived domain weights</h3><div id="wtable"></div><details class="srcs" style="margin-top:10px"><summary><b>Advanced — manual weight override</b></summary><div style="padding:8px 2px" id="manualWrap"></div></details></div><div class="card"><h3 style="margin-top:0">Vendor ranking</h3><div id="rankList"></div><p class="tiernote" style="margin-top:10px">Adjusted score = capability fit × (0.75 + 0.25 × evidence confidence) − strategic-risk penalty. Provisional paper-screen inputs — confirm through RFI, references and PoV before relying on any ordering.</p></div></section><section id="sensitivity" class="tabpane" role="tabpanel"><div class="card"><h2 style="margin-top:0">Sensitivity &amp; robustness</h2><p>Does the recommendation survive a change of mind? Each row re-runs the full model under one priority shift and shows the new top three. A leader that holds across scenarios is robust; one that flips is fragile.</p><div id="sensTable"></div></div><div class="card"><h3 style="margin-top:0">Decision confidence &amp; rank stability</h3><p class="tiernote">A high numeric score is not the same as high confidence. Stability = how often a vendor stays top-3 across the tested scenarios.</p><div id="robustList"></div></div><div class="card"><h3 style="margin-top:0">Evaluation-process confidence</h3><div id="confSummary"></div></div></section><section id="pov" class="tabpane" role="tabpanel">
+</section><section id="score" class="tabpane" role="tabpanel"><div class="card"><h2 style="margin-top:0">Score &amp; evidence — live ranking</h2><p>The ranking below is derived from your guided inputs. <b>Fit</b> and <b>confidence</b> are kept separate — a high score with thin evidence is a shortlist signal, not a decision. Open <b>"Why this score?"</b> on any vendor for the plain-language, cited breakdown.</p><div class="presets" id="presetRow2" style="display:none"></div><h3>Derived domain weights</h3><div id="wtable"></div><details class="srcs" style="margin-top:10px"><summary><b>Advanced — manual weight override</b></summary><div style="padding:8px 2px" id="manualWrap"></div></details></div><div class="card"><h3 style="margin-top:0">Vendor ranking</h3><div id="rankList"></div><p class="tiernote" style="margin-top:10px">Adjusted score = capability fit × (0.75 + 0.25 × evidence confidence) − strategic-risk penalty. When mandatory-fail exclusion is enabled, a failed gate removes a vendor from the eligible ranking; active manual overrides are called out above, in scoring, and in the vendor deep-dive. Provisional paper-screen inputs — confirm through RFI, references and PoV before relying on any ordering.</p></div></section><section id="sensitivity" class="tabpane" role="tabpanel"><div class="card"><h2 style="margin-top:0">Sensitivity &amp; robustness</h2><p>Does the recommendation survive a change of mind? Each row re-runs the full model under one priority shift and shows the new top three. A leader that holds across scenarios is robust; one that flips is fragile.</p><div id="sensTable"></div></div><div class="card"><h3 style="margin-top:0">Decision confidence &amp; rank stability</h3><p class="tiernote">A high numeric score is not the same as high confidence. Stability = how often a vendor stays top-3 across the tested scenarios.</p><div id="robustList"></div></div><div class="card"><h3 style="margin-top:0">Evaluation-process confidence</h3><div id="confSummary"></div></div></section><section id="pov" class="tabpane" role="tabpanel">
   <div class="card">
     <h2>Proof-of-value test design</h2>
     <p>Every finalist completes the <b>same</b> test on the <b>same</b> data under the same rules — to stop any vendor
@@ -662,9 +705,38 @@ Conditions:</pre>
 function showTab(id){
   document.querySelectorAll('.tabpane').forEach(s=>s.classList.toggle('active',s.id===id));
   document.querySelectorAll('.tabbtn').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===id));
+  updateSectionNav(id);
   window.scrollTo({top:0,behavior:'instant' in window?'instant':'auto'});
 }
+function sectionButtons(){ return Array.from(document.querySelectorAll('.tabbtn')); }
+function updateSectionNav(id){
+  const buttons=sectionButtons(), idx=buttons.findIndex(b=>b.dataset.tab===id);
+  const select=document.getElementById('sectionSelect'), prev=document.getElementById('navPrev'), next=document.getElementById('navNext');
+  if(select) select.value=id;
+  if(prev){ prev.disabled=idx<=0; prev.title=idx>0?'Previous: '+buttons[idx-1].textContent.trim():'First section'; }
+  if(next){ next.disabled=idx<0||idx>=buttons.length-1; next.title=idx>=0&&idx<buttons.length-1?'Next: '+buttons[idx+1].textContent.trim():'Last section'; }
+  const progress=document.getElementById('navProgress'); if(progress&&idx>=0)progress.textContent=(idx+1)+' of '+buttons.length;
+}
+function syncSectionNavOptions(){
+  const select=document.getElementById('sectionSelect'); if(!select)return;
+  const active=document.querySelector('.tabbtn[aria-selected="true"]');
+  select.innerHTML='';
+  sectionButtons().forEach(b=>{
+    const o=document.createElement('option'), grp=b.closest('.navgrp'), label=grp&&grp.querySelector('.grplbl');
+    o.value=b.dataset.tab;o.textContent=(label?label.textContent.trim()+' — ':'')+b.textContent.trim();select.appendChild(o);
+  });
+  updateSectionNav(active?active.dataset.tab:'overview');
+}
+function initSectionNav(){
+  const select=document.getElementById('sectionSelect'), prev=document.getElementById('navPrev'), next=document.getElementById('navNext');
+  if(!select)return;
+  select.addEventListener('change',()=>showTab(select.value));
+  prev.addEventListener('click',()=>{const b=sectionButtons(),i=b.findIndex(x=>x.getAttribute('aria-selected')==='true');if(i>0)showTab(b[i-1].dataset.tab);});
+  next.addEventListener('click',()=>{const b=sectionButtons(),i=b.findIndex(x=>x.getAttribute('aria-selected')==='true');if(i>=0&&i<b.length-1)showTab(b[i+1].dataset.tab);});
+  syncSectionNavOptions();
+}
 document.querySelectorAll('.tabbtn').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+initSectionNav();
 document.addEventListener('click',e=>{
   const g=e.target.closest('[data-goto]'); if(g){e.preventDefault();showTab(g.dataset.goto);return;}
   const j=e.target.closest('[data-jump]');
@@ -756,12 +828,77 @@ document.getElementById('themeBtn').addEventListener('click',()=>{
   /* ============================ HARD-GATE GRID ============================ */
   var GORDER=['pass','partial','fail','unknown'];
   var GST={pass:['g-pass','PASS'],partial:['g-partial','PART'],fail:['g-fail','FAIL'],unknown:['g-unknown','?']};
-  var gstate={}; D.vendors.forEach(function(v){gstate[v.id]=v.gates.slice();});
+  var GATE_STORAGE_KEY='idp-gate-overrides:v1';
+  var gateDefaults={},gstate={},gateOverrides={},gateStorageAvailable=true;
+  var gateLabels=Array.from(document.querySelectorAll('#gates table.lined tbody tr')).slice(0,22).map(function(row){return row.cells[1].textContent.trim();});
+  D.vendors.forEach(function(v){gateDefaults[v.id]=v.gates.slice();gstate[v.id]=v.gates.slice();});
+  try{
+    var savedGates=JSON.parse(localStorage.getItem(GATE_STORAGE_KEY)||'null');
+    if(savedGates&&savedGates.version===1&&savedGates.overrides&&typeof savedGates.overrides==='object')gateOverrides=savedGates.overrides;
+  }catch(e){gateStorageAvailable=false;gateOverrides={};}
+  Object.keys(gateOverrides).forEach(function(key){
+    var p=key.split(':'),vid=p[0],gi=+p[1],o=gateOverrides[key];
+    if(gstate[vid]&&gi>=0&&gi<gstate[vid].length&&o&&GORDER.indexOf(o.value)>=0&&o.value!==gateDefaults[vid][gi])gstate[vid][gi]=o.value;
+    else delete gateOverrides[key];
+  });
+  function gateKey(vid,gi){return vid+':'+gi;}
+  function persistGateOverrides(){
+    try{
+      if(Object.keys(gateOverrides).length)localStorage.setItem(GATE_STORAGE_KEY,JSON.stringify({version:1,researchBaseline:'2026-08',savedAt:new Date().toISOString(),overrides:gateOverrides}));
+      else localStorage.removeItem(GATE_STORAGE_KEY);
+      gateStorageAvailable=true;
+    }catch(e){gateStorageAvailable=false;}
+  }
+  function overrideEntries(vid){
+    return Object.keys(gateOverrides).map(function(key){var p=key.split(':');return {key:key,vid:p[0],gi:+p[1],value:gateOverrides[key].value,updatedAt:gateOverrides[key].updatedAt};})
+      .filter(function(o){return !vid||o.vid===vid;}).sort(function(a,b){return a.vid.localeCompare(b.vid)||a.gi-b.gi;})
+      .map(function(o){o.research=gateDefaults[o.vid][o.gi];o.label=gateLabels[o.gi]||('Gate '+(o.gi+1));return o;});
+  }
+  function notifyGateChange(){
+    refreshGateSummaries();refreshVendorGateOverrides();updateGateStatus();
+    document.dispatchEvent(new CustomEvent('idp:gates-changed',{detail:{overrides:overrideEntries()}}));
+  }
+  function setGateValue(vid,gi,value){
+    if(!gstate[vid]||GORDER.indexOf(value)<0)return;
+    gstate[vid][gi]=value;var key=gateKey(vid,gi);
+    if(value===gateDefaults[vid][gi])delete gateOverrides[key];
+    else gateOverrides[key]={value:value,updatedAt:new Date().toISOString()};
+    persistGateOverrides();notifyGateChange();
+  }
+  function resetGate(vid,gi){setGateValue(vid,gi,gateDefaults[vid][gi]);renderGates();}
+  function resetAllGates(){gateOverrides={};D.vendors.forEach(function(v){gstate[v.id]=gateDefaults[v.id].slice();});persistGateOverrides();renderGates();notifyGateChange();}
   function tally(arr){var pass=0,pp=0;arr.forEach(function(s){if(s==='pass'){pass++;pp++;}else if(s==='partial'){pp++;}});return[pass,pp];}
+  function gateStatusText(){var n=overrideEntries().length,v={};overrideEntries().forEach(function(o){v[o.vid]=true;});
+    return n?'<b>'+n+' manual override'+(n===1?'':'s')+'</b> across '+Object.keys(v).length+' vendor'+(Object.keys(v).length===1?'':'s')+' — saved '+(gateStorageAvailable?'in this browser':'for this session only')+'.':'Using the original research gate values. No manual overrides are active.';}
+  function updateGateStatus(){var el=document.getElementById('gateOverrideStatus');if(el)el.innerHTML=gateStatusText();}
+  function gateSummary(v){var t=tally(gstate[v.id]),n=overrideEntries(v.id).length;return t[0]+' full / '+t[1]+' incl. partial'+(n?' · '+n+' manual override'+(n===1?'':'s'):'');}
+  function refreshGateSummaries(){D.vendors.forEach(function(v){var el=document.getElementById('gate-summary-'+v.id);if(el)el.textContent=gateSummary(v);});}
+  function refreshVendorGateOverrides(){
+    D.vendors.forEach(function(v){
+      var detail=document.getElementById('v-'+v.id);if(!detail)return;
+      detail.querySelectorAll('.gate-deep-override').forEach(function(el){el.classList.remove('gate-deep-override');});
+      detail.querySelectorAll('[data-deep-override-note]').forEach(function(el){el.remove();});
+      var ovs=overrideEntries(v.id),panel=document.getElementById('gate-overrides-'+v.id);
+      if(panel){panel.innerHTML=ovs.length?'<div class="deep-gate-overrides" role="status"><div class="sec-label">Manual gate override'+(ovs.length===1?'':'s')+' in effect</div><p>The highlighted hard-gate evidence below retains the researched result and shows the active manual value.</p>'+ovs.map(function(o){var gid='G'+(o.gi+1<10?'0':'')+(o.gi+1);return '<div class="deep-override-row"><span class="gate-desc"><b>'+gid+' — '+esc(o.label)+'</b></span><span class="gate-value-chip">Research '+esc(o.research.toUpperCase())+'</span><span aria-hidden="true">→</span><span class="gate-value-chip manual">Override '+esc(o.value.toUpperCase())+'</span><button class="btn" type="button" data-greset="'+v.id+':'+o.gi+'">Reset</button></div>';}).join('')+'</div>':'';}
+      ovs.forEach(function(o){
+        var gid='G'+(o.gi+1<10?'0':'')+(o.gi+1),item=Array.from(detail.querySelectorAll('li')).filter(function(li){return li.textContent.trim().indexOf(gid)===0;})[0];
+        if(!item)return;item.classList.add('gate-deep-override');
+        var note=document.createElement('span');note.className='deep-override-note';note.dataset.deepOverrideNote='';
+        note.innerHTML='Manual override: research <b>'+esc(o.research.toUpperCase())+'</b> → active <b>'+esc(o.value.toUpperCase())+'</b>';
+        item.appendChild(note);
+      });
+    });
+  }
+  window.IDPGates={
+    stateFor:function(vid){return (gstate[vid]||[]).slice();},defaultsFor:function(vid){return (gateDefaults[vid]||[]).slice();},
+    overridesFor:function(vid){return overrideEntries(vid);},overrideCount:function(){return overrideEntries().length;},
+    resetOne:resetGate,resetAll:resetAllGates,labelFor:function(gi){return gateLabels[gi]||('Gate '+(gi+1));}
+  };
   function renderGates(){
     var gh='<div class="card"><h3 style="margin-top:0">Gate reads by vendor</h3>'+
-      '<p class="tiernote">Paper-screen status — click any cell to cycle Pass → Partial → Fail → Unknown. '+
-      'Full gate reasons are in each <a href="#" data-goto="vendors">vendor deep-dive</a>.</p>'+
+      '<p class="tiernote">Paper-screen status — click any cell to cycle Pass → Partial → Fail → Unknown. Manual values update ranking eligibility and confidence, and are saved in this browser. '+
+      'When the mandatory-fail policy is enabled on Score &amp; evidence, a Fail excludes the vendor from the eligible ranking. Full gate reasons are in each <a href="#" data-goto="vendors">vendor deep-dive</a>.</p>'+
+      '<div class="gate-state-note"><span id="gateOverrideStatus">'+gateStatusText()+'</span><button class="btn" id="gateReset" type="button">Reset to research values</button></div>'+
       '<div class="tbl-scroll"><table class="matrix"><thead><tr><th class="name">Vendor</th>';
     for(var i=1;i<=22;i++){gh+='<th title="Gate G'+(i<10?'0':'')+i+'">G'+(i<10?'0':'')+i+'</th>';}
     gh+='<th>Pass</th><th>+Part</th></tr></thead><tbody>';
@@ -769,17 +906,14 @@ document.getElementById('themeBtn').addEventListener('click',()=>{
       return '<tr data-v="'+v.id+'"><td class="name">'+esc(v.name)+'</td>'+
         st.map(function(s,gi){return '<td><span class="gcell '+GST[s][0]+'" data-v="'+v.id+'" data-gi="'+gi+'" title="G'+(gi+1<10?'0':'')+(gi+1)+'">'+GST[s][1]+'</span></td>';}).join('')+
         '<td class="gate-tally"><b class="tp">'+t[0]+'</b>/22</td><td class="gate-tally"><span class="tpp">'+t[1]+'</span>/22</td></tr>';
-    }).join('')+'</tbody></table></div>'+
-    '<div style="margin-top:10px"><button class="btn" id="gateReset">Reset gate reads</button></div></div>';
+    }).join('')+'</tbody></table></div></div>';
     document.getElementById('idpGateWrap').innerHTML=gh;
-    document.getElementById('gateReset').addEventListener('click',function(){
-      D.vendors.forEach(function(v){gstate[v.id]=v.gates.slice();}); renderGates();
-    });
+    document.getElementById('gateReset').addEventListener('click',resetAllGates);
   }
   document.addEventListener('click',function(e){
     var c=e.target.closest('.gcell'); if(!c)return;
     var vid=c.dataset.v, gi=+c.dataset.gi;
-    var cur=gstate[vid][gi]; gstate[vid][gi]=GORDER[(GORDER.indexOf(cur)+1)%4];
+    var cur=gstate[vid][gi]; setGateValue(vid,gi,GORDER[(GORDER.indexOf(cur)+1)%4]);
     var s=gstate[vid][gi]; c.className='gcell '+GST[s][0]; c.textContent=GST[s][1];
     var row=c.closest('tr'); var t=tally(gstate[vid]);
     row.querySelector('.tp').textContent=t[0]; row.querySelector('.tpp').textContent=t[1];
@@ -798,18 +932,20 @@ document.getElementById('themeBtn').addEventListener('click',()=>{
     var members=D.vendors.filter(function(v){return v.seg===seg.id;});
     vh+='<div class="card"><div class="seg-head" style="border-top:0;padding-top:0;margin-top:0">'+
       '<div class="kicker">'+esc(seg.label)+'</div><p class="tiernote">'+esc(seg.desc)+'</p></div>'+
-      members.map(function(v){var t0=(function(){var st=v.gates,p=0,pp=0;st.forEach(function(s){if(s==='pass'){p++;pp++;}else if(s==='partial')pp++;});return p+' full / '+pp+' incl. partial';})();
+      members.map(function(v){var t0=gateSummary(v);
         return '<details class="srcs" id="v-'+v.id+'" style="scroll-margin-top:70px">'+
           '<summary><b>'+esc(v.name)+'</b> '+fitFlag(v.fit)+' <span style="color:var(--muted);font-weight:400">— '+esc(v.cat.split('—')[0].split(';')[0])+'</span></summary>'+
           '<div style="padding:6px 2px 12px">'+
-          '<p class="tiernote" style="margin:2px 0 8px">Paper-screen gate read: <b>'+t0+'</b> of 22 · strategic-risk penalty <b>−'+penTotal(v.pen)+'</b> · '+
-          '<a href="#" data-goto="calc">tune in calculator →</a></p>'+
+          '<p class="tiernote" style="margin:2px 0 8px">Paper-screen gate read: <b id="gate-summary-'+v.id+'">'+t0+'</b> of 22 · strategic-risk penalty <b>−'+penTotal(v.pen)+'</b> · '+
+          '<a href="#" data-goto="score">tune in calculator →</a></p>'+
+          '<div id="gate-overrides-'+v.id+'"></div>'+
           v.html+
           '<div class="sec-label">Sources</div><p class="src">'+srcLinks(v.sources)+'</p>'+
           '</div></details>';}).join('')+
       '</div>';
   });
   document.getElementById('idpVendorWrap').innerHTML=vh;
+  refreshVendorGateOverrides();
 
   /* ============================ METHODOLOGY: per-vendor research sources ============================ */
   var rs=document.getElementById('idpResearchSources');
@@ -839,6 +975,10 @@ document.getElementById('themeBtn').addEventListener('click',()=>{
   var riskSens=V2.riskSens.slice();
   var manualW=null;            // null => use recommended
   var activePreset=null;
+  var GATE_POLICY_STORAGE_KEY='idp-hard-gate-policy:v1';
+  var excludeFailedGates=true;
+  try{var savedGatePolicy=JSON.parse(localStorage.getItem(GATE_POLICY_STORAGE_KEY)||'null');if(savedGatePolicy&&typeof savedGatePolicy.excludeFailedGates==='boolean')excludeFailedGates=savedGatePolicy.excludeFailedGates;}catch(e){}
+  function persistGatePolicy(){try{localStorage.setItem(GATE_POLICY_STORAGE_KEY,JSON.stringify({version:1,excludeFailedGates:excludeFailedGates,savedAt:new Date().toISOString()}));}catch(e){}}
 
   /* ---------------- weight derivation (transparent; spec §20) ---------------- */
   function outcomeDepByDomain(){
@@ -887,9 +1027,12 @@ document.getElementById('themeBtn').addEventListener('click',()=>{
   function capsInDomain(d){ return caps.filter(function(c){return c.dom===d && c.on;}); }
 
   /* ---------------- vendor scoring (spec §10,§22,§46) ---------------- */
-  function knownFrac(v){ var k=0; v.gates.forEach(function(g){ if(g==='pass'||g==='fail')k++; }); return k/v.gates.length; }
-  function gatePass(v){ var p=0; v.gates.forEach(function(g){ if(g==='pass')p++; }); return p; }
-  function confidence(v){ return clamp(0.40+0.55*knownFrac(v),0,1); }
+  function gateStates(v){return window.IDPGates?window.IDPGates.stateFor(v.id):v.gates.slice();}
+  function knownFrac(v){ var a=gateStates(v),k=0;a.forEach(function(g){if(g==='pass'||g==='fail')k++;});return k/a.length; }
+  function gateEvidenceFrac(v){var a=gateStates(v),n=0;a.forEach(function(g){if(g==='pass')n++;else if(g==='partial')n+=0.5;});return n/a.length;}
+  function gatePass(v){ var p=0;gateStates(v).forEach(function(g){if(g==='pass')p++;});return p; }
+  function failedGates(v){var out=[];gateStates(v).forEach(function(g,i){if(g==='fail')out.push(i);});return out;}
+  function confidence(v){ return clamp(0.40+0.55*gateEvidenceFrac(v),0,1); }
   function riskPenalty(v){ var p=0; for(var i=0;i<v.pen.length;i++){ p+=v.pen[i]*(riskSens[i]/3); } return Math.min(20,p); }
   function patternInfo(v){
     var any=false, allowed=false, names=[];
@@ -906,16 +1049,17 @@ document.getElementById('themeBtn').addEventListener('click',()=>{
       fit+=c;
       contrib.push({d:d,w:W[d],score:s,tgt:t,eff:eff,contrib:c,shortfall:W[d]*(1-eff)});
     }
-    var conf=confidence(v), risk=riskPenalty(v), pm=patternInfo(v);
+    var conf=confidence(v), risk=riskPenalty(v), pm=patternInfo(v), failed=failedGates(v), gateFailed=failed.length>0, gateExcluded=excludeFailedGates&&gateFailed;
     var adj=(fit*(0.75+0.25*conf)-risk)*(pm.excluded?0.97:1);
-    return {fit:fit,conf:conf,risk:risk,adj:adj,contrib:contrib,excluded:pm.excluded};
+    return {fit:fit,conf:conf,risk:risk,adj:adj,contrib:contrib,excluded:pm.excluded||gateExcluded,
+      patternExcluded:pm.excluded,gateFailed:gateFailed,gateExcluded:gateExcluded,failed:failed,eligible:!gateExcluded};
   }
   function rankWith(mutator){
     // mutator gets a scratch context; returns array of {v,r} sorted
     var W,tgt;
     if(mutator){ var sc=mutator(); W=sc.W; tgt=sc.tgt; }
     var arr=D.vendors.map(function(v){ return {v:v,r:vendorCalc(v,W,tgt)}; });
-    arr.sort(function(a,b){ return b.r.adj-a.r.adj; });
+    arr.sort(function(a,b){ return (b.r.eligible?1:0)-(a.r.eligible?1:0)||b.r.adj-a.r.adj; });
     return arr;
   }
   function ranked(){ return rankWith(null); }
@@ -1090,6 +1234,13 @@ document.getElementById('themeBtn').addEventListener('click',()=>{
       '<div class="lbl">Evidence</div><p>'+(function(){var dc=domainCites(v.id,ct.d);return dc.length?citeArr(dc):citeList(v,3);})()+'</p></div>';
   }
   function whatWouldChange(v){
+    var gateResult=vendorCalc(v);
+    if(gateResult.gateExcluded){
+      return '<b>'+gateResult.failed.map(function(i){return 'G'+(i+1<10?'0':'')+(i+1);}).join(', ')+'</b> currently fail mandatory gates. Revise the evidence or turn off mandatory-fail exclusion to return this vendor to the eligible ranking.';
+    }
+    if(gateResult.gateFailed){
+      return '<b>'+gateResult.failed.map(function(i){return 'G'+(i+1<10?'0':'')+(i+1);}).join(', ')+'</b> currently fail mandatory gates, but the exclusion policy is off so they are advisory. Turning the policy on would make this vendor ineligible.';
+    }
     // find the single sensitivity scenario that most improves this vendor's rank
     var base=ranked(); var baseRank=base.findIndex(function(x){return x.v.id===v.id;})+1;
     var best=null;
@@ -1119,10 +1270,18 @@ document.getElementById('themeBtn').addEventListener('click',()=>{
     var breakdown='<div class="lbl">Score breakdown</div><p style="font-size:.86rem">'+
       'Capability fit <b>'+r.fit.toFixed(1)+'</b> · evidence confidence <b>'+Math.round(r.conf*100)+'%</b> '+
       '(applied as ×'+(0.75+0.25*r.conf).toFixed(2)+') · strategic-risk penalty <b>−'+r.risk.toFixed(1)+'</b>'+
-      (r.excluded?' · <span style="color:var(--warn-ink);background:var(--warn-bg);padding:1px 6px;border-radius:5px">outside selected solution patterns (−3%)</span>':'')+
-      ' → adjusted score <b>'+r.adj.toFixed(1)+'</b>.</p>';
+      (r.patternExcluded?' · <span style="color:var(--warn-ink);background:var(--warn-bg);padding:1px 6px;border-radius:5px">outside selected solution patterns (−3%)</span>':'')+
+      (r.gateExcluded?' → <b>ineligible due to failed mandatory gate</b>.':' → adjusted score <b>'+r.adj.toFixed(1)+'</b>.'+(r.gateFailed?' <span class="gate-fail-warning">Failed gates treated as advisory</span>':''))+'</p>';
+    var gateCommentary=(function(){
+      var ovs=window.IDPGates?window.IDPGates.overridesFor(v.id):[];if(!ovs.length)return '';
+      return '<div class="gate-commentary"><div class="lbl">Manual hard-gate override'+(ovs.length===1?'':'s')+' in effect</div>'+
+        '<p>These values replace the research baseline for eligibility and evidence confidence. Capability fit is unchanged.</p><ul>'+
+        ovs.map(function(o){var gid='G'+(o.gi+1<10?'0':'')+(o.gi+1),effect=o.value==='fail'?(excludeFailedGates?'Vendor is excluded from the eligible ranking.':'Failure is advisory while mandatory-fail exclusion is off.'):o.value==='pass'?'Counts as confirmed gate evidence.':o.value==='partial'?'Counts as half-confirmed gate evidence.':'Does not contribute to gate confidence.';
+          return '<li><b>'+gid+' — '+esc(o.label)+'</b><br>Research <b>'+esc(o.research.toUpperCase())+'</b> → manual <b>'+esc(o.value.toUpperCase())+'</b>. '+effect+' <button class="btn" type="button" data-greset="'+v.id+':'+o.gi+'">Reset this gate</button></li>';}).join('')+
+        '</ul><p>Resulting evidence confidence: <b>'+Math.round(r.conf*100)+'%</b>'+(r.gateExcluded?' · eligibility: <b>Ineligible</b>':r.gateFailed?' · failed gates are <b>advisory</b> under the current policy':'')+'.</p></div>';
+    })();
     return '<div class="whywrap" id="why-'+v.id+'">'+
-      '<p style="font-size:.9rem">'+summary+'</p>'+breakdown+
+      '<p style="font-size:.9rem">'+summary+'</p>'+gateCommentary+breakdown+
       '<div class="lbl" style="margin-top:6px">Top positive contributors</div>'+pos.map(function(c){return driverBlock(v,c,true);}).join('')+
       '<div class="lbl" style="margin-top:6px">Top negative contributors</div>'+neg.map(function(c){return driverBlock(v,c,false);}).join('')+
       '<div class="know"><div class="col"><h6>What we know</h6><ul>'+
@@ -1131,24 +1290,30 @@ document.getElementById('themeBtn').addEventListener('click',()=>{
         (v.recent?'<li>'+esc(v.recent)+'</li>':'')+'</ul></div>'+
       '<div class="col"><h6>What we do not yet know</h6><ul>'+
         '<li>Production latency, support quality and true five-year cost.</li>'+
-        '<li>'+(22-gatePass(v)-v.gates.filter(function(g){return g==='fail';}).length)+' gates remain partial/unknown pending evidence.</li>'+
+        '<li>'+(22-gatePass(v)-gateStates(v).filter(function(g){return g==='fail';}).length)+' gates remain partial/unknown pending evidence.</li>'+
         '<li>Whether documented capability holds in this buyer\'s Databricks environment.</li></ul></div></div>'+
       '<div class="wc"><b>What would change the result?</b> '+whatWouldChange(v)+'</div>'+
       '</div>';
   }
   function renderRank(){
     var el=document.getElementById('rankList'); if(!el)return;
-    var arr=ranked();
-    var top=arr[0].r.adj, second=arr[1]?arr[1].r.adj:0;
+    var arr=ranked(),eligible=arr.filter(function(x){return x.r.eligible;});
+    var top=eligible[0]?eligible[0].r.adj:0, second=eligible[1]?eligible[1].r.adj:0;
     var band=(top-second)<2.0;
-    el.innerHTML=(band?'<div class="uband">⚖️ The gap between #1 and #2 is inside the uncertainty band ('+(top-second).toFixed(1)+' pts) — treat this as a shortlist signal, not a settled leader.</div>':'')+
-      arr.map(function(x,i){ var v=x.v,r=x.r;
+    var overrides=window.IDPGates?window.IDPGates.overridesFor():[],ovV={};overrides.forEach(function(o){ovV[o.vid]=true;});
+    var policyControl='<div class="gate-policy-control"><div class="gate-policy-copy"><b>Mandatory-fail exclusion</b><small>'+(excludeFailedGates?'On — any failed gate removes a provider from the eligible ranking.':'Off — failed gates remain visible but providers stay in the scored ranking.')+' This setting is saved in this browser.</small></div><label class="gate-switch"><span>'+(excludeFailedGates?'Exclusion on':'Exclusion off')+'</span><input id="gateExclusionToggle" type="checkbox" role="switch" aria-label="Exclude providers with any failed mandatory gate" '+(excludeFailedGates?'checked':'')+'><span class="gate-switch-track" aria-hidden="true"></span></label></div>';
+    var overrideBanner=overrides.length?'<div class="gate-override-banner" role="status"><b>Manual hard-gate overrides are active:</b> '+overrides.length+' change'+(overrides.length===1?'':'s')+' across '+Object.keys(ovV).length+' vendor'+(Object.keys(ovV).length===1?'':'s')+'. Scores and confidence use these overrides; eligibility follows the policy above. <a href="#" data-goto="gates">Review gates →</a> <button class="btn" type="button" data-gresetall>Reset all to research values</button></div>':'';
+    var eligibleRank=0;
+    el.innerHTML=policyControl+overrideBanner+(eligible.length>1&&band?'<div class="uband">⚖️ The gap between #1 and #2 is inside the uncertainty band ('+(top-second).toFixed(1)+' pts) — treat this as a shortlist signal, not a settled leader.</div>':'')+
+      arr.map(function(x){ var v=x.v,r=x.r,rankLabel=r.gateExcluded?'×':'#'+(++eligibleRank),vendorOverrides=window.IDPGates?window.IDPGates.overridesFor(v.id):[];
         return '<div class="rankcard'+(r.excluded?' excluded':'')+'">'+
-          '<div class="rc-top"><span class="rc-rank">#'+(i+1)+'</span><span class="rc-name">'+esc(v.name)+'</span>'+
-          '<span class="rc-score dualnum">'+r.adj.toFixed(1)+'<span class="conf">'+confWord(r.conf)+' conf.</span></span></div>'+
+          '<div class="rc-top"><span class="rc-rank">'+rankLabel+'</span><span class="rc-name">'+esc(v.name)+'</span>'+
+          (vendorOverrides.length?'<span class="gate-manual">'+vendorOverrides.length+' manual gate override'+(vendorOverrides.length===1?'':'s')+'</span>':'')+
+          (r.gateExcluded?'<span class="rc-score rc-ineligible">Ineligible<span class="conf">mandatory gate failed</span></span>':'<span class="rc-score dualnum">'+r.adj.toFixed(1)+'<span class="conf">'+confWord(r.conf)+' conf.</span></span>')+'</div>'+
           '<div class="rc-meta"><span>Fit <b>'+fitWord(r.fit)+'</b> ('+r.fit.toFixed(1)+')</span>'+
           '<span>Confidence <b>'+Math.round(r.conf*100)+'%</b></span>'+
           '<span>Hard gates <b>'+gatePass(v)+'/22</b></span>'+
+          (r.gateFailed?'<span>Failed mandatory gates <b>'+r.failed.map(function(i){return 'G'+(i+1<10?'0':'')+(i+1);}).join(', ')+'</b>'+(r.gateExcluded?'':' · advisory')+'</span>':'')+
           '<span>Strategic risk <b>−'+r.risk.toFixed(1)+'</b></span>'+
           '<span>Segment <b>'+esc(v.segLabel)+'</b></span></div>'+
           '<div class="rc-why"><button class="whybtn" data-why="'+v.id+'">Why this score? ▾</button> '+
@@ -1185,27 +1350,32 @@ document.getElementById('themeBtn').addEventListener('click',()=>{
   }
   function renderSensitivity(){
     var el=document.getElementById('sensTable'); if(!el)return;
-    var base=ranked();
+    var base=ranked().filter(function(x){return x.r.eligible;});
+    var baseTop=base[0]?base[0].v.id:'';
+    function rankCells(arr,highlightChanged){
+      var cells=arr.slice(0,3).map(function(x,i){var moved=highlightChanged&&i===0&&x.v.id!==baseTop;
+        return '<td'+(moved?' style="font-weight:700;color:var(--accent)"':'')+'>'+esc(x.v.name)+'</td>';});
+      while(cells.length<3)cells.push('<td>—</td>');
+      return cells.join('');
+    }
     var rows='<tr><td class="name"><b>Current configuration</b></td>'+
-      base.slice(0,3).map(function(x){return '<td>'+esc(x.v.name)+'</td>';}).join('')+'</tr>';
+      rankCells(base,false)+'</tr>';
     V2.scenarios.forEach(function(sc){
-      var arr=rankWith(function(){return scenarioContext(sc);});
-      var top1=arr[0].v.id;
+      var arr=rankWith(function(){return scenarioContext(sc);}).filter(function(x){return x.r.eligible;});
       rows+='<tr><td class="name">'+esc(sc.label)+'</td>'+
-        arr.slice(0,3).map(function(x,i){ var moved=(i===0&&top1!==base[0].v.id);
-          return '<td'+(moved?' style="font-weight:700;color:var(--accent)"':'')+'>'+esc(x.v.name)+'</td>';}).join('')+'</tr>';
+        rankCells(arr,true)+'</tr>';
     });
     el.innerHTML='<div class="tbl-scroll"><table class="matrix"><thead><tr><th class="name">Scenario</th><th>#1</th><th>#2</th><th>#3</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
     // robustness
     var rob=document.getElementById('robustList'); if(rob){
       var counts={}; D.vendors.forEach(function(v){counts[v.id]=0;});
       var scen=[{label:'Current'}].concat(V2.scenarios);
-      scen.forEach(function(sc){ var arr=sc.label==='Current'?base:rankWith(function(){return scenarioContext(sc);}); arr.slice(0,3).forEach(function(x){counts[x.v.id]++;}); });
+      scen.forEach(function(sc){ var arr=sc.label==='Current'?base:rankWith(function(){return scenarioContext(sc);}).filter(function(x){return x.r.eligible;}); arr.slice(0,3).forEach(function(x){counts[x.v.id]++;}); });
       var n=scen.length;
-      var list=D.vendors.map(function(v){ var r=vendorCalc(v); return {v:v,stab:counts[v.id]/n,conf:r.conf,adj:r.adj}; })
+      var list=D.vendors.map(function(v){ var r=vendorCalc(v); return {v:v,stab:counts[v.id]/n,conf:r.conf,adj:r.adj,gateFailed:r.gateFailed,gateExcluded:r.gateExcluded}; })
         .sort(function(a,b){return b.adj-a.adj;});
       rob.innerHTML=list.map(function(o){
-        var dc=o.stab>=0.8&&o.conf>=0.6?'High confidence':o.stab>=0.6?'Moderate confidence':o.conf<0.5?'Insufficient evidence':'Low confidence';
+        var dc=o.gateExcluded?'Ineligible — failed mandatory gate':o.gateFailed?'Eligible · gate failures advisory':o.stab>=0.8&&o.conf>=0.6?'High confidence':o.stab>=0.6?'Moderate confidence':o.conf<0.5?'Insufficient evidence':'Low confidence';
         return '<div class="gc-row"><div class="gc-name">'+esc(o.v.name)+'<small>top-3 in '+Math.round(o.stab*100)+'% of tested scenarios · evidence '+Math.round(o.conf*100)+'%</small></div>'+
           '<div class="gc-ctrls"><span class="flag '+(o.stab>=0.8?'ga':o.stab>=0.6?'prev':'layer')+'">'+dc+'</span></div></div>';
       }).join('');
@@ -1330,12 +1500,15 @@ document.getElementById('themeBtn').addEventListener('click',()=>{
     });
     document.addEventListener('change',function(e){
       var t=e.target;
-      if(t.dataset.oc!=null){ outcomes[+t.dataset.oc].on=t.checked; activePreset=null; renderPresets(); renderAll(); }
+      if(t.id==='gateExclusionToggle'){excludeFailedGates=t.checked;persistGatePolicy();renderRank();renderSensitivity();}
+      else if(t.dataset.oc!=null){ outcomes[+t.dataset.oc].on=t.checked; activePreset=null; renderPresets(); renderAll(); }
       else if(t.dataset.own!=null){ caps[+t.dataset.own].own=t.value; renderOwnership(); activePreset=null; renderPresets(); renderAll(); }
       else if(t.dataset.arch!=null){ arch[t.dataset.arch]=t.value; activePreset=null; renderPresets(); renderAll(); }
       else if(t.dataset.pat!=null){ patterns[t.dataset.pat]=t.checked; activePreset=null; renderPresets(); renderRank(); renderSensitivity(); }
     });
     document.addEventListener('click',function(e){
+      var gr=e.target.closest('[data-greset]');if(gr&&window.IDPGates){e.preventDefault();var gp=gr.dataset.greset.split(':');window.IDPGates.resetOne(gp[0],+gp[1]);return;}
+      var gra=e.target.closest('[data-gresetall]');if(gra&&window.IDPGates){e.preventDefault();window.IDPGates.resetAll();return;}
       var xc=e.target.closest('.xcell'); if(xc){ renderCellDrill(xc.dataset.v,+xc.dataset.d); return; }
       var p=e.target.closest('[data-preset]'); if(p){ applyPreset(p.dataset.preset); return; }
       var w=e.target.closest('[data-why]'); if(w){ e.preventDefault(); var pane=document.getElementById('why-'+w.dataset.why);
@@ -1343,6 +1516,7 @@ document.getElementById('themeBtn').addEventListener('click',()=>{
       var rst=e.target.closest('#resetGuided'); if(rst){ e.preventDefault(); caps=freshCaps();outcomes=freshOutcomes();arch=freshArch();
         V2.patterns.forEach(function(x){patterns[x.id]=true;});riskSens=V2.riskSens.slice();manualW=null;activePreset=null;renderGuided();renderAll(); }
     });
+    document.addEventListener('idp:gates-changed',function(){renderAll();});
   }
 
   function renderAll(){ renderWeights(); renderRank(); renderSensitivity(); renderTOM(); renderConfidence(); }
