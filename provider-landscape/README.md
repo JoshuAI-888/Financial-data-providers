@@ -40,15 +40,24 @@ recommendation, or affiliated with any provider named.
     **typed, dated citations** (vendor-authored vs independent), fit kept separate from evidence
     confidence, and a "what would change the result?" note.
   - **Sensitivity & robustness** (re-runs the model under priority shifts), the **capability map**
-    (10 × 12 domains), **hard-gate** grid (G01–G22), full **vendor deep-dives**, and a **PoV & templates**
+    (15 × 12 domains), **hard-gate** grid (G01–G22), full **vendor deep-dives**, and a **PoV & templates**
     toolkit — with **animated, self-contained diagrams** (six-stage framework, calculation pipeline, target
     architecture, operating model) that respect `prefers-reduced-motion`.
 
-  The 10-vendor content — Rimes, FINBOURNE, Arcesium, NeoXam, Gresham Opus EDM, GoldenSource, FactSet, MSCI,
-  SimCorp One and BlackRock Aladdin — is a **Stage-1 paper screen** from public sources, evidence-capped and
-  flagged as provisional. Vendor facts were **refreshed for 2025–26** (Databricks integration, AI/MCP status,
-  ownership changes, APAC support); fact-sheets are in [`idp-research/`](idp-research/) and the refresh audit
-  trail in [`idp-research/_v2_updates.md`](idp-research/_v2_updates.md).
+  The **15-candidate** content is a **Stage-1 paper screen** from public sources, evidence-capped and
+  flagged as provisional, across five segments:
+  - **Core IDP / EDM** — Rimes, FINBOURNE, Arcesium, NeoXam, Gresham Opus EDM, GoldenSource, plus
+    **Fencore** (Singapore, no-code, APAC-HQ'd) and **AlphaCert** (Auckland NZ, ANZ regulatory reporting).
+  - **Strategic data & content layers** — FactSet, MSCI.
+  - **Broad operating-platform counterfactuals** — SimCorp One, BlackRock Aladdin, plus **State Street
+    Alpha Data Platform** (Snowflake/Azure-powered — a deliberate Databricks-strategy counterfactual).
+  - **Emerging / open-standard challengers** — **Quadra** (FIBO-based, vendor-neutral; watch-list).
+  - **Build accelerators & systems integrators** — **Exafluence** (Databricks-capable IDM accelerator).
+
+  Vendor facts were **refreshed for 2025–26** (Databricks integration, AI/MCP status, ownership changes,
+  APAC support); fact-sheets are in [`idp-research/`](idp-research/) and the refresh audit trail in
+  [`idp-research/_v2_updates.md`](idp-research/_v2_updates.md). The five newest candidates are
+  domain-level paper-screened (requirement-level roll-up still being compiled for them).
 
 ## Providers covered
 
