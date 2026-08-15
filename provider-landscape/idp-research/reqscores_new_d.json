@@ -1,0 +1,103 @@
+{
+  "cluster": "ttv-commercials-viability",
+  "requirements": {
+    "TTV-01": "Dataset onboarding speed",
+    "TTV-02": "Pre-built connector library",
+    "TTV-03": "Low implementation FTE / professional-services dependency",
+    "TTV-04": "30-60 day proof-of-value feasibility",
+    "TCO-01": "Pricing transparency",
+    "TCO-02": "Predictable AUM-scalable 5-year TCO",
+    "TCO-03": "Full data export on exit (raw+mastered+history+rules+audit)",
+    "TCO-04": "Usable without vendor proprietary runtime",
+    "VIA-01": "APAC / ANZ support & named references",
+    "VIA-02": "Roadmap execution track record",
+    "VIA-03": "Financial viability & ownership stability",
+    "VIA-04": "Comparable-customer reference availability"
+  },
+  "scores": {
+    "TTV-01": {
+      "fencore": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Fencore DataHub no-code product page", "url": "https://fencore.co/solution/", "type": "Vendor marketing", "note": "No-code business-user config is the pitch; no published day-level onboarding metric"},
+      "statestreet-alpha": {"s": 1.5, "ev": "sales", "rel": "GA", "cite": "State Street Alpha / CRD data platform", "url": "https://www.crd.com/solutions/data", "type": "Official docs", "note": "Front-to-back enterprise programme; managed-service offsets but onboarding is not fast"},
+      "alphacert": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "AlphaCert plug-and-play data feeds", "url": "https://alphacert.com/investment-data-management", "type": "Official docs", "note": "Plug-and-play custodian/administrator feeds; no day-level metric published"},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "Quadra Platform site", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "Early-stage; onboarding-speed claims unvalidated, no reference deployment found"},
+      "exafluence": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "ExfInsights low-code platform", "url": "https://exfinsights.com/", "type": "Vendor marketing", "note": "Pre-built accelerators + low-code claimed to speed onboarding; SI-engagement variable"}
+    },
+    "TTV-02": {
+      "fencore": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "Fencore DataHub solution overview", "url": "https://fencore.co/solution/", "type": "Vendor marketing", "note": "Interoperable/API-based; connector count/library not itemised publicly"},
+      "statestreet-alpha": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Charles River Data Platform", "url": "https://www.crd.com/solutions/data", "type": "Official docs", "note": "Extensible data model assembling internal + third-party data; count not published"},
+      "alphacert": {"s": 2.5, "ev": "docs", "rel": "partner", "cite": "AlphaCert + Refinitiv (LSEG) partnership", "url": "https://cfotech.co.nz/story/alphacert-refinitiv-bring-data-to-better-investment-decisions", "type": "Official release note", "note": "Plug-and-play feeds across most global custodians/providers + Refinitiv partner"},
+      "quadra": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "Quadra reconciles Bloomberg/Refinitiv/custodian", "url": "https://www.quadraplatform.com/", "type": "Vendor marketing", "note": "Explicit Bloomberg/Refinitiv/custodian reconciliation claim; no library size or production use"},
+      "exafluence": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "ExfInsights investment data model", "url": "https://exfinsights.com/products/", "type": "Vendor marketing", "note": "Best-of-breed IDM + multi-backend containerisation; connector library not itemised"}
+    },
+    "TTV-03": {
+      "fencore": {"s": 2.5, "ev": "docs", "rel": "GA", "cite": "Fencore no-code business-user model", "url": "https://fencore.co/solution/", "type": "Vendor marketing", "note": "Core USP is business-user config vs engineering project; no case study of realised FTE saving"},
+      "statestreet-alpha": {"s": 1.5, "ev": "sales", "rel": "GA", "cite": "State Street Alpha front-to-back programme", "url": "https://www.statestreet.com/alpha/solutions/technology-and-services", "type": "Official docs", "note": "Enterprise front-to-back rollout is PS-heavy; managed-service option only post-go-live"},
+      "alphacert": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "AlphaCert plug-and-play feeds", "url": "https://alphacert.com/why-alphacert", "type": "Official docs", "note": "Focused-scope, plug-and-play design; implementation-FTE evidence not quantified"},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "Quadra Platform site", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "No production deployments found to evidence implementation effort"},
+      "exafluence": {"s": 1.0, "ev": "docs", "rel": "GA", "cite": "Exafluence SI/accelerator engagement model", "url": "https://exafluence.com/finance", "type": "Vendor marketing", "note": "Explicitly a services engagement (SI project); PS/staffing dependency is the core risk"}
+    },
+    "TTV-04": {
+      "fencore": {"s": 1.5, "ev": "sales", "rel": "GA", "cite": "Fencore DataHub site", "url": "https://www.fencore.co/", "type": "Vendor marketing", "note": "No formal 30-60 day PoV pathway documented; plausible given no-code but unconfirmed"},
+      "statestreet-alpha": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "Harris|Oakmark State Street Alpha rollout", "url": "https://www.businesswire.com/news/home/20241210112395/en/State-Street-Announces-Partnership-with-Harris-Oakmark-for-State-Street-Alpha", "type": "News", "note": "Named rollout: first phase alone took 10 months; 30-60 day PoV not credible"},
+      "alphacert": {"s": 1.5, "ev": "sales", "rel": "GA", "cite": "AlphaCert free trial (Capterra)", "url": "https://www.capterra.com/p/192616/AlphaCert/", "type": "Independent research", "note": "Free trial exists (no card required) but no formal 30-60 day PoV pathway published"},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "Quadra Platform site", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "Time-to-value/PoV claims cannot be validated; no reference deployment"},
+      "exafluence": {"s": 1.5, "ev": "sales", "rel": "GA", "cite": "ExfInsights accelerators", "url": "https://exfinsights.com/", "type": "Vendor marketing", "note": "Accelerators support fast pilots but delivered as SI engagement; no formal PoV term"}
+    },
+    "TCO-01": {
+      "fencore": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "Fencore commercial model", "url": "https://www.fencore.co/", "type": "No evidence located", "note": "SaaS/subscription model; pricing not public, contact-for-quote"},
+      "statestreet-alpha": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "State Street Alpha commercial model", "url": "https://www.statestreet.com/alpha", "type": "No evidence located", "note": "Premium bundled commercials tied to custody/servicing relationship; pricing not public"},
+      "alphacert": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "AlphaCert pricing (Capterra: quote-based)", "url": "https://www.capterra.com/p/192616/AlphaCert/", "type": "No evidence located", "note": "Confirmed quote-based/undisclosed; no list price found on review sites"},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "Quadra Platform site", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "No commercial/pricing model evidenced at all, not even a stated 'contact us'"},
+      "exafluence": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "Exafluence services + IDM subscription", "url": "https://exfinsights.com/products/", "type": "No evidence located", "note": "Blend of services fees + data-model subscription; no published rates"}
+    },
+    "TCO-02": {
+      "fencore": {"s": 0.5, "ev": "none", "rel": "none", "cite": "Fencore commercial model", "url": "https://www.fencore.co/", "type": "No evidence located", "note": "SaaS/subscription implied; AUM-scaled 5yr TCO undisclosed"},
+      "statestreet-alpha": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "State Street Alpha bundled commercials", "url": "https://www.statestreet.com/alpha/solutions/technology-and-services", "type": "No evidence located", "note": "Bundled/custody-linked pricing can scale with AUM but is undisclosed and can balloon"},
+      "alphacert": {"s": 0.5, "ev": "none", "rel": "none", "cite": "AlphaCert commercial model", "url": "https://alphacert.com/", "type": "No evidence located", "note": "Small vendor, likely module/seat-based; no AUM-scaling or 5yr TCO evidence"},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "Quadra Platform site", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "No commercial model evidence at all"},
+      "exafluence": {"s": 0.5, "ev": "sales", "rel": "none", "cite": "Exafluence services + IDM subscription", "url": "https://exfinsights.com/products/", "type": "No evidence located", "note": "Services-fee component makes 5yr TCO inherently less predictable than pure SaaS"}
+    },
+    "TCO-03": {
+      "fencore": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "Fencore automated snapshot storage", "url": "https://fencore.co/solution/", "type": "Vendor marketing", "note": "Stores raw/historical/export snapshots + lineage; formal exit/export terms unconfirmed"},
+      "statestreet-alpha": {"s": 0.5, "ev": "sales", "rel": "none", "cite": "State Street Alpha / Snowflake case study", "url": "https://www.snowflake.com/en/customers/all-customers/case-study/state-street/", "type": "News", "note": "Front-to-back platform with embedded Snowflake estate; exit/portability described as hard"},
+      "alphacert": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "AlphaCert reconciliation/audit outputs", "url": "https://alphacert.com/insights/simplifying-investment-data-reconciliations", "type": "Vendor marketing", "note": "Audit-ready reconciliation outputs exist; no published export/exit terms"},
+      "quadra": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "Quadra open/inspectable standards design", "url": "https://www.quadraplatform.com/", "type": "Vendor marketing", "note": "Explicit anti-lock-in, open/inspectable design; not independently verified, no repo/licence found publicly"},
+      "exafluence": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "ExfInsights - platform is client's own", "url": "https://exfinsights.com/", "type": "Vendor marketing", "note": "Resulting build + data model is the client's own asset, explicit portability strength"}
+    },
+    "TCO-04": {
+      "fencore": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "Fencore cloud-native / interoperability focus", "url": "https://fencore.co/solution/", "type": "Vendor marketing", "note": "API-based, cloud-native design; no Databricks/Delta-specific evidence found"},
+      "statestreet-alpha": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "State Street Alpha built on Snowflake/Azure", "url": "https://www.snowflake.com/en/customers/all-customers/case-study/state-street/", "type": "News", "note": "Snowflake Marketplace/data sharing exists but ADP itself is the vendor's strategic platform"},
+      "alphacert": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "AlphaCert industry-standard APIs", "url": "https://alphacert.com/investment-data-management", "type": "Official docs", "note": "API-first, scalable cloud architecture claimed; no specific external-runtime evidence"},
+      "quadra": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "Quadra vendor-independent, standards-based design", "url": "https://www.quadraplatform.com/", "type": "Vendor marketing", "note": "Most philosophically vendor-neutral candidate; proven external-runtime integration unconfirmed"},
+      "exafluence": {"s": 3.5, "ev": "named-customer", "rel": "GA", "cite": "ExfInsights containerised (Snowflake/Databricks/SQL/Oracle)", "url": "https://exfinsights.com/fis.html", "type": "Named customer case study", "note": "Fully containerised, backend-agnostic; FIS selected ExfInsights to power its IDP"}
+    },
+    "VIA-01": {
+      "fencore": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Fencore Singapore HQ", "url": "https://www.fencore.co/", "type": "Official docs", "note": "Genuine APAC HQ (Singapore) gives time-zone coverage; no named ANZ reference found"},
+      "statestreet-alpha": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "State Street APAC custody/Alpha presence", "url": "https://www.statestreet.com/alpha/solutions/technology-and-services", "type": "Official docs", "note": "Substantial APAC custody footprint; no named ANZ Alpha/ADP client surfaced"},
+      "alphacert": {"s": 4.0, "ev": "named-customer", "rel": "partner", "cite": "AlphaCert Auckland HQ + AustralianSuper", "url": "https://alphacertlabs.com/tag/australiansuper-alphacert-data-management/", "type": "Named customer case study", "note": "Auckland-HQ'd, APRA SRS550/FMA-QFU aligned, Refinitiv-partnered; AustralianSuper named"},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "Quadra Platform site", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "No APAC/ANZ presence or references evidenced; limited public footprint"},
+      "exafluence": {"s": 0.5, "ev": "none", "rel": "none", "cite": "Exafluence US/India presence", "url": "https://exafluence.com/aboutus", "type": "No evidence located", "note": "Search confirms US HQ + India delivery only; no Singapore/Australia office found"}
+    },
+    "VIA-02": {
+      "fencore": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "Fencore product/company site", "url": "https://www.fencore.co/", "type": "No evidence located", "note": "No public release-cadence or roadmap-delivery evidence found for young (2019) vendor"},
+      "statestreet-alpha": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "State Street Alpha AI data-quality launch", "url": "https://www.statestreet.com/alpha/insights/new-standard-in-data-quality", "type": "Official docs", "note": "Consistent public-co delivery cadence: AI data-quality tooling, Snowflake platform build-out"},
+      "alphacert": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "AlphaCert regulatory-content cadence (CPS 230)", "url": "https://alphacert.com/insights/navigating-apras-cps-230-a-guide-for-investment-managers", "type": "Vendor marketing", "note": "Active regulatory-content publishing; limited independent evidence of product roadmap delivery"},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "Quadra Platform site", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "No shipped-release history or roadmap execution evidence found; early-stage"},
+      "exafluence": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "ExfInsights FIS partnership delivery", "url": "https://exfinsights.com/fis.html", "type": "Official release note", "note": "Real delivery evidenced (FIS IDP, Aladdin Data Cloud engine build) though as services firm, not product roadmap"}
+    },
+    "VIA-03": {
+      "fencore": {"s": 0.5, "ev": "docs", "rel": "none", "cite": "Fencore seed funding ~US$373K (Crunchbase)", "url": "https://www.crunchbase.com/organization/fencore", "type": "Independent research", "note": "2019 startup; only ~$373K seed disclosed (Tenity, Engine) — thin capitalisation, major risk"},
+      "statestreet-alpha": {"s": 3.5, "ev": "docs", "rel": "GA", "cite": "State Street Corp (NYSE:STT), G-SIB", "url": "https://www.sec.gov/Archives/edgar/data/93751/000009375124000498/stt-20231231.htm", "type": "Official filings", "note": "Global systemically important bank; strongest viability of any vendor in the screen"},
+      "alphacert": {"s": 1.0, "ev": "docs", "rel": "none", "cite": "AlphaCert ~26 staff, ~US$1.8m revenue", "url": "https://www.thewealthmosaic.com/vendors/fencore/fencore-datahub/", "type": "Independent research", "note": "Tiny firm for a strategic platform; concentration/key-person/financial-durability risk"},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "Quadra Platform - no financials found", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "No funding/revenue disclosure found for this Quadra entity; early-stage, dominant risk"},
+      "exafluence": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "Exafluence Inc, privately held (founded 2018)", "url": "https://exafluence.com/aboutus", "type": "Vendor marketing", "note": "Mid-size private services firm; no public financials/revenue disclosed to assess durability"}
+    },
+    "VIA-04": {
+      "fencore": {"s": 0.5, "ev": "none", "rel": "none", "cite": "Fencore - no named comparable client found", "url": "https://www.fencore.co/", "type": "No evidence located", "note": "No named production customer surfaced in public sources"},
+      "statestreet-alpha": {"s": 3.5, "ev": "named-customer", "rel": "GA", "cite": "Allspring Global Investments / Harris|Oakmark", "url": "https://www.prnewswire.com/news-releases/allspring-global-investments-to-adopt-state-street-alpha-platform-301579148.html", "type": "Named customer case study", "note": "Named large asset-manager adopters of State Street Alpha platform"},
+      "alphacert": {"s": 3.5, "ev": "named-customer", "rel": "GA", "cite": "AlphaCert - AustralianSuper", "url": "https://alphacertlabs.com/tag/australiansuper-alphacert-data-management/", "type": "Named customer case study", "note": "Australia's largest super fund named; asset-owner not asset-manager, partial comparability"},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "Quadra Platform - no production reference", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "No production customer references found; institutional-scale use unproven"},
+      "exafluence": {"s": 3.0, "ev": "named-customer", "rel": "GA", "cite": "Exafluence - FIS Investment Data Platform", "url": "https://exfinsights.com/fis.html", "type": "Named customer case study", "note": "FIS named as engagement selecting ExfInsights; a fintech/vendor client, not an asset manager"}
+    }
+  }
+}

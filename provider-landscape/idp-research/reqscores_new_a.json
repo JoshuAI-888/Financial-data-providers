@@ -1,0 +1,103 @@
+{
+  "cluster": "mastering-dbx-ibor",
+  "requirements": {
+    "MSTR-01": "Security/instrument golden master",
+    "MSTR-02": "Entity & issuer-hierarchy master",
+    "MSTR-03": "Identifier concordance (ISIN/SEDOL/CUSIP/FIGI mapping)",
+    "MSTR-04": "Corporate-action mastering",
+    "DBX-01": "Delta Sharing / Open Sharing into Databricks",
+    "DBX-02": "Unity Catalog governance interoperability",
+    "DBX-03": "Zero-copy / no-replication access",
+    "DBX-04": "Governed bidirectional write-back",
+    "IBOR-01": "Event-driven near-real-time book of record",
+    "IBOR-02": "Bi-temporal point-in-time reconstruction",
+    "IBOR-03": "Correction history preserves prior known state",
+    "IBOR-04": "Intraday position/price"
+  },
+  "scores": {
+    "MSTR-01": {
+      "fencore": {"s":2.5,"ev":"docs","rel":"GA","cite":"Fencore DataHub product site","url":"https://www.fencore.co/","type":"Official docs","note":"Security/instrument mastering core to DataHub; content client-populated, not vendor-supplied"},
+      "statestreet-alpha": {"s":3.0,"ev":"docs","rel":"GA","cite":"Charles River Data Platform","url":"https://www.crd.com/solutions/data","type":"Official docs","note":"Mature security mastering via CRD's long-established reference-data foundation"},
+      "alphacert": {"s":2.0,"ev":"docs","rel":"GA","cite":"AlphaCert investment data management","url":"https://alphacert.com/investment-data-management","type":"Official docs","note":"Unifies/cleanses feeds into a data foundation, not a full accounting security master"},
+      "quadra": {"s":2.0,"ev":"docs","rel":"GA","cite":"Quadra Platform product page","url":"https://www.quadraplatform.com/product.html","type":"Vendor marketing","note":"Explicit 'security master to multi-asset portfolio structures' claim; vendor-authored only, unproven"},
+      "exafluence": {"s":2.0,"ev":"docs","rel":"GA","cite":"ExfInsights investment data model","url":"https://exfinsights.com/","type":"Official docs","note":"Best-of-breed IDM harmonises data; client-operated model, not a managed golden-copy service"}
+    },
+    "MSTR-02": {
+      "fencore": {"s":2.0,"ev":"docs","rel":"GA","cite":"Fencore DataHub product site","url":"https://www.fencore.co/","type":"Official docs","note":"Entity mastering core to product purpose; issuer-hierarchy depth not itemised"},
+      "statestreet-alpha": {"s":2.5,"ev":"docs","rel":"GA","cite":"Charles River Data Platform","url":"https://www.crd.com/solutions/data","type":"Official docs","note":"Entity mastering mature via CRD reference data; hierarchy depth not itemised publicly"},
+      "alphacert": {"s":1.5,"ev":"docs","rel":"GA","cite":"AlphaCert investment data management","url":"https://alphacert.com/investment-data-management","type":"Official docs","note":"Data foundation from custodian/admin feeds; entity/issuer-hierarchy modelling undocumented"},
+      "quadra": {"s":2.0,"ev":"docs","rel":"GA","cite":"Quadra Platform product page","url":"https://www.quadraplatform.com/product.html","type":"Vendor marketing","note":"'Resolves securities and issuer entities' stated explicitly; tiny/unproven vendor"},
+      "exafluence": {"s":1.5,"ev":"docs","rel":"GA","cite":"ExfInsights investment data model","url":"https://exfinsights.com/","type":"Official docs","note":"IDM harmonises entity data; hierarchy depth is a client-build/scoping question"}
+    },
+    "MSTR-03": {
+      "fencore": {"s":2.0,"ev":"docs","rel":"GA","cite":"Fencore DataHub product site","url":"https://www.fencore.co/","type":"Official docs","note":"Identifier-concordance breadth plausible for EDM of this class; not itemised publicly"},
+      "statestreet-alpha": {"s":2.5,"ev":"docs","rel":"GA","cite":"Charles River Data Platform","url":"https://www.crd.com/solutions/data","type":"Official docs","note":"Mature multi-source reference data implies concordance; per-scheme mapping not itemised"},
+      "alphacert": {"s":1.5,"ev":"docs","rel":"GA","cite":"AlphaCert investment data management","url":"https://alphacert.com/investment-data-management","type":"Official docs","note":"Plug-and-play custodian/market-data feeds imply identifier handling; concordance not itemised"},
+      "quadra": {"s":2.0,"ev":"docs","rel":"GA","cite":"Quadra Platform overview","url":"https://www.quadraplatform.com/","type":"Vendor marketing","note":"FIBO-based resolution reconciling Bloomberg/Refinitiv/custodian; per-scheme mapping unconfirmed"},
+      "exafluence": {"s":1.5,"ev":"docs","rel":"GA","cite":"ExfInsights investment data model","url":"https://exfinsights.com/","type":"Official docs","note":"IDM normalises data generically; identifier-scheme concordance depends on client build"}
+    },
+    "MSTR-04": {
+      "fencore": {"s":1.5,"ev":"docs","rel":"GA","cite":"Fencore DataHub product site","url":"https://www.fencore.co/","type":"Official docs","note":"Corporate actions not itemised anywhere in public material; only generically plausible"},
+      "statestreet-alpha": {"s":2.5,"ev":"docs","rel":"GA","cite":"Charles River IBOR solution","url":"https://info.crd.com/iborsolution","type":"Official docs","note":"CA processed as transactions/adjustments feeding IBOR; dedicated CA mastering not itemised"},
+      "alphacert": {"s":1.0,"ev":"roadmap","rel":"none","cite":"AlphaCert investment data management","url":"https://alphacert.com/investment-data-management","type":"No evidence located","note":"No corporate-action mastering capability documented; confirm through RFI"},
+      "quadra": {"s":2.0,"ev":"docs","rel":"GA","cite":"Quadra Platform product page","url":"https://www.quadraplatform.com/product.html","type":"Vendor marketing","note":"Product page explicitly names 'corporate actions' in scope; vendor-authored only, unproven"},
+      "exafluence": {"s":1.5,"ev":"docs","rel":"GA","cite":"ExfInsights investment data model","url":"https://exfinsights.com/","type":"Official docs","note":"CA handling would be a client-side extension of the IDM; not itemised out-of-the-box"}
+    },
+    "DBX-01": {
+      "fencore": {"s":0.5,"ev":"none","rel":"none","cite":"Fencore DataHub product site","url":"https://www.fencore.co/","type":"No evidence located","note":"No Delta/Open Sharing or Databricks-specific integration evidenced in public material"},
+      "statestreet-alpha": {"s":0.5,"ev":"none","rel":"none","cite":"State Street Alpha technology & services","url":"https://www.statestreet.com/alpha/solutions/technology-and-services","type":"No evidence located","note":"ADP is Snowflake+Azure-powered by design; not Databricks-native, no Delta Sharing path"},
+      "alphacert": {"s":0.5,"ev":"none","rel":"none","cite":"AlphaCert why AlphaCert","url":"https://alphacert.com/why-alphacert","type":"No evidence located","note":"API-first architecture stated; no Databricks/Delta Sharing integration evidenced"},
+      "quadra": {"s":0.5,"ev":"none","rel":"none","cite":"Quadra Platform overview","url":"https://www.quadraplatform.com/","type":"No evidence located","note":"Open/vendor-neutral ethos plausible fit; no specific Delta Sharing/Databricks path evidenced"},
+      "exafluence": {"s":2.0,"ev":"docs","rel":"GA","cite":"ExfInsights platform","url":"https://exfinsights.com/","type":"Official docs","note":"'Fully containerised' claim to run natively on Databricks (also Snowflake/SQL Server/Oracle); not a confirmed Delta Sharing listing"}
+    },
+    "DBX-02": {
+      "fencore": {"s":0.5,"ev":"none","rel":"none","cite":"Fencore DataHub product site","url":"https://www.fencore.co/","type":"No evidence located","note":"No Unity Catalog interoperability evidenced"},
+      "statestreet-alpha": {"s":0.5,"ev":"none","rel":"none","cite":"State Street Alpha technology & services","url":"https://www.statestreet.com/alpha/solutions/technology-and-services","type":"No evidence located","note":"Governed under Snowflake Data Marketplace, not Unity Catalog"},
+      "alphacert": {"s":0.5,"ev":"none","rel":"none","cite":"AlphaCert why AlphaCert","url":"https://alphacert.com/why-alphacert","type":"No evidence located","note":"No Unity Catalog evidence"},
+      "quadra": {"s":0.5,"ev":"none","rel":"none","cite":"Quadra Platform overview","url":"https://www.quadraplatform.com/","type":"No evidence located","note":"No Unity Catalog evidence despite open-architecture positioning"},
+      "exafluence": {"s":1.0,"ev":"docs","rel":"partner","cite":"ExfInsights platform","url":"https://exfinsights.com/","type":"Official docs","note":"Databricks-native deployment claimed; Unity Catalog-specific governance interop not itemised"}
+    },
+    "DBX-03": {
+      "fencore": {"s":0.5,"ev":"none","rel":"none","cite":"Fencore DataHub product site","url":"https://www.fencore.co/","type":"No evidence located","note":"No zero-copy/no-replication statement found"},
+      "statestreet-alpha": {"s":0.5,"ev":"none","rel":"none","cite":"State Street Alpha technology & services","url":"https://www.statestreet.com/alpha/solutions/technology-and-services","type":"No evidence located","note":"Snowflake extraction/sharing to reach Databricks; not zero-copy into Databricks"},
+      "alphacert": {"s":0.5,"ev":"none","rel":"none","cite":"AlphaCert why AlphaCert","url":"https://alphacert.com/why-alphacert","type":"No evidence located","note":"No zero-copy statement found"},
+      "quadra": {"s":0.5,"ev":"none","rel":"none","cite":"Quadra Platform overview","url":"https://www.quadraplatform.com/","type":"No evidence located","note":"No zero-copy statement; open-architecture principle unconfirmed in practice"},
+      "exafluence": {"s":1.0,"ev":"docs","rel":"none","cite":"ExfInsights platform","url":"https://exfinsights.com/","type":"Official docs","note":"Containerised multi-backend deployment implies portability; egress/replication posture unclear"}
+    },
+    "DBX-04": {
+      "fencore": {"s":1.0,"ev":"docs","rel":"none","cite":"Fencore solution overview","url":"https://fencore.co/solution/","type":"Official docs","note":"API-based integration stated generically; governed bidirectional write-back not evidenced"},
+      "statestreet-alpha": {"s":1.0,"ev":"roadmap","rel":"none","cite":"Charles River Data Platform","url":"https://www.crd.com/solutions/data","type":"No evidence located","note":"Data-platform APIs exist within Alpha; Databricks-native governed write-back not evidenced"},
+      "alphacert": {"s":1.0,"ev":"docs","rel":"none","cite":"AlphaCert why AlphaCert","url":"https://alphacert.com/why-alphacert","type":"Official docs","note":"'APIs for seamless integration' stated generically; write-back controls not documented"},
+      "quadra": {"s":1.0,"ev":"roadmap","rel":"none","cite":"Quadra Platform overview","url":"https://www.quadraplatform.com/","type":"No evidence located","note":"Open model plausible for write-back; not evidenced in public sources"},
+      "exafluence": {"s":1.5,"ev":"docs","rel":"GA","cite":"ExfInsights platform","url":"https://exfinsights.com/","type":"Official docs","note":"Low-code codeless pipelines imply bidirectional flows; governed write-back controls not itemised"}
+    },
+    "IBOR-01": {
+      "fencore": {"s":0.5,"ev":"none","rel":"none","cite":"Fencore DataHub product site","url":"https://www.fencore.co/","type":"No evidence located","note":"Not an IBOR by design; data-management/EDM platform only"},
+      "statestreet-alpha": {"s":3.5,"ev":"named-customer","rel":"GA","cite":"Australian Ethical selects Charles River IBOR","url":"https://www.crd.com/press-releases/2024/charles-river-selected-to-manage-australian-ethicals-front-office-operations/","type":"Named customer case study","note":"CRD IBOR + State Street Alpha Data Platform live at named ANZ asset manager (2024)"},
+      "alphacert": {"s":0.5,"ev":"none","rel":"none","cite":"AlphaCert investment data management","url":"https://alphacert.com/investment-data-management","type":"No evidence located","note":"Not an IBOR by design; reconciliation/performance analytics platform only"},
+      "quadra": {"s":0.5,"ev":"none","rel":"none","cite":"Quadra Platform overview","url":"https://www.quadraplatform.com/","type":"No evidence located","note":"Unifies positions/valuations but no event-driven book-of-record claim"},
+      "exafluence": {"s":1.5,"ev":"docs","rel":"GA","cite":"Exafluence Snowflake partner listing","url":"https://www.snowflake.com/en/why-snowflake/partners/all-partners/exafluence-inc/","type":"Official docs","note":"Built autonomous performance engine + real-time pipelines in Aladdin Data Cloud; bespoke SI build, not packaged IBOR"}
+    },
+    "IBOR-02": {
+      "fencore": {"s":1.0,"ev":"docs","rel":"GA","cite":"Fencore DataHub product site","url":"https://www.fencore.co/","type":"Official docs","note":"Automated raw/historical/export snapshots are data-level PIT retention, not bi-temporal position reconstruction"},
+      "statestreet-alpha": {"s":2.5,"ev":"docs","rel":"GA","cite":"Charles River IBOR solution","url":"https://info.crd.com/iborsolution","type":"Official docs","note":"Accurate trade-date/settlement-date positions 'for a specified point in time'; bi-temporal not labelled explicitly"},
+      "alphacert": {"s":0.5,"ev":"none","rel":"none","cite":"AlphaCert investment data management","url":"https://alphacert.com/investment-data-management","type":"No evidence located","note":"No book-of-record; PIT position reconstruction out of scope"},
+      "quadra": {"s":0.5,"ev":"none","rel":"none","cite":"Quadra Platform overview","url":"https://www.quadraplatform.com/","type":"No evidence located","note":"No bi-temporal/PIT reconstruction claim evidenced"},
+      "exafluence": {"s":1.0,"ev":"docs","rel":"GA","cite":"Exafluence Snowflake partner listing","url":"https://www.snowflake.com/en/why-snowflake/partners/all-partners/exafluence-inc/","type":"Official docs","note":"Real-time pipelines built for a client engine; PIT reconstruction not specifically evidenced"}
+    },
+    "IBOR-03": {
+      "fencore": {"s":1.0,"ev":"docs","rel":"GA","cite":"Fencore DataHub product site","url":"https://www.fencore.co/","type":"Official docs","note":"Snapshot storage supports data-record audit trail, not position-level correction history"},
+      "statestreet-alpha": {"s":2.5,"ev":"docs","rel":"GA","cite":"Charles River IBOR solution","url":"https://info.crd.com/iborsolution","type":"Official docs","note":"Explicit capture/storage of historic position snapshots for regulatory reconstruction after corrections"},
+      "alphacert": {"s":0.5,"ev":"none","rel":"none","cite":"AlphaCert investment data management","url":"https://alphacert.com/investment-data-management","type":"No evidence located","note":"Audit-ready reconciliation outputs are data-DQ level, not IBOR correction history"},
+      "quadra": {"s":0.5,"ev":"none","rel":"none","cite":"Quadra Platform overview","url":"https://www.quadraplatform.com/","type":"No evidence located","note":"No correction-history/prior-known-state mechanic evidenced"},
+      "exafluence": {"s":0.5,"ev":"none","rel":"none","cite":"ExfInsights platform","url":"https://exfinsights.com/","type":"No evidence located","note":"Lineage/exception trapping is DQ-focused, not IBOR correction-history preservation"}
+    },
+    "IBOR-04": {
+      "fencore": {"s":0.5,"ev":"none","rel":"none","cite":"Fencore DataHub product site","url":"https://www.fencore.co/","type":"No evidence located","note":"No intraday position-keeping; not a book-of-record platform"},
+      "statestreet-alpha": {"s":3.5,"ev":"named-customer","rel":"GA","cite":"Australian Ethical selects Charles River IBOR","url":"https://www.crd.com/press-releases/2024/charles-river-selected-to-manage-australian-ethicals-front-office-operations/","type":"Named customer case study","note":"CRD IBOR positions 'constantly updated with latest transactions'; live at named ANZ asset manager"},
+      "alphacert": {"s":0.5,"ev":"none","rel":"none","cite":"AlphaCert investment data management","url":"https://alphacert.com/investment-data-management","type":"No evidence located","note":"No intraday position/price engine; EOD reconciliation/analytics focus"},
+      "quadra": {"s":0.5,"ev":"none","rel":"none","cite":"Quadra Platform overview","url":"https://www.quadraplatform.com/","type":"No evidence located","note":"No intraday position/price capability evidenced"},
+      "exafluence": {"s":2.0,"ev":"docs","rel":"GA","cite":"Exafluence Snowflake partner listing","url":"https://www.snowflake.com/en/why-snowflake/partners/all-partners/exafluence-inc/","type":"Official docs","note":"'Real-time intraday data pipelines' explicitly built in Aladdin Data Cloud; bespoke client build, not packaged"}
+    }
+  }
+}

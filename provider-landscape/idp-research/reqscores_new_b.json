@@ -1,0 +1,103 @@
+{
+  "cluster": "dq-totalportfolio-coverage",
+  "requirements": {
+    "DQ-01": "Tolerance-based price validation",
+    "DQ-02": "Stale/missing-price detection",
+    "DQ-03": "Exception workflow with automated resolution",
+    "DQ-04": "Four-eyes / internal override control",
+    "TP-01": "Private-market document ingestion & extraction (GP docs)",
+    "TP-02": "Capital-call / distribution / waterfall modelling",
+    "TP-03": "Total-portfolio look-through exposure",
+    "TP-04": "Public + private on one unified model",
+    "CUR-01": "5-year point-in-time history depth",
+    "CUR-02": "Asset-class breadth (equities/FI/credit/FX/PE)",
+    "CUR-03": "Market-aware SLA / data currency (multi-market close)",
+    "CUR-04": "Timestamp / bitemporal field model (market/observation/effective/received/published)"
+  },
+  "scores": {
+    "DQ-01": {
+      "fencore": {"s": 2.5, "ev": "docs", "rel": "GA", "cite": "DataHub DQ engine custom validation rules", "url": "https://fencore.co/solution/", "type": "Vendor marketing", "note": "Custom validation/business rules with exception mgmt; explicit price-tolerance mechanic not itemised"},
+      "statestreet-alpha": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "Alpha AI data-quality/anomaly detection", "url": "https://www.statestreet.com/alpha/insights/new-standard-in-data-quality", "type": "Official docs", "note": "Neural nets flag market-value/pricing anomalies across portfolios; tolerance-band mechanic not itemised"},
+      "alphacert": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "AlphaCert automated unit-price validation", "url": "https://alphacert.com/insights/simplifying-investment-data-reconciliations", "type": "Official docs", "note": "Automated unit-price validation to meet SLAs and reduce pricing errors; tolerance bands not itemised"},
+      "quadra": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Quadra reconciles Bloomberg/Refinitiv/custodian", "url": "https://www.quadraplatform.com/", "type": "Vendor marketing", "note": "Cross-source reconciliation implies validation; tolerance-band mechanics not evidenced, no customer cited"},
+      "exafluence": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "ExfInsights codeless DQ rules (client-built)", "url": "https://exfinsights.com/", "type": "Vendor marketing", "note": "DQ rules/gold-copy tooling exists but is client-configured per engagement; tolerance mechanic unconfirmed"}
+    },
+    "DQ-02": {
+      "fencore": {"s": 2.5, "ev": "docs", "rel": "GA", "cite": "DataHub DQ engine + exception dashboards", "url": "https://fencore.co/solution/", "type": "Vendor marketing", "note": "Profiling/business-rule checks surface breaches; staleness-specific detection not itemised"},
+      "statestreet-alpha": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "Alpha continuous-learning pricing anomaly nets", "url": "https://www.statestreet.com/alpha/insights/new-standard-in-data-quality", "type": "Official docs", "note": "Models trained on pricing/reference/corp-actions detect anomalies incl. missing or suspect market values"},
+      "alphacert": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "AlphaCert daily recon vs custodian/admin", "url": "https://alphacert.com/insights/simplifying-investment-data-reconciliations", "type": "Official docs", "note": "Daily reconciliation vs custodian/administrator surfaces missing/erroneous prices; staleness not itemised"},
+      "quadra": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Quadra multi-source reconciliation", "url": "https://www.quadraplatform.com/", "type": "Vendor marketing", "note": "Cross-checking Bloomberg/Refinitiv/custodian implies gap detection; not itemised, no customer evidence"},
+      "exafluence": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "ExfInsights exception trapping (client-built)", "url": "https://exfinsights.com/", "type": "Vendor marketing", "note": "Extensive exception trapping/deep logging cited; stale-price-specific rule not itemised, engagement-dependent"}
+    },
+    "DQ-03": {
+      "fencore": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "DataHub exception mgmt dashboards", "url": "https://fencore.co/solution/", "type": "Vendor marketing", "note": "Out-of-box exception dashboards; system intelligently assists resolution when rules are breached, no named ref"},
+      "statestreet-alpha": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "Alpha AI exception mgmt (quantified)", "url": "https://www.statestreet.com/alpha/insights/new-standard-in-data-quality", "type": "Official docs", "note": "AI cut false positives 87%, caught 100% true exceptions, 25x productivity gain per State Street own claim"},
+      "alphacert": {"s": 3.5, "ev": "named-customer", "rel": "GA", "cite": "AlphaCert x Australian Food Super (SRS550)", "url": "https://alphacert.com/insights/alphacert-and-australian-food-super-partnership", "type": "Named customer case study", "note": "Named super fund deal to automate complex investment data and deliver SRS550 reporting efficiencies"},
+      "quadra": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "Quadra single-source-of-truth recon", "url": "https://www.quadraplatform.com/", "type": "Vendor marketing", "note": "Implies exception surfacing via recon; automated-resolution workflow not itemised, no customer evidence"},
+      "exafluence": {"s": 2.5, "ev": "docs", "rel": "GA", "cite": "ExfInsights exception trapping + KPIs", "url": "https://exfinsights.com/", "type": "Vendor marketing", "note": "Exception trapping, KPIs, event-driven orchestration documented; automated-resolution depth is engagement-dependent"}
+    },
+    "DQ-04": {
+      "fencore": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "DataHub out-of-box 4-eye approval", "url": "https://fencore.co/solution/", "type": "Vendor marketing", "note": "Explicit out-of-the-box four-eyes approval process cited (core strength); no named production reference found"},
+      "statestreet-alpha": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Alpha Data360 Govern stewardship", "url": "https://www.snowflake.com/en/customers/all-customers/case-study/state-street/", "type": "Official docs", "note": "Governance/stewardship tooling exists; buyer four-eyes authority under managed-steward model unclear"},
+      "alphacert": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "AlphaCert audit-ready controls", "url": "https://alphacert.com/why-alphacert", "type": "Vendor marketing", "note": "Audit-ready regulatory outputs imply internal controls; explicit four-eyes/override mechanic not itemised"},
+      "quadra": {"s": 1.0, "ev": "none", "rel": "none", "cite": "No four-eyes control located", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "No four-eyes/internal-override capability evidenced publicly"},
+      "exafluence": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "ExfInsights governance integration (client-built)", "url": "https://exfinsights.com/", "type": "Vendor marketing", "note": "Integrates w/ Ataccama/Alation/Collibra governance; four-eyes is a client-configured build, not itemised"}
+    },
+    "TP-01": {
+      "fencore": {"s": 1.0, "ev": "docs", "rel": "GA", "cite": "Fencore public+private positioning", "url": "https://www.fencore.co/about/", "type": "Vendor marketing", "note": "Positions across public and private markets; GP-document ingestion/extraction depth not evidenced"},
+      "statestreet-alpha": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "State Street private-markets lifecycle tracking", "url": "https://www.statestreet.com/alpha/solutions/private-markets", "type": "Official docs", "note": "Deal-to-divestment automated tracking/reporting cited; dedicated GP-doc AI extraction not evidenced"},
+      "alphacert": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No private-doc extraction located", "url": "https://alphacert.com/solutions", "type": "No evidence located", "note": "Reconciliation/data-mgmt focus; no GP-document ingestion or extraction capability evidenced"},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No private-doc extraction located", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "FIBO model spans parties/instruments generically; no GP-document extraction capability evidenced"},
+      "exafluence": {"s": 1.0, "ev": "docs", "rel": "partner", "cite": "FIS Private Capital Suite ingests PE statements", "url": "https://www.fisglobal.com/products/fis-private-capital-suite", "type": "Official docs", "note": "FIS partner product ingests semi-structured GP statements; not confirmed as ExfInsights' own IDM feature"}
+    },
+    "TP-02": {
+      "fencore": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No capital-call/waterfall modelling located", "url": "https://www.fencore.co/about/", "type": "No evidence located", "note": "No GP/LP capital-call, distribution or waterfall modelling capability evidenced"},
+      "statestreet-alpha": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "State Street private-markets deal lifecycle", "url": "https://www.statestreet.com/alpha/solutions/private-markets", "type": "Official docs", "note": "Fund-administrator handles capital-call/distribution servicing; dedicated ADP waterfall model not itemised"},
+      "alphacert": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No fund-lifecycle modelling located", "url": "https://alphacert.com/solutions", "type": "No evidence located", "note": "No GP/LP capital-call, distribution or waterfall capability evidenced"},
+      "quadra": {"s": 1.0, "ev": "docs", "rel": "GA", "cite": "Quadra generic valuations/performance model", "url": "https://www.quadraplatform.com/", "type": "Vendor marketing", "note": "Unified valuations/performance cited generically; no explicit capital-call/waterfall modelling evidenced"},
+      "exafluence": {"s": 1.5, "ev": "docs", "rel": "partner", "cite": "FIS Private Capital Suite fund accounting (partner)", "url": "https://www.fisglobal.com/products/fis-private-capital-suite", "type": "Official docs", "note": "FIS partner product automates PE fund accounting/capital calls; not confirmed native to ExfInsights IDM"}
+    },
+    "TP-03": {
+      "fencore": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No look-through exposure located", "url": "https://www.fencore.co/about/", "type": "No evidence located", "note": "No total-portfolio look-through exposure capability evidenced"},
+      "statestreet-alpha": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Alpha front-to-back multi-asset IBOR", "url": "https://www.crd.com/solutions/data", "type": "Official docs", "note": "Front-to-back IBOR spanning public/private plausibly supports look-through; not explicitly itemised"},
+      "alphacert": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No look-through exposure located", "url": "https://alphacert.com/solutions", "type": "No evidence located", "note": "No total-portfolio look-through exposure capability evidenced"},
+      "quadra": {"s": 1.0, "ev": "docs", "rel": "GA", "cite": "Quadra unified portfolio/instrument model", "url": "https://www.quadraplatform.com/", "type": "Vendor marketing", "note": "Conceptually unifies portfolios/instruments; explicit look-through exposure calc not evidenced"},
+      "exafluence": {"s": 3.5, "ev": "named-customer", "rel": "GA", "cite": "FIS IDP: look-through + AUM w/o double-count", "url": "https://www.fisglobal.com/-/media/fisglobal/files/pdf/product-sheet/data-management_fis-investment-data-platform_product-sheet.pdf", "type": "Official docs", "note": "FIS product sheet: ExfInsights-powered platform looks through funds/derivatives, AUM agg. w/o double-counting"}
+    },
+    "TP-04": {
+      "fencore": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Fencore public+private single platform", "url": "https://www.fencore.co/about/", "type": "Vendor marketing", "note": "Explicitly positions public and private markets on one data-management platform; depth unconfirmed"},
+      "statestreet-alpha": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "Alpha broad multi-asset + private servicing", "url": "https://www.statestreet.com/alpha/solutions/private-markets", "type": "Official docs", "note": "25 live mandates (Q4'24) across complex public+private managers; single named-client story not located"},
+      "alphacert": {"s": 1.0, "ev": "docs", "rel": "GA", "cite": "AlphaCert multi-asset fund data", "url": "https://alphacert.com/solutions", "type": "Vendor marketing", "note": "Serves multi-asset manager/asset-owner data; explicit private-markets unified model not evidenced"},
+      "quadra": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "Quadra vendor-neutral unified model", "url": "https://www.quadraplatform.com/", "type": "Vendor marketing", "note": "Generic model favourable in principle for public+private; content/coverage depth unproven, early-stage"},
+      "exafluence": {"s": 2.0, "ev": "docs", "rel": "partner", "cite": "ExfInsights IDM + FIS Private Capital Suite (partner)", "url": "https://exfinsights.com/fis.html", "type": "Vendor marketing", "note": "Broad IDM plus adjacent FIS private-markets product; shared unified model across both not confirmed"}
+    },
+    "CUR-01": {
+      "fencore": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "DataHub raw/historical/export snapshots", "url": "https://www.fencore.co/about/", "type": "Vendor marketing", "note": "Automatic historical/export snapshot storage; formal 5y point-in-time reconstruction model not itemised"},
+      "statestreet-alpha": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "Charles River IBOR point-in-time positions", "url": "https://www.crd.com/solutions/alpha-private-markets", "type": "Official docs", "note": "IBOR manages accurate trade/settlement-date positions for a specified point in time; mature, production"},
+      "alphacert": {"s": 1.5, "ev": "none", "rel": "none", "cite": "No PIT reconstruction model located", "url": "https://alphacert.com/solutions", "type": "No evidence located", "note": "Reconciliation/analytics platform; explicit point-in-time history depth/model not evidenced"},
+      "quadra": {"s": 1.0, "ev": "none", "rel": "none", "cite": "No PIT history model located", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "No point-in-time history depth/reconstruction capability evidenced"},
+      "exafluence": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "ExfInsights lineage/versioning (client-built)", "url": "https://exfinsights.com/", "type": "Vendor marketing", "note": "Lineage and logging support history tracking; native 5y point-in-time model not itemised, client-dependent"}
+    },
+    "CUR-02": {
+      "fencore": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "DataHub client-populated multi-asset model", "url": "https://www.fencore.co/about/", "type": "Vendor marketing", "note": "Masters reference/market/investment data generically; vendor-supplied content breadth not itemised"},
+      "statestreet-alpha": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "Alpha front-to-back multi-asset via CRD", "url": "https://www.crd.com/solutions/data", "type": "Official docs", "note": "Long-established CRD reference-data foundation across asset classes plus private-markets servicing"},
+      "alphacert": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "AlphaCert plug-and-play global feeds", "url": "https://alphacert.com/why-alphacert", "type": "Vendor marketing", "note": "Feeds across most global custodian/market-data providers; PE/private-asset breadth unconfirmed"},
+      "quadra": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "Quadra FIBO cross-asset ontology", "url": "https://www.quadraplatform.com/", "type": "Vendor marketing", "note": "Model conceptually spans instrument types via FIBO; actual content coverage unproven, early-stage"},
+      "exafluence": {"s": 2.5, "ev": "docs", "rel": "GA", "cite": "ExfInsights IDM: equities/FI/derivs/complex", "url": "https://www.fisglobal.com/-/media/fisglobal/files/pdf/product-sheet/data-management_fis-investment-data-platform_product-sheet.pdf", "type": "Official docs", "note": "IDM covers equities, fixed income, derivatives, complex assets per FIS product sheet; PE lifecycle separate"}
+    },
+    "CUR-03": {
+      "fencore": {"s": 1.0, "ev": "none", "rel": "none", "cite": "No market-aware SLA located", "url": "https://www.fencore.co/about/", "type": "No evidence located", "note": "No explicit multi-market-close SLA or data-currency commitment evidenced"},
+      "statestreet-alpha": {"s": 2.0, "ev": "sales", "rel": "GA", "cite": "Alpha managed data-steward operations", "url": "https://www.statestreet.com/alpha/insights/new-standard-in-data-quality", "type": "Vendor marketing", "note": "Global custodian-scale stewardship implies currency SLAs; explicit multi-market-close terms not evidenced"},
+      "alphacert": {"s": 3.0, "ev": "named-customer", "rel": "GA", "cite": "AlphaCert unit-price SLAs + Australian Food Super", "url": "https://alphacert.com/insights/alphacert-and-australian-food-super-partnership", "type": "Named customer case study", "note": "Automated unit-price validation to meet SLAs; named super-fund SRS550 deal implies regulatory-timeliness fit"},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No SLA/data-currency model located", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "No market-aware SLA or multi-market data-currency capability evidenced"},
+      "exafluence": {"s": 1.0, "ev": "none", "rel": "none", "cite": "No explicit SLA model located", "url": "https://exfinsights.com/", "type": "No evidence located", "note": "SI/accelerator model; SLA terms are engagement-specific and not publicly itemised"}
+    },
+    "CUR-04": {
+      "fencore": {"s": 1.0, "ev": "docs", "rel": "GA", "cite": "DataHub snapshot storage (implicit PIT)", "url": "https://www.fencore.co/about/", "type": "Vendor marketing", "note": "Raw/historical/export snapshots imply temporal tracking; explicit bitemporal field taxonomy not evidenced"},
+      "statestreet-alpha": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "CRD IBOR trade/settlement-date fields", "url": "https://www.crd.com/solutions/alpha-private-markets", "type": "Official docs", "note": "Trade-date/settlement-date point-in-time positions evidenced; explicit bitemporal field taxonomy not itemised"},
+      "alphacert": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No bitemporal field model located", "url": "https://alphacert.com/solutions", "type": "No evidence located", "note": "No explicit timestamp/bitemporal field model evidenced publicly"},
+      "quadra": {"s": 1.0, "ev": "none", "rel": "none", "cite": "No bitemporal field model located", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "FIBO ontology has temporal semantics in principle; explicit bitemporal field model not evidenced"},
+      "exafluence": {"s": 1.0, "ev": "docs", "rel": "GA", "cite": "ExfInsights deep logging / orchestration", "url": "https://exfinsights.com/", "type": "Vendor marketing", "note": "Deep logging and event-driven orchestration cited; explicit bitemporal field taxonomy not itemised"}
+    }
+  }
+}

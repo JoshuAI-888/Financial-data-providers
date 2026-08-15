@@ -1,0 +1,103 @@
+{
+  "cluster": "ai-integration-governance",
+  "requirements": {
+    "AI-01": "MCP / tool-protocol interface for agents",
+    "AI-02": "Buyer-own-LLM / model independence",
+    "AI-03": "Permission-aware / entitlement-aware AI access",
+    "AI-04": "Source provenance & audit trail for AI answers",
+    "INT-01": "REST / streaming APIs",
+    "INT-02": "Python / SDK access",
+    "INT-03": "Direct BI / notebook query (no spreadsheet extracts)",
+    "INT-04": "Business-user model extension without vendor coding",
+    "GOV-01": "Field-level lineage",
+    "GOV-02": "Override & change audit trail",
+    "GOV-03": "Governable data / AI-use licensing rights",
+    "GOV-04": "Institutional security (SOC2/ISO, private networking, entitlements)"
+  },
+  "scores": {
+    "AI-01": {
+      "fencore": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No AI/MCP evidenced (DataHub)", "url": "https://www.fencore.co/", "type": "No evidence located", "note": "No AI/LLM or MCP/agent-interface capability evidenced in public sources; no-code UI is rules-driven."},
+      "statestreet-alpha": {"s": 1.0, "ev": "roadmap", "rel": "preview", "cite": "SSGA exploring agent sandbox (no MCP)", "url": "https://www.statestreet.com/alpha/insights/artificial-intelligence", "type": "Vendor marketing", "note": "State Street exploring agent deployment in a sandbox; no MCP/tool-protocol interface evidenced."},
+      "alphacert": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No AI/MCP evidenced", "url": "https://alphacert.com/", "type": "No evidence located", "note": "No AI/LLM or MCP/agent capability evidenced in public sources."},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "FIBO model agent-friendly in theory only", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "Semantically-typed FIBO model is theoretically agent-friendly; no AI/MCP capability documented."},
+      "exafluence": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No native MCP; AI/NLP is build-tooling", "url": "https://exfinsights.com/", "type": "No evidence located", "note": "NLP-driven mapping/transforms exist but no MCP/tool-protocol product; agent interfaces are engagement-dependent."}
+    },
+    "AI-02": {
+      "fencore": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No AI evidenced, so no LLM stance", "url": "https://www.fencore.co/", "type": "No evidence located", "note": "No AI/LLM capability evidenced; model-independence question not applicable on current evidence."},
+      "statestreet-alpha": {"s": 1.0, "ev": "docs", "rel": "GA", "cite": "Alpha AI is proprietary, not model-independent", "url": "https://www.statestreet.com/alpha/insights/artificial-intelligence", "type": "Official docs", "note": "CV/NLP/ML embedded in State Street's own proprietary platform; not buyer-own-LLM/model-independent by design."},
+      "alphacert": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No AI evidenced", "url": "https://alphacert.com/", "type": "No evidence located", "note": "No AI/LLM capability evidenced; model-independence not applicable."},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No AI evidenced", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "No AI/LLM capability evidenced; open FIBO model does not itself confer model-independence."},
+      "exafluence": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "Containerized, runs on client's own LLM/platform", "url": "https://exf-financialdatasolutions.com/products/", "type": "Official docs", "note": "Fully containerised across Snowflake/Databricks/SQL Server/Oracle; AI/NLP tooling runs on client's own models by design."}
+    },
+    "AI-03": {
+      "fencore": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No AI evidenced", "url": "https://www.fencore.co/", "type": "No evidence located", "note": "No AI capability evidenced; permission-aware AI access not applicable on current evidence."},
+      "statestreet-alpha": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "Precisely Data360 Govern governs ADP data", "url": "https://www.precisely.com/press-release/charles-river-development-announces-collaboration-with-precisely-to-incorporate-enterprise-data-governance-in-state-street-alphasm-data-platform/", "type": "Official release note", "note": "Governance/cataloging via Precisely partnership; per-agent AI entitlement granularity not itemised."},
+      "alphacert": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No AI evidenced", "url": "https://alphacert.com/", "type": "No evidence located", "note": "No AI capability evidenced; permission-aware AI access not applicable."},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No AI evidenced", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "No AI capability evidenced; entitlement-aware AI access not applicable."},
+      "exafluence": {"s": 1.0, "ev": "docs", "rel": "GA", "cite": "Entitlements inherited from client backend", "url": "https://exf-financialdatasolutions.com/products/", "type": "Official docs", "note": "No native AI-entitlement layer documented; permissioning would inherit from client's Databricks/Snowflake catalog."}
+    },
+    "AI-04": {
+      "fencore": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No AI evidenced", "url": "https://www.fencore.co/", "type": "No evidence located", "note": "No AI capability evidenced; source-provenance-for-AI-answers not applicable."},
+      "statestreet-alpha": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "GenAI self-service analysis/visualization", "url": "https://www.snowflake.com/en/customers/all-customers/case-study/state-street/", "type": "Named customer case study", "note": "GenAI self-service analysis/visualisation cited; source-citation/audit trail for AI answers not itemised."},
+      "alphacert": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No AI evidenced", "url": "https://alphacert.com/", "type": "No evidence located", "note": "No AI capability evidenced; AI-answer provenance not applicable."},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No AI evidenced", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "No AI capability evidenced; AI-answer provenance not applicable."},
+      "exafluence": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "Lineage/exception trapping in NLP mapping", "url": "https://exfinsights.com/", "type": "Official docs", "note": "Full lineage + exception trapping on codeless/NLP-driven pipelines; not framed as citation-level AI-answer provenance."}
+    },
+    "INT-01": {
+      "fencore": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "API-based integration, interoperability focus", "url": "https://fencore.co/solution/", "type": "Official docs", "note": "Cloud-native, API-forward design stated; streaming/write-back specifics not itemised."},
+      "statestreet-alpha": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Snowflake Data Marketplace / cloud data sharing", "url": "https://www.snowflake.com/en/customers/all-customers/case-study/state-street/", "type": "Named customer case study", "note": "Data access via Snowflake sharing/Marketplace; a dedicated State Street REST API was not itemised this pass."},
+      "alphacert": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Industry-standard architecture with APIs", "url": "https://alphacert.com/investment-data-management", "type": "Official docs", "note": "APIs for seamless integration stated; streaming/write-back specifics not itemised."},
+      "quadra": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "Open standards/APIs (early-stage)", "url": "https://www.quadraplatform.com/", "type": "Vendor marketing", "note": "Open, vendor-neutral API design claimed; unproven at scale, no independent API documentation found."},
+      "exafluence": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Cross-platform containerised deployment", "url": "https://exf-financialdatasolutions.com/products/", "type": "Official docs", "note": "Runs on Snowflake/Databricks/SQL Server/Oracle; API access inherits from client's chosen backend."}
+    },
+    "INT-02": {
+      "fencore": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "No Python/SDK evidence located", "url": "https://www.fencore.co/", "type": "No evidence located", "note": "No-code UI is the primary access mode; a Python/developer SDK is not evidenced."},
+      "statestreet-alpha": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "Snowpark/Python via Snowflake, not native SDK", "url": "https://www.snowflake.com/en/customers/all-customers/case-study/state-street/", "type": "Named customer case study", "note": "Python access is Snowflake-side (Snowpark); no State Street-native SDK evidenced."},
+      "alphacert": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "No Python/SDK evidence located", "url": "https://alphacert.com/", "type": "No evidence located", "note": "No Python/developer SDK evidenced beyond general API integration claim."},
+      "quadra": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "No Python/SDK evidence located", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "No Python/SDK documentation located; early-stage vendor."},
+      "exafluence": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Notebook/Spark access via Databricks/Snowflake", "url": "https://exf-financialdatasolutions.com/products/", "type": "Official docs", "note": "IDM tables live on client's Databricks/Snowflake backend, enabling Python/Spark access; no Exafluence-native SDK."}
+    },
+    "INT-03": {
+      "fencore": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "No BI/notebook query evidence", "url": "https://www.fencore.co/", "type": "No evidence located", "note": "No-code dashboard UI is the delivery mode; direct BI/notebook share-in-place query not evidenced."},
+      "statestreet-alpha": {"s": 2.5, "ev": "docs", "rel": "GA", "cite": "Snowflake Data Marketplace share-in-place", "url": "https://www.snowflake.com/en/customers/all-customers/case-study/state-street/", "type": "Named customer case study", "note": "Snowflake-native sharing enables direct notebook/SQL query without extracts; not Databricks-native for this buyer."},
+      "alphacert": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "No BI/notebook query evidence", "url": "https://alphacert.com/", "type": "No evidence located", "note": "No direct BI/notebook share-in-place query capability evidenced."},
+      "quadra": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "No BI/notebook query evidence", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "Early-stage; no direct BI/notebook query capability evidenced."},
+      "exafluence": {"s": 2.5, "ev": "docs", "rel": "GA", "cite": "Native tables queryable in Databricks/Snowflake", "url": "https://exf-financialdatasolutions.com/products/", "type": "Official docs", "note": "Containerised cross-platform deployment lets IDM tables be queried directly in client notebooks, no extracts."}
+    },
+    "INT-04": {
+      "fencore": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "No-code drag-and-drop business-user masters", "url": "https://fencore.co/solution/", "type": "Official docs", "note": "Core positioning: business users (not engineers) build masters/reconciliations via drag-and-drop, no vendor coding."},
+      "statestreet-alpha": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "GenAI self-service analysis; core model steward-run", "url": "https://www.snowflake.com/en/customers/all-customers/case-study/state-street/", "type": "Named customer case study", "note": "GenAI self-service analysis/visualisation exists, but core data model is operated by State Street data stewards."},
+      "alphacert": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "No no-code extension evidence located", "url": "https://alphacert.com/", "type": "No evidence located", "note": "Configurable platform implied; explicit no-code business-user model-extension mechanics not itemised."},
+      "quadra": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "Standardised model, not itemised as no-code", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "FIBO-based model is standards-driven; business-user no-code extension mechanics not documented."},
+      "exafluence": {"s": 2.5, "ev": "docs", "rel": "GA", "cite": "Codeless transforms + NLP metadata mapping", "url": "https://exfinsights.com/", "type": "Official docs", "note": "Low-code/codeless transform layer lets data-ops/business analysts build pipelines without vendor coding."}
+    },
+    "GOV-01": {
+      "fencore": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "Data lineage from source to target (DataHub)", "url": "https://fencore.co/solution/", "type": "Official docs", "note": "Explicit full auditing and source-to-target lineage shipped out-of-the-box; a genuine strength."},
+      "statestreet-alpha": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "Precisely Data360 Govern lineage/cataloging", "url": "https://www.precisely.com/press-release/charles-river-development-announces-collaboration-with-precisely-to-incorporate-enterprise-data-governance-in-state-street-alphasm-data-platform/", "type": "Official release note", "note": "Enterprise data governance/lineage/cataloging embedded via Precisely partnership in ADP."},
+      "alphacert": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Reconciliation module + audit-ready outputs", "url": "https://alphacert.com/insights/simplifying-investment-data-reconciliations", "type": "Official docs", "note": "Cross-source (custodian/administrator/internal) comparison and audit-ready outputs; field-level lineage detail not itemised."},
+      "quadra": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Unified model claims 'complete data lineage'", "url": "https://www.quadraplatform.com/", "type": "Vendor marketing", "note": "Platform claims complete data lineage across unified positions/transactions/valuations; unproven at scale."},
+      "exafluence": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "Full lineage + extensive exception trapping", "url": "https://exfinsights.com/", "type": "Official docs", "note": "Codeless/NLP-driven pipelines explicitly ship full lineage and extensive exception trapping."}
+    },
+    "GOV-02": {
+      "fencore": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "Four-eyes approval + exception dashboards", "url": "https://fencore.co/solution/", "type": "Official docs", "note": "Out-of-the-box four-eyes approval and exception-management dashboards shipped natively."},
+      "statestreet-alpha": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Managed by State Street data stewards", "url": "https://www.statestreet.com/alpha/solutions/technology-and-services", "type": "Official docs", "note": "Data stewards operate validation/reconciliation as a managed service; client-facing override/audit workflow depth not detailed."},
+      "alphacert": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "DQ automation + exception handling (Recon module)", "url": "https://alphacert.com/insights/simplifying-investment-data-reconciliations", "type": "Official docs", "note": "Exception handling and audit-ready outputs claimed; explicit four-eyes/override mechanics not itemised."},
+      "quadra": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "Recon implies validation; mechanics unclear", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "Reconciles Bloomberg/Refinitiv/custodian data implying validation; four-eyes/override/tolerance mechanics not itemised."},
+      "exafluence": {"s": 2.5, "ev": "docs", "rel": "GA", "cite": "Extensive exception trapping in pipelines", "url": "https://exfinsights.com/", "type": "Official docs", "note": "Exception trapping and lineage built into codeless transform pipelines; change-audit UI not separately itemised."}
+    },
+    "GOV-03": {
+      "fencore": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "No AI-use/data-rights policy published", "url": "https://www.fencore.co/", "type": "No evidence located", "note": "Derived-data/AI-use licensing rights not published."},
+      "statestreet-alpha": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "No published AI-use licensing policy", "url": "https://www.statestreet.com/alpha/insights/artificial-intelligence", "type": "No evidence located", "note": "Proprietary AI stack; a published buyer AI-use/data-rights licensing policy was not located."},
+      "alphacert": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "No AI-use/data-rights policy published", "url": "https://alphacert.com/", "type": "No evidence located", "note": "Derived-data/AI-use licensing rights not published."},
+      "quadra": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "Open/vendor-neutral design implies data control", "url": "https://www.quadraplatform.com/", "type": "Vendor marketing", "note": "Explicit anti-lock-in, vendor-neutral stance implies client data control; explicit AI-use licensing terms not published."},
+      "exafluence": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Client owns the resulting platform/data model", "url": "https://exf-financialdatasolutions.com/products/", "type": "Official docs", "note": "SI delivery model leaves the built platform/IDM in the client's environment, favouring client governance/AI-use control by design."}
+    },
+    "GOV-04": {
+      "fencore": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "Small 2019 startup; no certs evidenced", "url": "https://www.fencore.co/", "type": "No evidence located", "note": "Cloud-native SaaS; SOC2/ISO/private-networking not evidenced this pass; young-vendor scale risk."},
+      "statestreet-alpha": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "State Street Corp (SIB custodian bank)", "url": "https://www.statestreet.com/alpha/solutions/technology-and-services", "type": "Official docs", "note": "Global systemically-important custodian bank; Alpha built on Snowflake/Azure enterprise cloud; explicit SOC2/ISO not itemised."},
+      "alphacert": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "APRA SRS550 / FMA QFU audit-ready reporting", "url": "https://alphacert.com/why-alphacert", "type": "Official docs", "note": "ANZ regulatory audit-ready reporting evidenced; SOC2/ISO/private-networking not evidenced; ~26-staff small vendor."},
+      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No security posture evidence located", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "Early-stage vendor; no SOC2/ISO/private-networking/entitlements evidence located."},
+      "exafluence": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Inherits security from client's own backend", "url": "https://exf-financialdatasolutions.com/products/", "type": "Official docs", "note": "Deployed inside client's Databricks/Snowflake estate, inheriting its institutional security; Exafluence-native certs not evidenced."}
+    }
+  }
+}
