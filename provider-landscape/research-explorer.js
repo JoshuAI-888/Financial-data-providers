@@ -1,9 +1,14 @@
 (function(){
   'use strict';
 
-  var scriptUrl=new URL(document.currentScript.src,location.href);
-  var researchBase=new URL('research/',scriptUrl);
-  var files=[
+  var currentScript=document.currentScript;
+  var scriptUrl=new URL(currentScript.src,location.href);
+  var folderName=currentScript.dataset.folder||'research';
+  var researchBase=new URL(folderName+'/',scriptUrl);
+  var triggerText=currentScript.dataset.trigger||'provider-landscape/research';
+  var dialogTitle=currentScript.dataset.title||'Provider research library';
+  var dialogDesc=currentScript.dataset.desc||'Browse the Markdown audit trail without leaving the landscape.';
+  var files=currentScript.dataset.files?currentScript.dataset.files.split(','):[
     'aiera.md','alpaca-markets.md','alpha-vantage.md','alphasense.md','amberdata.md',
     'api-native-challengers.md','api-ninjas.md','asx.md','bamsec.md','benzinga.md','bloomberg.md',
     'cb-insights.md','ceic.md','clarity-ai.md','coingecko.md','coinmarketcap.md','crunchbase.md',
@@ -34,7 +39,12 @@
       'iss-esg':'ISS ESG','lseg-refinitiv':'LSEG / Refinitiv','lseg-streetevents':'LSEG StreetEvents',
       'financial-mcp-servers':'Financial-data MCP servers','msci':'MSCI','nasdaq-evestment':'Nasdaq eVestment','newsapi-org':'NewsAPI.org','nzx':'NZX',
       'oecd-imf-worldbank':'OECD / IMF / World Bank','sp-global-market-intelligence':'S&P Global Market Intelligence',
-      'tej-taiwan':'TEJ Taiwan','x-twitter-api':'X / Twitter API','xpoz-ai':'Xpoz AI'
+      'tej-taiwan':'TEJ Taiwan','x-twitter-api':'X / Twitter API','xpoz-ai':'Xpoz AI',
+      'rimes':'RIMES','finbourne':'FINBOURNE','gresham-opus-edm':'Gresham Opus EDM','goldensource':'GoldenSource',
+      'factset-idp':'FactSet (IDP layer)','msci-idp':'MSCI (IDP layer)','simcorp-one':'SimCorp One',
+      'blackrock-aladdin':'BlackRock Aladdin','statestreet-alpha':'State Street Alpha','neoxam':'NeoXam',
+      'bestpractice_mastering':'Best practice — data mastering','bestpractice_architecture':'Best practice — open architecture',
+      'bestpractice_portfolio_commercials':'Best practice — portfolio & commercials'
     };
     var id=file.replace(/\.md$/,'');
     return names[id]||id.split('-').map(function(word){return word.charAt(0).toUpperCase()+word.slice(1);}).join(' ');
@@ -124,12 +134,12 @@
   dialog.innerHTML='\
     <div class="research-shell">\
       <header class="research-head">\
-        <div class="research-head-copy"><h2 id="research-title">Provider research library</h2><p>Browse the Markdown audit trail without leaving the landscape.</p></div>\
+        <div class="research-head-copy"><h2 id="research-title">'+escapeHtml(dialogTitle)+'</h2><p>'+escapeHtml(dialogDesc)+'</p></div>\
         <button class="research-close" type="button" aria-label="Close research library">&times;</button>\
       </header>\
       <div class="research-layout">\
         <aside class="research-sidebar" aria-label="Research files">\
-          <div class="research-search-wrap"><label class="research-sr" for="research-search">Search research files</label><input id="research-search" class="research-search" type="search" placeholder="Search 97 files…" autocomplete="off"></div>\
+          <div class="research-search-wrap"><label class="research-sr" for="research-search">Search research files</label><input id="research-search" class="research-search" type="search" placeholder="Search '+files.length+' files…" autocomplete="off"></div>\
           <div class="research-count" aria-live="polite"></div>\
           <div class="research-files"></div>\
         </aside>\
@@ -144,7 +154,7 @@
   var reader=dialog.querySelector('.research-reader');
   var path=dialog.querySelector('.research-path');
   var content=dialog.querySelector('.research-content');
-  var activeFile='bloomberg.md';
+  var activeFile=currentScript.dataset.default||files[0];
   var cache={};
 
   function renderFileList(query){
@@ -157,7 +167,7 @@
   async function loadFile(file){
     activeFile=file;
     renderFileList(search.value);
-    path.textContent='provider-landscape/research/'+file;
+    path.textContent='provider-landscape/'+folderName+'/'+file;
     content.innerHTML='<div class="research-empty">Loading '+escapeHtml(labelFor(file))+'…</div>';
     reader.scrollTop=0;reader.scrollLeft=0;
     try{
@@ -183,7 +193,7 @@
   dialog.querySelector('.research-close').addEventListener('click',function(){dialog.close();});
   dialog.addEventListener('click',function(event){if(event.target===dialog)dialog.close();});
 
-  Array.from(document.querySelectorAll('code')).filter(function(code){return code.textContent.includes('provider-landscape/research');}).forEach(function(code){
+  Array.from(document.querySelectorAll('code')).filter(function(code){return code.textContent.includes(triggerText);}).forEach(function(code){
     var launch=document.createElement('button');
     launch.className='research-launch';launch.type='button';launch.textContent='Explore '+files.length+' research files';
     launch.addEventListener('click',function(){openExplorer();});
