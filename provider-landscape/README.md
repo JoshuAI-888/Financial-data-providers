@@ -112,3 +112,15 @@ G2 / TrustRadius / Gartner Peer Insights / Capterra and analyst commentary for s
 across ≥2 sources (several review pages were inaccessible from the research environment). **Pricing is
 approximate** (enterprise vendors don't publish list prices) and **review scores are indicative**.
 Figures are point-in-time as of 10 Aug 2026. See the report's *Methodology* tab for full detail.
+
+## QA / tools
+
+`tools/check_links.py` — a stdlib-only dead-link checker for the two HTML pages. Run it where outbound
+internet is open (it can't reach external hosts inside the egress-restricted build sandbox):
+
+```bash
+cd provider-landscape && python3 tools/check_links.py
+```
+
+It extracts every external URL from both pages, requests each (HEAD→GET, following redirects), and lists
+anything that is 4xx/5xx or unreachable. Exit code 0 = all links reachable, 1 = some dead.
