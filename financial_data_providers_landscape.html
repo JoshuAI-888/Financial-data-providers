@@ -216,6 +216,11 @@ img,svg,video{max-width:100%;height:auto}
   .badge{font-size:.74rem;padding:5px 9px}
 }
 </style>
+<style id="palette-amber">/* amber (orange/charcoal) palette — opt-in via data-palette */
+:root[data-palette="amber"]{ --bg:#f4f6f7; --panel:#ffffff; --panel-2:#f1f4f5; --ink:#2b343b; --ink-soft:#46545b; --muted:#77858d; --line:#dce2e4; --line-strong:#c4ccd0; --accent:#b8560a; --accent-ink:#9a4708; --chip:#eef1f2; --chip-ink:#46545b; --link:#a84d08; --onaccent:#ffffff; --r5-bg:#9a4508; --r5-ink:#ffffff; --r4-bg:#b8560a; --r4-ink:#ffffff; --r3-bg:#f0b98c; --r3-ink:#5a3410; --r2-bg:#f7e2d0; --r2-ink:#6e4016; }
+@media (prefers-color-scheme: dark){ :root[data-palette="amber"]:not([data-theme="light"]){ --bg:#1a2024; --panel:#242c31; --panel-2:#1e252a; --ink:#e8edee; --ink-soft:#b4c0c6; --muted:#8a979e; --line:#333e45; --line-strong:#46535b; --accent:#ef7f2a; --accent-ink:#f6a45f; --chip:#232b30; --chip-ink:#c7d0d5; --link:#f39a52; --onaccent:#241407; --r5-bg:#b4530a; --r5-ink:#fff2e6; --r4-bg:#8f4b12; --r4-ink:#ffe6d3; --r3-bg:#6b4a30; --r3-ink:#f3ddca; --r2-bg:#3a2f27; --r2-ink:#e6d3c4; } }
+:root[data-palette="amber"][data-theme="dark"]{ --bg:#1a2024; --panel:#242c31; --panel-2:#1e252a; --ink:#e8edee; --ink-soft:#b4c0c6; --muted:#8a979e; --line:#333e45; --line-strong:#46535b; --accent:#ef7f2a; --accent-ink:#f6a45f; --chip:#232b30; --chip-ink:#c7d0d5; --link:#f39a52; --onaccent:#241407; --r5-bg:#b4530a; --r5-ink:#fff2e6; --r4-bg:#8f4b12; --r4-ink:#ffe6d3; --r3-bg:#6b4a30; --r3-ink:#f3ddca; --r2-bg:#3a2f27; --r2-ink:#e6d3c4; }
+</style>
 
 <header class="site">
   <div class="wrap hero">
@@ -258,7 +263,7 @@ img,svg,video{max-width:100%;height:auto}
       <button class="nav-step" id="navNext" type="button">Next</button>
       <span class="nav-progress" id="navProgress" aria-live="polite"></span>
     </div>
-    <div class="theme-toggle"><button id="themeBtn" title="Toggle light/dark"><span id="themeIcon">🌙</span><span id="themeLbl">Dark</span></button></div>
+    <div class="theme-toggle"><button id="paletteBtn" title="Switch colour theme (Teal / Amber)" aria-label="Switch colour theme"><span id="paletteIcon" aria-hidden="true">🎨</span><span id="paletteLbl">Teal</span></button><button id="themeBtn" title="Toggle light/dark"><span id="themeIcon">🌙</span><span id="themeLbl">Dark</span></button></div>
   </div>
 </nav>
 
@@ -1117,6 +1122,13 @@ document.getElementById('themeBtn').addEventListener('click',()=>{
   const next = cur==='dark' ? 'light' : 'dark';
   applyTheme(next); try{localStorage.setItem('fdp-theme',next);}catch(e){}
 });
+/* palette (colour theme) toggle — independent of light/dark */
+const palBtn=document.getElementById('paletteBtn'), palLbl=document.getElementById('paletteLbl');
+function applyPalette(p){ if(p==='amber'){root.setAttribute('data-palette','amber');}else{root.removeAttribute('data-palette');} if(palLbl)palLbl.textContent=(p==='amber'?'Amber':'Teal'); }
+let palStored=null; try{palStored=localStorage.getItem('fdp-palette');}catch(e){}
+applyPalette(palStored==='amber'?'amber':'teal');
+if(palBtn)palBtn.addEventListener('click',()=>{ const nx=(root.getAttribute('data-palette')==='amber')?'teal':'amber'; applyPalette(nx); try{localStorage.setItem('fdp-palette',nx);}catch(e){} });
+
 
 /* init */
 renderProviders(); renderSources(); sortRows('pevc'); /* default sort highlights private-markets spread */
@@ -1179,7 +1191,7 @@ renderProviders(); renderSources(); sortRows('pevc'); /* default sort highlights
   document.getElementById('extPills').addEventListener('click',function(e){
     var b=e.target.closest('[data-cat]'); if(!b)return;
     var cat=b.getAttribute('data-cat');
-    document.querySelectorAll('#extPills .pill').forEach(function(p){p.style.background=p===b?'var(--accent)':'';p.style.color=p===b?'#fff':'';});
+    document.querySelectorAll('#extPills .pill').forEach(function(p){p.style.background=p===b?'var(--accent)':'';p.style.color=p===b?'var(--onaccent,#fff)':'';});
     document.querySelectorAll('#extBody .ext-cat').forEach(function(bl){
       bl.style.display=(cat==='all'||bl.getAttribute('data-cat')===cat)?'':'none';});
   });
@@ -1266,4 +1278,4 @@ renderProviders(); renderSources(); sortRows('pevc'); /* default sort highlights
   }
 })();
 </script>
-<script src="provider-landscape/research-explorer.js"></script>
+<script src="research-explorer.js"></script>
