@@ -129,4 +129,53 @@ sources.
 - SimCorp: Agent Launchpad first-client access (promised "this year"); Databricks integration status.
 - AlphaCert: SRS 550 / QFU reporting scope; Milford is a named client, so check whether AlphaCert is already an incumbent.
 - Exafluence: verify Databricks-native deployment directly.
-- Link check: see `source_register.csv` and `link_check.csv`. Dead links found by the GitHub Actions run are listed in the PR and must be fixed before the next full refresh.
+- Fix or replace the 13 dead IDP links below (5 of them back a requirement score) before the next full refresh.
+
+## Link check (3 Nov 2026)
+
+Run on GitHub Actions (open network; the Claude Code sandbox blocks vendor sites) over every URL in
+`source_register.csv`. Results are in `link_check.csv` and merged into the register's `link_status`.
+
+| Result | URLs | Meaning |
+|---|---|---|
+| ok | 890 | 2xx/3xx |
+| blocked | 188 | 401/403/429-style bot walls; probably alive, spot-check in a browser |
+| error | 53 | timeouts, TLS errors, 5xx; retry before treating as dead |
+| **dead** | **34** | 404/410/DNS failure |
+
+**Dead links in the IDP evidence (13).** Scores were not changed for a dead link alone, because the
+claims were seen when the notes were written. Each needs a current or archived URL before the next
+refresh. A `*` marks a link that is the citation for a requirement score.
+
+| Vendor / note | Status | URL |
+|---|---|---|
+| AlphaCert * | 404 | https://alphacertlabs.com/tag/australiansuper-alphacert-data-management/ |
+| Fencore | 404 | https://app-escode-prod-79.azurewebsites.net/resources/fencore-partners-with-escode-to-provide-operational-resilience/ |
+| Fencore | 404 | https://imas.org.sg/fintech-directory/marketing/9Rnv8_Fencore%20Main%20Brochure%202024.pdf |
+| Fencore | 405 | https://investopsasia.wbresearch.com/sponsors/fencore (may be a bot wall; check in a browser) |
+| FINBOURNE * | 404 | https://www.finbourne.com/who-we-serve/alternative-asset-managers/private-equity/ |
+| GoldenSource * | 404 | https://www.thegoldensource.com/goldensource-scout/ |
+| NeoXam * | 404 | https://www.neoxam.com/aro/agentic-ai-reconciliation |
+| NeoXam | DNS | https://www.blackfincp.com/news/neoxam-a-leading-provider-of-asset-management-software-solutions-backed-by-blackfin-capital-partners-acquires-smartco |
+| Rimes | 404 | https://rimes.com/press-releases/rimes-to-acquire-matrix-idm-creating-an-advanced-investment-data-management-solution |
+| Rimes * | 404 | https://www.rimes.com/insights/rimes-outlines-approach-to-help-buy-side-conquer-challenge-of-managing-security-master-data/ |
+| SimCorp | 404 | https://www.simcorp.com/resources/events/simcorp-london-forum-2026 (past event page) |
+| best-practice: mastering | 404 | https://www.reference.com/business-finance/historical-stock-data-types-sources-backtesting-trade-offs |
+| best-practice: commercials | DNS | https://dectrack.com/en/blog/weighted-scoring-model |
+
+**Dead links in the 93-provider landscape (21).** The landscape was not re-researched in v3, so
+these are flagged for its next refresh. They include two malformed URLs in the page data
+(`deutsche-boerse.com/mds/stoxx.com` and `dowjones.com/datarade.ai`), retired API docs
+(Nasdaq Data Link, DBRS, Iress web services), and three dead alternativedata.org directory pages.
+Providers affected: Amberdata, Dataminr, Deutsche Börse, Dow Jones Factiva, Iress (3),
+Moody's, Morningstar, Nasdaq Data Link (2), NZX (2), QUICK (2), Social Market Analytics,
+S&P Global, Tegus, TEJ, Twelve Data, YipitData. Filter `source_register.csv` on
+`link_status = dead` to get the full list.
+
+**Fixes made from the run:** three auto-links in the landscape page had broken targets that
+included a stray backtick. They now render as code (Quiver, Xpoz, AlphaSense API base URLs). The
+build also kept the closing parenthesis off `wiki/Aladdin_(BlackRock)`; that is fixed. API endpoints
+quoted as code are no longer counted as sources.
+
+**From now on:** the PR workflow fails only on *new* dead links (anything not already recorded
+as dead in the committed `link_check.csv`). The monthly and manual runs fail on any dead link.

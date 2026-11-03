@@ -84,7 +84,7 @@ type them anywhere.
 python3 provider-landscape/tools/build_pages.py          # rewrite pages from notes + scores
 python3 provider-landscape/tools/build_pages.py --check  # CI: fails if a page is stale
 python3 provider-landscape/tools/build_register.py       # refresh source_register.csv
-python3 provider-landscape/tools/check_links.py          # OPEN NETWORK ONLY -> link_check.csv
+python3 provider-landscape/tools/check_links.py          # OPEN NETWORK ONLY -> link_check.csv (--baseline old.csv: fail only on new dead links)
 python3 provider-landscape/tools/build_register.py       # merge link results into the register
 ```
 

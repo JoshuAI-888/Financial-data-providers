@@ -19,7 +19,11 @@ link_status:
     blocked  401 / 403 / 429 / 999 and similar bot walls — probably alive, confirm in a browser
     error    timeouts, TLS or connection errors, 5xx — retry later before treating as dead
 
-Exit code: 0 if no dead links, 1 if any dead, 2 if nothing to check. Stdlib only.
+    --baseline FILE  a previous link_check.csv; only dead links NOT already dead there fail the run
+                     (the PR workflow uses the committed results, so known dead links are reported,
+                     and listed in the audit log, but don't block unrelated PRs)
+
+Exit code: 0 if no (new) dead links, 1 if any, 2 if nothing to check. Stdlib only.
 Based on the checker first written on branch claude/financial-provider-analysis-9r9cqd.
 """
 import csv, io, os, re, socket, ssl, sys, urllib.error, urllib.request
@@ -89,6 +93,14 @@ def check(url):
 
 def main():
     args = sys.argv[1:]
+    known_dead = set()
+    if "--baseline" in args:
+        i = args.index("--baseline")
+        base = args[i + 1]
+        del args[i:i + 2]
+        if os.path.exists(base):
+            with io.open(base, encoding="utf-8") as fh:
+                known_dead = {r["url"] for r in csv.DictReader(fh) if r.get("link_status") == "dead"}
     if args:
         paths = [p for p in args if os.path.exists(p)]
         urls = urls_from_files(paths)
@@ -116,10 +128,15 @@ def main():
         counts[s] = counts.get(s, 0) + 1
     print("\n==== RESULT (%s) ====" % now)
     print("  ".join("%s: %d" % (k, counts.get(k, 0)) for k in ("ok", "dead", "blocked", "error")))
+    new_dead = 0
     for url, s, code, _ in sorted(results, key=lambda r: (r[1], r[0])):
         if s == "dead":
-            print("  [DEAD %s] %s" % (code, url))
-    sys.exit(1 if counts.get("dead") else 0)
+            known = url in known_dead
+            new_dead += not known
+            print("  [DEAD %s]%s %s" % (code, " (known)" if known else " (NEW)" if known_dead else "", url))
+    if known_dead:
+        print("%d dead link(s) not in the baseline." % new_dead)
+    sys.exit(1 if new_dead else 0)
 
 
 if __name__ == "__main__":

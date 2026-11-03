@@ -35,7 +35,16 @@ jobs:
       - name: Check every URL in the source register (open network)
         id: check
         continue-on-error: true
-        run: python3 provider-landscape/tools/check_links.py
+        # On PRs, links already recorded as dead in the committed link_check.csv are reported but
+        # don't fail the run (they are listed in the audit log); new dead links do. Scheduled and
+        # manual runs fail on any dead link.
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ] && [ -f provider-landscape/link_check.csv ]; then
+            cp provider-landscape/link_check.csv "$RUNNER_TEMP/baseline.csv"
+            python3 provider-landscape/tools/check_links.py --baseline "$RUNNER_TEMP/baseline.csv"
+          else
+            python3 provider-landscape/tools/check_links.py
+          fi
       - name: Merge results into the register
         run: python3 provider-landscape/tools/build_register.py
       - name: Print results (so they can be copied into the repo)
@@ -53,5 +62,5 @@ jobs:
       - name: Fail if dead links were found
         if: steps.check.outcome == 'failure'
         run: |
-          echo "Dead links found: see the link_check.csv artifact and the log above."
+          echo "Dead links found (new ones on a PR): see the link_check.csv artifact and the log above."
           exit 1

@@ -33,7 +33,7 @@ ROOT = os.path.dirname(PL)
 OUT = os.path.join(PL, "source_register.csv")
 CHECK = os.path.join(PL, "link_check.csv")
 
-URL_RE = re.compile(r"https?://[^\s\"'<>\\)\]]+")
+URL_RE = re.compile(r"https?://[^\s\"'<>\\\]`]+")
 TAG_RE = re.compile(r"\[(vendor|independent)\s*·\s*([^·\]]+?)\s*·\s*([^·\]]+?)\s*·\s*(opened|search-only)\s*\]", re.I)
 ACC_RE = re.compile(r"accessed\s+(\d{4}-\d{2}(?:-\d{2})?)")
 DATE_RE = re.compile(r"\((\d{4}-\d{2}-\d{2})\)")
@@ -57,7 +57,10 @@ def host(u):
 
 
 def clean(u):
-    return u.rstrip(".,;:'\"")
+    u = u.rstrip(".,;:'\"")
+    while u.endswith(")") and u.count(")") > u.count("("):  # keep balanced parens, e.g. wiki/Aladdin_(BlackRock)
+        u = u[:-1].rstrip(".,;:'\"")
+    return u
 
 
 def heuristic_side(url, provider):
@@ -100,7 +103,11 @@ def main():
         rel = os.path.relpath(f, ROOT)
         stem = os.path.splitext(os.path.basename(f))[0]
         for line in io.open(f, encoding="utf-8").read().splitlines():
-            for u in URL_RE.findall(line):
+            spans = [c.span() for c in re.finditer(r"`[^`]*`", line)]
+            for m in URL_RE.finditer(line):
+                if any(a < m.start() < b for a, b in spans):
+                    continue  # API endpoints quoted as code are not sources
+                u = m.group(0)
                 tag = TAG_RE.search(line)
                 acc = ACC_RE.search(line) or DATE_RE.search(line)
                 # Notes written before the v3 refresh state that URLs were search-sourced, not fetched.
@@ -110,7 +117,7 @@ def main():
     for page in ("idp_evaluation.html", "financial_data_providers_landscape.html"):
         p = os.path.join(PL, page)
         t = io.open(p, encoding="utf-8").read()
-        for bid in ("idp-data", "ext-data"):
+        for bid in ("idp-data", "idp-reqs", "ext-data"):
             m = re.search(r'<script id="%s" type="application/json">(.*?)</script>' % bid, t, re.S)
             if not m:
                 continue
@@ -118,11 +125,17 @@ def main():
             for v in d.get("vendors", []) + d.get("ext", []) + d.get("earnings", []):
                 for s in v.get("sources", []):
                     add(s["u"], v["id"], "provider-landscape/" + page)
+            for rid, cells in (d.get("scores", {}) if bid == "idp-reqs" else {}).items():
+                for vid, c in cells.items():
+                    if c.get("url"):
+                        add(c["url"], vid, "provider-landscape/" + page)
             for k, lst in d.get("coreLinks", {}).items():
                 for s in lst:
                     add(s["u"], k, "provider-landscape/" + page)
-        for u in URL_RE.findall(t):
-            u = clean(u)
+        for m in URL_RE.finditer(t):
+            if t[max(0, m.start() - 6):m.start()].endswith(("`", "<code>")):
+                continue  # API endpoints quoted as code are not sources
+            u = clean(m.group(0))
             if u not in rows:
                 add(u, "page", "provider-landscape/" + page)
 

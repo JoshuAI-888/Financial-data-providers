@@ -33,7 +33,7 @@ ROOT = os.path.dirname(PL)                  # repo root
 RES = os.path.join(PL, "idp-research")
 
 GATE_RE = re.compile(r"^-\s*G(\d{2})\b.*?:\s*\**\s*(PASS|FAIL|PARTIAL|UNKNOWN)\b", re.I)
-URL_RE = re.compile(r"https?://[^\s)\]<>\"']+")
+URL_RE = re.compile(r"https?://[^\s\]<>\"'`]+")
 TAG_RE = re.compile(r"\[(vendor|independent)\s*·\s*([^·\]]+?)\s*·\s*([^·\]]+?)\s*·\s*(opened|search-only)\s*\]\s*$", re.I)
 MONTHS = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()
 
@@ -123,6 +123,8 @@ def parse_source(ln):
     if not m:
         return None
     url = m.group(0).rstrip(".,;")
+    while url.endswith(")") and url.count(")") > url.count("("):  # keep balanced parens, e.g. wiki/Aladdin_(BlackRock)
+        url = url[:-1].rstrip(".,;")
     rest = ln.strip()[1:].strip()
     src = {"u": url}
     tm = TAG_RE.search(rest)
