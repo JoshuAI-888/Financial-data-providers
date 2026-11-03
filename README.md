@@ -15,7 +15,7 @@ no build step is needed. The one exception is the in-page research library, whic
 
 | Page | What it is |
 |---|---|
-| [`financial_data_providers_landscape.html`](financial_data_providers_landscape.html) (also served as [`index.html`](index.html)) | **Provider Landscape.** 93 providers across public equity, private markets, fixed income & credit, indexes, ratings, ESG, risk and alternative data: cross-asset capability map, per-provider deep-dives, "who leads and why" by asset class, technical-integration comparison, customer-feedback synthesis, an Extended Universe of 76 further sources, and an Earnings Calls & Transcripts lens. |
+| [`financial_data_providers_landscape.html`](financial_data_providers_landscape.html) (also served as [`index.html`](index.html)) | **Provider Landscape.** 94 providers across public equity, private markets, fixed income & credit, indexes, ratings, ESG, risk and alternative data: cross-asset capability map, per-provider deep-dives, "who leads and why" by asset class, technical-integration comparison, customer-feedback synthesis, an Extended Universe of 77 further sources, and an Earnings Calls & Transcripts lens. |
 | [`idp_evaluation.html`](idp_evaluation.html) | **IDP Evaluation (v2 guided decision system).** Works forward from strategy (outcomes, current/target maturity, ownership and sourcing model, architecture principles, risk tolerance) and derives vendor weightings from those answers. Live ranking with a "Why this score?" panel and typed, dated citations; sensitivity analysis; 15 × 12 capability map; hard-gate grid (G01–G22); vendor deep-dives; PoV and templates toolkit. |
 
 ## IDP Evaluation at a glance

@@ -1,7 +1,7 @@
 # Aiera
 
 ## 1. Snapshot
-- **Owner/parent:** Independent, privately held fintech. Founded 2017 by Ken Sena and Bryan Healey. Raised ~$36M across seed/Series A/B; $17.5M Series B closed May 2025 (investors include Battery Ventures, RRE Ventures, Flybridge, DreamIt Ventures, HealthX Ventures, Third Bridge, Microsoft's M12).
+- **Owner/parent:** Privately held fintech. **Pending sale:** BlueMatrix (majority-owned by Thoma Bravo) agreed on 8 Oct 2026 to acquire Aiera, with closing expected Q4 2026 subject to regulatory approvals (see [bluematrix.md](bluematrix.md)). Founded 2017 by Ken Sena and Bryan Healey. Raised ~$36M across seed/Series A/B; $17.5M Series B closed May 2025 (investors include Battery Ventures, RRE Ventures, Flybridge, DreamIt Ventures, HealthX Ventures, Third Bridge, Microsoft's M12).
 - **Coverage:** ~13,000+ global equities (S&P 500, DJIA, Nasdaq Comp, Russell 3000, FTSE 100, DAX, CAC 40, S&P/ASX) plus 100+ macro/regulatory entities; ~40,000–60,000+ investor events per year (earnings calls, conferences, central-bank/regulatory events) with a claimed >95% connection rate.
 - **Free tier:** No public self-serve free tier found; marketing states "one low subscription price" for individual/team access, with enterprise API sold separately. Treat as no meaningful free tier for casual users.
 - **Pricing model & ranges:** Subscription (web/app) + separately negotiated Enterprise API licensing (events, transcripts, research, news, expert calls, filings feeds). Exact list prices not publicly disclosed in search-indexed sources; enterprise deals are quote-based, typical of institutional data vendors.
@@ -40,3 +40,4 @@ Independent third-party review coverage is thin: as of research date, Aiera's G2
 - https://startupintros.com/orgs/aiera — Founding date, founders, funding round detail (accessed 2026-08-14)
 - https://aiera.com/newsroom/earnings-call-assistant-openai-aiera/ — OpenAI-based conversational assistant integration (accessed 2026-08-14)
 - https://public.aiera.com/The-Aiera-Platform.pdf — Platform overview PDF, coverage figures (accessed 2026-08-14, indexed via search only)
+- https://dealroom.co/news/160968-thoma-bravo-backed-bluematrix-buys-aiera-to-govern-ai-research-distribut/ — independent: BlueMatrix agrees to acquire Aiera, Oct 2026 (accessed 2026-11-03)

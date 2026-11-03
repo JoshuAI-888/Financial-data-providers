@@ -10,7 +10,7 @@
   var dialogDesc=currentScript.dataset.desc||'Browse the Markdown audit trail without leaving the landscape.';
   var files=currentScript.dataset.files?currentScript.dataset.files.split(','):[
     'aiera.md','alpaca-markets.md','alpha-vantage.md','alphasense.md','amberdata.md',
-    'api-native-challengers.md','api-ninjas.md','asx.md','bamsec.md','benzinga.md','bloomberg.md',
+    'api-native-challengers.md','api-ninjas.md','asx.md','bamsec.md','benzinga.md','bloomberg.md','bluematrix.md',
     'cb-insights.md','ceic.md','clarity-ai.md','coingecko.md','coinmarketcap.md','crunchbase.md',
     'cryptocompare.md','daloopa.md','databento.md','databricks-marketplace.md','dataminr.md',
     'dbnomics.md','deutsche-boerse.md','diffbot.md','dowjones-factiva.md','duedil-artesian.md',
