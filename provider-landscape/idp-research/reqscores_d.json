@@ -1,18 +1,18 @@
 {
   "cluster": "ttv-commercials-viability",
   "requirements": {
-    "TTV-01": "Dataset onboarding speed",
-    "TTV-02": "Pre-built connector library",
-    "TTV-03": "Low implementation FTE / professional-services dependency",
-    "TTV-04": "30-60 day proof-of-value feasibility",
-    "TCO-01": "Pricing transparency",
-    "TCO-02": "Predictable AUM-scalable 5-year TCO",
-    "TCO-03": "Full data export on exit (raw+mastered+history+rules+audit)",
-    "TCO-04": "Usable without vendor proprietary runtime",
-    "VIA-01": "APAC / ANZ support & named references",
-    "VIA-02": "Roadmap execution track record",
-    "VIA-03": "Financial viability & ownership stability",
-    "VIA-04": "Comparable-customer reference availability"
+      "TTV-01": "Dataset onboarding speed",
+      "TTV-02": "Pre-built connector library",
+      "TTV-03": "Low implementation FTE / professional-services dependency",
+      "TTV-04": "30-60 day proof-of-value feasibility",
+      "TCO-01": "Pricing transparency",
+      "TCO-02": "Predictable AUM-scalable 5-year TCO",
+      "TCO-03": "Full data export on exit (raw+mastered+history+rules+audit)",
+      "TCO-04": "Usable without vendor proprietary runtime",
+      "VIA-01": "APAC / ANZ support & named references",
+      "VIA-02": "Roadmap execution track record",
+      "VIA-03": "Financial viability & ownership stability",
+      "VIA-04": "Comparable-customer reference availability"
   },
   "scores": {
     "TTV-01": {
@@ -112,22 +112,22 @@
       "blackrock-aladdin": {"s": 1.0, "ev": "sales", "rel": "GA", "cite": "Aladdin Data Cloud (Snowflake/Azure)", "url": "https://www.blackrock.com/aladdin/platforms/products/aladdin-data-cloud", "type": "Official docs", "note": "Proprietary data cloud + Azure Copilot; runtime-bound"}
     },
     "VIA-01": {
-      "rimes": {"s": 3.0, "ev": "named-customer", "rel": "GA", "cite": "Rimes - Rest (super fund) selects Matrix", "url": "https://www.rimes.com/why-rimes/about-us/", "type": "Named customer case study", "note": "Rest (A$100bn super) named 2026; ANZ office depth unclear"},
-      "finbourne": {"s": 2.0, "ev": "sales", "rel": "GA", "cite": "FINBOURNE ANZ Head of Sales hire", "url": "https://www.finbourne.com/finbourne-technology-appoints-marianne-antonicelli-as-head-of-sales-for-australia-and-new-zealand-operations-as-part-of-its-continued-expansion-in-the-region/", "type": "Official release note", "note": "ANZ sales lead hired 2025; no named ANZ client yet"},
+      "rimes": {"s": 3.0, "ev": "named-customer", "rel": "GA", "cite": "Rest selects Rimes Matrix (vendor release, 15 Apr 2026)", "url": "https://www.rimes.com/rimes-rest-investment-intelligence-platform-matrix/", "type": "Official release note", "note": "Rest (A$100bn+) selection Apr 2026 and NGS Super; Head of APAC since Nov 2025; go-live and ANZ office unconfirmed."},
+      "finbourne": {"s": 3.5, "ev": "named-customer", "rel": "GA", "cite": "AustralianSuper live on LUSID (Asset Servicing Times, 27 Oct 2026)", "url": "https://www.assetservicingtimes.com/assetservicesnews/industryarticle.php?article_id=18498", "type": "News", "note": "Named ANZ super fund live on LUSID as whole-of-fund IBOR (Oct 2026) plus ANZ head of sales; no local office/support-hours detail."},
       "arcesium": {"s": 1.5, "ev": "sales", "rel": "GA", "cite": "Arcesium Hong Kong office", "url": "https://www.arcesium.com/press-release/arcesium-opens-hong-kong-office-to-support-growing-apac-client-demand", "type": "Official release note", "note": "First Asia office (HK, Jan 2026); no ANZ presence"},
       "neoxam": {"s": 3.5, "ev": "named-customer", "rel": "GA", "cite": "NeoXam - Platinum Asset Management (AU)", "url": "https://www.neoxam.com/platinum-asset-management-bolsters-data-management-and-reporting-capabilities-with-neoxam/", "type": "Named customer case study", "note": "Sydney+Melbourne offices; Platinum AM named ANZ client"},
       "gresham-opus-edm": {"s": 1.5, "ev": "sales", "rel": "GA", "cite": "Gresham APAC sales-director hire", "url": "https://www.greshamtech.com/products/opus-edm", "type": "Vendor marketing", "note": "APAC sales-director hire only; no ANZ office or named client"},
-      "goldensource": {"s": 2.5, "ev": "docs", "rel": "GA", "cite": "GoldenSource Melbourne office", "url": "https://www.thegoldensource.com/contact-us/melbourne-office/", "type": "Official docs", "note": "Dedicated Melbourne office; no named ANZ client found"},
+      "goldensource": {"s": 3.0, "ev": "named-customer", "rel": "GA", "cite": "Melbourne office + Aware Super (Project Odin)", "url": "https://aware.com.au/member/about-us/newsroom/june-2026/aware-super-upgrades-its-235-billion-investment-engine-with-institutional-grade-platform", "type": "Named customer case study", "note": "Melbourne office and Aware Super (A$235bn) named; Odin completed Jun 2026, GoldenSource production status not explicit."},
       "factset-idp": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "FactSet 20 years Australia / 70+ ANZ staff", "url": "https://investor.factset.com/news-releases/news-release-details/factset-celebrates-20-years-australia", "type": "Official docs", "note": "20+yr ANZ presence, 70+ staff, Sydney/Melbourne; APAC forum"},
       "msci-idp": {"s": 2.0, "ev": "sales", "rel": "GA", "cite": "MSCI Sydney / Head of ANZ coverage", "url": "https://www.marketscreener.com/quote/stock/MSCI-INC-3021165/news/MSCI-Shane-Edwards-Promoted-to-Head-of-APAC-Client-Coverage-47989307/", "type": "News", "note": "Sydney office + Head of ANZ; no named ANZ IDP client"},
       "simcorp-one": {"s": 3.5, "ev": "named-customer", "rel": "GA", "cite": "SimCorp - Ardea IM / Challenger-Fidante (AU)", "url": "https://www.simcorp.com/about-us/news/2025/ardea-investment-management-selects-simcorp", "type": "Named customer case study", "note": "Ardea, Challenger/Fidante named ANZ clients; APAC MD"},
-      "blackrock-aladdin": {"s": 3.5, "ev": "named-customer", "rel": "GA", "cite": "Aladdin - Aware Super / AustralianSuper", "url": "https://www.waterstechnology.com/data-management/7952419/aussie-super-fund-overhauls-investment-platform-with-blackrock-aladdin", "type": "Named customer case study", "note": "AustralianSuper, Aware Super named ANZ; super-fund scale"}
+      "blackrock-aladdin": {"s": 4.0, "ev": "named-customer", "rel": "GA", "cite": "Aware Super Project Odin complete (Aladdin + eFront live), 18 Jun 2026", "url": "https://aware.com.au/member/about-us/newsroom/june-2026/aware-super-upgrades-its-235-billion-investment-engine-with-institutional-grade-platform", "type": "Named customer case study", "note": "Live A$235bn ANZ production reference plus AustralianSuper; at named-customer cap."}
     },
     "VIA-02": {
       "rimes": {"s": 2.5, "ev": "docs", "rel": "GA", "cite": "Rimes Databricks Delta Sharing (Nov 2025)", "url": "https://www.rimes.com/rimes-partners-with-databricks-to-deliver-managed-data-services/", "type": "Official release note", "note": "Delta Sharing shipped GA Nov 2025 as announced"},
       "finbourne": {"s": 2.5, "ev": "docs", "rel": "GA", "cite": "FINBOURNE MCP (2025) / Yield Book (2026)", "url": "https://www.finbourne.com/finbourne-unlocks-compliant-agentic-ai-for-the-investment-industry-powered-by-mcp/", "type": "Official release note", "note": "Regular releases; MCP 2025, Yield Book embed 2026"},
       "arcesium": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "Arcesium Opterra/Aquata AI/Limina", "url": "https://www.businesswire.com/news/home/20260202733930/en/Arcesium-Acquires-Limina-to-Deliver-a-Unified-Front-to-Back-Investment-Platform", "type": "Official release note", "note": "Active shipping: Opterra, Aquata AI, Limina acquisition"},
-      "neoxam": {"s": 2.0, "ev": "sales", "rel": "roadmap", "cite": "NeoXam Agents (production 2027)", "url": "https://www.neoxam.com/neoxam-agents-investment-operations/", "type": "Vendor marketing", "note": "Agents production only 2027; core products ship on cadence"},
+      "neoxam": {"s": 2.0, "ev": "sales", "rel": "roadmap", "cite": "NeoXam Agents (production 2027)", "url": "https://www.neoxam.com/neoxam-agents-investment-operations/", "type": "Vendor marketing", "note": "Agents: Sept-2026 GA target reported but not evidenced; production guided to early 2027; core products ship on cadence."},
       "gresham-opus-edm": {"s": 1.5, "ev": "sales", "rel": "GA", "cite": "Gresham Opus rename / AI roadmap 2026", "url": "https://www.greshamtech.com/press-releases/gresham-renames-acquired-sp-global-edm-platform-as-opus-edm", "type": "Official release note", "note": "Mid-integration; AI roadmap 2026; two-product convergence unproven"},
       "goldensource": {"s": 2.5, "ev": "docs", "rel": "GA", "cite": "GoldenSource V10 (2024) / Scout (2026)", "url": "https://www.thegoldensource.com/goldensource-unveils-next-generation-ai-powered-data-intelligence-platform-for-financial-services/", "type": "Official release note", "note": "V10 2024, Scout 2026; delivers on cadence"},
       "factset-idp": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "FactSet MCP suite / LiquidityBook IBOR", "url": "https://www.factset.com/lp/model-context-protocol", "type": "Official docs", "note": "Consistent public-co delivery; MCP GA, IBOR integrated"},
@@ -142,18 +142,18 @@
       "neoxam": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "NeoXam Eurazeo majority investment", "url": "https://www.eurazeo.com/en/newsroom/press-releases/eurazeo-signs-agreement-invest-neoxam", "type": "Official release note", "note": "Eurazeo majority (>EUR100m); repeated PE churn + roll-ups"},
       "gresham-opus-edm": {"s": 2.0, "ev": "sales", "rel": "GA", "cite": "Gresham STG take-private + S&P EDM carve-out", "url": "https://www.pehub.com/stg-partners-agrees-to-take-gresham-technologies-private-in-a-147m-deal/", "type": "News", "note": "STG-owned; three M&A moves in two years; integration risk"},
       "goldensource": {"s": 2.5, "ev": "docs", "rel": "GA", "cite": "GoldenSource Gemspring ownership", "url": "https://www.prnewswire.com/news-releases/gemspring-capital-acquires-goldensource-301548498.html", "type": "Official release note", "note": "Gemspring PE since 2022; 40yr history; scale variably reported"},
-      "factset-idp": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "FactSet FY2025 results (ASV $2.45bn)", "url": "https://investor.factset.com/news-releases/news-release-details/factset-reports-results-fourth-quarter-and-fiscal-2025", "type": "Official filings", "note": "Public (NYSE:FDS); $2.45bn ASV, 91% retention; very stable"},
+      "factset-idp": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "FactSet FY2026 results (organic ASV $2.57bn, +7.0%)", "url": "https://www.sec.gov/Archives/edgar/data/0001013237/000162828026063888/fdsq42026earningsrelease.htm", "type": "Official filings", "note": "Public (NYSE:FDS); FY2026 organic ASV $2,568.2M (+7.0%), retention above 95%; very stable."},
       "msci-idp": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "MSCI Q1 2025 run rate $2.98bn", "url": "https://ir.msci.com/static-files/c8906760-6294-40ae-b1dd-44c21c5771a6", "type": "Official filings", "note": "Public (NYSE:MSCI); $2.98bn run-rate +9.3%; very stable"},
       "simcorp-one": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "SimCorp / Deutsche Boerse ownership", "url": "https://www.microsoft.com/en/customers/story/26553-simcorp-azure", "type": "News", "note": "Deutsche Boerse-owned; financially stable, active roadmap"},
       "blackrock-aladdin": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "BlackRock / Preqin close", "url": "https://ir.blackrock.com/news-and-events/press-releases/press-releases-details/2025/BlackRock-Establishes-Preeminent-Private-Markets-Technology-and-Data-Provider-with-Close-of-Preqin-Acquisition/default.aspx", "type": "Official release note", "note": "BlackRock - world's largest asset manager; highly viable"}
     },
     "VIA-04": {
-      "rimes": {"s": 3.0, "ev": "named-customer", "rel": "GA", "cite": "Rimes - 60 of top 100 AMs; Rest", "url": "https://www.rimes.com/why-rimes/about-us/", "type": "Named customer case study", "note": "60 of top 100 AMs served; Rest super fund named"},
-      "finbourne": {"s": 3.0, "ev": "named-customer", "rel": "GA", "cite": "FINBOURNE - Baillie Gifford / LSEG", "url": "https://www.finbourne.com/baillie-gifford-selects-finbournes-lusid-platform-to-boost-investment-data-management/", "type": "Named customer case study", "note": "Baillie Gifford, LSEG, Northern Trust named comparable clients"},
+      "rimes": {"s": 3.0, "ev": "named-customer", "rel": "GA", "cite": "Rimes - 60 of top 100 AMs; Rest (Apr 2026)", "url": "https://www.rimes.com/rimes-rest-investment-intelligence-platform-matrix/", "type": "Official release note", "note": "60 of top 100 AMs served; Rest selection (Apr 2026) is a selection, not a confirmed go-live."},
+      "finbourne": {"s": 3.5, "ev": "named-customer", "rel": "GA", "cite": "AustralianSuper, Baillie Gifford, LSEG, Northern Trust", "url": "https://www.inservinsights.net/2026/10/australiansuper-goes-live-on-lusid/", "type": "News", "note": "Large total-portfolio asset owner now live in ANZ (Oct 2026); super-fund scale, not a like-for-like $35bn manager."},
       "arcesium": {"s": 3.0, "ev": "named-customer", "rel": "GA", "cite": "Arcesium - Neuberger Berman / D.E.Shaw", "url": "https://www.businesswire.com/news/home/20250115179753/en/Arcesium-Provides-Technology-to-Support-Neuberger-Bermans-Specialty-Finance-Asset-Based-Financing-Operations", "type": "Named customer case study", "note": "Hedge-fund/AM clients; $6tn serviced; Neuberger Berman named"},
       "neoxam": {"s": 3.5, "ev": "named-customer", "rel": "GA", "cite": "NeoXam - Platinum Asset Management", "url": "https://www.neoxam.com/platinum-asset-management-bolsters-data-management-and-reporting-capabilities-with-neoxam/", "type": "Named customer case study", "note": "Platinum AM - directly comparable multi-asset manager"},
       "gresham-opus-edm": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Opus EDM - 150+ institutions", "url": "https://www.greshamtech.com/press-releases/gresham-renames-acquired-sp-global-edm-platform-as-opus-edm", "type": "Official docs", "note": "150+ institutions (Opus); no named comparable surfaced"},
-      "goldensource": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "GoldenSource institutional client base", "url": "https://www.thegoldensource.com/reference-data/", "type": "Official docs", "note": "Long client base; no named comparable production reference"},
+      "goldensource": {"s": 3.0, "ev": "named-customer", "rel": "GA", "cite": "Aware Super selects GoldenSource Investment Data Platform", "url": "https://www.thegoldensource.com/goldensource-aware-super-set-new-benchmark-amid-unprecedented-pension-fund-growth/", "type": "Named customer case study", "note": "Named large ANZ asset owner (vendor release Mar 2025, customer newsroom Jun 2026); super-fund scale."},
       "factset-idp": {"s": 3.0, "ev": "named-customer", "rel": "GA", "cite": "FactSet buy-side client base / ANZ", "url": "https://investor.factset.com/news-releases/news-release-details/factset-celebrates-20-years-australia", "type": "Named customer case study", "note": "Large buy-side client base; content-layer references, not IDP"},
       "msci-idp": {"s": 2.5, "ev": "docs", "rel": "GA", "cite": "MSCI Total Plan Manager asset-owner base", "url": "https://www.msci.com/data-and-analytics/private-asset-solutions/total-plan-manager", "type": "Official docs", "note": "Many asset owners use TPM/Barra; ANZ-specific reference unclear"},
       "simcorp-one": {"s": 3.5, "ev": "named-customer", "rel": "GA", "cite": "SimCorp - Ardea IM (~A$18bn)", "url": "https://www.simcorp.com/about-us/news/2025/ardea-investment-management-selects-simcorp", "type": "Named customer case study", "note": "Ardea (~A$18bn multi-asset) directly comparable ANZ reference"},
