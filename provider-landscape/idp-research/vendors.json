@@ -1,0 +1,172 @@
+{
+  "idp_as_of": "2026-11-03",
+  "landscape_as_of": "2026-08-10",
+  "idp_refresh_note": "<p class=\"fs-line\">Vendor facts were last refreshed on {as_of} (v3): all 15 vendors were re-checked for Databricks integration, AI/MCP status, ownership, APAC/ANZ support and pricing. Every source in the fact-sheets is dated and marked vendor-authored or independent, and as opened or found by search only (see <code>source_register.csv</code>). Scores stay provisional until a proof of value runs — treat pricing, exit and PoV-timeline facts as open RFP questions.</p>",
+  "vendors": [
+    {
+      "id": "finbourne",
+      "file": "finbourne.md",
+      "seg": "core",
+      "pen": [
+        2,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "arcesium",
+      "file": "arcesium.md",
+      "seg": "core",
+      "pen": [
+        3,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "neoxam",
+      "file": "neoxam.md",
+      "seg": "core",
+      "pen": [
+        3,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "goldensource",
+      "file": "goldensource.md",
+      "seg": "core",
+      "pen": [
+        2,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "gresham-opus-edm",
+      "file": "gresham-opus-edm.md",
+      "seg": "core",
+      "pen": [
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "rimes",
+      "file": "rimes.md",
+      "seg": "core",
+      "pen": [
+        1,
+        1,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "factset-idp",
+      "file": "factset-idp.md",
+      "seg": "layer",
+      "pen": [
+        2,
+        1,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "msci-idp",
+      "file": "msci-idp.md",
+      "seg": "layer",
+      "pen": [
+        2,
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "simcorp-one",
+      "file": "simcorp-one.md",
+      "seg": "counter",
+      "pen": [
+        4,
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "blackrock-aladdin",
+      "file": "blackrock-aladdin.md",
+      "seg": "counter",
+      "pen": [
+        5,
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "fencore",
+      "file": "fencore.md",
+      "seg": "core",
+      "pen": [
+        2,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "statestreet-alpha",
+      "file": "statestreet-alpha.md",
+      "seg": "counter",
+      "pen": [
+        3,
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "alphacert",
+      "file": "alphacert.md",
+      "seg": "core",
+      "pen": [
+        1,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "quadra",
+      "file": "quadra.md",
+      "seg": "emerging",
+      "pen": [
+        1,
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "id": "exafluence",
+      "file": "exafluence.md",
+      "seg": "si",
+      "pen": [
+        2,
+        1,
+        3,
+        2
+      ]
+    }
+  ]
+}

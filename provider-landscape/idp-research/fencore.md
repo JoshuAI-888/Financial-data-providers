@@ -6,12 +6,15 @@
 - **HQ / footprint:** Singapore HQ servicing clients globally — one of very few genuine IDP/EDM peers actually headquartered in APAC, a differentiator for an APAC-based buyer needing in-region time-zone support.
 - **Initial fit:** High as a data-management master (the layer that feeds Databricks); moderate overall because it is a data-management platform, not a book-of-record, and its Databricks-specific and AI capabilities are unconfirmed in public sources.
 - **Positioning:** "No-code data management for the investment industry" — empower business users (not engineers) to build masters, reconcile and govern investment data through drag-and-drop, cloud-native tooling.
+- **Recent developments:** As of 3 Nov 2026 the vendor site markets 'Cori', a governed in-product AI assistant (status and model unstated), claims ISO 27001 and positions DataHub as an operating layer over Databricks/Snowflake/Fabric without integration detail; no funding round or named ANZ client found.
 
 ## 2. Investment-domain mastering
 DataHub is built to manage reference, market and investment data and to build **masters** across a wide range of use cases — golden-copy construction, cross-referencing, data optimisation and migration. Security/instrument and issuer/entity mastering are core to the product's purpose. Explicit identifier-concordance breadth (ISIN/SEDOL/CUSIP/FIGI) and corporate-action mastering depth are plausible for an EDM of this class but are not itemised in public sources; confirm through RFI. Coverage is client-populated rather than vendor-supplied content.
 
 ## 3. Databricks & open architecture
 Fencore is cloud-native with a stated focus on **interoperability** and API-based integration, and stores raw, historical and export snapshots. However, a Databricks-specific integration — Delta/Open Sharing, Unity Catalog interoperability, zero-copy access, governed bidirectional write-back — is **not evidenced** in public material. For a Databricks-first buyer this is an open, must-confirm question; treat as not established rather than assumed. Its no-code, API-forward design is architecturally sympathetic to a composed, open stack.
+
+**Nov 2026 update:** the vendor site now positions DataHub as the 'operating layer' over Snowflake, Microsoft Fabric and Databricks, with Snowflake shown as a partner logo; no Delta Sharing, Unity Catalog, zero-copy, write-back or marketplace listing is described.
 
 ## 4. IBOR & investment modelling
 Fencore is a **data-management platform, not an investment book of record**. It stores automatic raw, historical and export snapshots (a form of point-in-time data retention) but does not claim an event-driven, bi-temporal position/accounting engine. Point-in-time reconstruction of *positions* would depend on an IBOR elsewhere in the stack; Fencore's role is mastering and reconciling the underlying data.
@@ -25,14 +28,46 @@ Fencore explicitly positions across **public and private markets** as a single d
 ## 7. AI & agent readiness
 No AI/LLM or MCP/agent-interface capability is evidenced in public sources. The no-code transform layer is rules/UI-driven rather than model-driven on the current public evidence. Treat AI readiness as unproven pending vendor confirmation.
 
+**Nov 2026 update:** the vendor site markets **Cori**, a governed in-product AI assistant that drafts dictionaries, pipelines and masters from natural language, with user review before changes apply. GA status, underlying LLM, buyer-own-LLM option and any MCP or agent interface are not stated (vendor marketing only).
+
 ## 8. Time-to-value, implementation, managed services & APAC support
 The **no-code, business-user** model is the time-to-value pitch — configuration by data operations staff rather than an engineering project. Singapore HQ gives genuine **APAC time-zone coverage and regional support**, a material advantage over EMEA/US-centric incumbents for an APAC buyer. As a young vendor, reference depth and large-scale implementation track record are the key diligence risks.
+
+**Nov 2026 update:** the 2024 brochure lists teams in Singapore and the UK with 'additional market coverage in Hong Kong and Australia'; New Zealand is not mentioned and no named ANZ client or partner was located.
 
 ## 9. Commercials, TCO, exit & vendor viability
 SaaS/subscription commercial model; specific pricing is not public. As a **2019 startup**, vendor viability, financial durability and reference base are the dominant risks for a ~$35bn institutional buyer and would need careful diligence (financials, client references, escrow/exit terms). Cloud-native, API-based design is favourable for portability, but exit terms are unconfirmed.
 
+**Nov 2026 update:** ISO 27001 certification is claimed on the solution page (certificate not seen); NCC Group is the named escrow provider (May 2023). CB Insights shows only a convertible note and accelerator investors; no 2024–26 funding round or headcount was located.
+
 ## 10. Evidence, maturity & provisional scores
 Evidence class is largely **vendor-authored / directory listings** (Fencore site, The Wealth Mosaic, fintech directories) — no independent analyst coverage or public customer reviews were found, so scores are **evidence-capped** and conservative. Hard gates: data-ops/lineage/four-eyes read as partial-to-pass on the strength of the product description; Databricks-open-sharing, native IBOR, AI/agent and vendor-scale gates read as **unknown or fail** on current public evidence. Provisional domain read: strong on data quality/operations and self-service, moderate on mastering and total-portfolio breadth, weak/unproven on Databricks-native integration, IBOR, AI and vendor viability. **Stage-1 paper screen — not a selection of record.** In-sandbox egress is restricted, so figures are triangulated from the search index and flagged as open RFI items.
+
+**Hard-gate read:**
+- G01 native equities/ETF/govvies/credit/FX/PE: PARTIAL
+- G02 security+entity+price mastering: PASS — security/entity mastering is the core DataHub product (Nov 2026)
+- G03 intraday position/price + near-real-time txns: PARTIAL
+- G04 5yr history + point-in-time: PASS
+- G05 IDP-as-master while Databricks consumes: UNKNOWN
+- G06 open/native Databricks integration: FAIL
+- G07 bidirectional API: UNKNOWN
+- G08 business users extend model w/o vendor coding: PASS — no-code configuration by business users is the core proposition (Nov 2026)
+- G09 buyer can use own LLMs: UNKNOWN — Cori assistant's model not stated (Nov 2026)
+- G10 permission-aware MCP/agent interface: FAIL — no MCP/agent interface (Nov 2026)
+- G11 field-level provenance/lineage/override/audit: PASS — source-to-target lineage, four-eyes and audit documented (Nov 2026)
+- G12 full export on exit: UNKNOWN
+- G13 AI/LLM data-use rights governable: UNKNOWN — no published AI data-use terms (Nov 2026)
+- G14 credible APAC+ANZ support: PARTIAL — Singapore HQ with Australia market coverage; no named ANZ client (Nov 2026)
+- G15 30–60 day PoV: UNKNOWN
+- G16 3–6 month production foundation: PARTIAL
+- G17 07: UNKNOWN
+- G18 internal ops retains exception/override control: PASS — four-eyes and override workflows run by client operations (Nov 2026)
+- G19 institutional security architecture: PARTIAL — ISO 27001 claimed; SOC 2 not evidenced (Nov 2026)
+- G20 5-yr TCO transparency: FAIL
+- G21 critical function not roadmap-dependent: PARTIAL — core EDM shipping; AI assistant status unstated (Nov 2026)
+- G22 controlled write-back to downstream systems: PARTIAL
+
+**Evidence re-checked 2026-11-03 (v3 refresh).** Scores remain provisional (Stage-1 paper screen) until a proof of value runs; see `_v3_updates.md`.
 
 ## 11. Sources
 - Fencore — company site & DataHub product: https://www.fencore.co/ (accessed 2026-08-15)
@@ -41,3 +76,9 @@ Evidence class is largely **vendor-authored / directory listings** (Fencore site
 - Fintech News Singapore — Fencore directory listing: https://fintechnews.sg/list-fintech-startup-singapore-fintech-companies-directory/fintech/fencore/ (accessed 2026-08-15)
 - CB Insights — Fencore company profile: https://www.cbinsights.com/company/fencore (accessed 2026-08-15)
 - Crunchbase — Fencore profile: https://www.crunchbase.com/organization/fencore (accessed 2026-08-15)
+- https://www.fencore.co/about/ — Fencore about (Fencore; accessed 2026-11-03) [vendor · Vendor marketing · undated · opened]
+- https://imas.org.sg/fintech-directory/marketing/9Rnv8_Fencore%20Main%20Brochure%202024.pdf — Fencore Main Brochure 2024 (Fencore via IMAS fintech directory; accessed 2026-11-03) [vendor · Vendor marketing · 2024 · opened]
+- https://www.fencore.co/company — Fencore company/team (Fencore; accessed 2026-11-03) [vendor · Vendor marketing · undated · opened]
+- https://app-escode-prod-79.azurewebsites.net/resources/fencore-partners-with-escode-to-provide-operational-resilience/ — Fencore Partners with Escode to Provide Operational Resilience (Escode (NCC Group); accessed 2026-11-03) [vendor · News · 2023-05-01 · opened]
+- https://www.cbinsights.com/company/fencore/customers — Fencore customers (CB Insights; accessed 2026-11-03) [independent · Independent research · undated · opened]
+- https://investopsasia.wbresearch.com/sponsors/fencore — Fencore - InvestOps Asia sponsor (WBR; accessed 2026-11-03) [vendor · Vendor marketing · undated · opened]

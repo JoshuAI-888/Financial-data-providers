@@ -6,6 +6,7 @@
 - **HQ / footprint:** New York HQ (founded 1984 as Financial Technologies International). Five APAC offices including a dedicated Melbourne, Australia office (Level 31, 120 Collins St) plus Singapore, Hong Kong, Beijing and Mumbai — the most substantial ANZ/APAC physical footprint of the three vendors reviewed.
 - **Initial fit:** High
 - **Positioning:** Long-pedigree, cloud-agnostic security/entity master with a real Melbourne office and an MCP-based agentic layer (Scout) that is furthest along of the three vendors in explicitly naming MCP — but Scout is very recently launched (June 2026) and unproven at named-reference scale.
+- **Recent developments:** Aware Super (A$235bn) completed Project Odin in Jun 2026 with GoldenSource as its investment data platform (named ANZ client); Scout (Jun 2026, Amazon Bedrock, MCP listed) is still an early-adopter programme (~10 clients) with no GA notice as of 3 Nov 2026; no Databricks integration.
 
 ## 2. Investment-domain mastering
 GoldenSource's core is security, entity/issuer and price/product mastering. Security Master unifies multi-source data (Bloomberg, LSEG, ICE, custodians, exchanges) into a centralised model with validation and governance; Entity Master consolidates legal-entity, client, account, product and issuer records, linking multiple identifiers and roles per entity (supporting KYC/AML/FATCA/MiFID II use cases). Each security/entity is stated to be "mastered once," with reference links back to vendor identifiers, embedded validation/lineage/workflow rules, and "plug-and-play" vendor connections. V10 (launched 2024, reaffirmed as the current architecture in 2026 material) is described as cloud-agnostic (AWS/Azure/GCP), microservices-based, with AI-supported documentation/search, automated pipelines, improved lineage/metadata extraction and new ESG connectors. Point-in-time/bitemporal history depth and business-user no-code extensibility are asserted but not independently itemised in public material.
@@ -25,8 +26,12 @@ Public-source evidence of a dedicated private-markets/GP-LP module (commitments,
 ## 7. AI & agent readiness — PREVIEW, NEWLY LAUNCHED
 GoldenSource Scout launched 23 June 2026 as a "Trusted Contextual Data Layer," delivered as purpose-built agents (initial release: data investigation, exception management, lineage tracing) accessible via a chat interface and, notably, **an agent-building tool that explicitly uses the Model Context Protocol (MCP)** for cross-platform connectivity/automation. Scout runs on Amazon Bedrock and is stated to be "purpose-built to meet the rigorous requirements for data security, access controls and auditability that financial services firms demand." This is the most explicit MCP claim among the three vendors reviewed and directly relevant to G10. However: Scout is roughly two months old at the time of this assessment, positioned partly as a market-trust response (a cited InvestOps 2026 stat: 98% of firms worry poor data causes bad AI outputs), with no named production client, no independently verified model-independence statement, and no documented per-agent identity/entitlement or write-approval detail beyond the general Bedrock/audit framing — treat as **early-GA-or-preview**, not a mature, referenceable production capability.
 
+**Nov 2026 update:** Scout still has no GA announcement. A-Team Insight (29 Jul 2026) reports an early-adopter programme of about 10 unnamed clients, with unstructured-data pipelines, ratings-mismatch and ID-resolution agents still to come. MCP connectivity is listed on the vendor's Scout page without availability status; there is no buyer-own-LLM statement beyond Amazon Bedrock.
+
 ## 8. Time-to-value, implementation, managed services & APAC support
-Pre-built Bloomberg template (800+ fields), "plug-and-play" vendor connections, EDM Now managed SaaS, and dedicated GoldenSource Professional Services for setup/migration/integration/training/go-live all point to a config-over-code, accelerated-onboarding posture. APAC support is the strongest of the three vendors on paper: five APAC offices including a dedicated Melbourne, Australia office — though named ANZ client references were not found in this research and should be requested directly. 30–60 day PoV and 3–6 month foundation timelines are not established from public sources.
+Pre-built Bloomberg template (800+ fields), "plug-and-play" vendor connections, EDM Now managed SaaS, and dedicated GoldenSource Professional Services for setup/migration/integration/training/go-live all point to a config-over-code, accelerated-onboarding posture. APAC support is the strongest of the three vendors on paper: five APAC offices including a dedicated Melbourne, Australia office — though Aware Super is now a named ANZ client (see the Nov 2026 update below); further references should be requested directly. 30–60 day PoV and 3–6 month foundation timelines are not established from public sources.
+
+**Nov 2026 update:** Aware Super is a named ANZ client: it selected the GoldenSource Investment Data Platform (SaaS, Project Odin, vendor release 27 Mar 2025), and Aware's own newsroom (18 Jun 2026) lists it among the systems delivered when Odin completed across its A$235bn fund. Older ANZ references include HESTA (2020) and ASX (2014). The vendor's 2022 Cloud Data Services Databricks mention remains unrefreshed; the only current lakehouse product signal is the OMNI Snowflake Native App.
 
 ## 9. Commercials, TCO, exit & vendor viability
 No public pricing, platform-vs-content separation, egress/API charges, or exit/data-portability terms were found. Vendor viability: mid-market PE-backed (Gemspring, since 2022) with a 2024 CEO change signalling a deliberate cloud/buy-side growth push; company-size estimates vary meaningfully across data sources (400–650 employees, $25–100m revenue), suggesting GoldenSource is smaller and less independently well-documented than NeoXam or the combined Gresham — a factor for viability due diligence, though a 40+ year operating history (since 1984) is a stability signal in the other direction.
@@ -57,23 +62,13 @@ No public pricing, platform-vs-content separation, egress/API charges, or exit/d
 - G21 (critical function not roadmap-dependent): PASS — mastering/IBOR shipping; only Scout is newly launched
 - G22 (controlled write-back to downstream): UNKNOWN — not established from public sources
 
-**Provisional 0–5 scores (evidence-capped; no PoV performed, ceiling 4, 4 only with named production reference):**
-- Domain 1 (Investment data mastering): 3.0 (evidence: official docs)
-- Domain 2 (Databricks & open architecture): 2.0 (evidence: official docs — named but dated Databricks claim)
-- Domain 3 (Time to value & implementation): 2.5 (evidence: official docs — Bloomberg template, managed SaaS)
-- Domain 4 (Data quality & investment operations): 2.5 (evidence: official docs, less exception-workflow detail than Gresham)
-- Domain 5 (Public/private total portfolio): 0.5 (evidence: absence of evidence — no PE module found)
-- Domain 6 (IBOR & investment modelling): 3.0 (evidence: official docs — explicit event-based IBOR claim)
-- Domain 7 (AI & agent readiness): 1.5 (evidence: official docs/preview — MCP named but two months old, unreferenced)
-- Domain 8 (Data coverage/currency/history): 2.5 (evidence: official docs)
-- Domain 9 (Integration & user self-service): 2.0 (evidence: official docs — APIs general, plug-and-play connectors)
-- Domain 10 (Governance/security/data rights): 2.0 (evidence: official docs — Bedrock/audit claims for Scout only)
-- Domain 11 (Commercials/TCO/exit): 1.0 (evidence: sales — no public terms)
-- Domain 12 (Vendor viability/roadmap/support): 2.5 (evidence: official docs — 40-yr history offset by smaller/uncertain scale, no named production reference for Scout)
 
 **Overall read:** GoldenSource leads on APAC/ANZ physical footprint (a dedicated Melbourne office), an explicit event-based IBOR claim, and the most direct MCP reference of the three vendors via Scout. It lags on private-markets/PE-specific tooling (no evidence found) and on AI-readiness maturity in practice — Scout is barely two months old with no named production reference. Biggest risk: buying ahead of proof on Scout's MCP/agent claims, and a comparatively thin, variably-reported company scale versus NeoXam and the combined Gresham.
 
+**Evidence re-checked 2026-11-03 (v3 refresh).** Scores remain provisional (Stage-1 paper screen) until a proof of value runs; see `_v3_updates.md`.
+
 ## 11. Sources
+- https://www.thegoldensource.com/goldensource-unveils-next-generation-ai-powered-data-intelligence-platform-for-financial-services/ — GoldenSource Scout launch [vendor · Official release note · 2026-08-14 · search-only]
 - https://www.thegoldensource.com/reference-data/ — reference data / security & entity mastering overview (accessed 2026-08-14)
 - https://www.thegoldensource.com/goldensource-scout/ — Scout AI platform overview (accessed 2026-08-14)
 - https://www.thegoldensource.com/goldensource-unveils-next-generation-ai-powered-data-intelligence-platform-for-financial-services/ — Scout launch detail, MCP, Bedrock, agent types (accessed 2026-08-14)
@@ -89,3 +84,8 @@ No public pricing, platform-vs-content separation, egress/API charges, or exit/d
 - https://a-teaminsight.com/blog/goldensource-opens-singapore-office-hires-new-apac-sales-director/?brand=rti — Singapore office, APAC footprint history (accessed 2026-08-14)
 - https://www.prnewswire.com/news-releases/gemspring-capital-acquires-goldensource-301548498.html — Gemspring Capital acquisition, ownership (accessed 2026-08-14)
 - https://en.wikipedia.org/wiki/GoldenSource — company founding history, leadership change (accessed 2026-08-14)
+- https://www.thegoldensource.com/tag/press-releases — GoldenSource press releases archive (GoldenSource; accessed 2026-11-03) [vendor · Vendor marketing · 2026-06-23 · opened]
+- https://a-teaminsight.com/blog/goldensource-scout-launched-to-close-data-trust-gap-using-ai/ — GoldenSource Scout launched to close data trust gap using AI (A-Team Insight; accessed 2026-11-03) [independent · News · 2026-07-29 · opened]
+- https://www.thegoldensource.com/goldensource-aware-super-set-new-benchmark-amid-unprecedented-pension-fund-growth/ — GoldenSource & Aware Super set new benchmark (GoldenSource; accessed 2026-11-03) [vendor · Official release note · 2025-03-27 · opened]
+- https://aware.com.au/member/about-us/newsroom/june-2026/aware-super-upgrades-its-235-billion-investment-engine-with-institutional-grade-platform — Aware Super upgrades its $235 billion investment engine with institutional-grade platform (Aware Super; accessed 2026-11-03) [independent · Named customer case study · 2026-06-18 · opened]
+- https://mondovisione.com/media-and-resources/news/hesta-selects-goldensource-nexus-to-overhaul-investment-data-management-2020514/ — HESTA selects GoldenSource Nexus (Mondo Visione; accessed 2026-11-03) [independent · News · 2020 · search-only]

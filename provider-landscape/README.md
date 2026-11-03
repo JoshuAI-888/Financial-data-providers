@@ -54,9 +54,11 @@ recommendation, or affiliated with any provider named.
   - **Emerging / open-standard challengers** — **Quadra** (FIBO-based, vendor-neutral; watch-list).
   - **Build accelerators & systems integrators** — **Exafluence** (Databricks-capable IDM accelerator).
 
-  Vendor facts were **refreshed for 2025–26** (Databricks integration, AI/MCP status, ownership changes,
-  APAC support); fact-sheets are in [`idp-research/`](idp-research/) and the refresh audit trail in
-  [`idp-research/_v2_updates.md`](idp-research/_v2_updates.md). The five newest candidates were
+  Vendor facts were last **refreshed on 3 Nov 2026** (v3, all 15 vendors: Databricks integration, AI/MCP
+  status, ownership changes, APAC/ANZ support, pricing); fact-sheets are in [`idp-research/`](idp-research/)
+  and the audit trails in [`idp-research/_v2_updates.md`](idp-research/_v2_updates.md) (Aug 2026) and
+  [`idp-research/_v3_updates.md`](idp-research/_v3_updates.md) (Nov 2026). Every cited URL is listed in
+  [`source_register.csv`](source_register.csv); the refresh process is in [`../REFRESH.md`](../REFRESH.md). The five newest candidates were
   added after the first pass; their requirement-level scores are in `idp-research/reqscores_new_*.json`
   and are included in the page.
 

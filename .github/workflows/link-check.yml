@@ -1,0 +1,66 @@
+name: Pages and link check
+
+on:
+  pull_request:
+    paths:
+      - "provider-landscape/**"
+      - "*.html"
+      - ".github/workflows/link-check.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: "0 18 1 * *"   # monthly, 1st of the month
+
+permissions:
+  contents: read
+
+jobs:
+  pages-in-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Pages are built from the research notes and scores
+        run: python3 provider-landscape/tools/build_pages.py --check
+
+  link-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check every URL in the source register (open network)
+        id: check
+        continue-on-error: true
+        # On PRs, links already recorded as dead in the committed link_check.csv are reported but
+        # don't fail the run (they are listed in the audit log); new dead links do. Scheduled and
+        # manual runs fail on any dead link.
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ] && [ -f provider-landscape/link_check.csv ]; then
+            cp provider-landscape/link_check.csv "$RUNNER_TEMP/baseline.csv"
+            python3 provider-landscape/tools/check_links.py --baseline "$RUNNER_TEMP/baseline.csv"
+          else
+            python3 provider-landscape/tools/check_links.py
+          fi
+      - name: Merge results into the register
+        run: python3 provider-landscape/tools/build_register.py
+      - name: Print results (so they can be copied into the repo)
+        run: |
+          echo "----- BEGIN link_check.csv -----"
+          cat provider-landscape/link_check.csv
+          echo "----- END link_check.csv -----"
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-check
+          path: |
+            provider-landscape/link_check.csv
+            provider-landscape/source_register.csv
+      - name: Fail if dead links were found
+        if: steps.check.outcome == 'failure'
+        run: |
+          echo "Dead links found (new ones on a PR): see the link_check.csv artifact and the log above."
+          exit 1

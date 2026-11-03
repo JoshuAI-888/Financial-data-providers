@@ -31,9 +31,14 @@ provisional, organised **Define → Evaluate → Decide**.
 | Emerging / open-standard challengers | Quadra (watch-list) |
 | Build accelerators & systems integrators | Exafluence |
 
-Vendor facts were last refreshed in **August 2026** (Databricks integration, AI/MCP status, ownership
-changes, APAC/ANZ support, commercial model). Treat them as point-in-time and re-verify before any
-shortlisting decision.
+IDP vendor facts were last refreshed on **3 November 2026** (v3: all 15 vendors; Databricks
+integration, AI/MCP status, ownership, APAC/ANZ support, commercial model). The 93-provider
+landscape is as of 10 August 2026. Treat both as point-in-time and re-verify before any
+shortlisting decision. IDP scores are provisional until a proof of value runs.
+
+**Refreshing:** see [REFRESH.md](REFRESH.md). Research notes are the source of truth, then
+requirement scores, then pages. The pages are rebuilt by `provider-landscape/tools/build_pages.py`;
+don't hand-edit the HTML.
 
 ## Repository layout
 
@@ -46,10 +51,18 @@ provider-landscape/
   research/                              per-provider fact-sheets (8 sections + dated sources)
   idp-research/                          IDP vendor fact-sheets, best-practice notes,
                                          requirement scores (reqscores_*.json, reqnotes_*.md)
-                                         and the v2 refresh audit trail (_v2_updates.md)
+                                         vendors.json, and the refresh audit trails
+                                         (_v2_updates.md Aug 2026, _v3_updates.md Nov 2026)
+  tools/build_pages.py                   rebuilds all pages from notes + scores (--check for CI)
+  tools/build_register.py                writes source_register.csv (every cited URL)
+  tools/check_links.py                   link checker (open network only) -> link_check.csv
+  tools/smoke_test.py                    Playwright browser check (no console errors)
+  source_register.csv, link_check.csv    source register and latest link-check results
   research-explorer.js                   research explorer script
   *.html                                 working copies of the two pages
 .github/workflows/pages.yml              GitHub Pages deploy
+.github/workflows/link-check.yml         pages-in-sync check + link check (PRs, monthly)
+REFRESH.md                               how to refresh the research and pages
 ```
 
 ## Evidence base

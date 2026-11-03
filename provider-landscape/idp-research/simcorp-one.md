@@ -6,6 +6,7 @@
 - **HQ / footprint:** Copenhagen, Denmark; global delivery, APAC managing director/regional office (Edward Bee, MD APAC), delivery centres providing 24/6 follow-the-sun support; established in Australia since 2001
 - **Initial fit:** Strong strategic alternative for firms wanting a single front-to-back system of record; materially broader than a focused IDP — buying the whole IBOR/OMS/accounting stack to get data mastering
 - **Positioning:** The industry's incumbent front-to-back (portfolio management, IBOR, accounting, compliance) platform, now re-packaged as "SimCorp One" with an add-on managed Data Management Service
+- **Recent developments:** Agent Launchpad (Apr 2026) still awaiting first-client access as of 3 Nov 2026 (live demo only, Oct 2026); ex-Aladdin product leads hired (Sep 2026); no MCP or shipped Databricks integration; Deutsche Börse's Allfunds deal (Jan 2026) is group-level.
 
 ## 2. Investment-domain mastering
 SimCorp's core IBOR-centric platform natively masters public multi-asset instruments (equities, ETFs, government/corporate bonds, FX, listed derivatives) with security master, corporate actions and ESG data folded into the managed Data Management Services offering, which delivers "scrubbed, golden copy" reference and market data under SLA via a 24/6 follow-the-sun team. Concordance/golden-record processes are mature and this is SimCorp's traditional strength — 25+ years as an investment-book-of-record vendor. Point-in-time and multi-year history are native to the IBOR model. Extensibility for custom instruments/asset classes is configurable through the platform's data model rather than pure business-user self-service; private assets are handled as an extension (see §6). This is a genuine strength area, but it is delivered by adopting SimCorp's full data model and workflow, not a lightweight bolt-on.
@@ -25,11 +26,15 @@ SimCorp One extends to alternatives/private assets and ESG data within its data 
 ## 7. AI & agent readiness
 SimCorp has invested in AI infrastructure on Azure (Azure OpenAI, Foundry, AI Search) to power governed AI features across SimCorp One, but no public evidence of an MCP or agent-protocol interface, buyer-supplied-LLM independence, or an equivalent to "Aladdin Copilot" was found. **Status: roadmap/unclear, not GA** for agent/MCP interoperability specifically.
 
+**Nov 2026 update:** Agent Launchpad (unveiled 22 Apr 2026; first partner Orbit) still says first clients gain access 'this year'; as of 3 Nov 2026 there is no GA, no named protocol (no MCP) and no LLM-choice statement. A 8 Oct 2026 London Forum session included a live agent demo.
+
 ## 8. Time-to-value, implementation, managed services & APAC support
 SimCorp One is a large front-to-back programme; even scoping "just" Data Management Services still means onboarding to SimCorp's managed-service operating model and data schema. No public 30–60 day PoV pathway was found — realistic assumption is **months, not weeks**, and a 3–6 month full foundation is a stretch for anything beyond a narrow data-only pilot. APAC support is credible: dedicated APAC MD, regional delivery centres, and named ANZ references — Challenger/Fidante Partners (Australia's first cloud-based front-to-back investment operations platform) and Ardea Investment Management (~AUD 18bn, selected SimCorp 2025) — giving real, named ANZ production references.
 
 ## 9. Commercials, TCO, exit & vendor viability
-SimCorp is publicly listed-heritage (now Deutsche Börse-owned), financially stable, with an active roadmap (BBH/Infomediary alliance 2026, continued Azure investment). Pricing model, platform-vs-content separation, and exit/export mechanics were **not established from public sources** in the material reviewed — SimCorp does not publish list pricing, and RFP-stage disclosure would be required to assess derived-data rights and full data-export-on-exit terms. Given the platform's proprietary, SaaS-single-tenant architecture, exit portability should be assumed **moderate-to-low** absent explicit contractual export guarantees.
+SimCorp has been wholly owned by Deutsche Börse Group since 2023, financially stable, with an active roadmap (BBH/Infomediary alliance 2026, continued Azure investment). Pricing model, platform-vs-content separation, and exit/export mechanics were **not established from public sources** in the material reviewed — SimCorp does not publish list pricing, and RFP-stage disclosure would be required to assess derived-data rights and full data-export-on-exit terms. Given the platform's proprietary, SaaS-single-tenant architecture, exit portability should be assumed **moderate-to-low** absent explicit contractual export guarantees.
+
+**Nov 2026 update:** SimCorp hired ex-Aladdin Gareth Morris as Head of Portfolio Management & Trading (3 Sep 2026). Deutsche Börse agreed to buy Allfunds (~EUR 5.3bn, Jan 2026, closing H1 2027); no SimCorp-specific impact identified. No Ardea go-live announced. Aggregator estimates (Costbench, Aug 2026, low confidence) put SimCorp One at roughly $2.7–4.2M a year for a large manager — not vendor pricing.
 
 ## 10. Evidence, maturity & provisional scores
 
@@ -57,23 +62,13 @@ SimCorp is publicly listed-heritage (now Deutsche Börse-owned), financially sta
 - G21 (critical function not roadmap-dependent): FAIL for Databricks specifically — key integration is roadmap
 - G22 (controlled write-back to downstream systems): UNKNOWN — not established
 
-**Provisional 0–5 scores (evidence-capped; no PoV, so capped ≤4 without a named comparable-scale production reference):**
-- Domain 1 Investment data mastering: 3.5 (evidence: official docs + named reference)
-- Domain 2 Databricks & open architecture: 1.0 (evidence: official docs — Azure/Snowflake native, Databricks roadmap only; strategic duplication risk)
-- Domain 3 Time to value & implementation: 2.0 (evidence: official docs/sales — no PoV path, large programme norm)
-- Domain 4 Data quality & investment operations: 3.0 (evidence: official docs)
-- Domain 5 Public/private total portfolio: 2.5 (evidence: official docs — depth unconfirmed vs eFront)
-- Domain 6 IBOR & investment modelling: 3.5 (evidence: official docs — core strength)
-- Domain 7 AI & agent readiness: 1.0 (evidence: official docs — no MCP evidence)
-- Domain 8 Data coverage/currency/history: 3.0 (evidence: official docs)
-- Domain 9 Integration & user self-service: 2.0 (evidence: official docs — API/ETL, not self-service business-user)
-- Domain 10 Governance/security/data rights: 2.5 (evidence: official docs — enterprise SaaS, rights unconfirmed)
-- Domain 11 Commercials/TCO/exit: 1.5 (evidence: sales — no public pricing/exit terms)
-- Domain 12 Vendor viability/roadmap/support: 3.5 (evidence: official docs + named reference — Deutsche Börse-owned, active APAC investment)
 
 **Overall read:** A broad SimCorp One buy is justified only if the buyer wants to consolidate onto a full front-to-back IBOR/PMS/accounting stack — for a buyer whose IDP mandate is narrowly "master and expose investment data to Databricks," SimCorp One is over-scoped and its own Azure/Snowflake-based AI and data architecture would sit as a second proprietary estate, with native Databricks integration currently roadmap rather than GA. It leads on investment-domain mastering, IBOR depth and credible ANZ references (Challenger/Fidante, Ardea); it lags badly on open Databricks architecture and AI/agent (MCP) readiness. Biggest risk: buying a full operating platform to solve a data-mastering problem, with genuine strategic-duplication exposure against the Databricks estate.
 
+**Evidence re-checked 2026-11-03 (v3 refresh).** Scores remain provisional (Stage-1 paper screen) until a proof of value runs; see `_v3_updates.md`.
+
 ## 11. Sources
+- https://www.prnewswire.com/news-releases/introducing-agent-launchpad-simcorps-agentic-ai-ecosystem-for-investment-managers-302748955.html — SimCorp Agent Launchpad [vendor · Official release note · 2026-08-14 · search-only]
 - https://www.simcorp.com/solutions/managed-business-services/data-management-services — Data Management Services overview (accessed 2026-08-14)
 - https://www.simcorp.com/solutions/simcorp-one/managed-business-services — Managed Business Services 24/5 model (accessed 2026-08-14)
 - https://www.simcorp.com/solutions/simcorp-one/data-management — Data Management within SimCorp One (accessed 2026-08-14)
@@ -86,3 +81,12 @@ SimCorp is publicly listed-heritage (now Deutsche Börse-owned), financially sta
 - https://www.hubbis.com/article/simcorp-supports-innovation-in-apac-spearheaded-by-its-data-management-services-offering — APAC Data Management Services positioning (accessed 2026-08-14)
 - https://www.simcorpglobalsummit.com/agenda — roadmap signal incl. Snowflake-to-Databricks integration item (accessed 2026-08-14)
 - https://www.tradersmagazine.com/xtra/simcorp-introduces-new-flagship-platform-simcorp-one/ — SimCorp One flagship platform launch (accessed 2026-08-14)
+- https://www.simcorp.com/about-us/news/2026/introducing-agent-launchpad — Introducing Agent Launchpad (SimCorp; accessed 2026-11-03) [vendor · Official release note · 2026-04-22 · opened]
+- https://www.simcorp.com/about-us/news/2026/simcorp-accelerates-front-office-innovation — SimCorp accelerates front-office innovation (SimCorp; accessed 2026-11-03) [vendor · Official release note · 2026-09-03 · opened]
+- https://news.cision.com/simcorp/r/simcorp-strengthens-apac-leadership-with-key-appointments-to-accelerate-regional-growth,c4257654 — SimCorp strengthens APAC leadership with key appointments (SimCorp via Cision; accessed 2026-11-03) [vendor · Official release note · 2025-10-28 · opened]
+- https://www.simcorp.com/resources/events/simcorp-london-forum-2026 — SimCorp London Forum 2026 (SimCorp; accessed 2026-11-03) [vendor · Vendor marketing · 2026-10-08 · opened]
+- https://posttrade360.com/news/fund-ops/deutsche-borse-to-acquire-allfunds-in-record-deal/ — Deutsche Börse to acquire Allfunds in record deal (PostTrade 360; accessed 2026-11-03) [independent · News · 2026-01-23 · opened]
+- https://www.fintechfutures.com/m-a/deutsche-b-rse-inks-preliminary-acquisition-of-allfunds-valued-at-5-3bn — Deutsche Börse inks EUR 5.3bn Allfunds acquisition agreement (Fintech Futures; accessed 2026-11-03) [independent · News · 2026-01 · opened]
+- https://www.simcorp.com/about-us/news/2025/simcorp-to-transform-private-market-investing-with-simcorp-alternatives — SimCorp Alternatives launch (SimCorp; accessed 2026-11-03) [vendor · Official release note · 2025-09-03 · search-only]
+- https://costbench.com/software/financial-data-terminals/simcorp/ — SimCorp pricing (Costbench; accessed 2026-11-03) [independent · Independent research · 2026-08-19 · opened]
+- https://www.waterstechnology.com/buy-side-technology/news/1606170/vanguard-oz-signs-simcorp — Vanguard Oz signs with SimCorp (WatersTechnology; accessed 2026-11-03) [independent · News · undated · search-only]
