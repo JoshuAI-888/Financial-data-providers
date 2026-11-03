@@ -17,9 +17,9 @@ recommendation, or affiliated with any provider named.
   interactive report. Self-contained (inlined CSS/JS, **no external requests**), theme-aware
   (light/dark), with a sortable cross-asset capability map, per-provider deep-dives, asset-class
   "who-leads-and-why" views, a technical-integration comparison, a customer-feedback synthesis, an
-  API-native challenger tier, and an **Extended Universe** of 76 further sources (modern market-data
+  API-native challenger tier, and an **Extended Universe** of 77 further sources (modern market-data
   & news APIs, social/sentiment, AI-fundamentals & expert networks, alternative data, due-diligence/KYC,
-  regional & foreign-market data, macro/economic, crypto, ESG/climate, plus Databricks-Marketplace and
+  regional & foreign-market data, macro/economic, crypto, ESG/climate, research distribution & aggregation (BlueMatrix), plus Databricks-Marketplace and
   MCP-server delivery channels) — each with a full eight-section deep-dive, filterable comparison tables,
   and working source links throughout. It also carries an **Earnings Calls & Transcripts** lens: a
   focused comparison of ~15 providers across speed-to-data, value, value-add synthesis, completeness,
@@ -62,8 +62,8 @@ recommendation, or affiliated with any provider named.
 
 ## Providers covered
 
-**Core 13** (hand-authored deep-dives) + **4 API-native challengers** + **76 Extended-Universe sources**
-= **93 providers** in total.
+**Core 13** (hand-authored deep-dives) + **4 API-native challengers** + **77 Extended-Universe sources**
+= **94 providers** in total.
 
 | Cluster | Providers |
 |---|---|
@@ -73,7 +73,7 @@ recommendation, or affiliated with any provider named.
 | Indexes / risk / FI infrastructure | MSCI · ICE Data Services · Nasdaq/eVestment |
 | API-native challengers (comparative tier) | Polygon.io · Intrinio · Finnhub · Xignite |
 
-### Extended Universe (76 sources, 11 categories)
+### Extended Universe (77 sources, 12 categories)
 
 | Category | Sources |
 |---|---|
@@ -81,6 +81,7 @@ recommendation, or affiliated with any provider named.
 | News APIs & feeds | NewsAPI.org · GDELT · Marketaux · Benzinga · NewsData.io · Mediastack · Dow Jones Factiva · RavenPack |
 | Social & sentiment | Truth Social · X/Twitter API · Reddit/ApeWisdom · StockTwits · Quiver Quantitative · Unusual Whales · Social Market Analytics · LunarCrush · Xpoz.ai · Dataminr · Meltwater · TipRanks · Ortex |
 | AI fundamentals & expert networks | Daloopa · AlphaSense · Tegus · Third Bridge · Quartr · Sentieo · BamSEC · Diffbot |
+| Research distribution & aggregation | BlueMatrix |
 | Alternative data | Nasdaq Data Link (Quandl) · Similarweb · YipitData |
 | Due diligence / KYC / entity | Dun & Bradstreet · Sayari · Trulioo · LexisNexis · DueDil/Artesian · Sourcescrub · Grata · Crunchbase |
 | Regional & foreign-market data | ASX · NZX · IRESS · SIX · Euronext · Deutsche Börse/STOXX · Wind (China) · TEJ (Taiwan) · QUICK/Nikkei (Japan) |
