@@ -51,9 +51,9 @@
 
 ## 8. Provenance
 - https://www.bluematrix.com/about-us — vendor: founding, HQ, leadership, product names (accessed 2026-11-03)
-- https://home.bluematrix.com/consumption — vendor: Consumption & Ingestion API, broker counts, formats, MCP (accessed 2026-11-03)
-- https://home.bluematrix.com/buyside — vendor: BlueMatrix Live for buy-side (accessed 2026-11-03)
-- https://home.bluematrix.com/distribution — vendor: Portal, SCX, readership analytics, BlueIQ (accessed 2026-11-03)
+- https://www.bluematrix.com/consumption — vendor: Consumption & Ingestion API, broker counts, formats, MCP (accessed 2026-11-03)
+- https://www.bluematrix.com/buyside — vendor: BlueMatrix Live for buy-side (accessed 2026-11-03)
+- https://www.bluematrix.com/distribution — vendor: Portal, SCX, readership analytics, BlueIQ (accessed 2026-11-03)
 - https://www.thomabravo.com/press-releases/thoma-bravo-completes-strategic-investment-in-bluematrix — vendor/investor: Thoma Bravo investment, Jan 2024 (accessed 2026-11-03)
 - https://www.bluematrix.com/blog/bluematrix-acquires-ranos-to-accelerate-innovation-and-expand-its-asia-pacific-footprint — vendor: RANOS acquisition, Jun 2025 (accessed 2026-11-03)
 - https://www.nbr.co.nz/deals/kiwi-investment-research-tech-firm-ranos-acquired-by-bluematrix — independent: NBR on RANOS deal (accessed 2026-11-03)
