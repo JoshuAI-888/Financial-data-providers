@@ -1,117 +1,70 @@
-# Milford · FMP Free-Tier Investment Intelligence
+# Financial Data Providers
 
-A self-contained, interactive HTML intelligence portal built on **Financial Modeling Prep (FMP)**
-data, scoped honestly to what the **free / lowest tier** can actually deliver, and organised around
-the five Milford investment roles.
+Independent, vendor-neutral research on financial market-data and intelligence providers, and a
+guided evaluation of Investment Data Platforms (IDP), for an institutional multi-asset manager with a
+Databricks-centred data strategy.
 
-It answers three questions the team asked:
+Both deliverables are **single HTML pages** with their CSS, JS and data inlined (light/dark aware), so
+no build step is needed. The one exception is the in-page research library, which loads
+`provider-landscape/research-explorer.js` and the Markdown fact-sheets beside it, so serve the repo
+(for example via GitHub Pages) rather than opening a lone file if you want that panel to work.
 
-1. **What data can we actually get on the FMP free tier?** (spoiler: US-listed only, EOD, ~5y, 250 calls/day)
-2. **How fast can we get it?** (a latency/throughput harness)
-3. **What is that data worth to each role, and how should it be presented?** (≥3 insights per role)
+> Not investment advice, a procurement recommendation, or affiliated with any provider named.
 
----
+## The deliverables
 
-## The free-tier reality (why the universe is US names)
-
-| | Free (Basic) | Starter | Premium | Ultimate |
-|---|---|---|---|---|
-| Markets | **US only** | US only | + UK/Canada | **+ ASX/NZX/HKEX/SGX/KRX/TWSE (global)** |
-| Prices | EOD | EOD + real-time US | + intraday | + 1-min |
-| History | ~5y | ~5y | 30y | 30y |
-| Calls/day | **250** | higher | higher | highest |
-| Transcripts / 13F / bulk | – | – | – | ✓ |
-
-**None of Milford's home exchanges are reachable on Free/Starter.** So this tool uses FMP as a
-**US-listed comparables + fundamental-modelling + dev sandbox** — exactly the use-case FMP is strong at
-for a NZ/AU manager. The universe is 32 US names across four requested themes (add ASX/NZX tickers to
-`fmp_milford/config.py::UNIVERSE` the day you move to Ultimate — the code path is identical).
-
-## What's in the box
-
-```
-fmp_milford/
-  config.py     universe (4 themes x 8) + FMP endpoint catalogue + tiers + settings
-  client.py     FMP stable-API client: rate-limit, 250/day budget, on-disk cache, key never logged
-  perf.py       latency/throughput harness ("how fast can we get data")
-  extract.py    live pull -> normalized records (same shape as demo)
-  mockdata.py   realistic synthetic dataset (one-factor price model) for offline DEMO
-  transform.py  metric engine: every figure carries formula + inputs + steps
-  insights.py   role insight builders (>=3 per role) + rule-based PM commentary
-  report.py     single-file interactive HTML (tabs, sliders, logos, provenance, calc panels)
-run.py          orchestrator (demo | live | probe-only)
-outputs/        milford_fmp_report.html   <- the deliverable
-tests/          metric-formula unit tests
-```
-
-## Run it
-
-```bash
-# DEMO (default) — synthetic data, no network, fully interactive
-python run.py
-open outputs/milford_fmp_report.html
-
-# LIVE — real FMP data (needs a key + open network to financialmodelingprep.com)
-echo "FMP_API_KEY=your_key_here" > .env
-python run.py --live               # pulls the universe, records real latency
-python run.py --live --probe-only  # just the API performance harness
-
-# Budget-safe partial pull (first N sectors only)
-python run.py --live --limit-sectors 3
-```
-
-> **Note on this cloud environment:** egress to `financialmodelingprep.com` is blocked by the
-> session network policy, so `--live` cannot run here. It runs on any network-open machine. DEMO
-> and LIVE share the entire downstream pipeline, so the report layout is identical either way.
-
-## The report
-
-- **Tabs:** Overview · Portfolio Manager · Head of Investment · Portfolio Analyst · Quantitative
-  Analyst · Performance & Risk Analyst · Data & Performance · Methodology.
-- **Global controls:** multi-select company chips (grouped by theme) + market-cap and composite-z
-  sliders that filter every table and chart. Compare any subset side by side.
-- **Provenance everywhere:** each widget shows its FMP source endpoints, a DEMO/LIVE badge, and a
-  last-updated timestamp.
-- **Show-your-working:** click any computed number to open its formula, inputs, and step-by-step calc.
-- **Offline & theme-aware:** one file, no external requests, light/dark.
-
-### Insights per role (all computed from free-tier data)
-
-| Role | Insights |
+| Page | What it is |
 |---|---|
-| **Portfolio Manager** | Peer valuation snapshot · Quality-vs-valuation scatter · Auto PM commentary · Capital-return |
-| **Head of Investment** | Sector aggregates heatmap · Cheap-and-quality screen · Risk-flag register |
-| **Portfolio Analyst** | Quality-scored comps grid · DuPont ROE bridge · 5y FCF-conversion trend |
-| **Quantitative Analyst** | Multi-factor composite (V/Q/G/M) · Correlation matrix · API performance |
-| **Performance & Risk** | Return/vol/beta/drawdown/Sharpe · Drawdown & cumulative-return · Diversification matrix |
+| [`financial_data_providers_landscape.html`](financial_data_providers_landscape.html) (also served as [`index.html`](index.html)) | **Provider Landscape.** 93 providers across public equity, private markets, fixed income & credit, indexes, ratings, ESG, risk and alternative data: cross-asset capability map, per-provider deep-dives, "who leads and why" by asset class, technical-integration comparison, customer-feedback synthesis, an Extended Universe of 76 further sources, and an Earnings Calls & Transcripts lens. |
+| [`idp_evaluation.html`](idp_evaluation.html) | **IDP Evaluation (v2 guided decision system).** Works forward from strategy (outcomes, current/target maturity, ownership and sourcing model, architecture principles, risk tolerance) and derives vendor weightings from those answers. Live ranking with a "Why this score?" panel and typed, dated citations; sensitivity analysis; 15 × 12 capability map; hard-gate grid (G01–G22); vendor deep-dives; PoV and templates toolkit. |
 
-## Metric methodology
+## IDP Evaluation at a glance
 
-Every metric is **computed by us from the raw statements** (never ingested pre-baked), so the logic is
-transparent and identical across names. Families: profitability (ROIC/ROE/margins), cash quality
-(FCF conversion, OCF/EBITDA), growth (CAGRs), leverage/liquidity, valuation (P/E, EV/EBITDA, FCF yield),
-per-share, DuPont, quality scores (Altman Z, Piotroski F), and price-based risk (vol, beta, drawdown,
-Sharpe, correlations). See the in-app **Methodology** tab and click any figure for its derivation.
+A **Stage-1 paper screen** of 15 candidates from public sources, evidence-capped and flagged as
+provisional, organised **Define → Evaluate → Decide**.
 
-## Documentation
-
-| Doc | What's in it |
+| Segment | Candidates |
 |---|---|
-| [docs/RUNNING_ON_MAC.md](docs/RUNNING_ON_MAC.md) | **Start here on a Mac** — step-by-step install & run in VS Code (no prior knowledge) |
-| [docs/PROBLEM_STATEMENT.md](docs/PROBLEM_STATEMENT.md) | Background, the problem, scope, what "done" means |
-| [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md) | Functional + non-functional requirements, acceptance criteria |
-| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Pipeline, modules, data model, presentation, design rationale |
-| [docs/ASSUMPTIONS.md](docs/ASSUMPTIONS.md) | Every assumption (data, demo, methodology, scope) |
-| [docs/GLOSSARY.md](docs/GLOSSARY.md) | Every metric: meaning / what good looks like / target / alpha *(generated)* |
-| [docs/DATA_DICTIONARY.md](docs/DATA_DICTIONARY.md) | FMP endpoints, canonical record, metric outputs *(generated)* |
-| [docs/FAQ.md](docs/FAQ.md) | Common questions answered |
-| [docs/SUPPORT.md](docs/SUPPORT.md) | Run/test/extend, troubleshooting, operations |
-| [docs/SYSTEM_PROMPT.md](docs/SYSTEM_PROMPT.md) | Comprehensive system prompt for an AskMilford-style analyst copilot |
-| [CLAUDE.md](CLAUDE.md) | Repo guidance & invariants for Claude Code / contributors |
+| Core IDP / EDM | Rimes · FINBOURNE · Arcesium · NeoXam · Gresham Opus EDM · GoldenSource · Fencore · AlphaCert |
+| Strategic data & content layers | FactSet · MSCI |
+| Broad operating-platform counterfactuals | SimCorp One · BlackRock Aladdin · State Street Alpha Data Platform |
+| Emerging / open-standard challengers | Quadra (watch-list) |
+| Build accelerators & systems integrators | Exafluence |
 
-Regenerate the generated docs after changing metrics/universe: `python docs/gen_reference.py`.
+Vendor facts were last refreshed in **August 2026** (Databricks integration, AI/MCP status, ownership
+changes, APAC/ANZ support, commercial model). Treat them as point-in-time and re-verify before any
+shortlisting decision.
 
-## Security
+## Repository layout
 
-The API key is read from `FMP_API_KEY` (env or `.env`) and is **never** written into the HTML, logs,
-or committed files. `.env` is git-ignored. Rotate any key that has been shared in plain text.
+```
+index.html                               published landing page (Provider Landscape)
+financial_data_providers_landscape.html  Provider Landscape
+idp_evaluation.html                      IDP Evaluation
+provider-landscape/
+  README.md                              full landscape write-up: coverage, findings, method
+  research/                              per-provider fact-sheets (8 sections + dated sources)
+  idp-research/                          IDP vendor fact-sheets, best-practice notes,
+                                         requirement scores (reqscores_*.json, reqnotes_*.md)
+                                         and the v2 refresh audit trail (_v2_updates.md)
+  research-explorer.js                   research explorer script
+  *.html                                 working copies of the two pages
+.github/workflows/pages.yml              GitHub Pages deploy
+```
+
+## Evidence base
+
+Every page is assembled from the fact-sheets in `provider-landscape/research/` and
+`provider-landscape/idp-research/`, which together record roughly **1,000+ unique source URLs** with
+dates and source types (vendor-authored vs independent). See
+[`provider-landscape/README.md`](provider-landscape/README.md) for the full method and limitations.
+In short: pricing is approximate (enterprise vendors rarely publish list prices), review scores are
+indicative, and some sources were search-sourced rather than individually fetched.
+
+## Publishing
+
+`.github/workflows/pages.yml` deploys the three root HTML pages and `provider-landscape/` to GitHub
+Pages on every push to the default branch that touches them, or on manual dispatch.
+
+When you edit a page, keep the root file and its `provider-landscape/` copy in sync. They differ
+only in the relative path to `research-explorer.js`.

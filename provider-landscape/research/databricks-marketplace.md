@@ -37,7 +37,7 @@
 ## 7. Edge & positioning
 - **Leads on:** cross-cloud, no-copy live data sharing with enterprise-grade governance (Unity Catalog lineage/ACLs); breadth of tier-1 vendor participation (FactSet, LSEG, S&P Global, Moody's, ICE, Morningstar) in one catalog; increasingly offers both bulk historical tables *and* live agentic (MCP) access from the same vendor listing.
 - **Lags on:** pricing opacity (provider sets price, often "contact for pricing"; Databricks compute billed separately in DBUs); requires a Databricks/Unity-Catalog-capable environment to get full governance benefit; not a low-friction/self-serve API-key channel like a typical financial-data REST API — onboarding involves data-sharing agreements per vendor.
-- **Best-for:** enterprises already standardized on Databricks/lakehouse architecture wanting governed, auditable access to multiple tier-1 financial-data vendors without building bespoke ETL per vendor; not well suited to a lightweight prototype or a single analyst wanting quick API access (FMP-style REST APIs remain simpler for that).
+- **Best-for:** enterprises already standardized on Databricks/lakehouse architecture wanting governed, auditable access to multiple tier-1 financial-data vendors without building bespoke ETL per vendor; not well suited to a lightweight prototype or a single analyst wanting quick API access (simple REST data APIs remain simpler for that).
 
 ## 8. Provenance
 - https://www.databricks.com/product/delta-sharing — Delta Sharing product overview, pricing model (accessed 2026-08-14)

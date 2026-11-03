@@ -56,13 +56,14 @@ recommendation, or affiliated with any provider named.
 
   Vendor facts were **refreshed for 2025–26** (Databricks integration, AI/MCP status, ownership changes,
   APAC support); fact-sheets are in [`idp-research/`](idp-research/) and the refresh audit trail in
-  [`idp-research/_v2_updates.md`](idp-research/_v2_updates.md). The five newest candidates are
-  domain-level paper-screened (requirement-level roll-up still being compiled for them).
+  [`idp-research/_v2_updates.md`](idp-research/_v2_updates.md). The five newest candidates were
+  added after the first pass; their requirement-level scores are in `idp-research/reqscores_new_*.json`
+  and are included in the page.
 
 ## Providers covered
 
-**Core 13** (hand-authored deep-dives) + **5 API-native challengers** + **76 Extended-Universe sources**
-= **94 providers** in total.
+**Core 13** (hand-authored deep-dives) + **4 API-native challengers** + **76 Extended-Universe sources**
+= **93 providers** in total.
 
 | Cluster | Providers |
 |---|---|
@@ -70,7 +71,7 @@ recommendation, or affiliated with any provider named.
 | Fundamentals & ratings | S&P Global Market Intelligence · Moody's · Morningstar |
 | Private markets | PitchBook · Preqin · CB Insights · With Intelligence |
 | Indexes / risk / FI infrastructure | MSCI · ICE Data Services · Nasdaq/eVestment |
-| API-native challengers (comparative tier) | FMP · Polygon.io · Intrinio · Finnhub · Xignite |
+| API-native challengers (comparative tier) | Polygon.io · Intrinio · Finnhub · Xignite |
 
 ### Extended Universe (76 sources, 11 categories)
 
