@@ -1,25 +1,25 @@
 {
   "cluster": "ai-integration-governance",
   "requirements": {
-    "AI-01": "MCP / tool-protocol interface for agents",
-    "AI-02": "Buyer-own-LLM / model independence",
-    "AI-03": "Permission-aware / entitlement-aware AI access",
-    "AI-04": "Source provenance & audit trail for AI answers",
-    "INT-01": "REST / streaming APIs",
-    "INT-02": "Python / SDK access",
-    "INT-03": "Direct BI / notebook query (no spreadsheet extracts)",
-    "INT-04": "Business-user model extension without vendor coding",
-    "GOV-01": "Field-level lineage",
-    "GOV-02": "Override & change audit trail",
-    "GOV-03": "Governable data / AI-use licensing rights",
-    "GOV-04": "Institutional security (SOC2/ISO, private networking, entitlements)"
+      "AI-01": "MCP / tool-protocol interface for agents",
+      "AI-02": "Buyer-own-LLM / model independence",
+      "AI-03": "Permission-aware / entitlement-aware AI access",
+      "AI-04": "Source provenance & audit trail for AI answers",
+      "INT-01": "REST / streaming APIs",
+      "INT-02": "Python / SDK access",
+      "INT-03": "Direct BI / notebook query (no spreadsheet extracts)",
+      "INT-04": "Business-user model extension without vendor coding",
+      "GOV-01": "Field-level lineage",
+      "GOV-02": "Override & change audit trail",
+      "GOV-03": "Governable data / AI-use licensing rights",
+      "GOV-04": "Institutional security (SOC2/ISO, private networking, entitlements)"
   },
   "scores": {
     "AI-01": {
-      "fencore": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No AI/MCP evidenced (DataHub)", "url": "https://www.fencore.co/", "type": "No evidence located", "note": "No AI/LLM or MCP/agent-interface capability evidenced in public sources; no-code UI is rules-driven."},
-      "statestreet-alpha": {"s": 1.0, "ev": "roadmap", "rel": "preview", "cite": "SSGA exploring agent sandbox (no MCP)", "url": "https://www.statestreet.com/alpha/insights/artificial-intelligence", "type": "Vendor marketing", "note": "State Street exploring agent deployment in a sandbox; no MCP/tool-protocol interface evidenced."},
+      "fencore": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "Fencore 'Cori' governed AI assistant (vendor site)", "url": "https://fencore.co/solution/", "type": "Vendor marketing", "note": "In-product AI assistant marketed (Nov 2026); status, model and any MCP/tool interface unstated."},
+      "statestreet-alpha": {"s": 1.0, "ev": "roadmap", "rel": "preview", "cite": "Alpha sales head describes agent sandbox experimentation (no MCP)", "url": "https://www.statestreet.com/alpha/insights/artificial-intelligence", "type": "Vendor marketing", "note": "Agents framed as sandbox experimentation by Alpha sales leadership; no client-facing MCP/tool-protocol interface."},
       "alphacert": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No AI/MCP evidenced", "url": "https://alphacert.com/", "type": "No evidence located", "note": "No AI/LLM or MCP/agent capability evidenced in public sources."},
-      "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "FIBO model agent-friendly in theory only", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "Semantically-typed FIBO model is theoretically agent-friendly; no AI/MCP capability documented."},
+      "quadra": {"s": 1.0, "ev": "roadmap", "rel": "none", "cite": "Quadra 'AI-native' agentic pipeline claims", "url": "https://github.com/quadra-platform/data-model-sample", "type": "Vendor marketing", "note": "Agentic pipeline/entity-resolution claims only; no demo, docs or status; MCP not evidenced."},
       "exafluence": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No native MCP; AI/NLP is build-tooling", "url": "https://exfinsights.com/", "type": "No evidence located", "note": "NLP-driven mapping/transforms exist but no MCP/tool-protocol product; agent interfaces are engagement-dependent."}
     },
     "AI-02": {
@@ -93,7 +93,7 @@
       "exafluence": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "Client owns the resulting platform/data model", "url": "https://exf-financialdatasolutions.com/products/", "type": "Official docs", "note": "SI delivery model leaves the built platform/IDM in the client's environment, favouring client governance/AI-use control by design."}
     },
     "GOV-04": {
-      "fencore": {"s": 1.0, "ev": "sales", "rel": "none", "cite": "Small 2019 startup; no certs evidenced", "url": "https://www.fencore.co/", "type": "No evidence located", "note": "Cloud-native SaaS; SOC2/ISO/private-networking not evidenced this pass; young-vendor scale risk."},
+      "fencore": {"s": 2.0, "ev": "sales", "rel": "GA", "cite": "ISO 27001 certified (vendor statement)", "url": "https://fencore.co/solution/", "type": "Vendor marketing", "note": "Vendor-stated ISO 27001 (certificate not seen); SOC 2 and private networking not evidenced."},
       "statestreet-alpha": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "State Street Corp (SIB custodian bank)", "url": "https://www.statestreet.com/alpha/solutions/technology-and-services", "type": "Official docs", "note": "Global systemically-important custodian bank; Alpha built on Snowflake/Azure enterprise cloud; explicit SOC2/ISO not itemised."},
       "alphacert": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "APRA SRS550 / FMA QFU audit-ready reporting", "url": "https://alphacert.com/why-alphacert", "type": "Official docs", "note": "ANZ regulatory audit-ready reporting evidenced; SOC2/ISO/private-networking not evidenced; ~26-staff small vendor."},
       "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No security posture evidence located", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "Early-stage vendor; no SOC2/ISO/private-networking/entitlements evidence located."},

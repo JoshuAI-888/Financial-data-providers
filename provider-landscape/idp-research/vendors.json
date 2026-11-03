@@ -1,7 +1,7 @@
 {
-  "idp_as_of": "2026-08-14",
+  "idp_as_of": "2026-11-03",
   "landscape_as_of": "2026-08-10",
-  "idp_refresh_note": "<p class=\"fs-line\">Vendor facts were refreshed in {as_of} for Databricks integration, AI/MCP status, ownership changes and APAC support. In-sandbox egress is blocked, so cited URLs are canonical and search-triangulated but not individually machine-fetched — treat pricing, exit and PoV-timeline facts as open RFP questions.</p>",
+  "idp_refresh_note": "<p class=\"fs-line\">Vendor facts were last refreshed on {as_of} (v3): all 15 vendors were re-checked for Databricks integration, AI/MCP status, ownership, APAC/ANZ support and pricing. Every source in the fact-sheets is dated and marked vendor-authored or independent, and as opened or found by search only (see <code>source_register.csv</code>). Scores stay provisional until a proof of value runs — treat pricing, exit and PoV-timeline facts as open RFP questions.</p>",
   "vendors": [
     {
       "id": "finbourne",

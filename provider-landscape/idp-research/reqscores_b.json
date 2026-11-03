@@ -1,18 +1,18 @@
 {
   "cluster": "dq-totalportfolio-coverage",
   "requirements": {
-    "DQ-01": "Tolerance-based price validation",
-    "DQ-02": "Stale/missing-price detection",
-    "DQ-03": "Exception workflow with automated resolution",
-    "DQ-04": "Four-eyes / internal override control",
-    "TP-01": "Private-market document ingestion & extraction (GP docs)",
-    "TP-02": "Capital-call / distribution / waterfall modelling",
-    "TP-03": "Total-portfolio look-through exposure",
-    "TP-04": "Public + private on one unified model",
-    "CUR-01": "5-year point-in-time history depth",
-    "CUR-02": "Asset-class breadth (equities/FI/credit/FX/PE)",
-    "CUR-03": "Market-aware SLA / data currency (multi-market close)",
-    "CUR-04": "Timestamp / bitemporal field model (market/observation/effective/received/published)"
+      "DQ-01": "Tolerance-based price validation",
+      "DQ-02": "Stale/missing-price detection",
+      "DQ-03": "Exception workflow with automated resolution",
+      "DQ-04": "Four-eyes / internal override control",
+      "TP-01": "Private-market document ingestion & extraction (GP docs)",
+      "TP-02": "Capital-call / distribution / waterfall modelling",
+      "TP-03": "Total-portfolio look-through exposure",
+      "TP-04": "Public + private on one unified model",
+      "CUR-01": "5-year point-in-time history depth",
+      "CUR-02": "Asset-class breadth (equities/FI/credit/FX/PE)",
+      "CUR-03": "Market-aware SLA / data currency (multi-market close)",
+      "CUR-04": "Timestamp / bitemporal field model (market/observation/effective/received/published)"
   },
   "scores": {
     "DQ-01": {
@@ -73,7 +73,7 @@
       "factset-idp": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "FactSet Intelligent Document Service", "url": "https://www.factset.com/marketplace/catalog/product/model-context-protocol", "type": "Official docs", "note": "General document AI exists; GP-doc private-markets extraction not established"},
       "msci-idp": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "MSCI PADP GP/fund-document extraction", "url": "https://www.msci.com/data-and-analytics/private-asset-solutions/private-assets-data-platform", "type": "Official docs", "note": "AI extraction vs 1,500+ rules, 97% automation; strongest GP-doc capability"},
       "simcorp-one": {"s": 1.5, "ev": "sales", "rel": "preview", "cite": "SimCorp Alternatives + MSCI data collab", "url": "https://www.prnewswire.com/news-releases/simcorp-to-transform-private-market-investing-with-simcorp-alternatives-302544031.html", "type": "Official release note", "note": "Private-markets data via MSCI collab; own document extraction not evidenced"},
-      "blackrock-aladdin": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "eFront + Preqin private-markets data", "url": "https://www.blackrock.com/aladdin/discover/press-release/blackrock-aladdin-drives-private-markets-transparency", "type": "Official release note", "note": "eFront/Preqin data integration; dedicated GP-doc extraction not specifically evidenced"}
+      "blackrock-aladdin": {"s": 2.0, "ev": "docs", "rel": "GA", "cite": "eFront + Preqin private-markets data", "url": "https://www.blackrock.com/aladdin/discover/press-release/blackrock-aladdin-drives-private-markets-transparency", "type": "Official release note", "note": "Preqin integrated into eFront (Feb 2026) adds data, not GP-document extraction; dedicated extraction still not evidenced."}
     },
     "TP-02": {
       "rimes": {"s": 0.5, "ev": "none", "rel": "none", "cite": "No capital-call/waterfall modelling located", "url": "https://www.rimes.com/why-rimes/about-us/", "type": "No evidence located", "note": "No fund/GP-LP capital-call, distribution or waterfall modelling found"},
