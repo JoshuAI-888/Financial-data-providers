@@ -3,8 +3,8 @@
 ## 1. Snapshot
 - **Category:** Investment data management platform with native bi-temporal IBOR/portfolio-accounting engine (LUSID), plus data virtualisation (Luminesce) and an emerging AI layer (Candela AI, MCP).
 - **Owner / parent:** Independent, VC-backed. Founded 2016, London. £55m Series B (June 2024, led by Highland Europe and AXA Venture Partners); a further secondary round (led by CommerzVentures and HSBC Ventures) brought total raised to over £100m. Not publicly traded.
-- **HQ / footprint:** London HQ; named enterprise clients include Baillie Gifford, LSEG and Northern Trust. APAC/ANZ presence is recent and early-stage — a dedicated Head of Sales for Australia & New Zealand (Marianne Antonicelli) was appointed in October 2025, signalling investment but limited maturity in-region.
-- **Initial fit:** High — closest of the three to an IDP purpose-built around a native, bi-temporal IBOR and open APIs, but with an unconfirmed Databricks-specific integration and an unproven ANZ track record.
+- **HQ / footprint:** London HQ; named enterprise clients include Baillie Gifford, LSEG and Northern Trust. APAC/ANZ presence is recent and early-stage — a dedicated Head of Sales for Australia & New Zealand (Marianne Antonicelli) was appointed in October 2025, and AustralianSuper went live on LUSID as its whole-of-fund investment book of record in Oct 2026 — the first named ANZ production reference; no local office confirmed.
+- **Initial fit:** High — closest of the three to an IDP purpose-built around a native, bi-temporal IBOR and open APIs, but with an unconfirmed Databricks-specific integration; ANZ track record now starts with AustralianSuper (live Oct 2026).
 - **Positioning:** "You bought an IBOR, but did you get one?" — FINBOURNE's core pitch is that most incumbent IBORs are shallow, and LUSID delivers a genuine, near-real-time, bi-temporal book of record with agentic-AI access on top.
 - **Recent developments:** 26 Oct 2026: AustralianSuper went live on LUSID as its whole-of-fund investment book of record (first named ANZ production reference); Sep 2026: agents reported in production at OMBA and a ~30-engineer forward-deployed programme launched; LSEG Yield Book embedding (due Q2 2026) not yet confirmed live; no Databricks integration found.
 
@@ -65,7 +65,7 @@ Pricing model, platform-vs-content separation, and export/exit terms are not pub
 - G22 controlled write-back to downstream systems: PARTIAL — Luminesce write-back implied, controls undetailed
 
 
-**Overall read:** FINBOURNE leads on genuine bi-temporal IBOR depth and on a named, permission-aware MCP/Claude integration that most directly matches the buyer's AI-agent ambitions — but it has no evidenced Databricks-native integration, which cuts against the buyer's core architecture principle, and its ANZ presence is a matter of months old. Biggest risk for this buyer: assuming Databricks openness because of the AI/open-API narrative, when that specific integration is unconfirmed and would need to be proven in diligence.
+**Overall read:** FINBOURNE leads on genuine bi-temporal IBOR depth and on a named, permission-aware MCP/Claude integration that most directly matches the buyer's AI-agent ambitions — but it has no evidenced Databricks-native integration, which cuts against the buyer's core architecture principle, and its ANZ presence is young (first named go-live, AustralianSuper, Oct 2026). Biggest risk for this buyer: assuming Databricks openness because of the AI/open-API narrative, when that specific integration is unconfirmed and would need to be proven in diligence.
 
 **Evidence re-checked 2026-11-03 (v3 refresh).** Scores remain provisional (Stage-1 paper screen) until a proof of value runs; see `_v3_updates.md`.
 

@@ -2,7 +2,7 @@
 
 ## 1. Snapshot
 - **Category:** Investment data management / xBOR platform (IBOR, ABOR, CBOR, PBOR) with adjacent performance, reporting, reconciliation and PMS modules.
-- **Owner / parent:** Private, France-headquartered. Founded 2014 by BlackFin Capital Partners + CEO Serge Delpla from SunGard's GP3/Decalog assets; Cathay Capital/Bpifrance were later shareholders; Eurazeo signed to invest >€100m and become majority shareholder. Serial acquirer (SmartCo, Nexfi and others). ~652 employees, ~$122m revenue reported for 2026, ~10,000 customers group-wide across NeoXam's full software estate (data mgmt, accounting, PMS) — not all institutional-AM IDP buyers specifically.
+- **Owner / parent:** Private, France-headquartered. Founded 2014 by BlackFin Capital Partners + CEO Serge Delpla from SunGard's GP3/Decalog assets; Cathay Capital/Bpifrance were later shareholders; Eurazeo agreed in Nov 2022 to invest up to €100m and become majority shareholder. Serial acquirer (SmartCo, Nexfi, EZOPS in 2024, and others). ~652 employees, ~$122m revenue reported for 2026, ~10,000 customers group-wide across NeoXam's full software estate (data mgmt, accounting, PMS) — not all institutional-AM IDP buyers specifically.
 - **HQ / footprint:** Paris HQ; 20 offices worldwide, clients in 30+ countries. APAC: Sydney office since 2023, Melbourne office added subsequently; ~20 APAC clients including Platinum Asset Management (Australia) and Lion Global Investors (Singapore).
 - **Initial fit:** Moderate–High
 - **Positioning:** Broad, modular xBOR + data management suite with a genuine APAC (ANZ) delivery footprint and named references, but AI/agent story is explicitly early-adopter/preview, not production, and no public evidence of native Databricks/open-lakehouse integration.
@@ -34,7 +34,7 @@ Modular, "non-intrusive" approach claimed for front-to-back deployment; Bloomber
 **Nov 2026 update:** UniSuper (A$149bn) uses BNP Paribas' Data PRISM360, built on NeoXam IDS (Jun 2025) — an indirect, service-provider-delivered ANZ deployment. No new direct ANZ client beyond Platinum Asset Management.
 
 ## 9. Commercials, TCO, exit & vendor viability
-No public pricing, platform-vs-content separation, egress/API charge schedule, or exit/data-portability terms were found — normal for enterprise software but a genuine information gap requiring RFP disclosure. Vendor viability: well-capitalised via Eurazeo's >€100m majority investment (2026), strong APAC investment trajectory, but has changed PE ownership multiple times since 2014 (BlackFin → Cathay/Bpifrance → Eurazeo), and continues an active roll-up strategy (SmartCo, Nexfi) that adds integration/roadmap-coherence risk.
+No public pricing, platform-vs-content separation, egress/API charge schedule, or exit/data-portability terms were found — normal for enterprise software but a genuine information gap requiring RFP disclosure. Vendor viability: well-capitalised via Eurazeo's up-to-€100m majority investment (agreed Nov 2022), strong APAC investment trajectory, but has changed PE ownership multiple times since 2014 (BlackFin → Cathay/Bpifrance → Eurazeo), and continues an active roll-up strategy (SmartCo, Nexfi) that adds integration/roadmap-coherence risk.
 
 ## 10. Evidence, maturity & provisional scores
 
