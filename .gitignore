@@ -7,14 +7,6 @@ __pycache__/
 *.pyc
 .venv/
 venv/
-.pytest_cache/
-
-# Data cache (API responses) — keep repo light; regenerate via run.py
-data/raw/*.json
-data/raw/**/*.json
-
-# Keep the generated report and demo cache out unless explicitly added
-# (outputs/*.html is committed intentionally as the deliverable demo)
 
 # Local build scratch (generators, extracted intermediates, screenshots) — not part of the deliverable
 scratchpad/

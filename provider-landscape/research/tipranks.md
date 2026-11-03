@@ -22,7 +22,7 @@ Best known for its proprietary **Smart Score** (1-10, blending analyst-consensus
 - **API type:** REST/JSON API (developer signup) plus a hosted MCP connector at `mcp.tipranks.com`.
 - **Auth:** API-key based for the developer API; OAuth (sign in with TipRanks account, approve scopes) or API key for the MCP connector. All MCP tools are read-only (cannot place trades or modify account data).
 - **MCP availability:** Yes — official, actively marketed ("Bring TipRanks into every investment conversation") remote MCP server supporting Claude, ChatGPT, and Cursor, plus listing in the ChatGPT plugin directory (no developer-mode setup required there). Setup advertised as "ready in 60 seconds, one URL."
-- **Distribution:** Also licensed through third-party data platforms (e.g., Financial Modeling Prep offers TipRanks-powered analyst-ratings/price-target endpoints), and via unofficial community/scraper wrappers (GitHub `tipranks-api-v2`, Apify/ScrapingBee scrapers) — evidence that no comprehensive official public API existed for some data historically, though the direct MCP/API offering has since expanded.
+- **Distribution:** Also licensed through third-party data platforms (analyst-ratings/price-target endpoints), and via unofficial community/scraper wrappers (GitHub `tipranks-api-v2`, Apify/ScrapingBee scrapers) — evidence that no comprehensive official public API existed for some data historically, though the direct MCP/API offering has since expanded.
 - **Enterprise API:** Separate "TipRanks Enterprise" institutional data product (enterprise.tipranks.com) for banks/brokers/exchanges — not self-serve.
 
 ## 5. Enabling technology
@@ -37,7 +37,6 @@ Strong consumer-side reputation: ~1,569 Trustpilot reviews with a 4.3 TrustScore
 - **Best-for:** Retail and semi-professional investors wanting a single blended "is the crowd/street bullish" signal with drill-down to individual analyst credibility, and platforms (brokerages, fintechs) wanting to embed analyst-ratings/Smart-Score widgets via API or MCP rather than build sentiment scoring from scratch.
 
 ## 8. Provenance
-- https://site.financialmodelingprep.com/datasets/analyst-ratings-tipranks — third-party licensing of TipRanks analyst data (accessed 2026-08-14; WebFetch blocked, relied on search index)
 - https://mcp.tipranks.com/ — official MCP connector: auth, data scope, supported clients (accessed 2026-08-14; WebFetch blocked, relied on search index)
 - https://www.tipranks.com/news/labs/bring-tipranks-into-every-investment-conversation-introducing-mcp — official MCP launch announcement (accessed 2026-08-14)
 - https://enterprise.tipranks.com — enterprise API product page (accessed 2026-08-14; WebFetch blocked, relied on search index)
@@ -46,4 +45,4 @@ Strong consumer-side reputation: ~1,569 Trustpilot reviews with a 4.3 TrustScore
 - https://www.trustpilot.com/review/tipranks.com — Trustpilot rating (4.3, ~1,569 reviews) and complaint themes (accessed 2026-08-14)
 - https://www.tipranks.com/glossary/s/smart-score — Smart Score methodology/factor description (accessed 2026-08-14)
 
-**Note:** WebFetch to tipranks.com, mcp.tipranks.com, enterprise.tipranks.com, and site.financialmodelingprep.com was egress-blocked in this environment; findings rely on the WebSearch index and third-party secondary sources rather than direct page retrieval. Exact enterprise-API pricing and current free-key rate limits should be reconfirmed directly.
+**Note:** WebFetch to tipranks.com, mcp.tipranks.com, enterprise.tipranks.com was egress-blocked in this environment; findings rely on the WebSearch index and third-party secondary sources rather than direct page retrieval. Exact enterprise-API pricing and current free-key rate limits should be reconfirmed directly.

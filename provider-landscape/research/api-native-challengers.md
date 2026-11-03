@@ -2,18 +2,9 @@
 
 ## 1. Snapshot (the tier)
 
-This tier — Financial Modeling Prep (FMP), Polygon.io, Intrinio, Finnhub, and Xignite — is defined by an **API-first, self-serve, low-cost** delivery model that inverts the incumbent playbook. Where Bloomberg/LSEG/FactSet/S&P sell entitled terminals and negotiated enterprise contracts through sales teams, these vendors publish price tiers on a public page, let a developer sign up and get a working API key in minutes (often with a free tier), and deliver clean JSON/CSV over REST/WebSocket with SDKs and documentation aimed at engineers rather than analysts. The trade-off is deliberate: coverage is **US-centric and thinner** (global equities, fixed income, private markets, and evaluated/OTC pricing are weak or absent), fundamentals history is shallower, support is community/ticket-based rather than white-glove, and data-quality/uptime guarantees and enterprise entitlements are limited. They win on **cost, developer experience, and speed-to-integration** for fintech apps, indie quants, robo-advisors, and prototyping — not on institutional breadth or SLAs. Note the recent consolidation signal: Polygon.io now bills under **Massive.com** (rebrand; keys unchanged) and Xignite was acquired by **QUODD** in 2023, so the "scrappy startup" framing is softening at the top of the tier.
+This tier — Polygon.io, Intrinio, Finnhub, and Xignite — is defined by an **API-first, self-serve, low-cost** delivery model that inverts the incumbent playbook. Where Bloomberg/LSEG/FactSet/S&P sell entitled terminals and negotiated enterprise contracts through sales teams, these vendors publish price tiers on a public page, let a developer sign up and get a working API key in minutes (often with a free tier), and deliver clean JSON/CSV over REST/WebSocket with SDKs and documentation aimed at engineers rather than analysts. The trade-off is deliberate: coverage is **US-centric and thinner** (global equities, fixed income, private markets, and evaluated/OTC pricing are weak or absent), fundamentals history is shallower, support is community/ticket-based rather than white-glove, and data-quality/uptime guarantees and enterprise entitlements are limited. They win on **cost, developer experience, and speed-to-integration** for fintech apps, indie quants, robo-advisors, and prototyping — not on institutional breadth or SLAs. Note the recent consolidation signal: Polygon.io now bills under **Massive.com** (rebrand; keys unchanged) and Xignite was acquired by **QUODD** in 2023, so the "scrappy startup" framing is softening at the top of the tier.
 
 ## 2. Per-provider mini-profiles
-
-### Financial Modeling Prep (FMP)
-- **Positioning & owner/HQ/founded.** Budget, developer-friendly fundamentals + market-data API aimed at retail quants, students, and fintech builders. Founded ~2016–2017; HQ associated with Neuilly-sur-Seine, France (some directories list Toronto/Canada — privately held, small team). Independent.
-- **Asset-class coverage.** US public equity (deep), some global equities on higher tiers; strong company **fundamentals** (statements, ratios, DCF, earnings estimates/transcripts); forex and crypto quotes; ETFs, indices, commodities; options coverage is limited; **fixed income thin**; **no private markets**.
-- **Datasets.** EOD + real-time US quotes (paid), ~5+ years fundamentals on lower tiers (deeper on higher), analyst estimates/upgrades-downgrades, earnings call transcripts, insider trades, SEC filings, news, sentiment, some ESG. Bulk downloads on Premium+.
-- **APIs & integration.** REST, JSON (CSV for bulk), simple API-key auth; community SDKs (Python etc.); WebSocket for real-time on higher tiers. Free-tier bandwidth ~500MB/30d scaling to 1TB+ on Enterprise.
-- **Pricing.** Free = **250 calls/day, US EOD + basic statements**. Starter ~**$15/mo** (real-time, more endpoints), Premium ~**$99/mo** (institutional-grade, bulk, higher limits), Ultimate higher; ~30% annual discount. Cheapest published entry point in the tier.
-- **Customer feedback.** G2 reviews skew positive: praised for breadth of US data, ease of use, and price. Recurring cons: limited international coverage, occasional data-update delays/accuracy quirks, and slow support.
-- **Edge & limits.** Wins on **price and fundamentals breadth per dollar** — excellent for modeling/prototyping. Falls short on global depth, data-quality guarantees, options, and support responsiveness.
 
 ### Polygon.io (now billed as Massive.com)
 - **Positioning & owner/HQ/founded.** Developer/quant-focused market-data API with real-time and full historical tick data; strong reputation for clean market microstructure data. Founded ~2017, US (New Jersey). Rebranded billing to **Massive.com** (API/keys unchanged).
@@ -30,7 +21,7 @@ This tier — Financial Modeling Prep (FMP), Polygon.io, Intrinio, Finnhub, and 
 - **Datasets.** Real-time/intraday/EOD/historical prices (50+ yrs EOD history; index data back to 1950s), options, standardized fundamentals, ESG/alt via partners.
 - **APIs & integration.** Web REST API + **WebSocket**, JSON/CSV; **flexible delivery: FTP/CSV bulk, Snowflake direct DB, AWS**; official SDKs; API-key auth. No exchange/per-user fees on its multi-exchange real-time feed (a notable licensing advantage).
 - **Pricing.** **No free plan.** Entry ~**$150/mo** (some datasets from ~$250/mo); scales to $750/quarter and up to ~$60k/yr for multi-product institutional bundles. Priced per-dataset.
-- **Customer feedback.** Positioned as developer-friendly with fast onboarding and good docs/support; standardized fundamentals valued. Cons: **higher entry cost than FMP/Finnhub, no free tier**, and per-dataset pricing can get expensive.
+- **Customer feedback.** Positioned as developer-friendly with fast onboarding and good docs/support; standardized fundamentals valued. Cons: **higher entry cost than Finnhub, no free tier**, and per-dataset pricing can get expensive.
 - **Edge & limits.** Wins on **standardized fundamentals, no-exchange-fee real-time equities, options, and enterprise delivery (Snowflake/AWS)**. Falls short on price-for-hobbyists and global single-name equity breadth.
 
 ### Finnhub
@@ -55,7 +46,6 @@ This tier — Financial Modeling Prep (FMP), Polygon.io, Intrinio, Finnhub, and 
 
 | Provider | Best-for | Real-time? | Fundamentals depth | Global equity? | Options/FX/Crypto | Free tier | Entry paid tier | Biggest limitation |
 |---|---|---|---|---|---|---|---|---|
-| **FMP** | Cheap US fundamentals + modeling | Yes (paid) | Deep (US), 5y→30y+ by tier | Limited (higher tiers) | Opt: weak / FX: yes / Crypto: yes | 250 calls/day, US EOD | ~$15/mo Starter | Global depth + data-quality guarantees |
 | **Polygon.io** | Quant market-data & tick history | Yes (SIP on Advanced) | Secondary | Limited | Opt: yes / FX: yes / Crypto: yes (separate subs) | 5 calls/min, 15-min delayed | ~$29/mo (Stocks) | Per-asset-class billing; thin fundamentals |
 | **Intrinio** | Standardized fundamentals + options, enterprise delivery | Yes (IEX/multi-exch) | Deep (US, standardized 15y+) | ETFs global; single-names limited | Opt: yes / FX: partial / Crypto: partial | None | ~$150/mo | No free tier; higher entry cost |
 | **Finnhub** | Free-tier + cheap alt-data | Yes (US free) | Moderate (deeper on paid) | Yes (paid, 60+ exch) | Opt: limited / FX: yes / Crypto: yes | ~60 calls/min, real-time US | ~$11.99–$99.99/mo | Data-quality/support inconsistency |
@@ -65,25 +55,20 @@ This tier — Financial Modeling Prep (FMP), Polygon.io, Intrinio, Finnhub, and 
 
 **What they do BETTER than Bloomberg/LSEG/FactSet/S&P:**
 - **Cost:** $0–$200/mo self-serve vs. ~$24k/yr Bloomberg terminal or six-/seven-figure enterprise data contracts — orders of magnitude cheaper for US market data and fundamentals.
-- **Self-serve & speed:** sign up, get an API key, and pull data in minutes with no sales cycle, contract negotiation, or minimum commitment (FMP/Polygon/Finnhub especially).
+- **Self-serve & speed:** sign up, get an API key, and pull data in minutes with no sales cycle, contract negotiation, or minimum commitment (Polygon/Finnhub especially).
 - **Developer experience:** clean REST/WebSocket, JSON/CSV, SDKs, transparent docs and public pricing — built for engineers embedding data into apps, not analysts on a terminal.
 - **Modern delivery:** flat-file/S3 bulk (Polygon), Snowflake/AWS direct (Intrinio), cloud-native microservices (Xignite) fit modern data stacks.
-- **Cheap access to niche data:** Finnhub/FMP surface alt-data (insider/congressional trades, transcripts, FDA/lobbying) at prices retail can afford.
+- **Cheap access to niche data:** Finnhub surfaces alt-data (insider/congressional trades, transcripts, FDA/lobbying) at prices retail can afford.
 
 **What they CANNOT match:**
 - **Breadth & global depth:** limited/absent coverage of non-US equities, deep fixed income, evaluated/OTC and municipal pricing, and comprehensive corporate actions across all markets.
 - **Private markets & specialized datasets:** no PitchBook/Preqin-style private-company, PE/VC, or deep credit/ratings coverage (S&P/Moody's territory).
 - **Evaluated fixed-income pricing:** no equivalent to ICE/Bloomberg/LSEG evaluated bond pricing and analytics.
 - **Enterprise entitlements & support:** no white-glove SLAs, dedicated account teams, compliance/audit tooling, or exchange-entitlement management at incumbent scale (Xignite is the partial exception).
-- **Data-quality guarantees:** documented accuracy/staleness complaints (Finnhub, FMP) vs. incumbents' contractual quality and reference-data rigor used for books-of-record.
+- **Data-quality guarantees:** documented accuracy/staleness complaints (Finnhub) vs. incumbents' contractual quality and reference-data rigor used for books-of-record.
 
 ## 5. Provenance
 
-- https://site.financialmodelingprep.com/developer/docs/pricing — FMP official pricing/tiers (accessed 2026-08-10)
-- https://www.findmymoat.com/tools/financial-modeling-prep-fmp — FMP pricing/limits review (accessed 2026-08-10)
-- https://datarade.ai/data-providers/financial-modeling-prep/profile — FMP coverage & profile (accessed 2026-08-10)
-- https://g2.com/products/financial-modeling-prep/reviews — FMP user reviews/sentiment (accessed 2026-08-10)
-- https://www.crunchbase.com/organization/financial-modeling-prep — FMP company background (accessed 2026-08-10)
 - https://apicostcalc.com/polygon.html — Polygon pricing & free tier (accessed 2026-08-10)
 - https://apis.io/plans/polygon-io/polygon-io-plans-pricing/ — Polygon per-asset-class tiers (accessed 2026-08-10)
 - https://polygon.io/flat-files — Polygon flat-file/S3 bulk delivery (accessed 2026-08-10)

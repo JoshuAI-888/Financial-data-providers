@@ -8,7 +8,7 @@
 - 
 
 ## 2. Coverage
-US-only by design — mirrors SEC EDGAR's scope, so no NZX/ASX/LSE/HKEX/SGX/KRX/TWSE filings (same US-listed constraint noted in this repo's CLAUDE.md for FMP). Historical depth follows EDGAR (full-text search back to 2001 for most form types, older filings available as scanned/archived documents). Coverage is document-level (every US filer that submits to EDGAR), not curated to a subset of large caps — a strength for long-tail/small-cap and micro-cap filing research.
+US-only by design — mirrors SEC EDGAR's scope, so no NZX/ASX/LSE/HKEX/SGX/KRX/TWSE filings. Historical depth follows EDGAR (full-text search back to 2001 for most form types, older filings available as scanned/archived documents). Coverage is document-level (every US filer that submits to EDGAR), not curated to a subset of large caps — a strength for long-tail/small-cap and micro-cap filing research.
 
 ## 3. Datasets
 - Full-text-searchable SEC filings (all form types) with phrase, boolean, proximity, form-type, industry, market-cap and document-type filters.
@@ -19,7 +19,7 @@ US-only by design — mirrors SEC EDGAR's scope, so no NZX/ASX/LSE/HKEX/SGX/KRX/
 - Watchlists and filing alerts by company, filer, form type, or EDGAR-wide new-filing sweep.
 
 ## 4. APIs & technical integration
-**No public API access.** BamSEC is explicitly a document-display and human-workflow tool, not a data-feed/API product — it does not offer programmatic access, bulk data export, or AI-agent integration. Its only "integration" surface is one-click Excel table export (copy/paste-grade CSV-to-Excel table download, not a live Excel add-in/refreshable link) and browser-based redlining/search. This is a meaningful contrast to FMP-style REST APIs: BamSEC is consumed manually via its web UI, so it cannot be wired into an automated pipeline like `fmp_milford/client.py`.
+**No public API access.** BamSEC is explicitly a document-display and human-workflow tool, not a data-feed/API product — it does not offer programmatic access, bulk data export, or AI-agent integration. Its only "integration" surface is one-click Excel table export (copy/paste-grade CSV-to-Excel table download, not a live Excel add-in/refreshable link) and browser-based redlining/search. This is a meaningful contrast to REST data APIs: BamSEC is consumed manually via its web UI, so it cannot be wired into an automated pipeline.
 
 ## 5. Enabling technology
 Full-text search/indexing engine over the EDGAR corpus with filing-diff (redline) computation and structured table parsing (turns HTML/XBRL filing tables into clean exportable tables). No disclosed use of generative AI/NLP summarization (unlike Sentieo/AlphaSense) — positioning is "fast, accurate document retrieval and table extraction," not AI-driven synthesis.

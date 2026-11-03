@@ -3,67 +3,39 @@
 Guidance for Claude Code (and future contributors) working in this repository.
 
 ## What this repo is
-A role-based **investment-intelligence portal** built on **FMP free-tier** data for Milford
-Asset Management. It turns raw FMP data into transparent, comparable financial models and
-presents them as a **single self-contained interactive HTML** organised by the five investment
-roles. Read [docs/PROBLEM_STATEMENT.md](docs/PROBLEM_STATEMENT.md) first, then
-[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+Independent, vendor-neutral research on financial data providers, published as two
+self-contained HTML pages:
 
-## The one constraint that shapes everything
-FMP **free tier = US-listed only, EOD, ~5y annual, 250 calls/day**. Milford's home exchanges
-(NZX/ASX/LSE/HKEX/SGX/KRX/TWSE) are **not** reachable here. The universe is US comparables.
-Do not imply otherwise in code, docs, or UI copy.
+- `financial_data_providers_landscape.html` (also `index.html`): the Provider Landscape.
+- `idp_evaluation.html`: the Investment Data Platform (IDP) Evaluation, a guided
+  Define → Evaluate → Decide model over 15 candidate vendors.
 
-## Project layout
+The evidence base is the Markdown fact-sheets in `provider-landscape/research/` and
+`provider-landscape/idp-research/`. Read `provider-landscape/README.md` for method and scope.
+
+## Layout
 ```
-fmp_milford/   config, client, perf, extract, mockdata, transform, insights, glossary, report
-run.py         orchestrator (demo default; --live; --probe-only; --limit-sectors)
-outputs/       milford_fmp_report.html  (the deliverable)
-docs/          problem/requirements/architecture/assumptions/FAQ/support + generated glossary & data dictionary
-tests/         metric unit tests + browser smoke test
+index.html, financial_data_providers_landscape.html, idp_evaluation.html   published pages
+provider-landscape/          working copies of the pages, research-explorer.js, fact-sheets
+provider-landscape/idp-research/   IDP fact-sheets, reqscores_*.json, reqnotes_*.md, _v2_updates.md
+.github/workflows/pages.yml  GitHub Pages deploy (default branch)
 ```
 
-## How to run / test
-```bash
-python run.py                    # DEMO (offline, no deps) -> outputs/milford_fmp_report.html
-python run.py --live             # real FMP data (needs FMP_API_KEY + open network)
-python tests/test_transform.py   # metric unit tests
-python tests/verify_report.py    # browser smoke test (needs: pip install playwright)
-python docs/gen_reference.py     # regenerate GLOSSARY.md + DATA_DICTIONARY.md
-```
-
-## Conventions & invariants (please preserve)
-- **Stdlib-only core.** No third-party imports in `fmp_milford/` except optional tooling.
-  Keep it runnable with a bare Python.
-- **Compute metrics, never ingest them.** Every metric in `transform.py` must carry
-  `{value, formula, inputs, steps, unit, good}` so the UI can show its working.
-- **Demo == Live shape.** `mockdata.py` and `extract.py` emit the *same* normalized record;
-  never branch `transform/insights/report` on data source.
-- **Provenance is mandatory.** Every widget shows source + last-updated + DEMO/LIVE badge.
-- **Explainers are mandatory.** New metrics need a `glossary.METRIC_GLOSSARY` entry; new
-  widgets need an `INSIGHT_EXPLAINERS` entry (meaning/good/target/alpha).
-- **Self-contained HTML.** `report.py` inlines all CSS/JS/data/logos — no external requests
-  (CSP/offline safe). Don't add CDN links.
-- **Budget first.** All live calls go through `client.py` (rate-limit + 250/day budget + cache).
-
-## Security (hard rules)
-- API key only via `FMP_API_KEY` (env/`.env`). **Never** commit it or write it into any output.
-- `.env` and `data/raw/` are git-ignored. Before committing, scan: `git grep -I "apikey\|FMP_API_KEY"`.
-- URLs in metadata must be sanitised (`apikey=***`).
-
-## Adding things
-- **A company:** edit `UNIVERSE` in `config.py`.
-- **A metric:** `transform.company_metrics` (+ formula/steps) **and** `glossary.METRIC_GLOSSARY`.
-- **An insight:** an `ins(...)` in `insights.build_insights` **and** an `INSIGHT_EXPLAINERS` entry;
-  add a renderer in `report.py` if it's a new widget type.
-- Then run `python docs/gen_reference.py` and regenerate the report.
+## Conventions & invariants
+- **Self-contained pages.** CSS, JS and data are inlined. No CDN links, external fonts or images.
+  The only runtime fetch is `research-explorer.js` loading the Markdown fact-sheets.
+- **Keep copies in sync.** `index.html` must equal `financial_data_providers_landscape.html`, and
+  each root page must match its `provider-landscape/` copy except for the `research-explorer.js`
+  path. Edit one, then propagate.
+- **Evidence first.** Every claim in a page should trace to a fact-sheet with a dated source and a
+  source type (vendor-authored vs independent). Update the fact-sheet, then the page.
+- **Date everything.** Note the access date on new sources and re-stamp "as of" text when refreshing.
+- **IDP scores stay provisional** (Stage-1 paper screen, evidence-capped) until a proof of value runs.
 
 ## Guardrails
-- This is **analytical tooling, not investment advice**, and **not** for client-facing or
-  decision-of-record use (**FMA boundary**).
-- No book-of-record data (positions/NAV/performance) — that is IBOR/AlphaCert, out of scope.
+- Not investment advice, a procurement recommendation, or affiliated with any provider named.
+- Pricing is approximate and review scores are indicative; say so where they appear.
 
 ## Gotchas
-- This managed environment **blocks egress to financialmodelingprep.com** → `--live` fails here;
-  run it elsewhere. The committed report is DEMO.
-- Factor z-scores are **relative to the active universe** and change as you filter.
+- The managed cloud environment blocks egress to most vendor sites, so links can't be verified
+  there. Check links on an open network.

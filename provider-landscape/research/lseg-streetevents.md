@@ -7,7 +7,7 @@
 - **Pricing model & ranges:** **Not publicly disclosed.** Sold as a Workspace content entitlement (seat-based, bundled with broader LSEG data) or as a standalone institutional datafeed license (XML/Zip via FTP/SFTP or API). Broader LSEG Workspace seats are commonly cited as roughly **~10% cheaper than comparable Bloomberg Terminal seats**; StreetEvents/Transcripts-specific pricing requires a sales quote.
 
 ## 2. Coverage
-- **Breadth:** ~10,400 companies globally, positioned by LSEG as "the broadest coverage of transcripts and briefs in the marketplace." Global public-company scope, but as with all FMP-adjacent comparisons in this repo, note coverage skews toward US/developed-market large- and mid-caps; smaller/EM names are thinner.
+- **Breadth:** ~10,400 companies globally, positioned by LSEG as "the broadest coverage of transcripts and briefs in the marketplace." Global public-company scope, but note coverage skews toward US/developed-market large- and mid-caps; smaller/EM names are thinner.
 - **Event types:** Earnings calls, M&A calls, sales/investor-day calls, analyst meetings, corporate conference presentations — six-plus event categories, ~40,000/year combined.
 - **History depth:** Usable archive from the **early 2000s** onward (~2001–2003 depending on company/index), a genuine differentiator versus newer entrants (Quartr, Tegus, API-native challengers) that only go back a few years.
 - **Audio / slides / Q&A:** **Audio replay archive** is a named feature (click-to-replay via the Media column); transcripts capture full Q&A verbatim; briefs are a shorter synthesized companion product. Slide decks are not confirmed as a core StreetEvents deliverable (that is more a Quartr/company-IR-site feature).
