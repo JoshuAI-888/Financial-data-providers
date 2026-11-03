@@ -34,6 +34,30 @@ Commercials blend **services fees + data-model subscription**. The **key strateg
 ## 10. Evidence, maturity & provisional scores
 Evidence class is **mixed** — vendor material plus independent corroboration (Snowflake partner listing, FIS selection coverage). Because it is an **SI/accelerator, not a packaged IDP**, it is scored in its own segment and compared with care: strong on Databricks-capability, AI-driven tooling and DQ accelerators; weak/not-applicable on being a ready-made managed master, native IBOR product and out-of-the-box total-portfolio content. Hard gates framed for a *packaged* IDP (managed golden copy, productised IBOR) read fail/partial by design; Databricks-open-architecture and open-AI gates read favourably. **Stage-1 paper screen — not a selection of record.** Best considered when the strategy leans "build on Databricks with an accelerator" rather than "buy a master." In-sandbox egress is restricted; figures triangulated from the search index and flagged as open items.
 
+**Hard-gate read:**
+- G01 native equities/ETF/govvies/credit/FX/PE: PARTIAL
+- G02 security+entity+price mastering: PASS
+- G03 intraday position/price + near-real-time txns: PARTIAL
+- G04 5yr history + point-in-time: PARTIAL
+- G05 IDP-as-master while Databricks consumes: PARTIAL
+- G06 open/native Databricks integration: FAIL
+- G07 bidirectional API: PARTIAL
+- G08 business users extend model w/o vendor coding: PARTIAL
+- G09 buyer can use own LLMs: PASS
+- G10 permission-aware MCP/agent interface: PARTIAL
+- G11 field-level provenance/lineage/override/audit: UNKNOWN
+- G12 full export on exit: UNKNOWN
+- G13 AI/LLM data-use rights governable: PASS
+- G14 credible APAC+ANZ support: PARTIAL
+- G15 30–60 day PoV: PARTIAL
+- G16 3–6 month production foundation: PARTIAL
+- G17 07: UNKNOWN
+- G18 internal ops retains exception/override control: PARTIAL
+- G19 institutional security architecture: PARTIAL
+- G20 5-yr TCO transparency: FAIL
+- G21 critical function not roadmap-dependent: PARTIAL
+- G22 controlled write-back to downstream systems: UNKNOWN
+
 ## 11. Sources
 - Exafluence — finance / data-engineering: https://exafluence.com/finance (accessed 2026-08-15)
 - exf Financial Data Solutions — next-gen data management: https://exf-financialdatasolutions.com/ (accessed 2026-08-15)

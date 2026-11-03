@@ -6,6 +6,7 @@
 - **HQ / footprint:** New York HQ, with US and European operations; opened its **first on-the-ground Asia office in Hong Kong in January 2026** to serve "growing APAC client demand." No Australia/NZ office or named ANZ client reference found in public sources.
 - **Initial fit:** Moderate-to-High — deepest, most concretely evidenced end-to-end capability (data + IBOR/ABOR + ops + now OMS), but the architecture pulls toward Arcesium becoming the analytical/operational estate itself rather than a thin mastering layer feeding Databricks, which cuts against the buyer's stated principle.
 - **Positioning:** "Deploy any strategy at scale with unified investment data" — a single connected platform (Aquata + Opterra + Limina) spanning data governance through to order execution and books of record, serving hedge funds, institutional asset managers, private-markets firms and banks with over $6tn in gross AUM serviced.
+- **Recent developments:** Nov 2025: Databricks MCP Marketplace launch partner (MCP services native on Databricks); Dec 2025: strategic partnership with FactSet across front/middle/back office.
 
 ## 2. Investment-domain mastering
 Aquata is explicitly pitched as a self-service data platform with "hundreds of connectors" that ingests, validates, harmonises and distributes data into a single source of truth. Data-quality rules include security-master consistency and entity-data uniqueness, and instrument identifiers, pricing and reference data are normalised on ingestion (identifier concordance implied, though not itemised by standard ISIN/SEDOL/CUSIP/FIGI). Opterra is separately described as including "a world-leading security master" combined with UBOR, reconciliations, performance, reg reporting and treasury modules. Point-in-time/bitemporal history is claimed in the RFI evidence baseline but was not independently corroborated in public search results — treat as vendor-asserted, not yet triangulated.
@@ -57,23 +58,12 @@ Revenue model is subscription-based SaaS plus professional/consulting fees; no p
 - G21 critical function not roadmap-dependent: PARTIAL — Aquata/UBOR mature; MCP AI suite and Limina P/OMS integration both very recent
 - G22 controlled write-back to downstream systems: PARTIAL — MCP "transformation workloads" imply write, controls undetailed
 
-**Provisional domain scores (0–5, capped per evidence class; no PoV run, cap 4, reach 4 only with a named comparable production reference):**
-- Domain 1 Investment data mastering: 3.0 (evidence: official docs)
-- Domain 2 Databricks & open architecture: 1.0 (evidence: capability not evidenced)
-- Domain 3 Time to value & implementation: 1.5 (evidence: sales/marketing)
-- Domain 4 Data quality & investment operations: 3.0 (evidence: official docs)
-- Domain 5 Public/private total portfolio: 3.0 (evidence: official docs, named quantified use case)
-- Domain 6 IBOR & investment modelling: 3.0 (evidence: official docs)
-- Domain 7 AI & agent readiness: 3.0 (evidence: official product announcement, recent)
-- Domain 8 Data coverage/currency/history: 2.5 (evidence: official docs, breadth implied not itemised)
-- Domain 9 Integration & user self-service: 3.0 (evidence: official docs — "self-service" framing)
-- Domain 10 Governance/security/data rights: 2.5 (evidence: official docs)
-- Domain 11 Commercials/TCO/exit: 1.0 (evidence: undisclosed)
-- Domain 12 Vendor viability/roadmap/support: 3.0 (evidence: official docs/press — scale, backing, acquisition)
 
 **Overall read:** Arcesium is the most complete end-to-end platform of the three — genuine UBOR (unified IBOR/ABOR), strong private-credit document extraction with a quantified named result, model-independent MCP, and the deepest balance-sheet backing — but it has no evidenced Databricks-native integration and its architecture (now widened further by the Limina P/OMS acquisition) points toward becoming a second proprietary operational estate, the exact outcome the buyer's principle seeks to avoid. Biggest risk for this buyer: strong domain capability could become an architectural liability if Arcesium is adopted as an operating platform rather than a governed mastering layer feeding Databricks; APAC/ANZ support is unproven (first Asia office only opened Jan 2026, no Australia/NZ presence found).
 
 ## 11. Sources
+- https://www.databricks.com/blog/mcp-powered-financial-ai-workflows-databricks — Databricks MCP Marketplace — Arcesium launch partner [vendor · Platform-standards docs · 2026-08-14 · search-only]
+- https://www.globenewswire.com/news-release/2025/12/03/3198703/7768/en/FactSet-and-Arcesium-Debut-Tech-To-Unite-Front-Middle-and-Back-Office-Workflows-for-Asset-Owners-and-Managers.html — FactSet–Arcesium partnership [vendor · Official release note · 2026-08-14 · search-only]
 - https://www.arcesium.com/institutional-asset-managers — institutional asset manager positioning (accessed 2026-08-14)
 - https://www.arcesium.com/private-markets-managers-investors — private markets solutions page (accessed 2026-08-14; page could not be fetched due to sandbox egress block, referenced via search index only)
 - https://www.arcesium.com/aquata-data-platform — Aquata data platform overview (accessed 2026-08-14)

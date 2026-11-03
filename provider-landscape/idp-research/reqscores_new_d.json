@@ -1,18 +1,18 @@
 {
   "cluster": "ttv-commercials-viability",
   "requirements": {
-    "TTV-01": "Dataset onboarding speed",
-    "TTV-02": "Pre-built connector library",
-    "TTV-03": "Low implementation FTE / professional-services dependency",
-    "TTV-04": "30-60 day proof-of-value feasibility",
-    "TCO-01": "Pricing transparency",
-    "TCO-02": "Predictable AUM-scalable 5-year TCO",
-    "TCO-03": "Full data export on exit (raw+mastered+history+rules+audit)",
-    "TCO-04": "Usable without vendor proprietary runtime",
-    "VIA-01": "APAC / ANZ support & named references",
-    "VIA-02": "Roadmap execution track record",
-    "VIA-03": "Financial viability & ownership stability",
-    "VIA-04": "Comparable-customer reference availability"
+      "TTV-01": "Dataset onboarding speed",
+      "TTV-02": "Pre-built connector library",
+      "TTV-03": "Low implementation FTE / professional-services dependency",
+      "TTV-04": "30-60 day proof-of-value feasibility",
+      "TCO-01": "Pricing transparency",
+      "TCO-02": "Predictable AUM-scalable 5-year TCO",
+      "TCO-03": "Full data export on exit (raw+mastered+history+rules+audit)",
+      "TCO-04": "Usable without vendor proprietary runtime",
+      "VIA-01": "APAC / ANZ support & named references",
+      "VIA-02": "Roadmap execution track record",
+      "VIA-03": "Financial viability & ownership stability",
+      "VIA-04": "Comparable-customer reference availability"
   },
   "scores": {
     "TTV-01": {
@@ -87,7 +87,7 @@
     },
     "VIA-03": {
       "fencore": {"s": 0.5, "ev": "docs", "rel": "none", "cite": "Fencore seed funding ~US$373K (Crunchbase)", "url": "https://www.crunchbase.com/organization/fencore", "type": "Independent research", "note": "2019 startup; only ~$373K seed disclosed (Tenity, Engine) — thin capitalisation, major risk"},
-      "statestreet-alpha": {"s": 3.5, "ev": "docs", "rel": "GA", "cite": "State Street Corp (NYSE:STT), G-SIB", "url": "https://www.sec.gov/Archives/edgar/data/93751/000009375124000498/stt-20231231.htm", "type": "Official filings", "note": "Global systemically important bank; strongest viability of any vendor in the screen"},
+      "statestreet-alpha": {"s": 3.0, "ev": "docs", "rel": "GA", "cite": "State Street Corp (NYSE:STT), G-SIB", "url": "https://www.sec.gov/Archives/edgar/data/93751/000009375124000498/stt-20231231.htm", "type": "Official filings", "note": "Global systemically important bank; strongest viability of any vendor in the screen"},
       "alphacert": {"s": 1.0, "ev": "docs", "rel": "none", "cite": "AlphaCert ~26 staff, ~US$1.8m revenue", "url": "https://www.thewealthmosaic.com/vendors/fencore/fencore-datahub/", "type": "Independent research", "note": "Tiny firm for a strategic platform; concentration/key-person/financial-durability risk"},
       "quadra": {"s": 0.5, "ev": "none", "rel": "none", "cite": "Quadra Platform - no financials found", "url": "https://www.quadraplatform.com/", "type": "No evidence located", "note": "No funding/revenue disclosure found for this Quadra entity; early-stage, dominant risk"},
       "exafluence": {"s": 1.5, "ev": "docs", "rel": "GA", "cite": "Exafluence Inc, privately held (founded 2018)", "url": "https://exafluence.com/aboutus", "type": "Vendor marketing", "note": "Mid-size private services firm; no public financials/revenue disclosed to assess durability"}

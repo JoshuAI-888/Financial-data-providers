@@ -6,6 +6,7 @@
 - **HQ / footprint:** Norwalk, Connecticut, US. APAC: Sydney office since 1998, Melbourne office opened 2016; a combined ANZ team of 70+ client support, relationship-management and technical specialists; also runs an annual APAC Buy-Side Forum across Hong Kong, Tokyo, Sydney and Singapore.
 - **Initial fit:** Very high as a data/content and AI-delivery layer; moderate (and largely unproven at this buyer's scale) as a full EDM/IBOR system — IBOR/OMS capability is a 2025 bolt-on acquisition (LiquidityBook), not a mature native master.
 - **Positioning:** The broadest off-the-shelf multi-asset content catalogue among the two vendors evaluated here, now pushed directly into Databricks and exposed to LLMs via a production MCP suite — best read as a content + AI-interface layer alongside a core IDP, not a replacement for one.
+- **Recent developments:** Nov 2025: Databricks MCP Marketplace launch partner + Delta Sharing; model-independent MCP server (Claude, ChatGPT, Gemini, Copilot, Databricks, Perplexity) with entitlement controls.
 
 ## 2. Investment-domain mastering
 FactSet's mastering story is concordance and crosswalking, not golden-record security/entity/price mastering in the EDM sense. The **Concordance Service** uses a proprietary matching algorithm against FactSet's Entity Master, People, and Symbology databases to resolve client identifiers to FactSet's proprietary IDs (with candidate lists and confidence scores, not an authoritative merge), and the **Symbology API** cross-maps to industry-standard identifiers. Content breadth is genuinely wide: equities, ETFs, fixed income (corporate/government/agency/municipal bonds, terms & conditions, prices, analytics), ownership, mutual funds, and 20+ years of consensus estimates across 19,000+ companies and 90+ countries; multi-asset risk-model coverage spans equity, fixed income, currency and commodity. Private-equity/GP-LP lifecycle mastering is not evidenced. This is native, licensed content delivery with configurable cross-referencing — not operational security-master mastering with survivorship/golden-record governance; point-in-time history depth was not independently confirmed in this research pass.
@@ -57,23 +58,12 @@ FactSet reports strong, transparent subscription economics: Annual Subscription 
 - G21 (critical function not roadmap-dependent): PARTIAL — Portfolio Analytics MCP and IBOR both recent/limited-release
 - G22 (controlled write-back to downstream systems): UNKNOWN — not established from public sources
 
-**Provisional 0–5 scores (12 domains):**
-- Domain 1 (Investment data mastering): 2.0 (evidence: official docs)
-- Domain 2 (Databricks & open architecture): 3.0 (evidence: official docs)
-- Domain 3 (Time to value & implementation): 1.5 (evidence: sales/marketing)
-- Domain 4 (Data quality & investment operations): 2.5 (evidence: official docs)
-- Domain 5 (Public/private total portfolio): 1.0 (evidence: official docs)
-- Domain 6 (IBOR & investment modelling): 2.0 (evidence: official docs)
-- Domain 7 (AI & agent readiness): 3.0 (evidence: official docs)
-- Domain 8 (Data coverage/currency/history): 3.0 (evidence: official docs)
-- Domain 9 (Integration & user self-service): 2.0 (evidence: official docs)
-- Domain 10 (Governance/security/data rights): 2.5 (evidence: official docs)
-- Domain 11 (Commercials/TCO/exit): 2.0 (evidence: official docs)
-- Domain 12 (Vendor viability/roadmap/support): 3.0 (evidence: official filings)
 
 **Overall read:** FactSet is best positioned as a strategic **content + AI-interface layer** — its Databricks Marketplace presence and production MCP suite are genuinely ahead of the field for exposing licensed content to LLMs under governed entitlements — but it is not evidenced as a primary IDP: security/entity mastering is concordance-grade rather than golden-record, and its new IBOR/OMS (LiquidityBook) is an unproven, recently-integrated acquisition. Biggest risk for this buyer: relying on FactSet for IBOR or total-portfolio public/private mastering would be buying an M&A integration story, not a proven capability; biggest strength is AI/agent readiness combined with genuinely deep multi-asset content and long-standing ANZ presence.
 
 ## 11. Sources
+- https://www.factset.com/lp/model-context-protocol — FactSet MCP server — model-independent [vendor · Official docs · 2026-08-14 · search-only]
+- https://www.databricks.com/blog/mcp-powered-financial-ai-workflows-databricks — Databricks MCP Marketplace — FactSet [vendor · Platform-standards docs · 2026-08-14 · search-only]
 - https://www.factset.com/marketplace/catalog/product/factset-via-databricks — dedicated FactSet-via-Databricks product page (accessed 2026-08-14)
 - https://www.factset.com/marketplace/catalog/product/model-context-protocol — FactSet Core MCP Server product page (accessed 2026-08-14)
 - https://www.factset.com/marketplace/catalog/product/portfolio-analytics-mcp — Portfolio Analytics MCP, limited release (accessed 2026-08-14)

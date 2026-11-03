@@ -6,6 +6,7 @@
 - **HQ / footprint:** Dual HQ London/New York; states offices across Europe, the Americas and Asia Pacific, but no specific ANZ (Australia/NZ) office or client reference was found in public sources.
 - **Initial fit:** Moderate — best fit is as a benchmark/index/security-master **data supplier into** the buyer's Databricks estate, not as the IDP's investment-modelling or IBOR layer.
 - **Positioning:** A 30-year benchmark and index data specialist that has broadened into managed security-master, entity and portfolio data services, now pitching itself as the "AI-ready data" on-ramp for Databricks.
+- **Recent developments:** Nov 2025: Databricks Delta Sharing partnership (zero-copy managed data, complementary to Agent Bricks); Apr 2026: first named ANZ client (Rest, A$100bn super, on Matrix).
 
 ## 2. Investment-domain mastering
 Rimes' core, well-evidenced capability is security, price, entity and benchmark/index mastering — validated, enriched and standardised across ~2,500 datasets from 1,000+ data partners, spanning equities, fixed income, ESG, ETFs, commodities, crypto, real assets and corporate actions (native). A published white paper and its Enterprise Benchmark Solution (EBS) describe security-master consistency, governance and automation as core, native functions. Identifier concordance is implied by "concordance" language in its marketing but not itemised (ISIN/SEDOL/CUSIP/FIGI mapping specifically). No public evidence of native private-equity/private-markets security or entity mastering (GP/LP, fund, portfolio-company structures) — this looks custom/absent rather than native or configurable. Point-in-time/bitemporal history is not explicitly evidenced.
@@ -57,23 +58,12 @@ Pricing is undisclosed, as is standard for the vendor category — contact-for-q
 - G21 critical function not roadmap-dependent: PARTIAL — data mastering mature; AI/agent layer roadmap
 - G22 controlled write-back to downstream systems: UNKNOWN
 
-**Provisional domain scores (0–5, capped per evidence class; no PoV run, cap 4, reach 4 only with a named comparable production reference):**
-- Domain 1 Investment data mastering: 3.0 (evidence: official docs)
-- Domain 2 Databricks & open architecture: 3.0 (evidence: official docs/press release)
-- Domain 3 Time to value & implementation: 1.5 (evidence: sales/marketing)
-- Domain 4 Data quality & investment operations: 2.5 (evidence: official docs)
-- Domain 5 Public/private total portfolio: 1.0 (evidence: marketing mention only)
-- Domain 6 IBOR & investment modelling: 0.5 (evidence: capability not evidenced)
-- Domain 7 AI & agent readiness: 1.0 (evidence: roadmap)
-- Domain 8 Data coverage/currency/history: 3.0 (evidence: official docs)
-- Domain 9 Integration & user self-service: 3.0 (evidence: official docs/press release)
-- Domain 10 Governance/security/data rights: 2.5 (evidence: official docs)
-- Domain 11 Commercials/TCO/exit: 1.0 (evidence: unknown/undisclosed)
-- Domain 12 Vendor viability/roadmap/support: 2.5 (evidence: official docs/press release)
 
 **Overall read:** Rimes leads narrowly on the one thing this buyer explicitly wants — a data vendor that plugs into Databricks natively via Delta Sharing without replication — announced concretely in Nov 2025. It is a credible benchmark/index/security-master content and managed-service supplier, not an IDP in the buyer's sense: it has no evidenced IBOR/investment-modelling engine, no private-markets/PE capability, and no Rimes-specific AI/agent interface. Biggest risk for this buyer: treating Rimes as a full IDP would leave IBOR, private-markets mastering and agentic AI entirely unaddressed, and ANZ support is unproven.
 
 ## 11. Sources
+- https://www.rimes.com/rimes-partners-with-databricks-to-deliver-managed-data-services/ — Rimes–Databricks managed data services (Delta Sharing) [vendor · Official release note · 2026-08-14 · search-only]
+- https://www.prnewswire.com/news-releases/rimes-partners-with-databricks-to-deliver-managed-data-services-302617480.html — PR Newswire corroboration [independent · News · 2026-08-14 · search-only]
 - https://www.rimes.com/rimes-partners-with-databricks-to-deliver-managed-data-services/ — Databricks Delta Sharing partnership announcement (accessed 2026-08-14)
 - https://www.prnewswire.com/news-releases/rimes-partners-with-databricks-to-deliver-managed-data-services-302617480.html — corroborating press release, same announcement (accessed 2026-08-14)
 - https://www.rimes.com/insights/rimes-outlines-approach-to-help-buy-side-conquer-challenge-of-managing-security-master-data/ — security master data white paper (accessed 2026-08-14)

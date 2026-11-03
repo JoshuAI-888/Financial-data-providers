@@ -34,6 +34,30 @@ The open, inspectable, standards-based design is **strongest on portability/exit
 ## 10. Evidence, maturity & provisional scores
 Evidence class is **vendor-authored only** (Quadra site) with corroborating context on FIBO from independent sources — no independent customer evidence, so scores are **heavily evidence-capped**. Hard gates: open-architecture/portability read favourably in principle; native IBOR, AI/agent, Databricks-specific integration, and especially **vendor-scale/viability and production-reference** gates read fail/unknown. Provisional domain read: distinctive on open architecture and portability *as a principle*, moderate on mastering *as a design*, weak/unproven on IBOR, AI, delivery track record and viability. **Stage-1 paper screen — emerging/watch, not a selection of record.** Appropriate as a bounded PoV or watch-list entry, not a core screen finalist, until institutional references exist. In-sandbox egress is restricted; figures triangulated from the search index and flagged as open items.
 
+**Hard-gate read:**
+- G01 native equities/ETF/govvies/credit/FX/PE: PARTIAL
+- G02 security+entity+price mastering: PASS
+- G03 intraday position/price + near-real-time txns: PARTIAL
+- G04 5yr history + point-in-time: UNKNOWN
+- G05 IDP-as-master while Databricks consumes: PARTIAL
+- G06 open/native Databricks integration: FAIL
+- G07 bidirectional API: UNKNOWN
+- G08 business users extend model w/o vendor coding: PARTIAL
+- G09 buyer can use own LLMs: PARTIAL
+- G10 permission-aware MCP/agent interface: PARTIAL
+- G11 field-level provenance/lineage/override/audit: UNKNOWN
+- G12 full export on exit: UNKNOWN
+- G13 AI/LLM data-use rights governable: PASS
+- G14 credible APAC+ANZ support: PARTIAL
+- G15 30–60 day PoV: FAIL
+- G16 3–6 month production foundation: FAIL
+- G17 07: UNKNOWN
+- G18 internal ops retains exception/override control: PARTIAL
+- G19 institutional security architecture: PARTIAL
+- G20 5-yr TCO transparency: PASS
+- G21 critical function not roadmap-dependent: FAIL
+- G22 controlled write-back to downstream systems: UNKNOWN
+
 ## 11. Sources
 - Quadra Platform — company site: https://www.quadraplatform.com/ (accessed 2026-08-15)
 - Quadra — open standards demo/overview: https://demo.quadraplatform.com/ (accessed 2026-08-15)

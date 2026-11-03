@@ -34,6 +34,30 @@ SaaS/subscription commercial model; specific pricing is not public. As a **2019 
 ## 10. Evidence, maturity & provisional scores
 Evidence class is largely **vendor-authored / directory listings** (Fencore site, The Wealth Mosaic, fintech directories) — no independent analyst coverage or public customer reviews were found, so scores are **evidence-capped** and conservative. Hard gates: data-ops/lineage/four-eyes read as partial-to-pass on the strength of the product description; Databricks-open-sharing, native IBOR, AI/agent and vendor-scale gates read as **unknown or fail** on current public evidence. Provisional domain read: strong on data quality/operations and self-service, moderate on mastering and total-portfolio breadth, weak/unproven on Databricks-native integration, IBOR, AI and vendor viability. **Stage-1 paper screen — not a selection of record.** In-sandbox egress is restricted, so figures are triangulated from the search index and flagged as open RFI items.
 
+**Hard-gate read:**
+- G01 native equities/ETF/govvies/credit/FX/PE: PARTIAL
+- G02 security+entity+price mastering: UNKNOWN
+- G03 intraday position/price + near-real-time txns: PARTIAL
+- G04 5yr history + point-in-time: PASS
+- G05 IDP-as-master while Databricks consumes: UNKNOWN
+- G06 open/native Databricks integration: FAIL
+- G07 bidirectional API: UNKNOWN
+- G08 business users extend model w/o vendor coding: PARTIAL
+- G09 buyer can use own LLMs: PARTIAL
+- G10 permission-aware MCP/agent interface: PARTIAL
+- G11 field-level provenance/lineage/override/audit: UNKNOWN
+- G12 full export on exit: UNKNOWN
+- G13 AI/LLM data-use rights governable: FAIL
+- G14 credible APAC+ANZ support: UNKNOWN
+- G15 30–60 day PoV: UNKNOWN
+- G16 3–6 month production foundation: PARTIAL
+- G17 07: UNKNOWN
+- G18 internal ops retains exception/override control: PARTIAL
+- G19 institutional security architecture: PARTIAL
+- G20 5-yr TCO transparency: FAIL
+- G21 critical function not roadmap-dependent: UNKNOWN
+- G22 controlled write-back to downstream systems: PARTIAL
+
 ## 11. Sources
 - Fencore — company site & DataHub product: https://www.fencore.co/ (accessed 2026-08-15)
 - Fencore — solution overview: https://fencore.co/solution/ (accessed 2026-08-15)

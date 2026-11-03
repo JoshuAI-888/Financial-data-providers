@@ -6,6 +6,7 @@
 - **HQ / footprint:** London HQ (combined Gresham); APAC go-to-market strengthened by a newly appointed APAC Sales Director (2026); dedicated APAC office presence/depth beyond this appointment not established from public sources.
 - **Initial fit:** Moderate
 - **Positioning:** Deep, long-pedigree EDM/reconciliation heritage now split across two co-owned platforms (Opus EDM and Prime EDM) mid-integration — capability breadth is real, but the buyer must resolve which product line, and how much post-acquisition roadmap uncertainty, they are underwriting.
+- **Recent developments:** Jan 2026: Gresham acquired S&P Global's EDM business and rebranded it 'Opus EDM' (STG-backed); AI enablement roadmapped through 2026 (not yet GA).
 
 ## 2. Investment-domain mastering
 Opus EDM (ex-S&P Global EDM) masters market, reference, private-markets and ESG data at scale for 150+ institutions; Prime EDM independently masters reference data "across all asset classes and operational domains within a fully normalised, extensible data model," ingesting and harmonising exchange, vendor (Bloomberg, Refinitiv/LSEG) and internal-system data into a common model with lineage/change-history tracking. Prime EDM's product/account master is delivered as a "configurable, reusable template with flexible data schema supporting multiple hierarchies" — a genuine business-configurable model rather than pure vendor-coded. Identifier concordance (ISIN/SEDOL/CUSIP/FIGI) is implied by "reference data mastering" claims but not itemised per-scheme in public material. **Critical open question for this RFP:** which of the two products — Opus or Prime — is the actual RFP subject, since their data models, extensibility mechanics and golden-record/survivorship logic are not confirmed to be identical.
@@ -57,23 +58,11 @@ No public pricing, platform-vs-content separation, or exit/data-portability term
 - G21 (critical function not roadmap-dependent): PARTIAL — reconciliation/mastering shipping; AI and Databricks-native are roadmap
 - G22 (controlled write-back to downstream): PASS — documented API-driven downstream update with workflow controls
 
-**Provisional 0–5 scores (evidence-capped; no PoV performed, ceiling 4, 4 only with named production reference):**
-- Domain 1 (Investment data mastering): 3.0 (evidence: official docs)
-- Domain 2 (Databricks & open architecture): 1.5 (evidence: official docs — Spark delivery only, no Databricks-native proof)
-- Domain 3 (Time to value & implementation): 2.0 (evidence: sales)
-- Domain 4 (Data quality & investment operations): 3.5 (evidence: official docs, strong reconciliation heritage)
-- Domain 5 (Public/private total portfolio): 2.0 (evidence: sales — data-level only, no GP/LP operational module evidenced)
-- Domain 6 (IBOR & investment modelling): 0.5 (evidence: absence of evidence — not a core capability)
-- Domain 7 (AI & agent readiness): 1.0 (evidence: roadmap — 2026 AI-enablement commitment only)
-- Domain 8 (Data coverage/currency/history): 2.5 (evidence: official docs)
-- Domain 9 (Integration & user self-service): 2.5 (evidence: official docs — API/Spark delivery documented)
-- Domain 10 (Governance/security/data rights): 2.0 (evidence: sales)
-- Domain 11 (Commercials/TCO/exit): 1.0 (evidence: sales — no public terms)
-- Domain 12 (Vendor viability/roadmap/support): 1.5 (evidence: sales — active M&A integration risk, thin APAC presence)
 
 **Overall read:** Gresham leads on reconciliation/control-room heritage and data-lineage/audit rigour, and Opus EDM's private-markets and ESG data coverage is credible on paper. It lags badly on IBOR/positions modelling (not a core capability), AI/agent maturity (2026 roadmap only) and APAC/ANZ presence (a sales hire, not an office or reference). Biggest risk: buying into an unresolved two-product (Opus vs Prime) architecture mid-post-acquisition-integration under a PE owner that has made three major corporate moves in under two years.
 
 ## 11. Sources
+- https://www.greshamtech.com/press-releases/gresham-announces-acquisition-of-sp-globals-enterprise-data-management-business — Gresham acquires S&P Global EDM → Opus EDM [vendor · Official release note · 2026-08-14 · search-only]
 - https://www.greshamtech.com/press-releases/gresham-announces-acquisition-of-sp-globals-enterprise-data-management-business — S&P Global EDM acquisition announcement (accessed 2026-08-14)
 - https://www.greshamtech.com/press-releases/gresham-renames-acquired-sp-global-edm-platform-as-opus-edm — Opus EDM rename, product lineage, client/AUM scale (accessed 2026-08-14)
 - https://www.greshamtech.com/products/opus-edm — Opus EDM product page, AI-ready positioning, asset-class coverage (accessed 2026-08-14)

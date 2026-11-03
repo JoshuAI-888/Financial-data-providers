@@ -6,6 +6,7 @@
 - **HQ / footprint:** New York, US. Sydney office with a dedicated Head of ANZ Client Coverage confirmed; broader depth of ANZ staffing/references not established from public sources in this pass (unlike FactSet's disclosed headcount).
 - **Initial fit:** Very high as a total-portfolio, risk and private-assets content/analytics layer; low as a full EDM/IBOR — no security/entity/price master or IBOR product was found; MSCI does not claim to master operational investment data.
 - **Positioning:** MSCI's differentiation for this buyer is the combination of Total Plan Manager (public+private total-portfolio risk/liquidity) and the Private Assets Data Platform / Vantager (AI document extraction with traceability) — a specialist total-portfolio-and-private-markets layer, not a competitor to a core IDP.
+- **Recent developments:** Private Assets AI Connector — AI-ready private-markets data queryable via Claude, ChatGPT and Copilot (model-independent, but private-assets-scoped).
 
 ## 2. Investment-domain mastering
 MSCI's core "mastering" asset is **classification and risk decomposition**, not a security/entity/price golden-record master. GICS (jointly developed with S&P) classifies over 58,000 securities across 125 countries (~95% of global equity markets) at the company level, a four-tier taxonomy (11 sectors/25 industry groups/74 industries/163 sub-industries). **Barra** multi-asset factor models cover equity, fixed income, currency and commodity risk. For private assets specifically, the **Private Assets Data Platform (PADP)** performs AI-assisted extraction and validation of GP/fund documents against 1,500+ systematized rules with a claimed 97% automation rate and human-in-the-loop review — this is real operational data processing, but scoped to private-markets documents feeding MSCI's own models, not an enterprise-wide security/entity master. No public evidence was found of MSCI offering a general security master, symbology/concordance service, or point-in-time reference-data mastering comparable to a core EDM vendor — this is a genuine and important gap for this buyer if MSCI were considered as anything beyond a specialist layer.
@@ -57,23 +58,11 @@ MSCI reported **Total Run Rate of $2,979.2M as of March 31, 2025** (per SEC/IR f
 - G21 (critical function not roadmap-dependent): PARTIAL/FAIL — Vantager just acquired (Mar 2026), PADP integration still maturing
 - G22 (controlled write-back to downstream systems): UNKNOWN — not established from public sources
 
-**Provisional 0–5 scores (12 domains):**
-- Domain 1 (Investment data mastering): 1.0 (evidence: official docs)
-- Domain 2 (Databricks & open architecture): 1.0 (evidence: official docs)
-- Domain 3 (Time to value & implementation): 1.0 (evidence: sales/marketing)
-- Domain 4 (Data quality & investment operations): 2.5 (evidence: official docs)
-- Domain 5 (Public/private total portfolio): 3.0 (evidence: official docs)
-- Domain 6 (IBOR & investment modelling): 0.5 (evidence: official docs)
-- Domain 7 (AI & agent readiness): 1.0 (evidence: official docs)
-- Domain 8 (Data coverage/currency/history): 2.5 (evidence: official docs)
-- Domain 9 (Integration & user self-service): 1.5 (evidence: official docs)
-- Domain 10 (Governance/security/data rights): 1.5 (evidence: official docs)
-- Domain 11 (Commercials/TCO/exit): 1.5 (evidence: official docs)
-- Domain 12 (Vendor viability/roadmap/support): 2.5 (evidence: official filings)
 
 **Overall read:** MSCI is best positioned as a **specialist total-portfolio, risk (Barra/GICS) and private-markets data-extraction layer** alongside a core IDP — its Total Plan Manager + PADP + Vantager combination is a genuinely strong, well-evidenced answer to the buyer's public/private total-portfolio and private-document-extraction requirements (PoV Test 7), but it is not a security-master/IBOR/EDM system by any evidence found, and its cloud-delivery posture is Snowflake/Crux-oriented rather than Databricks-native. Biggest risk for this buyer: no demonstrated Databricks integration and no external AI-agent/MCP interface, both of which are core buyer requirements and where FactSet is materially ahead; biggest strength is the total-portfolio and private-markets document-traceability capability, which is closer to production-proven than any of its adjacent claims.
 
 ## 11. Sources
+- https://www.msci.com/data-and-analytics/private-asset-solutions/ai-for-private-markets/private-assets-ai-connector — MSCI Private Assets AI Connector [vendor · Official docs · 2026-08-14 · search-only]
 - https://www.msci.com/data-and-analytics/private-asset-solutions/total-plan-manager — Total Plan Manager product page (accessed 2026-08-14)
 - https://www.msci.com/data-and-analytics/private-asset-solutions/private-assets-data-platform — PADP AI extraction/validation platform (accessed 2026-08-14)
 - https://www.msci.com/data-and-analytics/private-asset-solutions/ai-for-private-markets — AI for Private Markets overview (accessed 2026-08-14)

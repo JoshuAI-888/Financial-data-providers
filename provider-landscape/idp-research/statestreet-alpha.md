@@ -34,6 +34,30 @@ Premium, bundled commercials tied to a broad platform and, often, custody/servic
 ## 10. Evidence, maturity & provisional scores
 Evidence class is **mixed** — vendor/press releases plus independent trade-press (The TRADE, BusinessWire) and the Snowflake case study — so mastering, IBOR and viability read confidently, while Databricks-fit reads as a confirmed **mismatch** rather than an unknown. Hard gates: mastering, IBOR and vendor-viability gates pass; Databricks-open-architecture and open-AI/model-independence gates read **fail/partial** for a Databricks-first buyer; duplication and exit risks are high. Provisional domain read: leader on IBOR, mastering and viability; weak on Databricks/open architecture, commercials/exit and open-AI. **Stage-1 paper screen — not a selection of record.** Databricks-first buyers should treat ADP primarily as a *counterfactual* that tests whether front-to-back breadth beats a composed, Databricks-native stack.
 
+**Hard-gate read:**
+- G01 native equities/ETF/govvies/credit/FX/PE: PASS
+- G02 security+entity+price mastering: PARTIAL
+- G03 intraday position/price + near-real-time txns: PASS
+- G04 5yr history + point-in-time: PASS
+- G05 IDP-as-master while Databricks consumes: PARTIAL
+- G06 open/native Databricks integration: FAIL
+- G07 bidirectional API: PARTIAL
+- G08 business users extend model w/o vendor coding: UNKNOWN
+- G09 buyer can use own LLMs: PASS
+- G10 permission-aware MCP/agent interface: PARTIAL
+- G11 field-level provenance/lineage/override/audit: UNKNOWN
+- G12 full export on exit: UNKNOWN
+- G13 AI/LLM data-use rights governable: PASS
+- G14 credible APAC+ANZ support: PARTIAL
+- G15 30–60 day PoV: FAIL
+- G16 3–6 month production foundation: FAIL
+- G17 07: UNKNOWN
+- G18 internal ops retains exception/override control: PARTIAL
+- G19 institutional security architecture: PARTIAL
+- G20 5-yr TCO transparency: PASS
+- G21 critical function not roadmap-dependent: FAIL
+- G22 controlled write-back to downstream systems: UNKNOWN
+
 ## 11. Sources
 - State Street — Alpha data platform & services: https://www.statestreet.com/alpha/solutions/technology-and-services (accessed 2026-08-15)
 - State Street — press release, cloud-native Alpha Data Platform launch: https://investors.statestreet.com/investor-news-events/press-releases/news-details/2020/State-Street-Launches-Cloud-Native-Alpha-Data-Platform-for-Institutional-and-Wealth-Managers-12-15-2020/default.aspx (accessed 2026-08-15)

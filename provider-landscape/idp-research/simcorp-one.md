@@ -6,6 +6,7 @@
 - **HQ / footprint:** Copenhagen, Denmark; global delivery, APAC managing director/regional office (Edward Bee, MD APAC), delivery centres providing 24/6 follow-the-sun support; established in Australia since 2001
 - **Initial fit:** Strong strategic alternative for firms wanting a single front-to-back system of record; materially broader than a focused IDP — buying the whole IBOR/OMS/accounting stack to get data mastering
 - **Positioning:** The industry's incumbent front-to-back (portfolio management, IBOR, accounting, compliance) platform, now re-packaged as "SimCorp One" with an add-on managed Data Management Service
+- **Recent developments:** Apr 2026: Agent Launchpad agentic-AI ecosystem (rolling GA, vendor-curated agents); Jan 2026: MSCI private-market data in-platform; SimCorp Alternatives (2025). On Azure, not Databricks.
 
 ## 2. Investment-domain mastering
 SimCorp's core IBOR-centric platform natively masters public multi-asset instruments (equities, ETFs, government/corporate bonds, FX, listed derivatives) with security master, corporate actions and ESG data folded into the managed Data Management Services offering, which delivers "scrubbed, golden copy" reference and market data under SLA via a 24/6 follow-the-sun team. Concordance/golden-record processes are mature and this is SimCorp's traditional strength — 25+ years as an investment-book-of-record vendor. Point-in-time and multi-year history are native to the IBOR model. Extensibility for custom instruments/asset classes is configurable through the platform's data model rather than pure business-user self-service; private assets are handled as an extension (see §6). This is a genuine strength area, but it is delivered by adopting SimCorp's full data model and workflow, not a lightweight bolt-on.
@@ -57,23 +58,11 @@ SimCorp is publicly listed-heritage (now Deutsche Börse-owned), financially sta
 - G21 (critical function not roadmap-dependent): FAIL for Databricks specifically — key integration is roadmap
 - G22 (controlled write-back to downstream systems): UNKNOWN — not established
 
-**Provisional 0–5 scores (evidence-capped; no PoV, so capped ≤4 without a named comparable-scale production reference):**
-- Domain 1 Investment data mastering: 3.5 (evidence: official docs + named reference)
-- Domain 2 Databricks & open architecture: 1.0 (evidence: official docs — Azure/Snowflake native, Databricks roadmap only; strategic duplication risk)
-- Domain 3 Time to value & implementation: 2.0 (evidence: official docs/sales — no PoV path, large programme norm)
-- Domain 4 Data quality & investment operations: 3.0 (evidence: official docs)
-- Domain 5 Public/private total portfolio: 2.5 (evidence: official docs — depth unconfirmed vs eFront)
-- Domain 6 IBOR & investment modelling: 3.5 (evidence: official docs — core strength)
-- Domain 7 AI & agent readiness: 1.0 (evidence: official docs — no MCP evidence)
-- Domain 8 Data coverage/currency/history: 3.0 (evidence: official docs)
-- Domain 9 Integration & user self-service: 2.0 (evidence: official docs — API/ETL, not self-service business-user)
-- Domain 10 Governance/security/data rights: 2.5 (evidence: official docs — enterprise SaaS, rights unconfirmed)
-- Domain 11 Commercials/TCO/exit: 1.5 (evidence: sales — no public pricing/exit terms)
-- Domain 12 Vendor viability/roadmap/support: 3.5 (evidence: official docs + named reference — Deutsche Börse-owned, active APAC investment)
 
 **Overall read:** A broad SimCorp One buy is justified only if the buyer wants to consolidate onto a full front-to-back IBOR/PMS/accounting stack — for a buyer whose IDP mandate is narrowly "master and expose investment data to Databricks," SimCorp One is over-scoped and its own Azure/Snowflake-based AI and data architecture would sit as a second proprietary estate, with native Databricks integration currently roadmap rather than GA. It leads on investment-domain mastering, IBOR depth and credible ANZ references (Challenger/Fidante, Ardea); it lags badly on open Databricks architecture and AI/agent (MCP) readiness. Biggest risk: buying a full operating platform to solve a data-mastering problem, with genuine strategic-duplication exposure against the Databricks estate.
 
 ## 11. Sources
+- https://www.prnewswire.com/news-releases/introducing-agent-launchpad-simcorps-agentic-ai-ecosystem-for-investment-managers-302748955.html — SimCorp Agent Launchpad [vendor · Official release note · 2026-08-14 · search-only]
 - https://www.simcorp.com/solutions/managed-business-services/data-management-services — Data Management Services overview (accessed 2026-08-14)
 - https://www.simcorp.com/solutions/simcorp-one/managed-business-services — Managed Business Services 24/5 model (accessed 2026-08-14)
 - https://www.simcorp.com/solutions/simcorp-one/data-management — Data Management within SimCorp One (accessed 2026-08-14)

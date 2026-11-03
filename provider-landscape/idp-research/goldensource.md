@@ -6,6 +6,7 @@
 - **HQ / footprint:** New York HQ (founded 1984 as Financial Technologies International). Five APAC offices including a dedicated Melbourne, Australia office (Level 31, 120 Collins St) plus Singapore, Hong Kong, Beijing and Mumbai — the most substantial ANZ/APAC physical footprint of the three vendors reviewed.
 - **Initial fit:** High
 - **Positioning:** Long-pedigree, cloud-agnostic security/entity master with a real Melbourne office and an MCP-based agentic layer (Scout) that is furthest along of the three vendors in explicitly naming MCP — but Scout is very recently launched (June 2026) and unproven at named-reference scale.
+- **Recent developments:** Jun 2026: launched Scout, an AI data-intelligence platform on Amazon Bedrock (MCP / buyer-own-LLM not confirmed); Gemspring-owned.
 
 ## 2. Investment-domain mastering
 GoldenSource's core is security, entity/issuer and price/product mastering. Security Master unifies multi-source data (Bloomberg, LSEG, ICE, custodians, exchanges) into a centralised model with validation and governance; Entity Master consolidates legal-entity, client, account, product and issuer records, linking multiple identifiers and roles per entity (supporting KYC/AML/FATCA/MiFID II use cases). Each security/entity is stated to be "mastered once," with reference links back to vendor identifiers, embedded validation/lineage/workflow rules, and "plug-and-play" vendor connections. V10 (launched 2024, reaffirmed as the current architecture in 2026 material) is described as cloud-agnostic (AWS/Azure/GCP), microservices-based, with AI-supported documentation/search, automated pipelines, improved lineage/metadata extraction and new ESG connectors. Point-in-time/bitemporal history depth and business-user no-code extensibility are asserted but not independently itemised in public material.
@@ -57,23 +58,11 @@ No public pricing, platform-vs-content separation, egress/API charges, or exit/d
 - G21 (critical function not roadmap-dependent): PASS — mastering/IBOR shipping; only Scout is newly launched
 - G22 (controlled write-back to downstream): UNKNOWN — not established from public sources
 
-**Provisional 0–5 scores (evidence-capped; no PoV performed, ceiling 4, 4 only with named production reference):**
-- Domain 1 (Investment data mastering): 3.0 (evidence: official docs)
-- Domain 2 (Databricks & open architecture): 2.0 (evidence: official docs — named but dated Databricks claim)
-- Domain 3 (Time to value & implementation): 2.5 (evidence: official docs — Bloomberg template, managed SaaS)
-- Domain 4 (Data quality & investment operations): 2.5 (evidence: official docs, less exception-workflow detail than Gresham)
-- Domain 5 (Public/private total portfolio): 0.5 (evidence: absence of evidence — no PE module found)
-- Domain 6 (IBOR & investment modelling): 3.0 (evidence: official docs — explicit event-based IBOR claim)
-- Domain 7 (AI & agent readiness): 1.5 (evidence: official docs/preview — MCP named but two months old, unreferenced)
-- Domain 8 (Data coverage/currency/history): 2.5 (evidence: official docs)
-- Domain 9 (Integration & user self-service): 2.0 (evidence: official docs — APIs general, plug-and-play connectors)
-- Domain 10 (Governance/security/data rights): 2.0 (evidence: official docs — Bedrock/audit claims for Scout only)
-- Domain 11 (Commercials/TCO/exit): 1.0 (evidence: sales — no public terms)
-- Domain 12 (Vendor viability/roadmap/support): 2.5 (evidence: official docs — 40-yr history offset by smaller/uncertain scale, no named production reference for Scout)
 
 **Overall read:** GoldenSource leads on APAC/ANZ physical footprint (a dedicated Melbourne office), an explicit event-based IBOR claim, and the most direct MCP reference of the three vendors via Scout. It lags on private-markets/PE-specific tooling (no evidence found) and on AI-readiness maturity in practice — Scout is barely two months old with no named production reference. Biggest risk: buying ahead of proof on Scout's MCP/agent claims, and a comparatively thin, variably-reported company scale versus NeoXam and the combined Gresham.
 
 ## 11. Sources
+- https://www.thegoldensource.com/goldensource-unveils-next-generation-ai-powered-data-intelligence-platform-for-financial-services/ — GoldenSource Scout launch [vendor · Official release note · 2026-08-14 · search-only]
 - https://www.thegoldensource.com/reference-data/ — reference data / security & entity mastering overview (accessed 2026-08-14)
 - https://www.thegoldensource.com/goldensource-scout/ — Scout AI platform overview (accessed 2026-08-14)
 - https://www.thegoldensource.com/goldensource-unveils-next-generation-ai-powered-data-intelligence-platform-for-financial-services/ — Scout launch detail, MCP, Bedrock, agent types (accessed 2026-08-14)

@@ -6,6 +6,7 @@
 - **HQ / footprint:** Paris HQ; 20 offices worldwide, clients in 30+ countries. APAC: Sydney office since 2023, Melbourne office added subsequently; ~20 APAC clients including Platinum Asset Management (Australia) and Lion Global Investors (Singapore).
 - **Initial fit:** Moderate–High
 - **Positioning:** Broad, modular xBOR + data management suite with a genuine APAC (ANZ) delivery footprint and named references, but AI/agent story is explicitly early-adopter/preview, not production, and no public evidence of native Databricks/open-lakehouse integration.
+- **Recent developments:** Sydney (2024) + Melbourne (2025) offices with a named ANZ client (Platinum Asset Management); Eurazeo-owned; acquired EZOPS (2024) for AI/ML reconciliation.
 
 ## 2. Investment-domain mastering
 DataHub is billed as a one-stop master reference/security-master store covering instrument master data (ISIN, CUSIP, SEDOL, tickers) with identifier concordance across vendor schemes. It builds a per-domain "golden copy" via a stated Silver-to-Gold lifecycle: field-level ranking, configurable survivorship rules and multi-golden-copy support, merging multi-vendor feeds and filling gaps automatically. Public+private and market/risk/private-asset data are described as unified within Investment Data Solution (IDS). Point-in-time/bitemporal history depth and business-user model extensibility are asserted in marketing copy (industry-standard model, modular MDM) but no independently documented technical spec of bitemporal depth or no-code extension mechanics was found — native/configurable balance not established beyond vendor claims.
@@ -57,23 +58,11 @@ No public pricing, platform-vs-content separation, egress/API charge schedule, o
 - G21 (critical function not roadmap-dependent): PASS — core mastering/xBOR is shipping, not roadmap
 - G22 (controlled write-back to downstream): PARTIAL — API-based extraction/update cited, controls undocumented
 
-**Provisional 0–5 scores (evidence-capped; no PoV performed, so ceiling 4, and 4 only with a named production reference):**
-- Domain 1 (Investment data mastering): 3.0 (evidence: official docs)
-- Domain 2 (Databricks & open architecture): 0.5 (evidence: roadmap/absence of evidence)
-- Domain 3 (Time to value & implementation): 2.0 (evidence: sales)
-- Domain 4 (Data quality & investment operations): 3.0 (evidence: official docs)
-- Domain 5 (Public/private total portfolio): 3.0 (evidence: official docs)
-- Domain 6 (IBOR & investment modelling): 2.5 (evidence: official docs, depth undocumented)
-- Domain 7 (AI & agent readiness): 1.0 (evidence: roadmap — explicit 2027 production target)
-- Domain 8 (Data coverage/currency/history): 2.0 (evidence: sales)
-- Domain 9 (Integration & user self-service): 2.0 (evidence: sales)
-- Domain 10 (Governance/security/data rights): 1.5 (evidence: sales)
-- Domain 11 (Commercials/TCO/exit): 1.0 (evidence: sales — no public terms)
-- Domain 12 (Vendor viability/roadmap/support): 4.0 (evidence: named reference — Eurazeo backing + Platinum AM/Lion Global APAC references)
 
 **Overall read:** NeoXam leads on APAC/ANZ physical presence and named regional references, and on private-markets document automation — a genuine differentiator for this buyer's PE extension. It lags badly on open-architecture/Databricks evidence (Snowflake is the only named lakehouse integration) and on AI/agent readiness, where NeoXam's own roadmap places production availability in 2027, not now. Biggest risk: buying into an early-adopter AI programme and repeated PE ownership churn while the Databricks-fit story remains unproven.
 
 ## 11. Sources
+- https://www.neoxam.com/neoxam-australia-office-expansion/ — NeoXam Australia office expansion [vendor · Vendor marketing · 2026-08-14 · search-only]
 - https://www.neoxam.com/datahub/investment-data-solution/ — DataHub IDS product overview (accessed 2026-08-14)
 - https://www.neoxam.com/neoxam-agents-investment-operations/ — NeoXam Agents launch, early-adopter programme (accessed 2026-08-14)
 - https://www.neoxam.com/datahub/ibor-vs-abor-vs-pbor-data-integration/ — xBOR framework explainer (accessed 2026-08-14)
