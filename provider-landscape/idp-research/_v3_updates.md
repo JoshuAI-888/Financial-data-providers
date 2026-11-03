@@ -133,15 +133,15 @@ sources.
 
 ## Link check (3 Nov 2026)
 
-Run on GitHub Actions (open network; the Claude Code sandbox blocks vendor sites) over every URL in
+Run on GitHub Actions on 3 Nov 2026 (open network; figures from the second run, after the URL-extraction fixes; the Claude Code sandbox blocks vendor sites) over every URL in
 `source_register.csv`. Results are in `link_check.csv` and merged into the register's `link_status`.
 
 | Result | URLs | Meaning |
 |---|---|---|
-| ok | 890 | 2xx/3xx |
+| ok | 892 | 2xx/3xx |
 | blocked | 188 | 401/403/429-style bot walls; probably alive, spot-check in a browser |
 | error | 53 | timeouts, TLS errors, 5xx; retry before treating as dead |
-| **dead** | **34** | 404/410/DNS failure |
+| **dead** | **35** | 404/410/DNS failure |
 
 **Dead links in the IDP evidence (13).** Scores were not changed for a dead link alone, because the
 claims were seen when the notes were written. Each needs a current or archived URL before the next
@@ -163,13 +163,13 @@ refresh. A `*` marks a link that is the citation for a requirement score.
 | best-practice: mastering | 404 | https://www.reference.com/business-finance/historical-stock-data-types-sources-backtesting-trade-offs |
 | best-practice: commercials | DNS | https://dectrack.com/en/blog/weighted-scoring-model |
 
-**Dead links in the 93-provider landscape (21).** The landscape was not re-researched in v3, so
+**Dead links in the 93-provider landscape (22).** The landscape was not re-researched in v3, so
 these are flagged for its next refresh. They include two malformed URLs in the page data
-(`deutsche-boerse.com/mds/stoxx.com` and `dowjones.com/datarade.ai`), retired API docs
+(`deutsche-boerse.com/mds/stoxx.com` and `dowjones.com/datarade.ai`) and a truncated S&P Global investor-relations URL for the With Intelligence deal, retired API docs
 (Nasdaq Data Link, DBRS, Iress web services), and three dead alternativedata.org directory pages.
 Providers affected: Amberdata, Dataminr, Deutsche Börse, Dow Jones Factiva, Iress (3),
 Moody's, Morningstar, Nasdaq Data Link (2), NZX (2), QUICK (2), Social Market Analytics,
-S&P Global, Tegus, TEJ, Twelve Data, YipitData. Filter `source_register.csv` on
+S&P Global (2), Tegus, TEJ, Twelve Data, YipitData. Filter `source_register.csv` on
 `link_status = dead` to get the full list.
 
 **Fixes made from the run:** three auto-links in the landscape page had broken targets that
