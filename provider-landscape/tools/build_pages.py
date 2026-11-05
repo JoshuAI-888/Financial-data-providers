@@ -383,14 +383,15 @@ def render_alignment(a):
             r = d["ratings"].get(v)
             cells.append("—" if r in (None, "") else (_e(r) if isinstance(r, str) else "%.1f" % r) +
                          ("" if r in (None, "") or not isinstance(r, str) else " <span class=\"tiernote\">(%.1f)</span>" % a["rating_map"][r]))
-        rows.append(["<b>%s</b> %s" % (_e(d["id"]), _e(d["name"])), "%d" % d["w"], "%.1f" % d["w_consultant"]] + cells + [_e(d["basis"])])
+        rows.append(["<b>%s</b> %s" % (_e(d["id"]), _e(d["name"])), "%d" % d["w"], "%.1f" % d["w_consultant"]] + cells)
     out.append('<div class="card"><h3 style="margin-top:0">Domains, weights and the rating behind each score</h3>'
                '<p>v3.1 weights are a proposal for a stakeholder points-budget workshop (each group spreads 100 points; the '
                'median is used). The consultant column is implied, assuming equal weight on its seven demo drivers, with '
                'security treated as a gate. “—” means not assessed by anyone.</p>')
-    out.append(_table(["Domain", "v3.1 wt", "Consultant wt"] + [vl[v] for v in vids] + ["Basis"], rows))
-    out.append(_table(["Domain", "What the platform must show", "Consolidates", "Why this weight"],
-                      [["<b>%s</b>" % _e(d["id"]), _e(d["shows"]), _e(d["consolidates"]), _e(d["why"])] for d in a["domains"]]))
+    out.append(_table(["Domain", "v3.1 wt", "Consultant wt"] + [vl[v] for v in vids], rows))
+    out.append('<h3>Why each weight, and where each rating comes from</h3>')
+    out.append(_table(["Domain", "What the platform must show", "Why this weight", "Rating basis", "Consolidates"],
+                      [["<b>%s</b>" % _e(d["id"]), _e(d["shows"]), _e(d["why"]), _e(d["basis"]), _e(d["consolidates"])] for d in a["domains"]]))
     out.append("</div>")
     # gates
     rows = []

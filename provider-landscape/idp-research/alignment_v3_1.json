@@ -86,7 +86,7 @@
    "register": "UC2 notes intraday pricing not available today (NFR-04).",
    "consultant": "Not tested.",
    "v31": "Set a measurable target (e.g. positions/prices refreshed ≤15 min during NZ/AU trading hours) or descope to EOD + T+0 snapshots for Phase 1.",
-   "effect": "Becomes Gate G11 once a target is set.",
+   "effect": "Becomes Gate A11 once a target is set.",
    "status": "Open"
   },
   {
@@ -313,7 +313,7 @@
     "exafluence": "Good",
     "rimes": "Strong"
    },
-   "basis": "consultant demo 'Core IDP & Trusted Data' (pp. 56–57 comparative outcomes)."
+   "basis": "consultant demo 'Core IDP & Trusted Data' (comparative outcomes)."
   },
   {
    "id": "D2",
@@ -424,7 +424,7 @@
    "consolidates": "Embedded AI sheet (7 dimensions); consultant 'Platform AI'",
    "w": 4,
    "w_consultant": 14.3,
-   "why": "the buyer intends to reason with its own AI (vReviewed G10 comment); differentiator, not foundation.",
+   "why": "the buyer intends to reason with its own AI (criteria-sheet comment); differentiator, not foundation.",
    "ratings": {
     "neoxam": "Limited",
     "fencore": "Strong",
@@ -441,7 +441,7 @@
    "consolidates": "Core: Agentic Foundation; Embedded AI: External AI; Tech & Arch: External AI Interoperability; consultant 'External AI / MCP'",
    "w": 8,
    "w_consultant": 14.3,
-   "why": "Strategic, but the floor is a Gate (G06); score measures depth above the floor.",
+   "why": "Strategic, but the floor is a Gate (A06); score measures depth above the floor.",
    "ratings": {
     "neoxam": "Good",
     "fencore": "Strong",
@@ -471,7 +471,7 @@
   {
    "id": "D11",
    "name": "Implementation, operating model & ANZ support",
-   "shows": "Credible plan, MAM effort, managed-service boundary, NZ time-zone support, comparable implementation",
+   "shows": "Credible plan, the buyer effort, managed-service boundary, NZ time-zone support, comparable implementation",
    "consolidates": "NF: Managed Service; Implementation & Resourcing; Tech & Arch: Implementation Effort",
    "w": 7,
    "w_consultant": 0,
@@ -509,7 +509,7 @@
    "consolidates": "NF: Vendor Viability; Tech & Arch: Vendor Trajectory",
    "w": 5,
    "w_consultant": 0,
-   "why": "Floor is Gate G13; score differentiates above it.",
+   "why": "Floor is Gate A13; score differentiates above it.",
    "ratings": {
     "neoxam": 3.0,
     "fencore": 1.0,
@@ -1019,7 +1019,7 @@
    "sev": "High",
    "finding": "No assessed vendor demonstrated live Charles River and Apex NZ integration. Fencore had 'no active production Charles River integration'; NeoXam showed Apex Australia, not NZ. CRIMS is the IBOR source of record and Apex the ABOR, so this is the main delivery risk.",
    "evidence": "consultant Fencore and NeoXam demo pages; 'Platforms Assessment & Shortlisting Outcome'.",
-   "ask": "Make CRIMS + Apex NZ ingestion a POC pass/fail gate (G09). Get a fixed-price, fixed-scope connector build and maintenance commitment, and name who maintains it after CRIMS/Apex upgrades."
+   "ask": "Make CRIMS + Apex NZ ingestion a POC pass/fail gate (A09). Get a fixed-price, fixed-scope connector build and maintenance commitment, and name who maintains it after CRIMS/Apex upgrades."
   },
   {
    "area": "Integration",
