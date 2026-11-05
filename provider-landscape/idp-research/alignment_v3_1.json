@@ -1349,7 +1349,7 @@
    "type": "official",
    "date": "2023-07",
    "read": "search-only",
-   "url": "https://handbook.apra.gov.au/standard/cps-230-final-not-force"
+   "url": "https://www.apra.gov.au/standards/cps-230"
   },
   {
    "topic": "ASIC",
@@ -1363,11 +1363,11 @@
   {
    "topic": "ISO",
    "title": "IAF MD 26:2023 (Issue 2) Transition requirements for ISO/IEC 27001:2022",
-   "pub": "IAF (via SAC Singapore)",
+   "pub": "IAF (copy hosted by PCA, Polish accreditation body)",
    "type": "official",
    "date": "2022-08",
    "read": "search-only",
-   "url": "https://www.sac-accreditation.gov.sg/files/Documents/iaf_md26_issue_2_15012023.pdf"
+   "url": "https://www.pca.gov.pl/storage/file/core_files/2023/9/18/be9eb808c58aad91f1a6dc8bad20a555/iaf_md26_2023.pdf"
   },
   {
    "topic": "ISO",

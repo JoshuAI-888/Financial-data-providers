@@ -81,7 +81,7 @@ The PR link check (GitHub Actions, open network) found 7 new dead links. Each wa
 - IPP 12 / s 11: the OPC knowledge-base item is replaced by the OPC 'disclosing personal information outside NZ' decision tree.
 - IAF MD 26: the Issue 1 copy is replaced by the IAF MD 26:2023 (Issue 2) copy hosted by SAC Singapore.
 - Anthropic remote MCP: the support article is replaced by 'Get started with custom connectors using remote MCP'.
-- APRA CPS 230: a PDF link containing spaces is replaced by the APRA Handbook page.
+- APRA CPS 230: a PDF link containing spaces is replaced by the APRA standard page (apra.gov.au/standards/cps-230).
 - Pre-existing citations (link rot, not part of v3.1):
   - Xignite 12B requests/day: the GlobeNewswire link is replaced by the Mondo Visione relay of the same release.
   - Crunchbase API: a third-party review is replaced by Crunchbase's official API docs.
