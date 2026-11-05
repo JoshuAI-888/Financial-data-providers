@@ -33,6 +33,8 @@ Modular, "non-intrusive" approach claimed for front-to-back deployment; Bloomber
 
 **Nov 2026 update:** UniSuper (A$149bn) uses BNP Paribas' Data PRISM360, built on NeoXam IDS (Jun 2025) — an indirect, service-provider-delivered ANZ deployment. No new direct ANZ client beyond Platinum Asset Management.
 
+**5 Nov 2026 update:** the public NeoXam–Apex Group relationship found is a renewed partnership following Apex's acquisition of Maitland (South Africa, May 2024); no public evidence of a live Apex integration in Australia or New Zealand, or of Charles River IMS production experience, was found. An external consultant's Sep 2026 shortlisting reports a demo of an Apex Australia integration; treat as demo evidence pending a named reference. Hosting for Asian clients is AWS Singapore and reconciliation managed services run from Chennai (vendor pages).
+
 ## 9. Commercials, TCO, exit & vendor viability
 No public pricing, platform-vs-content separation, egress/API charge schedule, or exit/data-portability terms were found — normal for enterprise software but a genuine information gap requiring RFP disclosure. Vendor viability: well-capitalised via Eurazeo's up-to-€100m majority investment (agreed Nov 2022), strong APAC investment trajectory, but has changed PE ownership multiple times since 2014 (BlackFin → Cathay/Bpifrance → Eurazeo), and continues an active roll-up strategy (SmartCo, Nexfi) that adds integration/roadmap-coherence risk.
 
@@ -94,3 +96,5 @@ No public pricing, platform-vs-content separation, egress/API charge schedule, o
 - https://www.neoxam.com/clients — NeoXam clients (NeoXam; accessed 2026-11-03) [vendor · Vendor marketing · undated · opened]
 - https://ffnews.com/newsarticle/tradetech/bnp-paribas-enhances-unisupers-post-trade-data-management-through-its-data-prism360-solution-supported-by-neoxam — BNP Paribas enhances UniSuper's post-trade data management ... supported by NeoXam (FF News; accessed 2026-11-03) [independent · News · 2025-06-11 · opened]
 - https://www.finextra.com/pressarticle/97490/neoxam-names-daniel-joseph-as-country-head-for-australia — NeoXam names Daniel Joseph as country head for Australia (Finextra (press release); accessed 2026-11-03) [vendor · News · undated · search-only]
+- https://www.neoxam.com/apex-group-renews-partnership-with-neoxam-following-maitland-acquisition/ — Apex Group renews partnership with NeoXam following Maitland acquisition (NeoXam; accessed 2026-11-05) [vendor · Vendor marketing · 2024-05 · search-only]
+- https://www.neoxam.com/managed-services/ — NeoXam managed services (AWS Singapore hosting for Asia) (NeoXam; accessed 2026-11-05) [vendor · Vendor marketing · undated · search-only]

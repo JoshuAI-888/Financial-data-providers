@@ -12,6 +12,8 @@ Source of truth (see REFRESH.md):
                                     "Recent developments" line, dated + typed sources
     idp-research/reqscores_*.json   requirement-level scores (0-5, evidence-capped)
     idp-research/vendors.json       vendor order, segment, strategic-risk penalties, as-of dates
+    idp-research/alignment_v3_1.json  v3.1 shortlist check: scope, gates A01-A14, domains/weights,
+                                    ratings (weighted scores are computed here), use cases, concerns
 
         |  this script
         v
@@ -280,6 +282,178 @@ def build_idp(cfg, page):
     return page
 
 
+# ---------------------------------------------------------------- v3.1 shortlist alignment
+ALIGN = os.path.join(RES, "alignment_v3_1.json")
+GCELL = {"PASS": ("g-pass", "PASS"), "PARTIAL": ("g-partial", "PART"), "FAIL": ("g-fail", "FAIL"), "UNKNOWN": ("g-unknown", "?")}
+
+
+def _e(s):
+    return html.escape("" if s is None else str(s), quote=True)
+
+
+def _table(head, rows, first_name=True):
+    h = "".join("<th%s>%s</th>" % (' class="name"' if i == 0 and first_name else "", _e(x)) for i, x in enumerate(head))
+    body = "".join("<tr>%s</tr>" % "".join(
+        "<td%s>%s</td>" % (' class="name"' if i == 0 and first_name else "", c) for i, c in enumerate(r)) for r in rows)
+    return '<div class="tbl-scroll"><table class="lined"><thead><tr>%s</tr></thead><tbody>%s</tbody></table></div>' % (h, body)
+
+
+def align_scores(a):
+    """Weighted scores are computed here from the ratings in alignment_v3_1.json, never typed."""
+    rmap = a["rating_map"]
+    vids = [v["id"] for v in a["vendors"]]
+    n = len(a["domains"])
+    sets = {"v3.1 proposed": [d["w"] for d in a["domains"]],
+            "Equal": [1.0] * n,
+            "Consultant lens (implied)": [d["w_consultant"] for d in a["domains"]]}
+    num = {}
+    for d in a["domains"]:
+        for v in vids:
+            r = d["ratings"].get(v)
+            if r is None or r == "":
+                continue
+            s = r if isinstance(r, (int, float)) else rmap[r]
+            num[(d["id"], v)] = float(s)
+    res = {}
+    for name, w in sets.items():
+        res[name] = {}
+        for v in vids:
+            tw = sum(w[i] for i, d in enumerate(a["domains"]) if (d["id"], v) in num)
+            ts = sum(w[i] * num[(d["id"], v)] for i, d in enumerate(a["domains"]) if (d["id"], v) in num)
+            res[name][v] = ts / tw if tw else None
+    assessed = {v: sum(d["w"] for d in a["domains"] if (d["id"], v) in num) / float(sum(d["w"] for d in a["domains"])) for v in vids}
+    return num, res, assessed
+
+
+def align_demand(a):
+    """Use-case demand share per domain: primary priority at 100%, secondary at 50%."""
+    fac = {"Core": 1.0, "Adjacent": 0.5, "Out": 0.0}
+    pri, sec = {}, {}
+    for u in a["usecases"]:
+        p = u["value"] * u["urgency"] * fac[u["role"]]
+        pri[u["primary"]] = pri.get(u["primary"], 0) + p
+        if u.get("secondary"):
+            sec[u["secondary"]] = sec.get(u["secondary"], 0) + p
+    tot = sum(pri.values()) + 0.5 * sum(sec.values())
+    return {d["id"]: (pri.get(d["id"], 0) + 0.5 * sec.get(d["id"], 0)) / tot if tot else 0 for d in a["domains"]}
+
+
+def render_alignment(a):
+    vids = [v["id"] for v in a["vendors"]]
+    vl = {v["id"]: v["label"] for v in a["vendors"]}
+    num, res, assessed = align_scores(a)
+    wsum = float(sum(d["w"] for d in a["domains"]))
+    out = []
+    out.append('<div class="card"><div class="kicker">Shortlist check · as of %s</div>'
+               '<h2 style="margin-top:4px">Aligning the criteria (v3.1) and testing an external shortlist</h2>'
+               '<p>Three inputs were compared: the buyer&#x27;s strategic-rationale paper, its use-case register and selection '
+               'criteria, and an external consultant&#x27;s shortlisting deliverable. They did not agree on what is being '
+               'selected, and the consultant published no weights or numeric scores. v3.1 makes the scope decisions explicit, '
+               'moves must-haves into pass/fail gates, consolidates 44 overlapping dimensions into 13 weighted domains, and '
+               're-scores the five vendors the consultant assessed. <b>Provisional — read the caveats first.</b></p>'
+               % _e(human_date(a["as_of"])))
+    out.append(_table(["Input", "What it contains"], [[_e(i["doc"]), _e(i["what"])] for i in a["inputs"]]))
+    out.append("</div>")
+    out.append('<div class="card"><h3 style="margin-top:0">Caveats you should know</h3><ul>%s</ul></div>'
+               % "".join("<li>%s</li>" % _e(c) for c in a["caveats"]))
+    # results
+    rows = []
+    for name in res:
+        order = sorted(vids, key=lambda v: -(res[name][v] or 0))
+        rows.append([_e(name)] + ["%.2f%s" % (res[name][v], " <b>(#1)</b>" if v == order[0] else "") for v in vids])
+    rows.append(["Share of v3.1 weight assessed"] + ["%d%%" % round(assessed[v] * 100) for v in vids])
+    g_fail = {v: sum(1 for g in a["gates"] if g["status"][v] == "FAIL") for v in vids}
+    g_unk = {v: sum(1 for g in a["gates"] if g["status"][v] == "UNKNOWN") for v in vids}
+    rows.append(["Gate FAIL / UNKNOWN"] + ["%d / %d" % (g_fail[v], g_unk[v]) for v in vids])
+    out.append('<div class="card"><h3 style="margin-top:0">Scoring result: weighted score (0–5) under three weight sets</h3>'
+               '<p>Each vendor&#x27;s score is the weight-averaged rating over the domains where evidence exists. The ranking of the '
+               'top two flips with the weight set: the external shortlist&#x27;s preferred platform leads only under its own '
+               'implied lens (which emphasises embedded AI, MCP and unstructured data and leaves out viability, Databricks '
+               'and TCO). Gaps under ~0.25 are inside the evidence noise. No vendor fails a gate on current evidence, but '
+               'every vendor has 7–8 gates still UNKNOWN.</p>')
+    out.append(_table(["Weight set"] + [vl[v] for v in vids], rows))
+    out.append('<p class="tiernote">Rating map: %s. Demo ratings are the consultant&#x27;s Strong/Good/Limited judgements on '
+               'vendor-run demos; numeric cells come from this repo&#x27;s public-evidence domain scores.</p></div>'
+               % _e(", ".join("%s = %s" % kv for kv in a["rating_map"].items())))
+    # domains
+    rows = []
+    for d in a["domains"]:
+        cells = []
+        for v in vids:
+            r = d["ratings"].get(v)
+            cells.append("—" if r in (None, "") else (_e(r) if isinstance(r, str) else "%.1f" % r) +
+                         ("" if r in (None, "") or not isinstance(r, str) else " <span class=\"tiernote\">(%.1f)</span>" % a["rating_map"][r]))
+        rows.append(["<b>%s</b> %s" % (_e(d["id"]), _e(d["name"])), "%d" % d["w"], "%.1f" % d["w_consultant"]] + cells + [_e(d["basis"])])
+    out.append('<div class="card"><h3 style="margin-top:0">Domains, weights and the rating behind each score</h3>'
+               '<p>v3.1 weights are a proposal for a stakeholder points-budget workshop (each group spreads 100 points; the '
+               'median is used). The consultant column is implied, assuming equal weight on its seven demo drivers, with '
+               'security treated as a gate. “—” means not assessed by anyone.</p>')
+    out.append(_table(["Domain", "v3.1 wt", "Consultant wt"] + [vl[v] for v in vids] + ["Basis"], rows))
+    out.append(_table(["Domain", "What the platform must show", "Consolidates", "Why this weight"],
+                      [["<b>%s</b>" % _e(d["id"]), _e(d["shows"]), _e(d["consolidates"]), _e(d["why"])] for d in a["domains"]]))
+    out.append("</div>")
+    # gates
+    rows = []
+    for g in a["gates"]:
+        cells = ['<span class="gcell %s">%s</span>' % GCELL[g["status"][v]] for v in vids]
+        rows.append(["<b>%s</b>" % _e(g["id"]), _e(g["req"]), _e(g["evidence"])] + cells + [_e(g["note"])])
+    out.append('<div class="card"><h3 style="margin-top:0">v3.1 pass/fail gates (A01–A14)</h3>'
+               '<p>These sit alongside the main G01–G22 gates and capture the must-haves that the buyer&#x27;s criteria '
+               'rated HIGH but every credible vendor should meet anyway (scoring them only adds noise), plus three gates no '
+               'input covered: Income Fund instrument model, CRIMS + Apex NZ ingestion, and Bloomberg licensing. UNKNOWN '
+               'is not FAIL; it is a due-diligence item.</p>')
+    out.append(_table(["Gate", "Requirement", "Evidence required"] + [vl[v] for v in vids] + ["Evidence notes"], rows))
+    out.append("</div>")
+    # scope
+    out.append('<div class="card"><h3 style="margin-top:0">Scope decisions to make before scoring</h3>'
+               '<p>The three inputs answer these differently. Decision 1 alone changes which vendors are eligible.</p>')
+    out.append(_table(["Decision", "Rationale paper", "Use-case register", "Consultant", "v3.1 default", "Effect on scoring", "Status"],
+                      [[_e(s["q"]), _e(s["rationale"]), _e(s["register"]), _e(s["consultant"]), "<b>%s</b>" % _e(s["v31"]), _e(s["effect"]), _e(s["status"])] for s in a["scope"]]))
+    out.append("</div>")
+    # use cases
+    dem = align_demand(a)
+    cnt = {r: sum(1 for u in a["usecases"] if u["role"] == r) for r in ("Core", "Adjacent", "Out")}
+    rows = [["<b>%s</b> %s" % (_e(d["id"]), _e(d["name"])), "%.0f%%" % (100 * dem[d["id"]]), "%.0f%%" % (100 * d["w"] / wsum),
+             "%+.0f pts" % (100 * (d["w"] / wsum - dem[d["id"]]))] for d in a["domains"]]
+    out.append('<div class="card"><h3 style="margin-top:0">Use-case triage and weight cross-check</h3>'
+               '<p>%d use cases: <b>%d Core</b> (the IDP must deliver), <b>%d Adjacent</b> (needs certified IDP data but runs in '
+               'an AI layer, Databricks or a specialist system) and <b>%d Out</b>. Value and urgency are draft (1–5); priority = '
+               'value × urgency × role factor (Core 1, Adjacent 0.5, Out 0). Demand share counts a use case&#x27;s primary domain '
+               'at 100%% and secondary at 50%%. Use-case demand points even more strongly at core data, history, instrument '
+               'coverage and calculations than the proposed weights do. Domains D11–D13 serve no use case directly, so they '
+               'always look over-weighted on this test.</p>' % (len(a["usecases"]), cnt["Core"], cnt["Adjacent"], cnt["Out"]))
+    out.append(_table(["Domain", "Use-case demand", "v3.1 weight", "Weight − demand"], rows))
+    out.append('<details class="srcs"><summary>All %d use cases with triage</summary>%s</details></div>' % (
+        len(a["usecases"]), _table(["UC", "Use case", "Horizon", "FRD tag", "Role", "Value", "Urgency", "Primary", "Secondary", "Why"],
+                                   [[_e(u["id"]), _e(u["name"]), _e(u["horizon"]), _e(u["frd"]), _e(u["role"]), str(u["value"]), str(u["urgency"]),
+                                     _e(u["primary"]), _e(u["secondary"]), _e(u["why"])] for u in a["usecases"]])))
+    # concerns
+    order = {"High": 0, "Med": 1, "Low": 2}
+    cs = sorted(a["concerns"], key=lambda c: order.get(c["sev"], 3))
+    out.append('<div class="card"><h3 style="margin-top:0">Concerns, corrections and questions to ask (%d)</h3>'
+               '<p>High = could change the selection or create material risk; Med = must resolve in POC or due diligence; '
+               'Low = correction or clarity.</p>' % len(cs))
+    out.append(_table(["Severity", "Area", "Finding", "Evidence", "Question / action"],
+                      [["<b>%s</b>" % _e(c["sev"]), _e(c["area"]), _e(c["finding"]), _e(c["evidence"]), _e(c["ask"])] for c in cs]))
+    out.append("</div>")
+    # sources
+    rows = [[_e(s["topic"]), '<a href="%s" target="_blank" rel="noopener">%s</a>' % (_e(s["url"]), _e(s["title"])), _e(s["pub"]),
+             _e(s["type"]), _e(s["date"]), _e(s["read"])] for s in a["sources"]]
+    out.append('<div class="card"><h3 style="margin-top:0">Sources for this check (accessed 5 Nov 2026 unless stated)</h3>'
+               '<p class="tiernote">“search-only” = seen in search results; page fetches were blocked in the research environment. '
+               '“opened (repo)” = opened during the v3 refresh on 3 Nov 2026.</p>')
+    out.append(_table(["Topic", "Source", "Publisher", "Type", "Published", "Read"], rows))
+    out.append("</div>")
+    return "\n".join(out)
+
+
+def build_alignment(page):
+    if "<!--gen:idp-align-->" not in page:
+        return page
+    a = json.loads(read(ALIGN))
+    return replace_marked(page, "idp-align", render_alignment(a))
+
+
 def build_landscape(cfg, page):
     for name in ("landscape-asof-hero", "landscape-asof-caveat", "landscape-asof-footer"):
         if ("<!--gen:%s-->" % name) in page:
@@ -300,7 +474,7 @@ def main():
 
     idp_src = os.path.join(PL, "idp_evaluation.html")
     land_src = os.path.join(PL, "financial_data_providers_landscape.html")
-    idp = build_idp(cfg, read(idp_src))
+    idp = build_alignment(build_idp(cfg, read(idp_src)))
     land = build_landscape(cfg, read(land_src))
     outputs = {
         idp_src: idp,

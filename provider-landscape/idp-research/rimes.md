@@ -31,6 +31,8 @@ Rimes' managed-service delivery model (onboarding, provider-change management, S
 
 **Nov 2026 update:** named ANZ clients now exist — Rest (>A$100bn super fund) selected Rimes Matrix after a competitive procurement for a total portfolio and rebalancing view (vendor release 15 Apr 2026, London/Sydney dateline; go-live not stated) and NGS Super (Matrix, c. 2021–22). Ross Allen has been Head of APAC since Nov 2025. An ANZ office and support-desk detail remain unconfirmed.
 
+**5 Nov 2026 update:** ANZ references now evidenced publicly include JANA (strategic technology partner), NGS Super and Rest (Apr 2026); Matrix IDM, acquired Oct 2021, originated in Sydney. The Databricks Delta Sharing partnership (Nov 2025) is for Rimes managed data services; equivalent publication from the Matrix platform itself is not documented and should be tested. No Rimes MCP documentation found; an external consultant's Sep 2026 shortlisting describes Matrix MCP at alpha maturity (demo evidence).
+
 ## 9. Commercials, TCO, exit & vendor viability
 Pricing is undisclosed, as is standard for the vendor category — contact-for-quote only. No public information on data export/portability terms, derived-data rights, or egress charges from Rimes itself. Vendor viability is underpinned by scale (serves 60 of the top 100 global asset managers and 9 of the top 10 asset servicers, supporting >US$75tn AUM) but the two ownership changes since 2020 (EQT → Rothschild/Five Arrows) are a moderate roadmap-continuity risk to flag.
 
@@ -90,3 +92,5 @@ Pricing is undisclosed, as is standard for the vendor category — contact-for-q
 - https://www.databricks.com/blog/mcp-marketplace-brings-real-time-intelligence-agentic-applications — MCP Marketplace (no Rimes mention seen) (Databricks; accessed 2026-11-03) [vendor · Vendor marketing · undated · search-only]
 - https://financialit.net/news/infrastructure/rest-selects-rimes-support-portfolio-oversight-and-modernize-investment — Rest Selects Rimes to Support Portfolio Oversight and Modernize Investment Operations (Financial IT; accessed 2026-11-03) [independent · News · 2026-04-15 · opened]
 - https://ffnews.com/newsarticle/fintech/rest-selects-rimes-to-support-portfolio-oversight-and-modernize-investment-operations/ — Rest Selects Rimes... (FF News; accessed 2026-11-03) [independent · News · 2026-04-14 · opened]
+- https://finextra.com/pressarticle/97338/jana-selects-rimes-as-strategic-technology-partner — JANA selects Rimes as strategic technology partner (Finextra press release; accessed 2026-11-05) [vendor · Vendor marketing · undated · search-only]
+- https://a-teaminsight.com/blog/rimes-plans-to-pair-cloud-native-data-management-platform-with-managed-data-services-post-acquisition-of-matrix-idm/ — Rimes to pair cloud-native data management with managed data services after Matrix IDM acquisition (A-Team Insight; accessed 2026-11-05) [independent · News · 2021-10 · search-only]

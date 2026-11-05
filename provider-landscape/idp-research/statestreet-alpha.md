@@ -35,6 +35,8 @@ Implementation is an enterprise, front-to-back programme — higher effort and l
 
 **Nov 2026 update:** Challenger (A$127bn) selected State Street as custodian and front-to-back administrator through State Street Alpha (Sydney, 4 Sep 2024, subject to final contract at announcement). On 14 Sep 2026 Mostapha Tahiri became President of State Street Alpha (Alpha and Charles River) and Chairman of Asia Pacific. No NZ Alpha client located.
 
+**5 Nov 2026 update:** State Street owns Charles River; Charles River offers an IBOR and a Data Management Service, and the Alpha Data Platform is built on Snowflake. For a buyer whose IBOR is Charles River IMS, this is a potential integration advantage (and concentration risk) that a shortlist should address explicitly; no Databricks/Delta Sharing delivery from the Alpha Data Platform was found.
+
 ## 9. Commercials, TCO, exit & vendor viability
 Premium, bundled commercials tied to a broad platform and, often, custody/servicing relationships. **Exit and portability are hard** — a front-to-back platform with an embedded Snowflake data estate is a deep dependency. Vendor viability is the strongest in the set (a global systemically important bank). The strategic risk is **lock-in and duplication of the buyer's Databricks strategy**, not vendor survival.
 
@@ -83,3 +85,5 @@ Evidence class is **mixed** — vendor/press releases plus independent trade-pre
 - https://www.businesswire.com/news/home/20240904023459/en/Challenger-Selects-State-Street-as-Custodian-and-Back--Middle--and-Front-Office-Investment-Administrator-Through-State-Street-Alpha — Challenger Selects State Street ... Through State Street Alpha (State Street / Business Wire; accessed 2026-11-03) [vendor · Named customer case study · 2024-09-04 · opened]
 - https://www.investordaily.com.au/superannuation/52830-art-selects-state-street-for-custody-and-administration — ART selects State Street for custody and administration (Investor Daily; accessed 2026-11-03) [independent · News · 2023-02-08 · opened]
 - https://www.sec.gov/Archives/edgar/data/0000093751/000009375126000387/exhibit992-2q26earningsrel.htm — State Street 2Q26 earnings release (Ex. 99.2) (State Street / SEC; accessed 2026-11-03) [independent · Official filings · 2026-07 · opened]
+- https://www.crd.com/solutions/charles-river-ibor/ — Charles River Investment Book of Record (Charles River; accessed 2026-11-05) [vendor · Official docs · undated · search-only]
+- https://www.waterstechnology.com/data-management/4412366/state-street-explores-deeper-data-integration-with-charles-river — State Street explores deeper data integration with Charles River (WatersTechnology; accessed 2026-11-05) [independent · News · 2019 · search-only]
