@@ -8,6 +8,8 @@ rebuilt by script, never hand-edited.
 provider-landscape/idp-research/<vendor>.md     fact-sheets (narrative, hard gates, dated + typed sources)
 provider-landscape/idp-research/reqscores_*.json requirement scores (48 requirements × 15 vendors)
 provider-landscape/idp-research/vendors.json     vendor order, segment, risk penalties, "as of" dates
+provider-landscape/idp-research/alignment_v3_1.json  "Shortlist check (v3.1)" tab: scope, gates A01–A14,
+                                                 weights, ratings, use cases, concerns (scores computed)
             │
             ▼  python3 provider-landscape/tools/build_pages.py
 provider-landscape/idp_evaluation.html  ─┬─▶  idp_evaluation.html (root copy)
@@ -88,6 +90,10 @@ python3 provider-landscape/tools/check_links.py          # OPEN NETWORK ONLY -> 
 python3 provider-landscape/tools/build_register.py       # merge link results into the register
 ```
 
+- The **Shortlist check (v3.1)** tab is rendered from `idp-research/alignment_v3_1.json`. Change
+  weights, ratings or gate reads there (with the evidence in a fact-sheet first), never in the HTML;
+  the build recomputes the weighted scores. Its ratings for areas an external consultant did not
+  assess copy this repo's domain scores, so refresh them when those scores change.
 - Bump `idp_as_of` in `vendors.json` on a full refresh (it re-stamps the page). `landscape_as_of`
   only moves when the 93-provider landscape itself is refreshed.
 - The **Pages and link check** GitHub Actions workflow runs `build_pages.py --check` and the link

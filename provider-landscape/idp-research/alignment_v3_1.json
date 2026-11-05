@@ -1,0 +1,1724 @@
+{
+ "as_of": "2026-11-05",
+ "vendors": [
+  {
+   "id": "neoxam",
+   "label": "NeoXam"
+  },
+  {
+   "id": "fencore",
+   "label": "Fencore"
+  },
+  {
+   "id": "finbourne",
+   "label": "FINBOURNE"
+  },
+  {
+   "id": "exafluence",
+   "label": "EXF"
+  },
+  {
+   "id": "rimes",
+   "label": "Rimes"
+  }
+ ],
+ "rating_map": {
+  "Strong": 3.5,
+  "Good": 2.5,
+  "Limited": 1.5,
+  "Claim": 2.0,
+  "Roadmap": 1.0
+ },
+ "inputs": [
+  {
+   "doc": "Buyer's strategic-rationale paper (v1.0, Apr 2026)",
+   "what": "Argues for buying an IDP instead of building the financial domain layer on Databricks, for an Income Fund risk & monitoring solution (34 functional / non-functional requirements)."
+  },
+  {
+   "doc": "Buyer's use-case register & selection criteria (vReviewed, 2026)",
+   "what": "38 investment, operations and research use cases; 44 selection dimensions across core IDP, embedded AI, tech & architecture, security & privacy and non-functional sheets."
+  },
+  {
+   "doc": "External consultant's IDP shortlisting deliverable (30 Sep 2026)",
+   "what": "Nine platforms screened, five assessed by desktop review and targeted demos (NeoXam, Fencore, FINBOURNE, Exafluence, Rimes); one preferred platform (Fencore) progressed to an 8-week POC and due diligence. Qualitative Strong / Good / Limited ratings; no published weights or numeric scores."
+  }
+ ],
+ "scope": [
+  {
+   "q": "Is the IDP a risk/analytics engine or a data foundation?",
+   "rationale": "Engine + foundation: IDP supplies pre-certified duration, DV01, carry, hedged yield, Greeks; sub-second intraday (Tables 3–4).",
+   "register": "Foundation: semantic layer, mastering, DQ, lineage; risk calcs appear only as 'certified inputs' (UC13, UC23); UC20/FR-09 prefers in-house calc.",
+   "consultant": "Foundation. Risk & Performance are downstream consumers; 'MSCI/CRIMS risk feeds mastered in-platform'. No calc criterion.",
+   "v31": "Foundation. Calculations owned by a named downstream engine (MSCI / CRIMS analytics / in-house calc library on Databricks) — to be named. IDP must host the versioned calculation library and certified inputs.",
+   "effect": "Domain D5 kept at 6 pts (calc-library hosting + certified inputs). If the buyer instead decides to BUY calcs, raise D5 to ~20 and re-open the longlist (Aladdin, SimCorp, State Street Alpha, MSCI).",
+   "status": "Open"
+  },
+  {
+   "q": "Which system is the IBOR?",
+   "rationale": "'APEX is the buyer's primary OMS and valuation source' (s4.2); headings mix 'APEX / Charles River'.",
+   "register": "IBOR treated as a new capability; APEX = ABOR.",
+   "consultant": "Charles River = IBOR SoR; Apex = ABOR SoR; IDP holds an IBOR copy + history.",
+   "v31": "Adopt consultant target state: CRIMS = IBOR SoR, Apex = ABOR SoR, IDP = governed copy, history, reconciliation. Correct the Rationale.",
+   "effect": "D3 integration weight centres on CRIMS + Apex NZ; reconciliation IBOR↔ABOR↔NAV sits in D1.",
+   "status": "Proposed"
+  },
+  {
+   "q": "Role of Databricks",
+   "rationale": "ML, historical lake, ETL — not the platform.",
+   "register": "'Databricks Interoperability' MED/LOW; UC37 depends on it.",
+   "consultant": "the buyer principle 'Databricks as a First-Class Consumer' cited, yet Databricks connectivity was not demonstrated for any vendor.",
+   "v31": "First-class consumer: governed, automated, observable publication to Databricks (Delta Sharing / UC-governed) is a scored domain (D10, 6 pts) and a POC scenario.",
+   "effect": "Raises Databricks from MED/LOW to a scored domain consistent with the buyer's own principle.",
+   "status": "Proposed"
+  },
+  {
+   "q": "Research & content scope (UC7, 14, 30–36)",
+   "rationale": "Not in scope.",
+   "register": "HIGH 'Research & Content Repository' driven by ~10 analyst use cases.",
+   "consultant": "Research cluster included; unstructured data a demo priority.",
+   "v31": "IDP stores/indexes governed documents and provenance (D7, 4 pts). Research AI workflows are Adjacent (AI layer / Databricks). Social/podcast (UC32, UC36) Out of IDP scope.",
+   "effect": "Prevents research use cases inflating platform weights.",
+   "status": "Proposed"
+  },
+  {
+   "q": "Intraday requirement",
+   "rationale": "Sub-second real-time is 'the design baseline'.",
+   "register": "UC2 notes intraday pricing not available today (NFR-04).",
+   "consultant": "Not tested.",
+   "v31": "Set a measurable target (e.g. positions/prices refreshed ≤15 min during NZ/AU trading hours) or descope to EOD + T+0 snapshots for Phase 1.",
+   "effect": "Becomes Gate A11 once a target is set.",
+   "status": "Open"
+  },
+  {
+   "q": "One vendor or two into POC?",
+   "rationale": "n/a",
+   "register": "n/a",
+   "consultant": "One (Fencore); 8-week roadmap text still says 'two shortlisted platforms'; engagement plan said 'select two viable options'.",
+   "v31": "Keep a funded fallback: a runner-up through a short, scenario-matched POC or at minimum paper DD to the same success criteria.",
+   "effect": "Protects negotiating leverage and avoids single-vendor confirmation bias.",
+   "status": "Open"
+  }
+ ],
+ "gates": [
+  {
+   "id": "A01",
+   "req": "Current independent security assurance",
+   "evidence": "ISO/IEC 27001:2022 certificate from an accredited body and/or SOC 2 Type II, scope covering the hosted service incl. embedded AI; exceptions disclosed",
+   "from": "Security: Independent Security Assurance (HIGH)",
+   "status": {
+    "neoxam": "PARTIAL",
+    "fencore": "PARTIAL",
+    "finbourne": "PARTIAL",
+    "exafluence": "PARTIAL",
+    "rimes": "PARTIAL"
+   },
+   "note": "All five state ISO 27001 and/or SOC 2 in written responses (consultant desktop). No certificate verified publicly for any (5 Nov 2026). Fencore ISO 27001 is a website self-claim, with no SOC 2. Only ISO/IEC 27001:2022 certificates are valid after 31 Oct 2025 (IAF MD 26)."
+  },
+  {
+   "id": "A02",
+   "req": "Tenant isolation incl. AI components",
+   "evidence": "Logical/physical isolation evidence; pen-test; isolation of vector stores, caches, embeddings, agent memory",
+   "from": "Security: Tenant Isolation (HIGH)",
+   "status": {
+    "neoxam": "UNKNOWN",
+    "fencore": "UNKNOWN",
+    "finbourne": "UNKNOWN",
+    "exafluence": "UNKNOWN",
+    "rimes": "UNKNOWN"
+   },
+   "note": "Not evidenced for any vendor; request pen-test and isolation evidence incl. AI stores."
+  },
+  {
+   "id": "A03",
+   "req": "No training or reuse of the buyer data",
+   "evidence": "Contract clause + technical controls covering embedded and connected models, prompts and outputs; subprocessor list",
+   "from": "Security: Model-Training & Data-Use (HIGH); Embedded AI: Security, Privacy & AI Data Use (MED) — merged",
+   "status": {
+    "neoxam": "UNKNOWN",
+    "fencore": "UNKNOWN",
+    "finbourne": "UNKNOWN",
+    "exafluence": "UNKNOWN",
+    "rimes": "UNKNOWN"
+   },
+   "note": "No public no-training terms for any vendor's embedded AI. Fencore Cori model provider is configurable (vendor page) but terms are unpublished."
+  },
+  {
+   "id": "A04",
+   "req": "Hosting region, residency & cross-border compliance",
+   "evidence": "Hosting regions; NZ Privacy Act 2020 IPP12 analysis; FMA licence-condition support (BCP/technology, incident notification); AU obligations for Australian funds",
+   "from": "Security: Regulatory, Privacy & AI Governance (HIGH)",
+   "status": {
+    "neoxam": "UNKNOWN",
+    "fencore": "UNKNOWN",
+    "finbourne": "UNKNOWN",
+    "exafluence": "PARTIAL",
+    "rimes": "UNKNOWN"
+   },
+   "note": "EXF states client-controlled residency (consultant). Others: hosting regions to confirm (NeoXam: AWS Singapore for Asia). FMA 72-h condition; IPP12 s11 agent test."
+  },
+  {
+   "id": "A05",
+   "req": "Same entitlements for people, APIs and AI agents",
+   "evidence": "Default-deny configurable; fund/portfolio/field/document-level permissions enforced identically via UI, API and MCP; attributable machine identities",
+   "from": "Security: Access Control, Entitlement for Machine Consumers (HIGH)",
+   "status": {
+    "neoxam": "PARTIAL",
+    "fencore": "PASS",
+    "finbourne": "PARTIAL",
+    "exafluence": "PARTIAL",
+    "rimes": "PARTIAL"
+   },
+   "note": "Fencore: demonstrated live permission removal via Claude/MCP (vendor-run demo; re-test in POC). Others: entitlement enforcement through external AI not substantively demonstrated (consultant comparative outcomes)."
+  },
+  {
+   "id": "A06",
+   "req": "External AI without vendor's proprietary LLM",
+   "evidence": "Supported API or MCP access by a client-selected LLM with identity propagation (consultant selection guideline)",
+   "from": "Embedded AI: External AI / LLM Extensibility; Tech & Arch: External AI Interoperability; Core: Agentic Foundation — merged",
+   "status": {
+    "neoxam": "PARTIAL",
+    "fencore": "PASS",
+    "finbourne": "PASS",
+    "exafluence": "PARTIAL",
+    "rimes": "PARTIAL"
+   },
+   "note": "Fencore: demo PASS; public docs thin (one-line MCP mention). FINBOURNE: MCP publicly confirmed (vendor release; Claude integration in trade press). NeoXam: certified-data retrieval via MCP custom/scoped. EXF: API only, no MCP. Rimes: MCP early/alpha."
+  },
+  {
+   "id": "A07",
+   "req": "Full exit / portability",
+   "evidence": "Export of data, metadata, lineage, rules, calculations, documents, audit history in open formats; source-code/configuration escrow",
+   "from": "NF: Data Portability & Exit (HIGH)",
+   "status": {
+    "neoxam": "UNKNOWN",
+    "fencore": "PARTIAL",
+    "finbourne": "UNKNOWN",
+    "exafluence": "UNKNOWN",
+    "rimes": "UNKNOWN"
+   },
+   "note": "Fencore names Escode/NCC escrow (2023). Export formats not evidenced for any vendor."
+  },
+  {
+   "id": "A08",
+   "req": "Income Fund instrument model",
+   "evidence": "Data model can represent terms for ABS/RMBS, FRNs, callables/puttables, inflation-linked, IRS, CDS, FX swaps/forwards, equity derivatives, inter-fund holdings",
+   "from": "Strategic Rationale s4.1, s6 (FR-05 to FR-18) — missing from vReviewed and consultant",
+   "status": {
+    "neoxam": "UNKNOWN",
+    "fencore": "UNKNOWN",
+    "finbourne": "UNKNOWN",
+    "exafluence": "UNKNOWN",
+    "rimes": "UNKNOWN"
+   },
+   "note": "Not assessed by consultant for any vendor."
+  },
+  {
+   "id": "A09",
+   "req": "Feasible CRIMS + Apex NZ ingestion",
+   "evidence": "Demonstrated pattern on CRIMS and Apex NZ (not AU) — or fixed-price, time-boxed build commitment",
+   "from": "consultant 'Apex / Charles River Integration' demo priority; Rationale NFR-01/03",
+   "status": {
+    "neoxam": "PARTIAL",
+    "fencore": "PARTIAL",
+    "finbourne": "PARTIAL",
+    "exafluence": "UNKNOWN",
+    "rimes": "PARTIAL"
+   },
+   "note": "No vendor showed live CRIMS + Apex NZ. NeoXam: Apex AU demo (public link is Apex/Maitland SA). Fencore: framework only, no production CRIMS. FINBOURNE: custom builds. Rimes: strongest demo + CRD experience. EXF: not demonstrated."
+  },
+  {
+   "id": "A10",
+   "req": "Bloomberg licensing compatible",
+   "evidence": "Written confirmation from Bloomberg that the buyer's Data License / B-PIPE entitlements permit storage and redistribution in the vendor-hosted platform and to AI consumers",
+   "from": "Rationale s4.3, s6.3 — not covered by vReviewed or consultant",
+   "status": {
+    "neoxam": "UNKNOWN",
+    "fencore": "UNKNOWN",
+    "finbourne": "UNKNOWN",
+    "exafluence": "UNKNOWN",
+    "rimes": "UNKNOWN"
+   },
+   "note": "Platform-neutral: needs Bloomberg written confirmation (hosting, derived data, AI use)."
+  },
+  {
+   "id": "A11",
+   "req": "Intraday target met (once set)",
+   "evidence": "Measured refresh latency at the buyer volumes against the agreed target",
+   "from": "Rationale NFR-04; Scope Decision 5",
+   "status": {
+    "neoxam": "UNKNOWN",
+    "fencore": "UNKNOWN",
+    "finbourne": "UNKNOWN",
+    "exafluence": "UNKNOWN",
+    "rimes": "UNKNOWN"
+   },
+   "note": "Target not yet set (Scope Decision 5). Not tested by consultant."
+  },
+  {
+   "id": "A12",
+   "req": "Resilience & incident notification",
+   "evidence": "Documented RTO/RPO, tested DR, regional hosting; incident notification fast enough for the buyer's own FMA notification obligation",
+   "from": "NF: Availability, Resilience (MED); Security Monitoring (MED) — promoted to gate",
+   "status": {
+    "neoxam": "UNKNOWN",
+    "fencore": "UNKNOWN",
+    "finbourne": "PARTIAL",
+    "exafluence": "UNKNOWN",
+    "rimes": "PARTIAL"
+   },
+   "note": "FINBOURNE gave the most detailed SLA/DR (consultant desktop); Rimes states DR. Others unconfirmed."
+  },
+  {
+   "id": "A13",
+   "req": "Vendor viability floor",
+   "evidence": "Audited financials, runway, ownership, client concentration; ≥2 comparable production references; escrow",
+   "from": "NF: Vendor Viability (HIGH); Tech & Arch: Vendor Trajectory (HIGH)",
+   "status": {
+    "neoxam": "PASS",
+    "fencore": "UNKNOWN",
+    "finbourne": "PASS",
+    "exafluence": "PARTIAL",
+    "rimes": "PASS"
+   },
+   "note": "Fencore: ~10 staff, single seed round (~USD 373k), no named customers found; UNKNOWN pending audited financials — highest risk in field. FINBOURNE: AustralianSuper live Oct 2026. Rimes: JANA, NGS Super, Rest. EXF: services firm."
+  },
+  {
+   "id": "A14",
+   "req": "Critical capability is GA, not roadmap",
+   "evidence": "Each must-have capability shown working in production today; roadmap items excluded from scoring",
+   "from": "consultant assessment principle; Embedded AI: Measurable Operational Value",
+   "status": {
+    "neoxam": "PARTIAL",
+    "fencore": "PARTIAL",
+    "finbourne": "PARTIAL",
+    "exafluence": "PARTIAL",
+    "rimes": "PARTIAL"
+   },
+   "note": "Every vendor has some must-have capability on roadmap or unclear GA (NeoXam Agents early 2027; Cori GA status unstated; FINBOURNE AI onboarding in development; Rimes entitlement-aware MCP roadmap)."
+  }
+ ],
+ "domains": [
+  {
+   "id": "D1",
+   "name": "Core IDP: ingestion, mastering, DQ & reconciliation",
+   "shows": "Multi-source ingestion, security/issuer master, survivorship, DQ rules, IBOR↔ABOR↔NAV reconciliation with tolerances, exceptions, certification & publication",
+   "consolidates": "Core: Integration/Harmonisation/Mastering; DQ & Ops Automation; consultant 'Core IDP & Trusted Data'",
+   "w": 16,
+   "w_consultant": 9.5,
+   "why": "Foundation that every use case depends on; UC4, 9, 28 are the most urgent operational pain.",
+   "ratings": {
+    "neoxam": "Strong",
+    "fencore": "Strong",
+    "finbourne": "Good",
+    "exafluence": "Good",
+    "rimes": "Strong"
+   },
+   "basis": "consultant demo 'Core IDP & Trusted Data' (comparative outcomes)."
+  },
+  {
+   "id": "D2",
+   "name": "Lineage, bi-temporal history & audit",
+   "shows": "Field-level lineage, bi-temporal history, correction history, override audit, 'where did this number come from'",
+   "consolidates": "Core: Lineage & Audit Trail; Tech & Arch: Certified & Exploratory Governance",
+   "w": 7,
+   "w_consultant": 4.8,
+   "why": "NFR-06 Must Have; prerequisite for AI trust (FRD risk 6.5).",
+   "ratings": {
+    "neoxam": "Good",
+    "fencore": "Strong",
+    "finbourne": "Strong",
+    "exafluence": "Good",
+    "rimes": "Strong"
+   },
+   "basis": "consultant demo Core IDP; NeoXam 'certification & E2E lineage less visible'; FINBOURNE 'strong bi-temporal history, reproducibility, auditability'."
+  },
+  {
+   "id": "D3",
+   "name": "Target-system integration",
+   "shows": "Working patterns for CRIMS (IBOR), Apex NZ (ABOR), Bloomberg B-PIPE/DL, MSCI, LSEG, Morningstar, EMS; downstream AlphaCert",
+   "consolidates": "consultant 'Apex / Charles River Integration'; Rationale NFR-01/02/03 — missing as a criterion in vReviewed",
+   "w": 12,
+   "w_consultant": 14.3,
+   "why": "Rationale's #1 delivery risk (Apex extract completeness); no vendor had live CRIMS + Apex NZ.",
+   "ratings": {
+    "neoxam": "Good",
+    "fencore": "Good",
+    "finbourne": "Good",
+    "exafluence": "Limited",
+    "rimes": "Strong"
+   },
+   "basis": "consultant demo 'Apex / Charles River Integration'. NB: none showed live CRIMS + Apex NZ; NeoXam showed Apex AU; Fencore has no production CRIMS integration."
+  },
+  {
+   "id": "D4",
+   "name": "Income Fund instrument & look-through coverage",
+   "shows": "Terms data for ABS/RMBS, FRNs, callables, ILBs, IRS, CDS, FX swaps, equity derivatives; inter-fund look-through (AEQ, GRA, Trans-Tasman)",
+   "consolidates": "Rationale s4.1 & s6; UC6, UC22, UC27 — missing from vReviewed and consultant",
+   "w": 10,
+   "w_consultant": 0,
+   "why": "Core of the Rationale; never assessed by consultant.",
+   "ratings": {
+    "neoxam": null,
+    "fencore": null,
+    "finbourne": null,
+    "exafluence": null,
+    "rimes": null
+   },
+   "basis": "Not assessed by consultant or repo. POC must test complex-instrument terms (ABS, callables, FRNs, ILBs, IRS, CDS)."
+  },
+  {
+   "id": "D5",
+   "name": "Risk & analytics calculation support",
+   "shows": "Versioned calculation library, certified inputs to duration/DV01/carry/hedged yield; or native analytics if Scope Decision 1 = buy",
+   "consolidates": "Core: Semantic Layer (formula library); Risk & Scenario Data; Rationale FR-05–FR-18",
+   "w": 6,
+   "w_consultant": 0,
+   "why": "Kept modest because v3.1 default is 'foundation'; raise to ~20 if calculations are bought.",
+   "ratings": {
+    "neoxam": null,
+    "fencore": null,
+    "finbourne": null,
+    "exafluence": null,
+    "rimes": null
+   },
+   "basis": "Not assessed. Depends on Scope Decision 1."
+  },
+  {
+   "id": "D6",
+   "name": "Business-led configuration, testing & change control",
+   "shows": "Low/no-code models, mappings, rules; automated regression testing; controlled release; upgrades without projects",
+   "consolidates": "Core: Testing Automation; Tech & Arch: Implementation & Operating Effort; NF: Release & Upgrade; low-code comments",
+   "w": 10,
+   "w_consultant": 14.3,
+   "why": "Lean operating model is a stated the buyer constraint; regression testing not demonstrated by any vendor.",
+   "ratings": {
+    "neoxam": "Good",
+    "fencore": "Good",
+    "finbourne": "Limited",
+    "exafluence": "Good",
+    "rimes": "Good"
+   },
+   "basis": "consultant demo 'Business-Led Configuration & Testing'; regression/change testing not demonstrated by any vendor."
+  },
+  {
+   "id": "D7",
+   "name": "Unstructured data lifecycle",
+   "shows": "Document ingestion → extraction → validation → governed persistence → provenance → publication",
+   "consolidates": "Core: Research & Content Repository; consultant 'Unstructured Data Ingestion'",
+   "w": 4,
+   "w_consultant": 14.3,
+   "why": "Useful, but research AI is Adjacent; keep weight proportionate.",
+   "ratings": {
+    "neoxam": "Limited",
+    "fencore": "Strong",
+    "finbourne": "Limited",
+    "exafluence": "Good",
+    "rimes": "Strong"
+   },
+   "basis": "consultant demo 'Unstructured Data Ingestion'."
+  },
+  {
+   "id": "D8",
+   "name": "Embedded AI (substantive & controlled)",
+   "shows": "GA AI in mastering/DQ/exceptions; confidence thresholds; human-in-loop; model change governance; measurable value",
+   "consolidates": "Embedded AI sheet (7 dimensions); consultant 'Platform AI'",
+   "w": 4,
+   "w_consultant": 14.3,
+   "why": "the buyer intends to reason with its own AI (criteria-sheet comment); differentiator, not foundation.",
+   "ratings": {
+    "neoxam": "Limited",
+    "fencore": "Strong",
+    "finbourne": "Good",
+    "exafluence": "Good",
+    "rimes": "Good"
+   },
+   "basis": "consultant demo 'Platform AI – Current & Roadmap'."
+  },
+  {
+   "id": "D9",
+   "name": "External AI / MCP extensibility",
+   "shows": "Client-selected LLM via API/MCP with identity propagation, entitlement enforcement, citations & lineage in retrieved context",
+   "consolidates": "Core: Agentic Foundation; Embedded AI: External AI; Tech & Arch: External AI Interoperability; consultant 'External AI / MCP'",
+   "w": 8,
+   "w_consultant": 14.3,
+   "why": "Strategic, but the floor is a Gate (A06); score measures depth above the floor.",
+   "ratings": {
+    "neoxam": "Good",
+    "fencore": "Strong",
+    "finbourne": "Limited",
+    "exafluence": "Limited",
+    "rimes": "Limited"
+   },
+   "basis": "consultant demo 'External AI / MCP' (Fencore: Claude via MCP/Entra, live permission removal)."
+  },
+  {
+   "id": "D10",
+   "name": "Databricks & open architecture",
+   "shows": "Governed, automated publication to Databricks (Delta Sharing / Unity Catalog), open formats, composability",
+   "consolidates": "Tech & Arch: Open Composable; Databricks Interoperability (MED/LOW)",
+   "w": 6,
+   "w_consultant": 0,
+   "why": "the buyer's own principle 'Databricks as a First-Class Consumer'; UC37.",
+   "ratings": {
+    "neoxam": 1.0,
+    "fencore": 0.5,
+    "finbourne": 1.5,
+    "exafluence": 1.0,
+    "rimes": 2.5
+   },
+   "basis": "Repo public-evidence domain score (DBX-01..04, v3 3 Nov 2026). consultant did not demonstrate Databricks for any vendor."
+  },
+  {
+   "id": "D11",
+   "name": "Implementation, operating model & ANZ support",
+   "shows": "Credible plan, the buyer effort, managed-service boundary, NZ time-zone support, comparable implementation",
+   "consolidates": "NF: Managed Service; Implementation & Resourcing; Tech & Arch: Implementation Effort",
+   "w": 7,
+   "w_consultant": 0,
+   "why": "Lean team; one accountable service model.",
+   "ratings": {
+    "neoxam": 2.0,
+    "fencore": 2.5,
+    "finbourne": 1.5,
+    "exafluence": 2.5,
+    "rimes": 2.0
+   },
+   "basis": "consultant desktop 'Lean Operating Model' + 'Non-Functional' (written responses, capped 2.5)."
+  },
+  {
+   "id": "D12",
+   "name": "Commercials & multi-year TCO",
+   "shows": "Transparent pricing incl. implementation, managed service, integrations, AI usage; 5-yr TCO vs Databricks-build baseline",
+   "consolidates": "NF: Commercial Transparency & TCO",
+   "w": 5,
+   "w_consultant": 0,
+   "why": "Only Fencore priced so far; must be comparable across finalists.",
+   "ratings": {
+    "neoxam": 1.0,
+    "fencore": 1.0,
+    "finbourne": 2.0,
+    "exafluence": 2.0,
+    "rimes": 1.0
+   },
+   "basis": "Repo public-evidence TCO domain (v3). consultant obtained indicative pricing for Fencore only — not comparable."
+  },
+  {
+   "id": "D13",
+   "name": "Vendor viability, roadmap & references",
+   "shows": "Financial durability, ownership, release track record, ≥2 comparable references (ideally ANZ)",
+   "consolidates": "NF: Vendor Viability; Tech & Arch: Vendor Trajectory",
+   "w": 5,
+   "w_consultant": 0,
+   "why": "Floor is Gate A13; score differentiates above it.",
+   "ratings": {
+    "neoxam": 3.0,
+    "fencore": 1.0,
+    "finbourne": 3.0,
+    "exafluence": 2.0,
+    "rimes": 3.0
+   },
+   "basis": "Repo public-evidence viability domain (v3). consultant did not assess viability comparatively."
+  }
+ ],
+ "usecases": [
+  {
+   "id": "UC1",
+   "name": "Natural language querying of the IDP",
+   "horizon": "Near term",
+   "frd": "FR-22 Should, Ph2",
+   "role": "Adjacent",
+   "value": 4,
+   "urgency": 3,
+   "primary": "D9",
+   "secondary": "D2",
+   "why": "NLQ runs in the AI layer; IDP supplies governed semantic access (D9)."
+  },
+  {
+   "id": "UC2",
+   "name": "Portfolio monitoring & alerting",
+   "horizon": "Near term",
+   "frd": "NFR-04 blocker",
+   "role": "Core",
+   "value": 4,
+   "urgency": 4,
+   "primary": "D1",
+   "secondary": "D3",
+   "why": "Needs mastered positions/limits; intraday depends on Scope Decision 5."
+  },
+  {
+   "id": "UC3",
+   "name": "AI daily portfolio commentary",
+   "horizon": "Near term",
+   "frd": "FR-23 Should, Ph2",
+   "role": "Adjacent",
+   "value": 3,
+   "urgency": 3,
+   "primary": "D2",
+   "secondary": "D9",
+   "why": "Drafting is AI layer; certified daily data is IDP."
+  },
+  {
+   "id": "UC4",
+   "name": "Reconciliation & exception triage",
+   "horizon": "Near term",
+   "frd": "FR-04, FR-19, FR-20",
+   "role": "Core",
+   "value": 5,
+   "urgency": 5,
+   "primary": "D1",
+   "secondary": "D3",
+   "why": "Daily APEX reconciliation; ~25–30bps tolerance."
+  },
+  {
+   "id": "UC5",
+   "name": "Instrument classification & enrichment",
+   "horizon": "Near term",
+   "frd": "FR-03, FR-03a; Risk 6.2",
+   "role": "Core",
+   "value": 5,
+   "urgency": 4,
+   "primary": "D4",
+   "secondary": "D7",
+   "why": "Terms data for complex bonds is the Rationale's critical gap."
+  },
+  {
+   "id": "UC6",
+   "name": "Inter-fund look-through",
+   "horizon": "Near term",
+   "frd": "FR-02; Risk 6.4",
+   "role": "Core",
+   "value": 5,
+   "urgency": 4,
+   "primary": "D4",
+   "secondary": "D1",
+   "why": "AEQ, GRA, Trans-Tasman."
+  },
+  {
+   "id": "UC7",
+   "name": "Research & document intelligence",
+   "horizon": "Near term",
+   "frd": "—",
+   "role": "Adjacent",
+   "value": 3,
+   "urgency": 2,
+   "primary": "D7",
+   "secondary": "D9",
+   "why": "IDP stores/indexes; summarisation is AI layer."
+  },
+  {
+   "id": "UC8",
+   "name": "Performance & client commentary",
+   "horizon": "Near term",
+   "frd": "—",
+   "role": "Adjacent",
+   "value": 3,
+   "urgency": 3,
+   "primary": "D2",
+   "secondary": "D3",
+   "why": "Morningstar/Bloomberg inputs mastered; drafting is AI layer."
+  },
+  {
+   "id": "UC9",
+   "name": "Data quality & operations AI",
+   "horizon": "Foundational",
+   "frd": "—",
+   "role": "Core",
+   "value": 5,
+   "urgency": 5,
+   "primary": "D1",
+   "secondary": "D8",
+   "why": "'Certified layer' wanted by multiple stakeholders."
+  },
+  {
+   "id": "UC10",
+   "name": "Trade-intent verification",
+   "horizon": "Medium term",
+   "frd": "FR07a",
+   "role": "Core",
+   "value": 4,
+   "urgency": 3,
+   "primary": "D3",
+   "secondary": "D1",
+   "why": "Ingestion-flow gate on CRIMS vs APEX; owner unassigned."
+  },
+  {
+   "id": "UC11",
+   "name": "Risk analytics & anomaly detection",
+   "horizon": "Medium term",
+   "frd": "FR-25 Could, Ph3",
+   "role": "Adjacent",
+   "value": 3,
+   "urgency": 2,
+   "primary": "D5",
+   "secondary": "D8",
+   "why": "Needs 12+ months history first."
+  },
+  {
+   "id": "UC12",
+   "name": "Scenario & stress testing",
+   "horizon": "Medium term",
+   "frd": "FR-24 Could, Ph3",
+   "role": "Adjacent",
+   "value": 3,
+   "urgency": 2,
+   "primary": "D5",
+   "secondary": "D4",
+   "why": "Runs in risk engine (MSCI / calc library)."
+  },
+  {
+   "id": "UC13",
+   "name": "Predictive income modelling",
+   "horizon": "Medium term",
+   "frd": "FR-18",
+   "role": "Core",
+   "value": 4,
+   "urgency": 3,
+   "primary": "D5",
+   "secondary": "D4",
+   "why": "Bottom-up per-instrument yield needs terms + calc library."
+  },
+  {
+   "id": "UC14",
+   "name": "Sentiment & thematic intelligence",
+   "horizon": "Medium term",
+   "frd": "—",
+   "role": "Adjacent",
+   "value": 2,
+   "urgency": 1,
+   "primary": "D7",
+   "secondary": "D9",
+   "why": ""
+  },
+  {
+   "id": "UC15",
+   "name": "Portfolio construction & SAA/TAA support",
+   "horizon": "Medium term",
+   "frd": "—",
+   "role": "Adjacent",
+   "value": 3,
+   "urgency": 2,
+   "primary": "D5",
+   "secondary": "D10",
+   "why": "Optimisation is a specialist/Databricks workload."
+  },
+  {
+   "id": "UC16",
+   "name": "Trading & execution analytics",
+   "horizon": "Medium term",
+   "frd": "—",
+   "role": "Adjacent",
+   "value": 2,
+   "urgency": 2,
+   "primary": "D3",
+   "secondary": "D2",
+   "why": "EMS-native; see UC38."
+  },
+  {
+   "id": "UC17",
+   "name": "Compliance & mandate monitoring",
+   "horizon": "Medium term",
+   "frd": "5-day breach deadline",
+   "role": "Adjacent",
+   "value": 4,
+   "urgency": 3,
+   "primary": "D2",
+   "secondary": "D3",
+   "why": "Rules engine likely CRIMS compliance; IDP supplies certified positions."
+  },
+  {
+   "id": "UC18",
+   "name": "Agentic research workflows",
+   "horizon": "Longer term",
+   "frd": "—",
+   "role": "Adjacent",
+   "value": 2,
+   "urgency": 1,
+   "primary": "D9",
+   "secondary": "",
+   "why": "Foundation only; owner unassigned."
+  },
+  {
+   "id": "UC19",
+   "name": "Governed semantic layer assistant",
+   "horizon": "Foundational",
+   "frd": "Assumptions 4.1, 4.2",
+   "role": "Core",
+   "value": 4,
+   "urgency": 3,
+   "primary": "D2",
+   "secondary": "D5",
+   "why": "Single source of definitions."
+  },
+  {
+   "id": "UC20",
+   "name": "Spreadsheet logic extraction & validation",
+   "horizon": "Near term",
+   "frd": "FR-09 example",
+   "role": "Core",
+   "value": 4,
+   "urgency": 4,
+   "primary": "D5",
+   "secondary": "D6",
+   "why": "Calc library storage/versioning in IDP; extraction is AI."
+  },
+  {
+   "id": "UC21",
+   "name": "Audit & lineage interrogation",
+   "horizon": "Near term",
+   "frd": "NFR-06 Must, Ph2",
+   "role": "Core",
+   "value": 5,
+   "urgency": 4,
+   "primary": "D2",
+   "secondary": "D9",
+   "why": ""
+  },
+  {
+   "id": "UC22",
+   "name": "OTC derivative & term-sheet capture",
+   "horizon": "Medium term",
+   "frd": "FR-11; Apex backlog blocker",
+   "role": "Core",
+   "value": 4,
+   "urgency": 4,
+   "primary": "D4",
+   "secondary": "D7",
+   "why": "Known OTC data gap; owner unassigned."
+  },
+  {
+   "id": "UC23",
+   "name": "FX hedging effectiveness monitoring",
+   "horizon": "Medium term",
+   "frd": "FR-12 to FR-14",
+   "role": "Core",
+   "value": 4,
+   "urgency": 3,
+   "primary": "D5",
+   "secondary": "D4",
+   "why": ""
+  },
+  {
+   "id": "UC24",
+   "name": "Liquidity risk monitoring",
+   "horizon": "Medium term",
+   "frd": "—",
+   "role": "Adjacent",
+   "value": 3,
+   "urgency": 2,
+   "primary": "D5",
+   "secondary": "D3",
+   "why": "Needs market volume + fund flow data."
+  },
+  {
+   "id": "UC25",
+   "name": "Corporate actions intelligence",
+   "horizon": "Medium term",
+   "frd": "—",
+   "role": "Core",
+   "value": 3,
+   "urgency": 3,
+   "primary": "D1",
+   "secondary": "D7",
+   "why": "CA mastering is an IDP function; drafting is AI."
+  },
+  {
+   "id": "UC26",
+   "name": "Investment decision memory",
+   "horizon": "Longer term",
+   "frd": "—",
+   "role": "Adjacent",
+   "value": 2,
+   "urgency": 1,
+   "primary": "D7",
+   "secondary": "D9",
+   "why": ""
+  },
+  {
+   "id": "UC27",
+   "name": "Derivatives analysis depth & IBOR enablement",
+   "horizon": "Medium term",
+   "frd": "—",
+   "role": "Core",
+   "value": 4,
+   "urgency": 3,
+   "primary": "D2",
+   "secondary": "D4",
+   "why": "Extended retention of derivative history."
+  },
+  {
+   "id": "UC28",
+   "name": "IBOR-NAV-ABOR reconciliation & Unit Pricing certification",
+   "horizon": "Near term",
+   "frd": "—",
+   "role": "Core",
+   "value": 5,
+   "urgency": 5,
+   "primary": "D1",
+   "secondary": "D3",
+   "why": "Uncertified APEX→Morningstar→client unit-pricing path today."
+  },
+  {
+   "id": "UC29",
+   "name": "Specialist downstream integration (AlphaCert)",
+   "horizon": "Near term / Foundational",
+   "frd": "—",
+   "role": "Core",
+   "value": 3,
+   "urgency": 3,
+   "primary": "D3",
+   "secondary": "D1",
+   "why": "Publication to AlphaCert; CRM/registry/ledger not yet in SoR list."
+  },
+  {
+   "id": "UC30",
+   "name": "Automated earnings surprise analysis",
+   "horizon": "Near term",
+   "frd": "—",
+   "role": "Adjacent",
+   "value": 2,
+   "urgency": 2,
+   "primary": "D3",
+   "secondary": "D9",
+   "why": "Already prototyped outside the IDP."
+  },
+  {
+   "id": "UC31",
+   "name": "Company-level context aggregation",
+   "horizon": "Near term",
+   "frd": "—",
+   "role": "Adjacent",
+   "value": 2,
+   "urgency": 2,
+   "primary": "D7",
+   "secondary": "D9",
+   "why": "Already being built outside the IDP."
+  },
+  {
+   "id": "UC32",
+   "name": "Podcast & alternative media intelligence",
+   "horizon": "Medium term",
+   "frd": "—",
+   "role": "Out",
+   "value": 1,
+   "urgency": 1,
+   "primary": "D7",
+   "secondary": "",
+   "why": "Not investment-data mastering."
+  },
+  {
+   "id": "UC33",
+   "name": "Forward event & catalyst calendar",
+   "horizon": "Medium term",
+   "frd": "—",
+   "role": "Adjacent",
+   "value": 2,
+   "urgency": 2,
+   "primary": "D3",
+   "secondary": "",
+   "why": ""
+  },
+  {
+   "id": "UC34",
+   "name": "Valuation & technical level monitoring",
+   "horizon": "Medium term",
+   "frd": "—",
+   "role": "Adjacent",
+   "value": 2,
+   "urgency": 2,
+   "primary": "D3",
+   "secondary": "",
+   "why": "Gap is streaming feed, not analysis."
+  },
+  {
+   "id": "UC35",
+   "name": "Broker research access & sentiment extraction",
+   "horizon": "Medium term",
+   "frd": "Licensing blocker",
+   "role": "Out",
+   "value": 2,
+   "urgency": 1,
+   "primary": "D7",
+   "secondary": "",
+   "why": "Blocked by Bloomberg/broker licensing, not by any IDP."
+  },
+  {
+   "id": "UC36",
+   "name": "Social sentiment monitoring (trusted accounts)",
+   "horizon": "Longer term",
+   "frd": "Security concern",
+   "role": "Out",
+   "value": 1,
+   "urgency": 1,
+   "primary": "D7",
+   "secondary": "",
+   "why": "Security/vetting risk; not IDP."
+  },
+  {
+   "id": "UC37",
+   "name": "Data science & backtesting sandbox",
+   "horizon": "Medium term",
+   "frd": "—",
+   "role": "Adjacent",
+   "value": 3,
+   "urgency": 2,
+   "primary": "D10",
+   "secondary": "D2",
+   "why": "IDP-feeds-Databricks pattern; 10–15 yrs history."
+  },
+  {
+   "id": "UC38",
+   "name": "Historical execution & TCA data capture",
+   "horizon": "Medium term",
+   "frd": "—",
+   "role": "Core",
+   "value": 3,
+   "urgency": 2,
+   "primary": "D2",
+   "secondary": "D3",
+   "why": "Retain EMS output beyond EMS purge window."
+  }
+ ],
+ "concerns": [
+  {
+   "area": "Selection method",
+   "sev": "High",
+   "finding": "No numeric weights or scores were published. The engagement plan (Weeks 1–2) says 'draft then agree the weighted criteria', and the deck's criteria tables rate almost every dimension HIGH. The shortlist rests on qualitative Strong/Good/Limited judgements.",
+   "evidence": "consultant deck: 'Engagement Plan At A Glance'; criteria tables ('IDP Core Capabilities…', 'Embedded AI…', 'Tech & Arch…', 'Security…', 'Operating Model & NFR'); 'Comparative Outcomes'.",
+   "ask": "Ask consultant for the agreed weights and the scoring sheet behind 'Comparative Shortlisting View'. If none exists, run the v3.1 points-budget workshop and re-score before contract."
+  },
+  {
+   "area": "Selection method",
+   "sev": "High",
+   "finding": "The result depends on weighting. Translating consultant's own demo ratings and adding the domains consultant did not score (Databricks, TCO, viability) puts Rimes level with or ahead of Fencore (v3.1 weights: Rimes ≈2.8 vs Fencore ≈2.6; equal weights: 2.6 vs 2.5). Fencore leads clearly only under the consultant lens, which weights AI/MCP and unstructured data heavily and omits viability, Databricks and TCO.",
+   "evidence": "This workbook, 'Vendor Rescore' (inputs = consultant demo ratings + repo public-evidence scores).",
+   "ask": "Keep a runner-up (Rimes or NeoXam) alive: a short scenario-matched POC, or at least paper due diligence to the same success criteria."
+  },
+  {
+   "area": "Selection method",
+   "sev": "Med",
+   "finding": "Internal inconsistency: the plan promised 'select two viable options' and a 'high-level TCO comparison', and the 8-week roadmap still says 'progressively validate the two shortlisted platforms', yet the outcome is one platform and Fencore-only pricing.",
+   "evidence": "consultant deck: Engagement Plan; '8-Week POC and Due Diligence Roadmap'; 'Current Commercial Baseline'.",
+   "ask": "Confirm the scope change was approved, and obtain indicative pricing from at least one alternative so TCO is comparable."
+  },
+  {
+   "area": "Scope",
+   "sev": "High",
+   "finding": "The Strategic Rationale argues for an IDP because it supplies pre-certified duration, DV01, carry, hedged yield and Greeks. The consultant target state treats Risk & Performance as downstream consumers and never assessed calculations. The preferred platform type (an EDM data foundation) does not deliver the calculations the Rationale used to rule out Databricks.",
+   "evidence": "Rationale Tables 3–4, s4.1, s4.7; consultant 'High-Level Target State…', 'IDP Core Capabilities' (no calculation criterion).",
+   "ask": "Decide and name the calculation engine (MSCI, CRIMS analytics, in-house library on Databricks, or a bought engine). Re-issue the Rationale v1.1 so the IDP-vs-Databricks argument matches the chosen architecture."
+  },
+  {
+   "area": "Scope",
+   "sev": "High",
+   "finding": "Income Fund instrument coverage (ABS/RMBS, FRNs, callables, ILBs, IRS, CDS, FX swaps, equity derivatives) and inter-fund look-through were not tested in desktop or demo. The FRD names these as the critical Phase-1 gate risk.",
+   "evidence": "Rationale s4.2 and Table 14 (CRITICAL Phase 1 gate); Use Case Register UC5/UC6/UC22; consultant demo brief (no instrument scenario).",
+   "ask": "Add a POC scenario: load the buyer's 20 hardest instruments with full terms, from CRIMS/Apex/Bloomberg, and prove terms completeness, lineage and look-through."
+  },
+  {
+   "area": "Integration",
+   "sev": "High",
+   "finding": "No assessed vendor demonstrated live Charles River and Apex NZ integration. Fencore had 'no active production Charles River integration'; NeoXam showed Apex Australia, not NZ. CRIMS is the IBOR source of record and Apex the ABOR, so this is the main delivery risk.",
+   "evidence": "consultant Fencore and NeoXam demo pages; 'Platforms Assessment & Shortlisting Outcome'.",
+   "ask": "Make CRIMS + Apex NZ ingestion a POC pass/fail gate (A09). Get a fixed-price, fixed-scope connector build and maintenance commitment, and name who maintains it after CRIMS/Apex upgrades."
+  },
+  {
+   "area": "Integration",
+   "sev": "Med",
+   "finding": "Databricks connectivity was not demonstrated for any vendor, even though the buyer's own data principle is 'Databricks as a First-Class Consumer'. Fencore's public material shows Snowflake as its default warehouse and positions Databricks only as something it sits on top of.",
+   "evidence": "consultant 'IDP Design Principles | Alignment to Existing Architecture Guardrails'; Fencore product pages (search-only, 2026-11-05).",
+   "ask": "POC scenario: publish certified data to the buyer's Databricks via Delta Sharing / Unity Catalog, governed and observable, with no file exports."
+  },
+  {
+   "area": "Vendor viability",
+   "sev": "High",
+   "finding": "Fencore's scale against the commitment: about 10 staff (PitchBook), a single seed round of ~USD 373k, no named customers, no AU/NZ office and no analyst coverage were found in public sources. The year-1 commitment [indicative amount withheld] exceeds its disclosed funding. consultant rates 'Vendor Viability' HIGH but does not discuss it for Fencore.",
+   "evidence": "Fencore research findings (PitchBook, AcraWatch, CB Insights, all search-only, 2026-11-05); consultant 'Operating Model & NFR' criteria; consultant Fencore overview (no viability discussion).",
+   "ask": "Before POC sign-off, request audited financials, runway, ARR and customer count, ownership and cap table, key-person cover, an active escrow deposit (Escode/NCC named 2023), step-in rights, and two comparable production references."
+  },
+  {
+   "area": "Security",
+   "sev": "Med",
+   "finding": "Fencore's ISO 27001 is a self-claim; no certificate, certification body, scope or version was found publicly. ISO/IEC 27001:2013 certificates ceased to be valid on 31 Oct 2025, so only a 27001:2022 certificate counts. No SOC 2 or ISO 42001 was found for Fencore.",
+   "evidence": "Fencore site (search-only); IAF transition guidance (see Sources).",
+   "ask": "Obtain the 27001:2022 certificate, accredited body, scope and Statement of Applicability, a pen-test summary, and confirmation that embedded AI (Cori) is in scope."
+  },
+  {
+   "area": "AI / MCP",
+   "sev": "Med",
+   "finding": "Fencore's strongest differentiator (Claude via MCP + Entra, entitlements enforced on live permission removal) rests on a vendor-run demo. Public documentation mentions MCP in one line and nothing on Entra identity propagation, an AI gateway or tool-call audit.",
+   "evidence": "consultant Fencore demo page; Fencore product page (search-only).",
+   "ask": "In the POC, script it on the buyer's tenant: an Entra on-behalf-of token, a fund-level deny, a field-level mask, a revoked user, tool-call audit export, and a non-Claude model."
+  },
+  {
+   "area": "AI / MCP",
+   "sev": "Med",
+   "finding": "Cori status, model provider, hosting and data-use terms are unpublished. The 'no training on the buyer data' requirement (HIGH) cannot be verified from public sources.",
+   "evidence": "Fencore Cori description (search-only).",
+   "ask": "Get written per-feature GA status, model provider(s), hosting region, subprocessor list and a contractual no-training/no-retention clause covering prompts and outputs."
+  },
+  {
+   "area": "Screening",
+   "sev": "Med",
+   "finding": "The 9-platform universe left out established EDM vendors with buy-side and ANZ footprints (e.g. GoldenSource, Gresham) and the operating-platform counterfactuals. State Street ADP was dropped even though State Street owns Charles River, the IBOR source of record.",
+   "evidence": "consultant 'Initial Market Screening'; repo IDP evaluation covers 15 candidates.",
+   "ask": "Record why each excluded vendor was out of scope. Test State Street/CRD-native data delivery as a baseline, since it may reduce CRIMS integration risk."
+  },
+  {
+   "area": "Screening",
+   "sev": "Low",
+   "finding": "Inconsistent drop criteria: Arcesium was dropped for 'insufficient comparable APAC references' while Fencore, with no named ANZ client in public sources, progressed.",
+   "evidence": "consultant 'Initial Market Screening'; Fencore findings.",
+   "ask": "Apply the reference test consistently: require ≥2 comparable production references for the preferred vendor before final commitment."
+  },
+  {
+   "area": "Rationale corrections",
+   "sev": "Med",
+   "finding": "The Rationale says APEX is the buyer's OMS (s4.2). The consultant target state and Use Case Register say Charles River is the OMS/IBOR and Apex the ABOR.",
+   "evidence": "Rationale s4.2, s6.1; consultant 'The Target Investment Data Ecosystem' items 2–3.",
+   "ask": "Correct the Rationale (v1.1)."
+  },
+  {
+   "area": "Rationale corrections",
+   "sev": "Med",
+   "finding": "The Rationale's gap analysis rates a generic IDP 'Native/Config' on all 34 requirements without vendor evidence. consultant's evidence contradicts this for the preferred vendor (no production CRIMS/Apex integration, no calculation engine, intraday not tested).",
+   "evidence": "Rationale Table 4–5; consultant Fencore pages.",
+   "ask": "Re-run the 34-requirement table against Fencore specifically (Native / Config / Build / Other system), and show what moves to Databricks or the calculation engine."
+  },
+  {
+   "area": "Rationale corrections",
+   "sev": "Med",
+   "finding": "The TCO table prices Databricks build effort but not IDP cost. Fencore's indicative 3-yr cost is roughly [indicative amount withheld], or 1.5–2.6m with it; integrations to CRIMS/Apex are 'subsequent workstream' and unpriced.",
+   "evidence": "Rationale Table 8; consultant 'Current Commercial Baseline (Indicative)'.",
+   "ask": "Build a 5-year TCO for Fencore, the runner-up and a Databricks-plus-calc-library baseline on the same basis, including integrations, managed service, Bloomberg licensing and the buyer FTE."
+  },
+  {
+   "area": "Operating model",
+   "sev": "Med",
+   "finding": "Optional managed service is [indicative amount withheld] (TBC), comparable to the subscription itself. A 'lean operating model' may depend on buying it from a ~10-person vendor.",
+   "evidence": "consultant 'Current Commercial Baseline'; Fencore headcount (search-only).",
+   "ask": "Define the BAU RACI and FTE for both options (self-run vs managed), and who covers NZ business hours."
+  },
+  {
+   "area": "Testing",
+   "sev": "Med",
+   "finding": "Automated regression and change testing (rated HIGH) was not demonstrated by any vendor, including Fencore.",
+   "evidence": "consultant 'Comparative Outcomes' – Business-Led Configuration & Testing row.",
+   "ask": "POC scenario: make a mapping/rule change, run regression, promote with approval, then roll back."
+  },
+  {
+   "area": "Use cases",
+   "sev": "Low",
+   "finding": "About a quarter of use cases come from one analyst, and several have no owner ('AI Use Case', 'Review', 'Foundation'). Research use cases (UC30–36) inflate the research-content criterion.",
+   "evidence": "Use Case Register; v3.1 'Use Case Triage'.",
+   "ask": "Workshop to confirm owners, MoSCoW tags and value/urgency, and to confirm the Core/Adjacent/Out triage."
+  },
+  {
+   "area": "Independence",
+   "sev": "Low",
+   "finding": "The deck does not disclose consultant's commercial relationships with the assessed vendors, or whether consultant will deliver the Fencore implementation (it is proposed to lead the POC).",
+   "evidence": "consultant 'Two Integrated Streams' (Stream 1 led by consultant).",
+   "ask": "Obtain a conflict-of-interest declaration from consultant covering partnerships or referral arrangements with any assessed vendor."
+  },
+  {
+   "area": "Screening",
+   "sev": "High",
+   "finding": "AlphaCert (Auckland) is already used by the buyer (Use Case Register UC29) and its website lists the buyer as a client, yet it was not in consultant's nine-platform universe. UC1 notes it was considered for NLQ.",
+   "evidence": "Use Case Register UC1, UC29; AlphaCert home page (client logos; repo-cited, re-check on open network).",
+   "ask": "Record why AlphaCert was excluded. Confirm its future role (downstream consumer only, per UC29) and that the IDP contract does not duplicate what AlphaCert already provides."
+  },
+  {
+   "area": "Screening",
+   "sev": "Med",
+   "finding": "ICS ATHENA was dropped because 'strong SQL technical knowledge is required'. Public material positions ATHENA for business users, and it is a Sydney vendor with ANZ production clients (Active Super, MA Financial) and a UK client (Hargreaves Lansdown). Its last public ISO claim is ISO 27001:2013, which is no longer current.",
+   "evidence": "consultant 'Initial Market Screening'; PR Newswire 2022-06 (MA Financial); Mondo Visione 2021-08-20 (Active Super); Wealth Mosaic profile.",
+   "ask": "Ask consultant for the evidence behind the ICS drop reason. If it is thin, consider ICS as a paper comparator given its ANZ references."
+  },
+  {
+   "area": "Vendor claims",
+   "sev": "Med",
+   "finding": "NeoXam: the deck's 'live Apex connectivity in Australia' is not publicly evidenced. The public NeoXam–Apex link is Maitland in South Africa (2024). Public sources give a missed Sept 2026 GA target for NeoXam Agents, with production expected in early 2027, versus 'Dec 2026' in the deck. No ISO 27001 certificate was found.",
+   "evidence": "NeoXam 2024-05 release (search-only); FTF News 2026-06; Asset Servicing Times 2026-06-24.",
+   "ask": "If NeoXam is the fallback, ask for the named Australian Apex client and the Agents GA date in writing."
+  },
+  {
+   "area": "Vendor claims",
+   "sev": "Med",
+   "finding": "Rimes is understated in the deck on ANZ references: Matrix IDM was Sydney-born, won a 2020 best buy-side IBOR award, and has JANA, NGS Super and Rest (Apr 2026) as references. Rimes is also the only assessed vendor with a documented Databricks Delta Sharing partnership (Nov 2025), though that partnership is for managed data, not shown for Matrix itself. Its MCP remains early.",
+   "evidence": "A-Team Insight 2021-10; Finextra (JANA, NGS); Financial IT 2026-04-15 (Rest); Rimes 2025-11-18.",
+   "ask": "Treat Rimes as the leading fallback. Test whether Matrix (not just Rimes managed data) publishes via Delta Sharing, and get a dated MCP/entitlements roadmap."
+  },
+  {
+   "area": "Vendor claims",
+   "sev": "Low",
+   "finding": "FINBOURNE: AustralianSuper went live on LUSID on 26–27 Oct 2026, after the deck, which strengthens its ANZ reference base. MCP is publicly confirmed. Apex and CRIMS need custom builds (confirmed). Its SOC 2 / ISAE 3000 reports are not public (normal; request under NDA).",
+   "evidence": "Asset Servicing Times 2026-10-27; Inserv Insights 2026-10-26; FINBOURNE MCP release.",
+   "ask": "Note the post-deck evidence in the decision pack. FINBOURNE's weakness in the deck was business-led configuration, which still holds."
+  },
+  {
+   "area": "Vendor claims",
+   "sev": "Low",
+   "finding": "Exafluence ('EXF') is primarily a services/SI firm with Snowflake-based accelerators rather than an IDP product company. No ISO 27001, SOC 2 Type II or ISO 42001 certificate was found publicly despite the deck's 'stated'.",
+   "evidence": "Snowflake partner listing; CB Insights profile.",
+   "ask": "Not material now that EXF is not progressing, but correct its categorisation in the decision record."
+  },
+  {
+   "area": "Architecture",
+   "sev": "Med",
+   "finding": "State Street owns Charles River. CRIMS offers IBOR and a Charles River Data Management Service, and the buyer's 2016 go-live included Charles River's managed data service. The overlap with IDP security mastering ('securities created and enriched in Charles River') and the CRD-native data route (Alpha Data Platform, Snowflake-based) were not analysed.",
+   "evidence": "Scoop/Charles River 2016-03-02; crd.com IBOR page; State Street 2020-12-15 ADP release; WatersTechnology c.2019.",
+   "ask": "Map which reference data the buyer already buys through CRD's managed data service, then decide the IDP vs CRD mastering boundary before the POC data design."
+  },
+  {
+   "area": "Bloomberg licensing",
+   "sev": "Med",
+   "finding": "The Rationale's claim that an IDP's 'pre-built Bloomberg connector' avoids Bloomberg API licensing is not supported. Bloomberg's cloud channels (AWS, Snowflake, Databricks with Unity Catalog, 2023) serve existing Data License customers, with no change to the licence model, so hosting in a vendor SaaS and AI use need Bloomberg's permission whichever platform is chosen.",
+   "evidence": "Bloomberg 2021 and 2023-11-08 releases; A-Team Insight (Enterprise Access Point).",
+   "ask": "Open a Bloomberg licensing workstream now: third-party hosting, derived data, and AI/LLM use of Data License and B-PIPE content. Price it into TCO for every option, including Databricks (DL+ on Databricks may be the cheapest route)."
+  },
+  {
+   "area": "Rationale corrections",
+   "sev": "Med",
+   "finding": "The Rationale says Databricks cluster start-up is '2–5 minutes … incompatible with sub-minute updates'. Official docs give 2–6 seconds for serverless SQL warehouses, and real-time mode in Structured Streaming targets sub-second latency. The 'no Charles River connector' point is correct (Lakeflow Connect lists none), but that is equally true of most IDPs.",
+   "evidence": "Databricks docs: SQL warehouse types; Real-time mode in Structured Streaming; Lakeflow Connect connector list.",
+   "ask": "Remove the start-up-time argument from the Rationale and treat CRIMS integration as a cost common to every option."
+  },
+  {
+   "area": "Regulatory",
+   "sev": "Med",
+   "finding": "FMA standard condition (in force 1 Jul 2024): MIS managers must notify the FMA of material events affecting critical technology systems within 72 hours, and keep a BCP and operationally resilient systems. NZ Privacy Act IPP12: an offshore provider acting solely as the buyer's agent is not a cross-border disclosure (s11), unless it uses the data for its own purposes, which makes no-training clauses legally relevant. For Australian funds, Equity Trustees (RE) will pass down RG 259 obligations, and ASIC flagged offshore outsourcing governance gaps (Oct 2025). APRA CPS 230 does not apply directly.",
+   "evidence": "FMA 2024-04-08 release and MIS standard conditions; OPC 'Can I send information overseas?'; ASIC 25-234MR; APRA CPS 230.",
+   "ask": "Contract terms: vendor incident notice well inside 72 h (e.g. 24 h); agent-only data use; 7-year record retention (FMC Act s227); audit and step-in rights; exit assistance. Ask Equity Trustees for their outsourcing requirements early."
+  },
+  {
+   "area": "AI / MCP",
+   "sev": "Low",
+   "finding": "The MCP authorization spec (OAuth 2.1) and Anthropic's remote-connector OAuth make identity propagation a real pattern. With Microsoft Entra it needs a pre-registered client or a gateway (on-behalf-of flow), because Entra lacks dynamic client registration.",
+   "evidence": "MCP spec 2025-06-18 Authorization; Anthropic support article; Microsoft Tech Community 2026-01.",
+   "ask": "In the POC, use the buyer's Entra tenant with an on-behalf-of flow, not a vendor-hosted identity, and confirm who operates the gateway."
+  }
+ ],
+ "sources": [
+  {
+   "topic": "Apex/MMC",
+   "title": "Apex Group strengthens global presence with close of MMC acquisition",
+   "pub": "Apex Group",
+   "type": "official",
+   "date": "2022-05",
+   "read": "search-only",
+   "url": "https://apexgroup.com/insights/apex-group-strengthens-global-presence-with-close-of-mmc-acquisition"
+  },
+  {
+   "topic": "Buyer OMS (public)",
+   "title": "Milford Asset Management live on Charles River's hosted IMS (incl. Charles River managed data service)",
+   "pub": "Scoop (Charles River release)",
+   "type": "official (vendor)",
+   "date": "2016-03-02",
+   "read": "search-only",
+   "url": "https://www.scoop.co.nz/stories/BU1603/S00099/milford-asset-management-live-on-charles-river.htm"
+  },
+  {
+   "topic": "CRD IBOR",
+   "title": "Charles River Investment Book of Record",
+   "pub": "Charles River (State Street)",
+   "type": "official (vendor)",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://www.crd.com/solutions/charles-river-ibor/"
+  },
+  {
+   "topic": "State Street ADP",
+   "title": "State Street Launches Cloud-Native Alpha Data Platform (Snowflake)",
+   "pub": "State Street",
+   "type": "official",
+   "date": "2020-12-15",
+   "read": "search-only",
+   "url": "https://newsroom.statestreet.com/press-releases/press-release-details/2020/State-Street-Launches-Cloud-Native-Alpha-Data-Platform-for-Institutional-and-Wealth-Managers-12-15-2020/default.aspx"
+  },
+  {
+   "topic": "Bloomberg cloud",
+   "title": "Bloomberg makes Data License content available on the cloud",
+   "pub": "Bloomberg",
+   "type": "official",
+   "date": "2021",
+   "read": "search-only",
+   "url": "https://www.bloomberg.com/company/press/bloomberg-makes-data-license-content-available-on-the-cloud"
+  },
+  {
+   "topic": "Bloomberg cloud",
+   "title": "Bloomberg and Databricks collaborate to deliver data-powered insights (DL+ with Unity Catalog)",
+   "pub": "Bloomberg",
+   "type": "official",
+   "date": "2023-11-08",
+   "read": "search-only",
+   "url": "https://www.bloomberg.com/company/?p=33741"
+  },
+  {
+   "topic": "Bloomberg licensing",
+   "title": "Bloomberg eases data access … Enterprise Access Point (\"no changes to the data license model\")",
+   "pub": "A-Team Insight",
+   "type": "independent",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://a-teaminsight.com/blog/bloomberg-eases-data-access-and-reduces-costs-with-enterprise-access-point/"
+  },
+  {
+   "topic": "Databricks",
+   "title": "SQL warehouse types (serverless start 2–6 s)",
+   "pub": "Databricks",
+   "type": "official docs",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://docs.databricks.com/en/admin/sql/warehouse-types.html"
+  },
+  {
+   "topic": "Databricks",
+   "title": "Real-time mode in Structured Streaming (sub-second)",
+   "pub": "Databricks",
+   "type": "official docs",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://docs.databricks.com/aws/en/structured-streaming/real-time"
+  },
+  {
+   "topic": "Databricks",
+   "title": "Lakeflow Connect SaaS connectors (no Charles River)",
+   "pub": "Databricks",
+   "type": "official docs",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://docs.databricks.com/aws/en/ingestion/lakeflow-connect/saas-overview"
+  },
+  {
+   "topic": "Databricks",
+   "title": "Databricks managed MCP servers (Public Preview)",
+   "pub": "Databricks",
+   "type": "official docs",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://docs.databricks.com/aws/en/generative-ai/mcp/managed-mcp.html"
+  },
+  {
+   "topic": "FMA",
+   "title": "New standard condition plus new process for reporting operational incidents (72 h)",
+   "pub": "FMA",
+   "type": "official",
+   "date": "2024-04-08",
+   "read": "search-only",
+   "url": "https://www.fma.govt.nz/news/all-releases/media-releases/new-standard-condition-plus-new-process-for-reporting-operational-incidents/"
+  },
+  {
+   "topic": "FMA",
+   "title": "Regulatory impact statement: Standard condition on business continuity and technology systems",
+   "pub": "FMA",
+   "type": "official",
+   "date": "2024",
+   "read": "search-only",
+   "url": "https://www.fma.govt.nz/assets/RIS/Regulatory-impact-statement-Standard-condition-on-business-continuity-and-technology-systems.pdf"
+  },
+  {
+   "topic": "FMA",
+   "title": "Standard conditions for MIS manager licences (incl. outsourcing)",
+   "pub": "FMA",
+   "type": "official",
+   "date": "2024-04",
+   "read": "search-only",
+   "url": "https://fma.govt.nz/assets/Compliance/Standard-conditions-for-MIS.pdf"
+  },
+  {
+   "topic": "Privacy",
+   "title": "Can I send information overseas? (IPP12, s11 agent)",
+   "pub": "Office of the Privacy Commissioner",
+   "type": "official",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://privacy.org.nz/tools/knowledge-base/view/219"
+  },
+  {
+   "topic": "FMC Act",
+   "title": "FMC Act 2013 s227 (record retention)",
+   "pub": "NZLII mirror",
+   "type": "official text (mirror)",
+   "date": "consolidated",
+   "read": "search-only",
+   "url": "https://mail.nzlii.org/nz/legis/consol_act/fmca2013234/s227.html"
+  },
+  {
+   "topic": "APRA",
+   "title": "Prudential Standard CPS 230 Operational Risk Management",
+   "pub": "APRA",
+   "type": "official",
+   "date": "2023-07",
+   "read": "search-only",
+   "url": "https://www.apra.gov.au/sites/default/files/2023-07/Prudential Standard CPS 230 Operational Risk Management - clean.pdf"
+  },
+  {
+   "topic": "ASIC",
+   "title": "25-234MR ASIC flags risks in offshore outsourcing",
+   "pub": "ASIC",
+   "type": "official",
+   "date": "2025-10",
+   "read": "search-only",
+   "url": "https://www.asic.gov.au/about-asic/news-centre/find-a-media-release/2025-releases/25-234mr-asic-flags-risks-in-offshore-outsourcing-after-review-identifies-governance-gaps"
+  },
+  {
+   "topic": "ISO",
+   "title": "IAF MD 26 Transition requirements for ISO/IEC 27001:2022",
+   "pub": "IAF (via SAC Singapore)",
+   "type": "official",
+   "date": "2022-08",
+   "read": "search-only",
+   "url": "https://sac-accreditation.gov.sg/files/IAF_MD_26_Transition_requirements_for_ISOIEC_27001-2022_09082022.pdf"
+  },
+  {
+   "topic": "ISO",
+   "title": "ISO/IEC 42001:2023",
+   "pub": "IEC webstore",
+   "type": "official",
+   "date": "2023-12-18",
+   "read": "search-only",
+   "url": "https://webstore.iec.ch/publication/90574"
+  },
+  {
+   "topic": "MCP",
+   "title": "MCP Specification: Authorization (OAuth 2.1)",
+   "pub": "Model Context Protocol",
+   "type": "official spec",
+   "date": "2025-06-18",
+   "read": "search-only",
+   "url": "https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization"
+  },
+  {
+   "topic": "MCP",
+   "title": "Building custom connectors via remote MCP servers",
+   "pub": "Anthropic",
+   "type": "official",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://support.claude.com/en/articles/11503834-building-custom-connectors-via-remote-mcp-servers"
+  },
+  {
+   "topic": "MCP",
+   "title": "Using on-behalf-of flow for Entra-based MCP servers",
+   "pub": "Microsoft Tech Community",
+   "type": "official (blog)",
+   "date": "2026-01",
+   "read": "search-only",
+   "url": "https://techcommunity.microsoft.com/blog/azuredevcommunityblog/using-on-behalf-of-flow-for-entra-based-mcp-servers/4486760"
+  },
+  {
+   "topic": "ICS ATHENA",
+   "title": "MA Financial Group scales investments with ICS ATHENA",
+   "pub": "PR Newswire",
+   "type": "vendor",
+   "date": "2022-06",
+   "read": "search-only",
+   "url": "https://www.prnewswire.co.uk/news-releases/ma-financial-group-scales-investments-with-ics-athena-848434089.html"
+  },
+  {
+   "topic": "ICS ATHENA",
+   "title": "Active Super adopts new investment data platform",
+   "pub": "Mondo Visione",
+   "type": "vendor (release)",
+   "date": "2021-08-20",
+   "read": "search-only",
+   "url": "https://mondovisione.com/media-and-resources/news/active-super-adopts-new-investment-data-platform-2021820"
+  },
+  {
+   "topic": "Fencore",
+   "title": "DataHub product page (MCP mention, Cori, 75+ integrations)",
+   "pub": "Fencore",
+   "type": "vendor",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://www.fencore.co/products/datahub/full"
+  },
+  {
+   "topic": "Fencore",
+   "title": "FenWarehouse (Snowflake default)",
+   "pub": "Fencore",
+   "type": "vendor",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://www.fencore.co/products/fenwarehouse"
+  },
+  {
+   "topic": "Fencore",
+   "title": "Fencore company profile (~10 staff, seed)",
+   "pub": "PitchBook",
+   "type": "independent",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://pitchbook.com/profiles/company/493732-81"
+  },
+  {
+   "topic": "Fencore",
+   "title": "FENCORE PTE. LTD. (UEN 201900822Z, reg. 2019-01-07)",
+   "pub": "AcraWatch (ACRA mirror)",
+   "type": "independent",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://www.acrawatch.sg/company/fencore-pte-ltd"
+  },
+  {
+   "topic": "Fencore",
+   "title": "Fencore UK Ltd (15096324)",
+   "pub": "CorpSignals (Companies House mirror)",
+   "type": "independent",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://corpsignals.uk/companies/uk/fencore-uk-ltd-15096324.html"
+  },
+  {
+   "topic": "Fencore",
+   "title": "EDM Council welcomes Fencore as newest member",
+   "pub": "EDM Council",
+   "type": "independent",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://edmcouncil.org/announcement/edm-council-welcomes-fencore-as-its-newest-member/"
+  },
+  {
+   "topic": "Fencore",
+   "title": "Communify Fincentric acquires Empaxis (Fencore partner)",
+   "pub": "Business Wire",
+   "type": "vendor",
+   "date": "2025-10-16",
+   "read": "search-only",
+   "url": "https://www.businesswire.com/news/home/20251016273143/en"
+  },
+  {
+   "topic": "Fencore",
+   "title": "Fencore partners with Escode (escrow)",
+   "pub": "Escode (NCC Group)",
+   "type": "vendor",
+   "date": "2023-05-01",
+   "read": "opened (repo, 2026-11-03)",
+   "url": "https://app-escode-prod-79.azurewebsites.net/resources/fencore-partners-with-escode-to-provide-operational-resilience/"
+  },
+  {
+   "topic": "NeoXam",
+   "title": "Apex Group renews partnership with NeoXam following Maitland acquisition",
+   "pub": "NeoXam",
+   "type": "vendor",
+   "date": "2024-05",
+   "read": "search-only",
+   "url": "https://www.neoxam.com/apex-group-renews-partnership-with-neoxam-following-maitland-acquisition/"
+  },
+  {
+   "topic": "NeoXam",
+   "title": "NeoXam Agents unveiled",
+   "pub": "Asset Servicing Times",
+   "type": "independent",
+   "date": "2026-06-24",
+   "read": "opened (repo 2026-11-03)",
+   "url": "https://www.assetservicingtimes.com/assetservicesnews/technologyarticle.php?article_id=18081"
+  },
+  {
+   "topic": "NeoXam",
+   "title": "NeoXam embraces agentic A.I. (Sept 2026 GA target)",
+   "pub": "FTF News",
+   "type": "independent",
+   "date": "2026-06",
+   "read": "search-only",
+   "url": "https://www.ftfnews.com/neoxam-embraces-agentic-a-i/"
+  },
+  {
+   "topic": "NeoXam",
+   "title": "NeoXam managed services (AWS Singapore hosting for Asia)",
+   "pub": "NeoXam",
+   "type": "vendor",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://www.neoxam.com/managed-services/"
+  },
+  {
+   "topic": "Rimes",
+   "title": "Rimes partners with Databricks to deliver managed data services (Delta Sharing)",
+   "pub": "Rimes",
+   "type": "vendor",
+   "date": "2025-11-18",
+   "read": "repo-cited",
+   "url": "https://www.rimes.com/rimes-partners-with-databricks-to-deliver-managed-data-services/"
+  },
+  {
+   "topic": "Rimes",
+   "title": "Rimes to pair cloud-native data management platform with managed data services post acquisition of Matrix IDM",
+   "pub": "A-Team Insight",
+   "type": "independent",
+   "date": "2021-10",
+   "read": "search-only",
+   "url": "https://a-teaminsight.com/blog/rimes-plans-to-pair-cloud-native-data-management-platform-with-managed-data-services-post-acquisition-of-matrix-idm/"
+  },
+  {
+   "topic": "Rimes",
+   "title": "JANA selects Rimes as strategic technology partner",
+   "pub": "Finextra (press release)",
+   "type": "vendor",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://finextra.com/pressarticle/97338/jana-selects-rimes-as-strategic-technology-partner"
+  },
+  {
+   "topic": "Rimes",
+   "title": "NGS Super Australia inks contract with Rimes",
+   "pub": "Finextra (press release)",
+   "type": "vendor",
+   "date": "c.2021-22",
+   "read": "opened (repo)",
+   "url": "https://www.finextra.com/pressarticle/91885/ngs-super-australia-inks-contract-with-rimes"
+  },
+  {
+   "topic": "Rimes",
+   "title": "Rest selects Rimes to support portfolio oversight",
+   "pub": "Financial IT",
+   "type": "independent",
+   "date": "2026-04-15",
+   "read": "opened (repo)",
+   "url": "https://financialit.net/news/infrastructure/rest-selects-rimes-support-portfolio-oversight-and-modernize-investment"
+  },
+  {
+   "topic": "FINBOURNE",
+   "title": "FINBOURNE unlocks compliant agentic AI … powered by MCP",
+   "pub": "FINBOURNE",
+   "type": "vendor",
+   "date": "undated",
+   "read": "repo-cited",
+   "url": "https://www.finbourne.com/finbourne-unlocks-compliant-agentic-ai-for-the-investment-industry-powered-by-mcp/"
+  },
+  {
+   "topic": "FINBOURNE",
+   "title": "Candela AI documentation",
+   "pub": "FINBOURNE (LUSID support)",
+   "type": "vendor",
+   "date": "undated",
+   "read": "repo-cited",
+   "url": "https://support.lusid.com/docs/candela-ai"
+  },
+  {
+   "topic": "FINBOURNE",
+   "title": "AustralianSuper goes live with total portfolio view on FINBOURNE's platform",
+   "pub": "Asset Servicing Times",
+   "type": "independent",
+   "date": "2026-10-27",
+   "read": "opened (repo)",
+   "url": "https://www.assetservicingtimes.com/assetservicesnews/industryarticle.php?article_id=18498"
+  },
+  {
+   "topic": "FINBOURNE",
+   "title": "AustralianSuper goes live on LUSID",
+   "pub": "Inserv Insights",
+   "type": "independent",
+   "date": "2026-10-26",
+   "read": "opened (repo)",
+   "url": "https://www.inservinsights.net/2026/10/australiansuper-goes-live-on-lusid/"
+  },
+  {
+   "topic": "Exafluence",
+   "title": "Exafluence, Inc. partner listing",
+   "pub": "Snowflake",
+   "type": "independent",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://www.snowflake.com/en/why-snowflake/partners/all-partners/exafluence-inc/"
+  },
+  {
+   "topic": "Exafluence",
+   "title": "Exafluence company profile (services/SI)",
+   "pub": "CB Insights",
+   "type": "independent",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://www.cbinsights.com/company/exafluence"
+  },
+  {
+   "topic": "Arcesium",
+   "title": "Arcesium expands Asia presence with Hong Kong office opening",
+   "pub": "A-Team Insight",
+   "type": "independent",
+   "date": "2026-01",
+   "read": "search-only",
+   "url": "https://a-teaminsight.com/briefs/arcesium-expands-asia-presence-with-hong-kong-office-opening/"
+  },
+  {
+   "topic": "State Street / CRD",
+   "title": "Alpha Snowflake case study",
+   "pub": "Charles River / Snowflake",
+   "type": "vendor",
+   "date": "2021-06",
+   "read": "search-only",
+   "url": "https://www.crd.com/wp-content/uploads/2021/06/Alpha-Snowflake-Case-Study-State-Street.pdf"
+  },
+  {
+   "topic": "State Street / CRD",
+   "title": "State Street explores deeper data integration with Charles River",
+   "pub": "WatersTechnology",
+   "type": "independent",
+   "date": "c.2019",
+   "read": "search-only",
+   "url": "https://www.waterstechnology.com/data-management/4412366/state-street-explores-deeper-data-integration-with-charles-river"
+  },
+  {
+   "topic": "ICS ATHENA",
+   "title": "Hargreaves Lansdown selects ICS Athena",
+   "pub": "Financial IT",
+   "type": "independent",
+   "date": "2021-09",
+   "read": "search-only",
+   "url": "https://financialit.net/news/cloud/hargreaves-lansdown-selects-ics-athena"
+  },
+  {
+   "topic": "ICS ATHENA",
+   "title": "Investment Control Systems – ATHENA profile (\"focused on business users\")",
+   "pub": "The Wealth Mosaic",
+   "type": "vendor",
+   "date": "undated",
+   "read": "search-only",
+   "url": "https://www.thewealthmosaic.com/vendors/ics/investment-control-systems-athena/"
+  },
+  {
+   "topic": "Quadra",
+   "title": "Quadra data-model-sample (BSL 1.1)",
+   "pub": "Quadra (GitHub)",
+   "type": "vendor",
+   "date": "undated",
+   "read": "opened (repo)",
+   "url": "https://github.com/quadra-platform/data-model-sample"
+  },
+  {
+   "topic": "AlphaCert",
+   "title": "AlphaCert home page (client logos incl. Milford)",
+   "pub": "AlphaCert",
+   "type": "vendor",
+   "date": "undated",
+   "read": "repo-cited",
+   "url": "https://alphacert.com/"
+  },
+  {
+   "topic": "GoldenSource",
+   "title": "Apex Group selects GoldenSource for pricing and reference data services",
+   "pub": "Global Custodian",
+   "type": "independent",
+   "date": "2019-02",
+   "read": "search-only",
+   "url": "https://www.globalcustodian.com/apex-group-selects-goldensource-pricing-reference-data-services/"
+  },
+  {
+   "topic": "GoldenSource",
+   "title": "Aware Super upgrades its $235bn investment engine",
+   "pub": "Aware Super",
+   "type": "independent (customer)",
+   "date": "2026-06-18",
+   "read": "opened (repo)",
+   "url": "https://aware.com.au/member/about-us/newsroom/june-2026/aware-super-upgrades-its-235-billion-investment-engine-with-institutional-grade-platform"
+  }
+ ],
+ "caveats": [
+  "Provisional paper re-score, not a selection of record and not a procurement recommendation. No proof of value has run on the buyer's data.",
+  "Demo ratings come from the consultant's vendor-run demonstrations (not independently observed) and are capped at 3.5. Desktop ratings are vendor written responses (capped 2.0–2.5). Databricks, TCO and viability use this repo's public-evidence domain scores (v3, 3 Nov 2026).",
+  "Instrument coverage (D4) and calculation support (D5) — 16% of the v3.1 weight — were not assessed for any vendor by anyone. No score below covers the Income Fund instrument and calculation requirements.",
+  "Differences under about 0.25 are within evidence noise; the ranking of Rimes vs Fencore flips with the weight set.",
+  "Weights are a proposal for a stakeholder points-budget workshop; they are not agreed.",
+  "Almost all new web evidence (5 Nov 2026) was seen in search results only, because page fetches were blocked in the research environment; each source is marked. Re-open key sources on an open network before relying on them.",
+  "Indicative commercial figures shared privately by vendors and internal stakeholder names are deliberately not published here."
+ ]
+}

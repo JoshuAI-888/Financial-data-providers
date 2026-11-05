@@ -16,7 +16,7 @@ no build step is needed. The one exception is the in-page research library, whic
 | Page | What it is |
 |---|---|
 | [`financial_data_providers_landscape.html`](financial_data_providers_landscape.html) (also served as [`index.html`](index.html)) | **Provider Landscape.** 93 providers across public equity, private markets, fixed income & credit, indexes, ratings, ESG, risk and alternative data: cross-asset capability map, per-provider deep-dives, "who leads and why" by asset class, technical-integration comparison, customer-feedback synthesis, an Extended Universe of 76 further sources, and an Earnings Calls & Transcripts lens. |
-| [`idp_evaluation.html`](idp_evaluation.html) | **IDP Evaluation (v2 guided decision system).** Works forward from strategy (outcomes, current/target maturity, ownership and sourcing model, architecture principles, risk tolerance) and derives vendor weightings from those answers. Live ranking with a "Why this score?" panel and typed, dated citations; sensitivity analysis; 15 × 12 capability map; hard-gate grid (G01–G22); vendor deep-dives; PoV and templates toolkit. |
+| [`idp_evaluation.html`](idp_evaluation.html) | **IDP Evaluation (v2 guided decision system).** Works forward from strategy (outcomes, current/target maturity, ownership and sourcing model, architecture principles, risk tolerance) and derives vendor weightings from those answers. Live ranking with a "Why this score?" panel and typed, dated citations; sensitivity analysis; 15 × 12 capability map; hard-gate grid (G01–G22); vendor deep-dives; PoV and templates toolkit; **Shortlist check (v3.1)**: aligned criteria (13 weighted domains, gates A01–A14), a computed re-score of an external five-vendor shortlist under three weight sets, use-case triage, caveats and 31 concerns/questions. |
 
 ## IDP Evaluation at a glance
 
@@ -31,7 +31,7 @@ provisional, organised **Define → Evaluate → Decide**.
 | Emerging / open-standard challengers | Quadra (watch-list) |
 | Build accelerators & systems integrators | Exafluence |
 
-IDP vendor facts were last refreshed on **3 November 2026** (v3: all 15 vendors; Databricks
+IDP vendor facts were last refreshed on **3 November 2026**, with a targeted update on **5 November 2026** for the v3.1 shortlist check ([`_v3_1_updates.md`](provider-landscape/idp-research/_v3_1_updates.md)) (v3: all 15 vendors; Databricks
 integration, AI/MCP status, ownership, APAC/ANZ support, commercial model). The 93-provider
 landscape is as of 10 August 2026. Treat both as point-in-time and re-verify before any
 shortlisting decision. IDP scores are provisional until a proof of value runs.
@@ -52,7 +52,9 @@ provider-landscape/
   idp-research/                          IDP vendor fact-sheets, best-practice notes,
                                          requirement scores (reqscores_*.json, reqnotes_*.md)
                                          vendors.json, and the refresh audit trails
-                                         (_v2_updates.md Aug 2026, _v3_updates.md Nov 2026)
+                                         (_v2_updates.md Aug 2026, _v3_updates.md Nov 2026,
+                                         _v3_1_updates.md shortlist check);
+                                         alignment_v3_1.json (v3.1 tab data)
   tools/build_pages.py                   rebuilds all pages from notes + scores (--check for CI)
   tools/build_register.py                writes source_register.csv (every cited URL)
   tools/check_links.py                   link checker (open network only) -> link_check.csv
