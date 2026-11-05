@@ -84,5 +84,5 @@ This tier — Polygon.io, Intrinio, Finnhub, and Xignite — is defined by an **
 - https://www.f6s.com/software/finnhub-stock-api — Finnhub reviews/sentiment (accessed 2026-08-10)
 - https://www.businesswire.com/news/home/20230216005179/en/ — QUODD acquires Xignite (accessed 2026-08-10)
 - https://a-teaminsight.com/blog/quodd-acquires-xignite-enhances-cloud-native-market-data-offering/ — Xignite sources/endpoints/scope (accessed 2026-08-10)
-- https://www.globenewswire.com/news-release/2020/05/28/2040187/ — Xignite scale (12B+ requests/day) (accessed 2026-08-10)
+- https://mondovisione.com/media-and-resources/news/xignite-sees-record-demand-for-financial-data-during-pandemic-api-server-now-h-2020528 — Xignite scale (12B+ requests/day), press release relayed by Mondo Visione, 2020-05-28 (accessed 2026-11-05; original GlobeNewswire link dead)
 - https://golden.com/wiki/Xignite-BWK48VG — Xignite founding/background (accessed 2026-08-10)

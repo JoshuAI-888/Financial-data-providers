@@ -29,7 +29,7 @@ Positioned by third-party comparison sites as the accessible, lower-cost entry p
 ## 8. Provenance
 - https://about.crunchbase.com/crunchbase-vs-cb-insights — Crunchbase's own comparison vs. CB Insights (accessed 2026-08-14)
 - https://data.crunchbase.com/docs/welcome-to-crunchbase-data — official API/data documentation landing page, egress-blocked, relied on search-index summary (accessed 2026-08-14)
-- https://pipeline.zoominfo.com/sales/crunchbase-api — third-party 2026 API review covering rate limits and licensing gates (accessed 2026-08-14)
+- https://data.crunchbase.com/v4-legacy/docs/using-the-api — official API docs: Enterprise/Applications licence required for full API, 200 calls/min rate limit (accessed 2026-11-05; replaces a third-party review that went dead) (accessed 2026-08-14)
 - https://dev.to/agenthustler/crunchbase-api-in-2026-free-tier-gone-what-startup-data-hunters-do-now-1177 — developer-community note on 2026 free-tier discontinuation (accessed 2026-08-14)
 - https://www.vendr.com/marketplace/crunchbase — third-party pricing aggregator for Pro/Business consumer tiers (accessed 2026-08-14)
 - https://www.geekwire.com/2015/startup-database-crunchbase-to-reportedly-spin-out-as-standalone-company/ — 2015 AOL spin-out reporting (accessed 2026-08-14)

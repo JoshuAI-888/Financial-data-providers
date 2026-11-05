@@ -1326,30 +1326,30 @@
   },
   {
    "topic": "Privacy",
-   "title": "Can I send information overseas? (IPP12, s11 agent)",
+   "title": "Disclosing personal information outside NZ — decision tree (IPP12, s11 agent)",
    "pub": "Office of the Privacy Commissioner",
    "type": "official",
    "date": "undated",
    "read": "search-only",
-   "url": "https://privacy.org.nz/tools/knowledge-base/view/219"
+   "url": "https://privacy.org.nz/responsibilities/disclosing-personal-information-outside-new-zealand/decision-tree-page/"
   },
   {
    "topic": "FMC Act",
-   "title": "FMC Act 2013 s227 (record retention)",
-   "pub": "NZLII mirror",
+   "title": "Financial Markets Conduct Act 2013 (s 227 record retention)",
+   "pub": "NZ Parliamentary Counsel Office",
    "type": "official text (mirror)",
    "date": "consolidated",
    "read": "search-only",
-   "url": "https://mail.nzlii.org/nz/legis/consol_act/fmca2013234/s227.html"
+   "url": "https://www.legislation.govt.nz/act/public/2013/69/en/latest/"
   },
   {
    "topic": "APRA",
-   "title": "Prudential Standard CPS 230 Operational Risk Management",
+   "title": "Prudential Standard CPS 230 Operational Risk Management (APRA Handbook)",
    "pub": "APRA",
    "type": "official",
    "date": "2023-07",
    "read": "search-only",
-   "url": "https://www.apra.gov.au/sites/default/files/2023-07/Prudential Standard CPS 230 Operational Risk Management - clean.pdf"
+   "url": "https://www.apra.gov.au/standards/cps-230"
   },
   {
    "topic": "ASIC",
@@ -1362,12 +1362,12 @@
   },
   {
    "topic": "ISO",
-   "title": "IAF MD 26 Transition requirements for ISO/IEC 27001:2022",
-   "pub": "IAF (via SAC Singapore)",
+   "title": "IAF MD 26:2023 (Issue 2) Transition requirements for ISO/IEC 27001:2022",
+   "pub": "IAF (copy hosted by PCA, Polish accreditation body)",
    "type": "official",
    "date": "2022-08",
    "read": "search-only",
-   "url": "https://sac-accreditation.gov.sg/files/IAF_MD_26_Transition_requirements_for_ISOIEC_27001-2022_09082022.pdf"
+   "url": "https://www.pca.gov.pl/storage/file/core_files/2023/9/18/be9eb808c58aad91f1a6dc8bad20a555/iaf_md26_2023.pdf"
   },
   {
    "topic": "ISO",
@@ -1389,12 +1389,12 @@
   },
   {
    "topic": "MCP",
-   "title": "Building custom connectors via remote MCP servers",
+   "title": "Get started with custom connectors using remote MCP",
    "pub": "Anthropic",
    "type": "official",
    "date": "undated",
    "read": "search-only",
-   "url": "https://support.claude.com/en/articles/11503834-building-custom-connectors-via-remote-mcp-servers"
+   "url": "https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp"
   },
   {
    "topic": "MCP",
